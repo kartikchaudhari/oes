@@ -80,6 +80,7 @@
     <Content Include="App_Data\Examdb_log.ldf">
       <DependentUpon>Examdb.mdf</DependentUpon>
     </Content>
+    <Content Include="BitLocker Recovery Key 123C6750-F7E4-4602-BB5D-7CE48AFA4FB0.TXT" />
     <Content Include="Congratulations.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="css\bootstrap.beautified.css" />
@@ -123,6 +124,7 @@
     <Content Include="student\Register.aspx" />
     <Content Include="student\ThumbLogin.aspx" />
     <Content Include="Test.html" />
+    <Content Include="TestFile.txt" />
     <Content Include="TestPage.aspx" />
     <Content Include="TestSendSms.aspx" />
     <Content Include="ThumTest.aspx" />
