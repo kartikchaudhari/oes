@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="FrameContentMaster.master.cs" Inherits="oes.admin.FrameContentMaster" ClientIDMode="Static" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Online Examination system for Educational Organizations" />
+    <meta name="keywords" content="Online examination system" />
+     <!-- App Styling Bundle -->
+    <link href="../css/bootstrap.beautified.css" rel="stylesheet" />
+    <link href="../css/custom.css" rel="stylesheet" />
+    <link href="../css/simple-sidebar.css" rel="stylesheet" />
+    <link rel="icon" type="../image/x-icon" href="images/favicon.ico" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="page_contents" runat="server">
+                  
+        </asp:ContentPlaceHolder>
+    <!-- Vendor Scripts Bundle -->
+    <script src="../js/vendor.min.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="../js/sidebar_menu.js"></script>
+
+   <!-- App Scripts Bundle -->
+    <script src="../js/scripts.min.js"></script>
+    </form>
+</body>
+</html>
