@@ -26,6 +26,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        <h1>Ohh Yeahh</h1>
         <div class="col-md-8 col-sm-offset-2 thumb_img">
             <img id="FPImage1" alt="Fingerpint Image" src="" />
             <input type="text" id="img_val" runat="server" />
