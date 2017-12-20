@@ -2,7 +2,6 @@
     CallSGIFPGetData(SuccessFunc, ErrorFunc);
 }
 
-
 /* 
     This functions is called if the service sucessfully returns some data in JSON object
  */
@@ -21,8 +20,6 @@ function SuccessFunc(result) {
         alert("Fingerprint Capture ErrorCode " + result.ErrorCode);
     }
 }
-
-
 
 function ErrorFunc(status) {
 

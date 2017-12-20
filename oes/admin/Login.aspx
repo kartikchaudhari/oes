@@ -118,9 +118,9 @@
 
     <script src="../js/custom.js"></script>
 
-    <!-- App Scripts Bundle -->
-    <script src="../js/scripts.min.js"></script>
+    <!-- jquery -->
     <script src="../js/vendor.min.js"></script>
+   
     
     <!-- add FingerCapture javascript on Login page-->
     <script src="../js/FingerCapture.js"></script>

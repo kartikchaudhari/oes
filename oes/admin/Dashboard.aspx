@@ -15,7 +15,7 @@
     <link href="../css/simple-sidebar.css" rel="stylesheet" />
     <link rel="icon" type="../image/x-icon" href="images/favicon.ico" />
 </head>
-<body onload="Timer()">
+<body onload="Timer();">
     <!--navbar_top-->
     <nav class="navbar navbar-inverse custom-navbar">
        <div class="container-fluid">
@@ -103,13 +103,13 @@
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <div class="embed-responsive  embed-responsive-12by6">
+            <div class="embed-responsive embed-responsive-12by6">
                 <iframe id="DashBoardFrame" src="DashboardContents.aspx" name="DashboardContentFrame"></iframe>
             </div>
             <!-- /#page-content-wrapper -->
         </div>
-        <!-- Vendor Scripts Bundle -->
     </div>
+    <!--javascripts -->
     <script src="../js/vendor.min.js"></script>
     <script src="../js/custom.js"></script>
     <script src="../js/sidebar_menu.js"></script>
@@ -152,7 +152,5 @@
             }
         }
     </script>
-    <!-- App Scripts Bundle -->
-    <script src="../js/scripts.min.js"></script>
 </body>
 </html>

@@ -13,8 +13,9 @@ namespace oes.App_Code
         {
             String ConString = ConfigurationManager.ConnectionStrings["ExamDbConString"].ConnectionString; //connection string
             SqlConnection con = new SqlConnection(ConString);
-            con.Open();
-            return con;
+                con.Open();
+                return con;
+            
         }
     }
 }
