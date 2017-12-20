@@ -11,15 +11,10 @@ namespace oes.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            Response.Cache.SetNoStore();
+            if (Session["id"] == null)
             {
-                if (Session["name"] != null)
-                {
-                    welcome_user.Text = Session["name"].ToString();
-                }
-            }
-            catch (Exception exx) {
-                welcome_user.Text = exx.ToString();
+                Response.Redirect("Login.aspx?eid=1");
             }
         }
     }
