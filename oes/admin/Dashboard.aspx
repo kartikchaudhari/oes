@@ -60,7 +60,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
                 <li style="border:2px solid red;border-radius:4px;">
-                    <strong>Time Left:</strong><span id="countDown"></span><span>&nbsp;<strong>minute</strong></span>
+                    <strong>Time Left:</strong>&nbsp;<span id="countDown"></span><span>&nbsp;</span>
                     
                 </li>
                 <li class="active">
@@ -70,32 +70,57 @@
                         </span>Dashboard</a>
                 </li>
                 <li>
-                    <a href="Departments.aspx" target ="DashboardContentFrame">
+                    <a href="Departments.aspx" target="DashboardContentFrame">
                         <span class="fa fa-stack fa-lg pull-left">
                                <i class="fa fa-sitemap fa-fw fa-stack-1x"></i>
                         </span>Departments</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>Shortcut</a>
-                    <ul class="nav-pills nav-stacked" style="list-style-type: none;">
+                    <a href="Subjects.aspx" target="DashboardContentFrame">
+                        <span class="fa-stack fa-lg pull-left">
+                            <i class="fa fa-book fa-stack-1x"></i>
+                        </span>Subjects</a>
+                </li>
+                <li>
+                    <a href="Faculties.aspx" target="DashboardContentFrame">
+                        <span class="fa-stack fa-lg pull-left">
+                            <i class="fa fa-group fa-stack-1x"></i>
+                        </span>Faculties</a>
+                </li>
+                <li>
+                    <a href="Students.aspx" target="DashboardContentFrame">
+                        <span class="fa-stack fa-lg pull-left">
+                            <i class="fa fa-male fa-stack-1x"></i></span>Students</a>
+                </li>
+                <li>
+                    <a href="Exams.aspx" target="DashboardContentFrame">
+                        <span class="fa-stack fa-lg pull-left">
+                            <i class="fa fa-pencil  fa-stack-1x"></i></span>Exams</a>
+                </li>
+                <li>
+                    <a href="Results.aspx" target="DashboardContentFrame">
+                        <span class="fa-stack fa-lg pull-left">
+                            <i class="fa fa-trophy fa-stack-1x"></i></span>Results</a>
+                </li>
+                <li>
+                    <a href="Notifications.aspx" target="DashboardContentFrame">
+                        <span class="fa-stack fa-lg pull-left">
+                            <i class="fa fa-bell fa-stack-1x"></i></span>Notifications</a>
+                </li>
+                <li>
+                    <a href="SystemSettings.aspx" target="DashboardContentFrame">
+                        <span class="fa-stack fa-lg pull-left">
+                            <i class="fa fa-cogs fa-stack-1x"></i></span>System Settings</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="fa-stack fa-lg pull-left">
+                            <i class="fa fa-list-alt fa-stack-1x"></i></span>Logs <span class="fa arrow"></span>
+                    </a>
+                    <%--<ul class="nav-pills nav-stacked" style="list-style-type: none;">
                         <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x"></i></span>link1</a></li>
                         <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x"></i></span>link2</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x"></i></span>Overview</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cart-plus fa-stack-1x"></i></span>Events</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-youtube-play fa-stack-1x"></i></span>About</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x"></i></span>Services</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x"></i></span>Contact</a>
+                    </ul>--%>
                 </li>
             </ul>
         </div>
@@ -124,7 +149,7 @@
                 {
                     clearInterval(timer);
                     alert('Times up PAL!');
-                    window.location.href = 'Login.aspx?eid=1';
+                    window.location.href = 'Logout.aspx';
                 }
             }, 1000);
 
@@ -148,7 +173,7 @@
                 t = two(min) + ":" + t;
 
 
-                return  t;
+                return t + "<strong>&nbsp;minutes</strong>";
             }
         }
     </script>

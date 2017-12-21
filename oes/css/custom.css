@@ -260,12 +260,13 @@ border-radius:4px;
     }
 }
 
+/*******Responsive media screen for dashboard frame***********/
 @media only screen and (min-width:300px)and (max-width:1000px) {
     .embed-responsive-12by6 {
         padding-bottom: 90%;
     }
 }
-
+/*************************************************************/
 
 #StudentRegisterForm{
     padding-top:20px;padding-bottom:20px;
@@ -291,10 +292,43 @@ border-radius:4px;
 }
 
 .bc-custom {
-    background-color:#e9ecef;
-    border-color:#e9ecef;
-    border-radius:20px;
+    background-color: #d9edf7;
+    border:1px solid #bce8f1;
+    border-radius:6px;
     padding-left:25px;
     font-size:17px;
     width:auto;
 }
+
+/*****************************Green tile******************************/
+.panel-green { border-color: #5cb85c; }
+.panel-green > .panel-heading { color: white; background-color: #5cb85c; }
+.panel-green > a { color: #5cb85c; }
+/***********************************************************************/
+
+
+/*****************************Yellow tile******************************/
+.panel-yellow { border-color: #f0ad4e; }
+.panel-yellow > .panel-heading { color: white; background-color: #f0ad4e;}
+.panel-yellow > a { color: #f0ad4e; }
+/***********************************************************************/
+
+
+/*****************************Red tile******************************/
+.panel-red { border-color: #d9534f; }
+.panel-red > .panel-heading { color: white; background-color: #d9534f;}
+.panel-red > a { color: #d9534f; }
+/***********************************************************************/
+
+
+/*****************************maroon tile******************************/
+.panel-maroon { border-color: #800000; }
+.panel-maroon > .panel-heading { color: white; background-color: #800000;}
+.panel-maroon > a { color: #800000; }
+/***********************************************************************/
+
+/*****************************DarkGolderRod tile******************************/
+.panel-DarkGoldenRod { border-color:#B8860B; }
+.panel-DarkGoldenRod > .panel-heading { color: white; background-color: #B8860B;}
+.panel-DarkGoldenRod > a { color:#B8860B; }
+/***********************************************************************/
