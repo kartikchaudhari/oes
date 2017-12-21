@@ -332,3 +332,9 @@ border-radius:4px;
 .panel-DarkGoldenRod > .panel-heading { color: white; background-color: #B8860B;}
 .panel-DarkGoldenRod > a { color:#B8860B; }
 /***********************************************************************/
+
+/*****************************Olive tile******************************/
+.panel-olive { border-color: #808000; }
+.panel-olive > .panel-heading { color: white; background-color:#808000;}
+.panel-olive > a { color:#808000; }
+/***********************************************************************/

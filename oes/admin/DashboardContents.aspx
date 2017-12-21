@@ -127,7 +127,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-3">
-                <div class="panel panel-DarkGoldenRod">
+                <div class="panel panel-olive">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
