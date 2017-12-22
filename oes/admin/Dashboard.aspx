@@ -64,7 +64,7 @@
                     
                 </li>
                 <li class="active">
-                    <a href="#">
+                    <a href="DashboardContents.aspx" target="DashboardContentFrame">
                         <span class="fa fa-stack fa-lg pull-left">
                             <i class="fa fa-dashboard fa-stack-1x"></i>
                         </span>Dashboard</a>
@@ -149,7 +149,7 @@
                 {
                     clearInterval(timer);
                     alert('Times up PAL!');
-                    window.location.href = 'Logout.aspx';
+                    window.location.href = 'Login.aspx?eid=1';
                 }
             }, 1000);
 

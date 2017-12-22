@@ -338,3 +338,21 @@ border-radius:4px;
 .panel-olive > .panel-heading { color: white; background-color:#808000;}
 .panel-olive > a { color:#808000; }
 /***********************************************************************/
+
+/*****************************steelblue tile******************************/
+.panel-steelblue { border-color: #5F9EA0; }
+.panel-steelblue > .panel-heading { color: white; background-color:#5F9EA0;}
+.panel-steelblue > a { color:#5F9EA0; }
+/***********************************************************************/
+
+/*****************************rosybrown tile******************************/
+.panel-rbrown { border-color: #BC8F8F; }
+.panel-rbrown > .panel-heading { color: white; background-color: #BC8F8F;}
+.panel-rbrown > a { color: #BC8F8F; }
+/***********************************************************************/
+
+/*****************************darkslategray tile******************************/
+.panel-dsg { border-color: #2F4F4F; }
+.panel-dsg > .panel-heading { color: white; background-color: #2F4F4F;}
+.panel-dsg > a { color: #2F4F4F; }
+/***********************************************************************/

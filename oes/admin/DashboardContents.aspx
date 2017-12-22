@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="DashboardContents.aspx.cs" Inherits="oes.admin.DashboardContents" %>
+﻿r<%@ Page Title="" Language="C#" MasterPageFile="~/admin/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="DashboardContents.aspx.cs" Inherits="oes.admin.DashboardContents" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="page_contents" runat="server">
     <div class="container-fluid">
       <!--breadcrumb start-->
@@ -171,7 +171,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-3">
-                <div class="panel panel-DarkGoldenRod">
+                <div class="panel panel-steelblue">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
@@ -195,7 +195,7 @@
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-3">
-                <div class="panel panel-maroon">
+                <div class="panel panel-dsg">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
