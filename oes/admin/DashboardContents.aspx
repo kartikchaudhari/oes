@@ -27,7 +27,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="Departments.aspx" target="DashboardContentFrame" title="Departments">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="Subjects.aspx" target="DashboardContentFrame" title="Subjects">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="Faculties.aspx" target="DashboardContentFrame" title="Faculties">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="Students.aspx" target="DashboardContentFrame" title="Students">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -103,6 +103,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-lg-3 col-md-3">
                 <div class="panel panel-maroon">
@@ -117,7 +118,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="Exams.aspx" target="DashboardContentFrame" title="Exams">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -139,7 +140,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="Results.aspx" target="DashboardContentFrame" title="Results">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -161,7 +162,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a  href="Notifications.aspx" target="DashboardContentFrame" title="Notifications">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -183,7 +184,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="SystemSettings.aspx" target="DashboardContentFrame" title="System Settings">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -193,6 +194,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-lg-3 col-md-3">
                 <div class="panel panel-dsg">
@@ -207,7 +209,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="Logs.aspx" target="DashboardContentFrame" title="Logs">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

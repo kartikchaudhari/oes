@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="FrameContentMaster.master.cs" Inherits="oes.admin.FrameContentMaster" ClientIDMode="Static" %>
+﻿<%@Master Language="C#" AutoEventWireup="true" CodeBehind="FrameContentMaster.master.cs" Inherits="oes.admin.FrameContentMaster" ClientIDMode="Static" %>
 
 <!DOCTYPE html>
 

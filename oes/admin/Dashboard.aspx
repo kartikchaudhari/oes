@@ -112,7 +112,7 @@
                             <i class="fa fa-cogs fa-stack-1x"></i></span>System Settings</a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="Logs.aspx" target="DashboardContentFrame">
                         <span class="fa-stack fa-lg pull-left">
                             <i class="fa fa-list-alt fa-stack-1x"></i></span>Logs <span class="fa arrow"></span>
                     </a>

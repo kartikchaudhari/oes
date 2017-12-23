@@ -71,10 +71,19 @@
   <ItemGroup>
     <Content Include="admin\Dashboard.aspx" />
     <Content Include="admin\DashboardContents.aspx" />
+    <Content Include="admin\DepartmentInfo.aspx" />
     <Content Include="admin\Departments.aspx" />
+    <Content Include="admin\Exams.aspx" />
+    <Content Include="admin\Faculties.aspx" />
     <Content Include="admin\Login.aspx" />
     <Content Include="admin\Logout.aspx" />
+    <Content Include="admin\Logs.aspx" />
+    <Content Include="admin\Notifications.aspx" />
     <Content Include="admin\Profile.aspx" />
+    <Content Include="admin\Results.aspx" />
+    <Content Include="admin\SystemSettings.aspx" />
+    <Content Include="admin\Students.aspx" />
+    <Content Include="admin\Subjects.aspx" />
     <Content Include="admin\TestAdmin.aspx" />
     <Content Include="App_Data\Examdb.mdf" />
     <Content Include="App_Data\Examdb_log.ldf">
@@ -140,12 +149,33 @@
     <Compile Include="admin\DashboardContents.aspx.designer.cs">
       <DependentUpon>DashboardContents.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\DepartmentInfo.aspx.cs">
+      <DependentUpon>DepartmentInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\DepartmentInfo.aspx.designer.cs">
+      <DependentUpon>DepartmentInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Departments.aspx.cs">
       <DependentUpon>Departments.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\Departments.aspx.designer.cs">
       <DependentUpon>Departments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Exams.aspx.cs">
+      <DependentUpon>Exams.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Exams.aspx.designer.cs">
+      <DependentUpon>Exams.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Faculties.aspx.cs">
+      <DependentUpon>Faculties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Faculties.aspx.designer.cs">
+      <DependentUpon>Faculties.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\FrameContentMaster.Master.cs">
       <DependentUpon>FrameContentMaster.Master</DependentUpon>
@@ -168,12 +198,54 @@
     <Compile Include="admin\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\Logs.aspx.cs">
+      <DependentUpon>Logs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Logs.aspx.designer.cs">
+      <DependentUpon>Logs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Notifications.aspx.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Notifications.aspx.designer.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\Profile.aspx.designer.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Results.aspx.cs">
+      <DependentUpon>Results.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Results.aspx.designer.cs">
+      <DependentUpon>Results.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\SystemSettings.aspx.cs">
+      <DependentUpon>SystemSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\SystemSettings.aspx.designer.cs">
+      <DependentUpon>SystemSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Students.aspx.cs">
+      <DependentUpon>Students.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Students.aspx.designer.cs">
+      <DependentUpon>Students.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Subjects.aspx.cs">
+      <DependentUpon>Subjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Subjects.aspx.designer.cs">
+      <DependentUpon>Subjects.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\TestAdmin.aspx.cs">
       <DependentUpon>TestAdmin.aspx</DependentUpon>

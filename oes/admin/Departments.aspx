@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Departments" Language="C#" MasterPageFile="~/admin/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="Departments.aspx.cs" Inherits="oes.admin.Departments" %>
+﻿<%@Page Title="Departments" Language="C#" MasterPageFile="~/admin/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="Departments.aspx.cs" Inherits="oes.admin.Departments" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="page_contents" runat="server">
          <button style="float:right;position:relative;margin-top:20px;margin-right:20px;" onclick="javascript:location.reload(true);">Refresh</button>   
     <div class="panel panel-default">
