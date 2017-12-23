@@ -1,4 +1,4 @@
-﻿r<%@ Page Title="" Language="C#" MasterPageFile="~/admin/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="DashboardContents.aspx.cs" Inherits="oes.admin.DashboardContents" %>
+﻿<%@Page Title="Dashboard" Language="C#" MasterPageFile="~/admin/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="DashboardContents.aspx.cs" Inherits="oes.admin.DashboardContents" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="page_contents" runat="server">
     <div class="container-fluid">
       <!--breadcrumb start-->

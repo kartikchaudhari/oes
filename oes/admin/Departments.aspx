@@ -1,11 +1,9 @@
 ﻿<%@ Page Title="Departments" Language="C#" MasterPageFile="~/admin/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="Departments.aspx.cs" Inherits="oes.admin.Departments" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="page_contents" runat="server">
-        <h1 align="center">Departments</h1>
-         <button style="float:right;position:relative;" onclick="javascript:location.reload(true);">Refresh</button>   
-        <hr />
+         <button style="float:right;position:relative;margin-top:20px;margin-right:20px;" onclick="javascript:location.reload(true);">Refresh</button>   
     <div class="panel panel-default">
-        <div class="panel-heading">
-            <strong>Manage Departments</strong>
+        <div class="panel-heading panel-heading-custom">
+            <i class="fa fa-edit fa-1x"></i>&nbsp;&nbsp;<span>Manage Departments</span>
         </div>
         <!-- /.panel-heading -->
         <div class="panel-body">
