@@ -300,6 +300,21 @@ border-radius:4px;
     width:auto;
 }
 
+.bc-custom-pages {
+    margin-left:4%;
+    margin-right:4%;
+}
+
+
+@media all and (max-width:500px){
+     .breadcrumb{
+          font-size: 10px;
+     }
+     .breadcrumb li a{
+          padding:10px 0 10px 30px;
+     }
+}
+
 /*****************************Green tile******************************/
 .panel-green { border-color: #5cb85c; }
 .panel-green > .panel-heading { color: white; background-color: #5cb85c; }

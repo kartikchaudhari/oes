@@ -1,7 +1,18 @@
 ﻿<%@Page Title="Departments" Language="C#" MasterPageFile="~/admin/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="Departments.aspx.cs" Inherits="oes.admin.Departments" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="page_contents" runat="server">
+    <!--breadcrumb start-->
+        <div class="row-fluid">
+            <ol class="breadcrumb bc-custom">
+                <li class="breadcrumb-item">
+                    <a href="#">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active">Departments</li>
+            </ol>
+        </div>
+      <!--breadcrumb end-->
          <button style="float:right;position:relative;margin-top:20px;margin-right:20px;" onclick="javascript:location.reload(true);">Refresh</button>   
     <div class="panel panel-default">
+        
         <div class="panel-heading panel-heading-custom">
             <i class="fa fa-edit fa-1x"></i>&nbsp;&nbsp;<span>Manage Departments</span>
         </div>
