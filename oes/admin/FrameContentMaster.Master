@@ -14,7 +14,11 @@
     <link href="../css/bootstrap.beautified.css" rel="stylesheet" />
     <link href="../css/custom.css" rel="stylesheet" />
     <link href="../css/simple-sidebar.css" rel="stylesheet" />
+    <link href="../css/progress-bar.css" rel="stylesheet" />
     <link rel="icon" type="../image/x-icon" href="images/favicon.ico" />
+
+    <script src="../js/vendor.min.js"></script>
+    <script src="../js/progress-bar.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -22,11 +26,8 @@
                   
         </asp:ContentPlaceHolder>
     <!-- Jquery and Javascripts -->
-    <script src="../js/vendor.min.js"></script>
     <script src="../js/custom.js"></script>
     <script src="../js/sidebar_menu.js"></script>
-
-   
     </form>
 </body>
 </html>

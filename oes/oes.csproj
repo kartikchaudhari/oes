@@ -95,6 +95,7 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\custom.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\progress-bar.css" />
     <Content Include="css\simple-sidebar.css" />
     <Content Include="faculty\EnrollThumb.aspx" />
     <Content Include="faculty\Login.aspx" />
@@ -123,6 +124,7 @@
     <Content Include="js\custom.js" />
     <Content Include="js\FingerCapture.js" />
     <Content Include="js\json2.js" />
+    <Content Include="js\progress-bar.js" />
     <Content Include="js\sidebar_menu.js" />
     <Content Include="SendBase64.asmx" />
     <Content Include="student\EnrollThumb.aspx" />

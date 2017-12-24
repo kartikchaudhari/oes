@@ -12,7 +12,11 @@
     <link href="../css/bootstrap.beautified.css" rel="stylesheet" />
     <link href="../css/custom.css" rel="stylesheet" />
     <link href="../css/simple-sidebar.css" rel="stylesheet" />
+    <link href="../css/progress-bar.css" rel="stylesheet" />
     <link rel="icon" type="../image/x-icon" href="images/favicon.ico" />
+
+    <script src="../js/vendor.min.js"></script>
+    <script src="../js/progress-bar.js"></script>
 </head>
 <body onload="Timer();">
     <!--navbar_top-->
@@ -41,9 +45,9 @@
                         <ul class="dropdown-menu">
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
                             <li class="divider"></li>
-                            <li><a href="Profile.aspx" target="DashboardContentFrame"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
+                            <li><a class="links" href="Profile.aspx" target="DashboardContentFrame"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
                             <li>
-                                <a href="Logout.aspx">
+                                <a class="links" href="Logout.aspx">
                                     <i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
                         </ul>
@@ -69,50 +73,50 @@
                         </span>Dashboard</a>
                 </li>
                 <li>
-                    <a href="Departments.aspx" target="DashboardContentFrame">
+                    <a class="links" href="Departments.aspx" target="DashboardContentFrame">
                         <span class="fa fa-stack fa-lg pull-left">
                                <i class="fa fa-sitemap fa-fw fa-stack-1x"></i>
                         </span>Departments</a>
                 </li>
                 <li>
-                    <a href="Subjects.aspx" target="DashboardContentFrame">
+                    <a class="links" href="Subjects.aspx" target="DashboardContentFrame">
                         <span class="fa-stack fa-lg pull-left">
                             <i class="fa fa-book fa-stack-1x"></i>
                         </span>Subjects</a>
                 </li>
                 <li>
-                    <a href="Faculties.aspx" target="DashboardContentFrame">
+                    <a class="links" href="Faculties.aspx" target="DashboardContentFrame">
                         <span class="fa-stack fa-lg pull-left">
                             <i class="fa fa-group fa-stack-1x"></i>
                         </span>Faculties</a>
                 </li>
                 <li>
-                    <a href="Students.aspx" target="DashboardContentFrame">
+                    <a class="links" href="Students.aspx" target="DashboardContentFrame">
                         <span class="fa-stack fa-lg pull-left">
                             <i class="fa fa-male fa-stack-1x"></i></span>Students</a>
                 </li>
                 <li>
-                    <a href="Exams.aspx" target="DashboardContentFrame">
+                    <a class="links" href="Exams.aspx" target="DashboardContentFrame">
                         <span class="fa-stack fa-lg pull-left">
                             <i class="fa fa-pencil  fa-stack-1x"></i></span>Exams</a>
                 </li>
                 <li>
-                    <a href="Results.aspx" target="DashboardContentFrame">
+                    <a class="links" href="Results.aspx" target="DashboardContentFrame">
                         <span class="fa-stack fa-lg pull-left">
                             <i class="fa fa-trophy fa-stack-1x"></i></span>Results</a>
                 </li>
                 <li>
-                    <a href="Notifications.aspx" target="DashboardContentFrame">
+                    <a class="links" href="Notifications.aspx" target="DashboardContentFrame">
                         <span class="fa-stack fa-lg pull-left">
                             <i class="fa fa-bell fa-stack-1x"></i></span>Notifications</a>
                 </li>
                 <li>
-                    <a href="SystemSettings.aspx" target="DashboardContentFrame">
+                    <a class="links" href="SystemSettings.aspx" target="DashboardContentFrame">
                         <span class="fa-stack fa-lg pull-left">
                             <i class="fa fa-cogs fa-stack-1x"></i></span>System Settings</a>
                 </li>
                 <li>
-                    <a href="Logs.aspx" target="DashboardContentFrame">
+                    <a class="links" href="Logs.aspx" target="DashboardContentFrame">
                         <span class="fa-stack fa-lg pull-left">
                             <i class="fa fa-list-alt fa-stack-1x"></i></span>Logs <span class="fa arrow"></span>
                     </a>
@@ -134,7 +138,7 @@
         </div>
     </div>
     <!--javascripts -->
-    <script src="../js/vendor.min.js"></script>
+    
     <script src="../js/custom.js"></script>
     <script src="../js/sidebar_menu.js"></script>
     <script type="text/javascript">
