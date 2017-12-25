@@ -17,9 +17,6 @@
 
     <script src="../js/vendor.min.js"></script>
     <script src="../js/progress-bar.js"></script>
-    <script type="text/javascript">
-       
-    </script>
 </head>
 <body onload="Timer();">
     <!--navbar_top-->
