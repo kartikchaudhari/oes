@@ -17,6 +17,9 @@
 
     <script src="../js/vendor.min.js"></script>
     <script src="../js/progress-bar.js"></script>
+    <script type="text/javascript">
+       
+    </script>
 </head>
 <body onload="Timer();">
     <!--navbar_top-->
@@ -67,7 +70,7 @@
                     
                 </li>
                 <li class="active">
-                    <a href="DashboardContents.aspx" target="DashboardContentFrame">
+                    <a class="links" href="DashboardContents.aspx" target="DashboardContentFrame">
                         <span class="fa fa-stack fa-lg pull-left">
                             <i class="fa fa-dashboard fa-stack-1x"></i>
                         </span>Dashboard</a>

@@ -13,7 +13,7 @@
          <button style="float:right;position:relative;margin-top:20px;margin-right:20px;" onclick="javascript:location.reload(true);">Refresh</button>   
     <div class="panel panel-default">
         
-        <div class="panel-heading panel-heading-custom">
+        <div class="panel-heading panel-heading-custom-pages">
             <i class="fa fa-edit fa-1x"></i>&nbsp;&nbsp;<span>Manage Departments</span>
         </div>
         <!-- /.panel-heading -->

@@ -180,6 +180,11 @@ border-radius:4px;
     font-size:30px;
 }
 
+.panel-heading-custom-pages {
+    text-align:center;
+    font-size:30px;
+}
+
 .panel-heading-text {
     font-weight:normal;
     font-size:30px;
