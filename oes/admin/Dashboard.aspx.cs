@@ -42,6 +42,7 @@ namespace oes.admin
                 
                 while(rdr.Read()){
                     user.ImageUrl = rdr["avatar"].ToString();
+                    admin_name.Text = rdr["first_name"].ToString() + " " + rdr["last_name"].ToString();
                 }
             }
         }

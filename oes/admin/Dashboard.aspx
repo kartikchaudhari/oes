@@ -14,11 +14,12 @@
     <link href="../css/simple-sidebar.css" rel="stylesheet" />
     <link href="../css/progress-bar.css" rel="stylesheet" />
     <link rel="icon" type="../image/x-icon" href="images/favicon.ico" />
-
+    
+    <!-- jquery and javacripts-->
     <script src="../js/vendor.min.js"></script>
     <script src="../js/progress-bar.js"></script>
 </head>
-<body onload="Timer();">
+<body id="DashboardBody" onload="Timer();">
     <!--navbar_top-->
     <nav class="navbar navbar-inverse custom-navbar">
        <div class="container-fluid">
@@ -40,7 +41,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown">
-                            <asp:Image ID="user" CssClass="user-profile-img" runat="server" />&nbsp;Kartik Chaudhari <b class="caret"></b>
+                            <asp:Image ID="user" CssClass="user-profile-img" runat="server" />&nbsp;<asp:Label ID="admin_name" runat="server"></asp:Label> <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
@@ -134,11 +135,11 @@
             <div class="embed-responsive embed-responsive-12by6">
                 <iframe id="DashBoardFrame" src="DashboardContents.aspx" name="DashboardContentFrame"></iframe>
             </div>
-            <!-- /#page-content-wrapper -->
         </div>
+         <!-- /#page-content-wrapper -->
     </div>
+
     <!--javascripts -->
-    
     <script src="../js/custom.js"></script>
     <script src="../js/sidebar_menu.js"></script>
     <script type="text/javascript">
@@ -155,11 +156,7 @@
                     window.location.href = 'Login.aspx?eid=1';
                 }
             }, 1000);
-
-
             function two(x) { return ((x > 9) ? "" : "0") + x }
-
-
             function time(ms) {
                 var t = '';
                 var sec = Math.floor(ms / 1000);

@@ -14,18 +14,19 @@ namespace oes.admin
     public partial class Departments : System.Web.UI.Page
     {
         public Database db = new Database();
+        public Functions fn = new Functions();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["id"] == null)
-            {
-                Response.Redirect("Login.aspx?eid=1");
-            }
-            else {
+            //if (Session["id"] == null)
+            //{
+            //    Response.Redirect("Login.aspx?eid=1");
+            //}
+            //else {
                 if (!IsPostBack)
                 {
                     BindDeptRepeater();
                 }
-            }
+            //}
             
         }
 
@@ -53,7 +54,13 @@ namespace oes.admin
                 cmd.Parameters.AddWithValue("@deptName", dept_name.Text);
                 cmd.Parameters.AddWithValue("@deptCode", dept_code.Text);
                 cmd.ExecuteNonQuery();
-                lbl_msg.Text = "Department Added Sucessfully Click <a href='Subjects.aspx?action=add' target='DashboardContentFrame'>Here</a> to Add their Subjects.";
+                
+                //redirect ot departments  page with message.
+                Response.Redirect("Departments.aspx?action=add");
+                
+                //clear textboxes
+                TextBox[] tb = new TextBox[2] {dept_code,dept_name};
+                fn.CleartextBoxes(tb);
             }
             this.BindDeptRepeater();
         }       

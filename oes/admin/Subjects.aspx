@@ -8,5 +8,33 @@
         </ol>
     </div>
     <!--breadcrumb end-->
-    <button style="float: right; position: relative; margin-top: 20px; margin-right: 20px;" onclick="javascript:location.reload(true);">Refresh</button>
+
+    <button style="float: right; position: relative; margin-top:14.5px; margin-right: 20px;" onclick="javascript:location.reload(true);">Refresh</button>
+    <div class="panel panel-default">
+        <div class="panel-heading panel-heading-custom-pages">
+            <i class="fa fa-edit fa-1x"></i>&nbsp;&nbsp;<span>Manage Subjects</span>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#view" data-toggle="tab">View</a>
+                </li>
+                <li><a href="#add" data-toggle="tab">Add</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="view">
+                    <h4>View Subjects</h4>
+                </div>
+                <div class="tab-pane fade" id="add">
+                    <h4>Add Subjects</h4>
+                </div>
+            </div>
+        </div>
+        <!-- /.panel-body -->
+    </div>
+
 </asp:Content>

@@ -4,20 +4,24 @@
         <div class="row-fluid">
             <ol class="breadcrumb bc-custom">
                 <li class="breadcrumb-item">
-                    <a href="#">Dashboard</a>
+                    <a class="links" href="Dashboard.aspx">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active">Departments</li>
             </ol>
         </div>
       <!--breadcrumb end-->
-         <button style="float:right;position:relative;margin-top:20px;margin-right:20px;" onclick="javascript:location.reload(true);">Refresh</button>   
+      <button style="float:right;position:relative;margin-top:14.5px;margin-right:20px;" onclick="javascript:location.reload(true);">Refresh</button>   
     <div class="panel panel-default">
-        
         <div class="panel-heading panel-heading-custom-pages">
             <i class="fa fa-edit fa-1x"></i>&nbsp;&nbsp;<span>Manage Departments</span>
         </div>
         <!-- /.panel-heading -->
         <div class="panel-body">
+            <%if (Request.QueryString.Count > 0)
+              {
+                  Response.Write("<div class='alert alert-success alert-dismissable'><a href='#' class='close' data-dismiss='alert' aria-label='close' title='Click to close this Message.'>&times;</a><strong>Brilliant!</strong> Department added successfully click <a class='links' href='Subjects.aspx?action=add' target='DashboardContentFrame'>here</a> to add Subjects to it.</div>");
+              }
+              %>
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="active">
@@ -25,10 +29,6 @@
                 </li>
                 <li>
                     <a aria-expanded="false" href="#add" data-toggle="tab"><i class="fa fa-plus"></i> Add   </a>
-                </li>
-                <li><a aria-expanded="false" href="#messages" data-toggle="tab">Messages</a>
-                </li>
-                <li><a aria-expanded="false" href="#settings" data-toggle="tab">Settings</a>
                 </li>
             </ul>
 
@@ -59,9 +59,34 @@
                                             <asp:HiddenField ID="dept_id_hf" runat="server" Value='<%#Eval("dept_id")%>' />
                                             <asp:Button ID="btn_delete" runat="server" CssClass="btn btn-danger btn-sm" Text="Remove" OnClientClick="return confirm('Do you want to delete this Department?');" OnClick="DeleteDept"/>
                                                 <strong>&middot;</strong>
-                                            <asp:Button ID="btn_edit" runat="server" Text="Edit" CssClass="btn btn-success btn-sm"/>
+                                            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target='#EditDeptInfo_<%#Eval("dept_id")%>'>Edit</button>
                                         </td>
                                     </tr>
+                                    <!-- Modal -->
+                                    <div id="EditDeptInfo_<%#Eval("dept_id")%>" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">Edit Department Details</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <label>Department Name:</label>
+                                                        <asp:TextBox ID="update_dept_name" runat="server" CssClass="form-control" TextMode="SingleLine" Text='<%#Eval("dept_name")%>'></asp:TextBox>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Department Code:</label>
+                                                        <asp:TextBox ID="update_dept_code" runat="server" CssClass="form-control" TextMode="Number" Text='<%#Eval("dept_code")%>'></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </ItemTemplate>
                             </asp:Repeater>
                         </tbody>
@@ -84,16 +109,8 @@
                         <asp:Label ID="lbl_msg" runat="server" CssClass="lbl_msg"></asp:Label>
                     </div>
                  </div>
-                <div class="tab-pane fade" id="messages">
-                    <h4>Messages Tab</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-                <div class="tab-pane fade" id="settings">
-                    <h4>Settings Tab</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
             </div>
         </div>
         <!-- /.panel-body -->
     </div>
-</asp:Content>
+    </asp:Content>

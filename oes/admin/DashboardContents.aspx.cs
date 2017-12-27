@@ -11,11 +11,11 @@ namespace oes.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Cache.SetNoStore();
-            if (Session["id"] == null)
-            {
-                Response.Redirect("Login.aspx?eid=1");
-            }
+            //Response.Cache.SetNoStore();
+            //if (Session["id"] == null)
+            //{
+            //    Response.Redirect("Login.aspx?eid=1");
+            //}
         }
     }
 }
