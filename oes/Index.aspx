@@ -12,7 +12,7 @@
                     <div class="overlay-left"></div>
                 </div>
                 <br /><br />
-                <a href="student/Login.aspx" class="btn_a" style="width:300px;">STUDENT</a>
+                <a href="student/Login.aspx" class="btn_a links" style="width:300px;">STUDENT</a>
             </div>
             <div class="col-md-4 home_div">
                 <div class="container-top">
@@ -20,7 +20,7 @@
                     <div class="overlay-top"></div>
                 </div>
                 <br /><br />
-                <a href="faculty/Login.aspx" class="btn_a"  style="width:300px;">FACULTY</a>
+                <a href="faculty/Login.aspx" class="btn_a links"  style="width:300px;">FACULTY</a>
             </div>
             
             <div class="col-md-4 home_div" style="width: 350px; padding: 6px;">
@@ -29,7 +29,7 @@
                     <div class="overlay-right"></div>    
                 </div>
                 <br /><br />
-                <a href="admin/Login.aspx" class="btn_a"  style="width:300px;">ADMINISTRATOR</a>
+                <a href="admin/Login.aspx" class="btn_a links"  style="width:300px;">ADMINISTRATOR</a>
             </div>
         </div>
     </div>

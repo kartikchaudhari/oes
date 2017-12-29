@@ -22,7 +22,8 @@
                                 <i class="fa fa-sitemap fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">4</div>
+                                <div class="huge">
+                                    <asp:Label ID="lbl_dept" runat="server"></asp:Label></div>
                                 <div>Departments</div>
                             </div>
                         </div>
@@ -44,7 +45,8 @@
                                 <i class="fa fa-book fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
+                                <div class="huge">
+                                    <asp:Label ID="lbl_subjects" runat="server"></asp:Label></div>
                                 <div>Subjects</div>
                             </div>
                         </div>
@@ -66,7 +68,8 @@
                                 <i class="fa fa-group fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">124</div>
+                                <div class="huge">
+                                    <asp:Label ID="lbl_faculties" runat="server"></asp:Label></div>
                                 <div>Faculties</div>
                             </div>
                         </div>
@@ -88,7 +91,8 @@
                                 <i class="fa fa-male fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">13</div>
+                                <div class="huge">
+                                    <asp:Label ID="lbl_students" runat="server"></asp:Label></div>
                                 <div>Students</div>
                             </div>
                         </div>
@@ -113,7 +117,8 @@
                                 <i class="fa fa-pencil fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
+                                <div class="huge">
+                                    <asp:Label ID="lbl_exams" runat="server"></asp:Label></div>
                                 <div>Exams</div>
                             </div>
                         </div>
@@ -135,7 +140,8 @@
                                 <i class="fa fa-trophy fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
+                                <div class="huge">
+                                    <asp:Label ID="lbl_results" runat="server"></asp:Label></div>
                                 <div>Results</div>
                             </div>
                         </div>
@@ -157,7 +163,8 @@
                                 <i class="fa fa-bell fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
+                                <div class="huge">
+                                    <asp:Label ID="lbl_notifications" runat="server"></asp:Label></div>
                                 <div>Notifications</div>
                             </div>
                         </div>

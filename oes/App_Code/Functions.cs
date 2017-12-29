@@ -10,6 +10,7 @@ using System.Xml.Linq;
 using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.IO;
 
 
 namespace oes.App_Code
@@ -38,6 +39,18 @@ namespace oes.App_Code
                 cmd.Parameters.AddWithValue("@dept_id", dept_id);
                 cmd.ExecuteNonQuery();
             }
+        } 
+
+        //table field counter for dashboard badges
+        public int RowCounter(String TblName)
+        {
+            int NumRows;
+            string stmt = string.Format("SELECT COUNT(*) FROM {0}",TblName);
+            using (SqlCommand cmd = new SqlCommand(stmt, db.DbConnect()))
+            {
+                NumRows = (int)cmd.ExecuteScalar();
+            }
+            return NumRows;
         }
     }
 }

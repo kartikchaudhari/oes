@@ -15,7 +15,7 @@
             <i class="fa fa-edit fa-1x"></i>&nbsp;&nbsp;<span>Manage Subjects</span>
         </div>
         <!-- /.panel-heading -->
-        <div class="panel-body">
+        <div class="panel-body" >
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#view" data-toggle="tab">View</a>
@@ -25,12 +25,21 @@
             </ul>
 
             <!-- Tab panes -->
-            <div class="tab-content">
+            <div class="tab-content" style="padding:20px;">
                 <div class="tab-pane fade in active" id="view">
                     <h4>View Subjects</h4>
+                    <hr />
                 </div>
                 <div class="tab-pane fade" id="add">
-                    <h4>Add Subjects</h4>
+                    <h4>Add Subject</h4>
+                    <hr />
+                     <div class="table-responsive">
+                         <table border="0" class="table">
+                             <tr>
+                                 <td>Department Name:</td>
+                             </tr>
+                         </table>
+                     </div> 
                 </div>
             </div>
         </div>

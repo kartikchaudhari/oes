@@ -76,6 +76,7 @@
     <Content Include="admin\Exams.aspx" />
     <Content Include="admin\Faculties.aspx" />
     <Content Include="admin\Login.aspx" />
+    <Content Include="admin\LoginViaUid.aspx" />
     <Content Include="admin\Logout.aspx" />
     <Content Include="admin\Logs.aspx" />
     <Content Include="admin\Notifications.aspx" />
@@ -192,6 +193,13 @@
     </Compile>
     <Compile Include="admin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\LoginViaUid.aspx.cs">
+      <DependentUpon>LoginViaUid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\LoginViaUid.aspx.designer.cs">
+      <DependentUpon>LoginViaUid.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>

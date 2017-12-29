@@ -10,69 +10,60 @@
 namespace oes.admin {
     
     
-    public partial class DashboardContents {
+    public partial class LoginViaUid {
         
         /// <summary>
-        /// lbl_dept control.
+        /// Head1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_dept;
+        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
-        /// lbl_subjects control.
+        /// AdminUidLoginForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_subjects;
+        protected global::System.Web.UI.HtmlControls.HtmlForm AdminUidLoginForm;
         
         /// <summary>
-        /// lbl_faculties control.
+        /// email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_faculties;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl email;
         
         /// <summary>
-        /// lbl_students control.
+        /// pwd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_students;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword pwd;
         
         /// <summary>
-        /// lbl_exams control.
+        /// btn_login control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_exams;
+        protected global::System.Web.UI.WebControls.Button btn_login;
         
         /// <summary>
-        /// lbl_results control.
+        /// btn_reset control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_results;
-        
-        /// <summary>
-        /// lbl_notifications control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_notifications;
+        protected global::System.Web.UI.WebControls.Button btn_reset;
     }
 }
