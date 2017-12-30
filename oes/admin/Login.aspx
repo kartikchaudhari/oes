@@ -64,12 +64,14 @@
                           {
                               case 1:
                               {
+                                  //session time out
                                 Response.Write("<div class='alert alert-warning alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Sorry!</strong> The session is timed out. Please re-login below.</div>");
                               }
                               break;
 
                               case 2: 
                               {
+                                  //onvalid username and password
                                   Response.Write("<div class='alert alert-warning alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Invalid Credentials</strong> The username and passwrod are invlaid.Please retry below.</div>");
                               }
                               break;

@@ -15,7 +15,6 @@ function SuccessFunc(result) {
         if (result != null && result.BMPBase64.length > 0) {
             document.getElementById("FPImage1").src = "data:image/bmp;base64," + result.BMPBase64;
             document.getElementById("img_val").value = result.BMPBase64;
-         
         }
     }
     else {

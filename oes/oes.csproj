@@ -134,7 +134,6 @@
     <Content Include="student\ThumbLogin.aspx" />
     <Content Include="TestPage.aspx" />
     <Content Include="TestSendSms.aspx" />
-    <Content Include="ThumTest.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -382,13 +381,6 @@
     </Compile>
     <Compile Include="TestSendSms.aspx.designer.cs">
       <DependentUpon>TestSendSms.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ThumTest.aspx.cs">
-      <DependentUpon>ThumTest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ThumTest.aspx.designer.cs">
-      <DependentUpon>ThumTest.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

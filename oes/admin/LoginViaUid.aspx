@@ -64,12 +64,14 @@
                           {
                               case 1:
                               {
+                                  //session timed out
                                 Response.Write("<div class='alert alert-warning alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Sorry!</strong> The session is timed out. Please re-login below.</div>");
                               }
                               break;
 
                               case 2: 
                               {
+                                  //invalid username and password
                                   Response.Write("<div class='alert alert-warning alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Invalid Credentials</strong> The username and passwrod are invlaid.Please retry below.</div>");
                               }
                               break;
@@ -86,7 +88,7 @@
                         <div class="panel-body custom-thumb_container-body">
                             <div class="col-md-6 col-sm-offset-3">
                                 <div class="form-group">
-                                    <label for="email">Email address:</label>
+                                    <label for="email">Username:</label>
                                     <asp:TextBox ID="tbUsername" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
                                 </div>
                                 <div class="form-group">

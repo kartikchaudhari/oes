@@ -28,10 +28,14 @@ namespace oes.admin
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
-                if(dt.Rows.Count!=0) {
+                if (dt.Rows.Count != 0)
+                {
                     Session["id"] = dt.Rows[0]["admin_id"];
                     //Label1.Text = dt.Rows[0]["admin_id"].ToString();
                     Response.Redirect("Dashboard.aspx");
+                }
+                else {
+                    Response.Redirect("LoginViaUid.aspx?eid=2");
                 }
             
             }
