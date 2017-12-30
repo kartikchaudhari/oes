@@ -27,7 +27,7 @@ namespace oes.admin
             //notification status: read-1, unread=0
             //
             //then change the following method
-            //lbl_notifications.Text = fn.RowCounter("notification").ToString();
+            lbl_notifications.Text = fn.RowCounter("notification").ToString();
 
         }
     }

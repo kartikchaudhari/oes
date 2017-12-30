@@ -87,17 +87,19 @@
                             <div class="col-md-6 col-sm-offset-3">
                                 <div class="form-group">
                                     <label for="email">Email address:</label>
-                                    <input type="email" class="form-control" id="email" runat="server" required="required"> 
+                                    <asp:TextBox ID="tbUsername" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Password:</label>
-                                    <input type="password" class="form-control" id="pwd" runat="server" required="required"> 
+                                    <asp:TextBox ID="tbPass" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <asp:Button ID="btn_login" runat="server" Text="Login" CssClass="btn btn-success"/>
+                                    <asp:Button ID="btn_login" runat="server" Text="Login" CssClass="btn btn-success" OnClick="btn_login_Click"/>
                                     <strong>&nbsp;&middot;&nbsp;</strong>
                                     <asp:Button ID="btn_reset" runat="server" Text="Reset" CssClass="btn btn-danger"/>
+                                &nbsp;&nbsp;&nbsp;
+                                    <asp:Label ID="Label1" runat="server"></asp:Label>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-7 col-sm-offset-3">
