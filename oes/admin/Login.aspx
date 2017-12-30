@@ -91,15 +91,16 @@
                             </div>
                             <hr />
                             <div class="col-md-8 col-sm-offset-2 thumb_img">
-                                <img id="FPImage1" alt="Fingerpint Image" src="" />
+                                <img id="FPImage1" alt="Fingerpint Image" src="" onload="Send()"/>
                                 <input type="hidden" id="img_val" runat="server" />
                             </div>
                         </div>
                         <div class="panel-footer" style="text-align:center;">
                                 <input id="btnScan" class="btn btn-primary" value="Click to Scan" onclick="captureFP()" type="button" />
                                 <strong>&middot;</strong>
-                                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success" Text="Login" OnClick="btnSubmit_Click"/>
-                        </div>
+                                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success" Text="Login" OnClick="btnSubmit_Click" onmouseover="Send()"/>
+                        &nbsp;
+                        <asp:Label ID="Label1" runat="server"></asp:Label></div>
                     </div>
                     <div class="row">
                         <div class="col-sm-5 col-sm-offset-4">

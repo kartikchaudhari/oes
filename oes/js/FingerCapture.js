@@ -53,5 +53,29 @@ function CallSGIFPGetData(successCall, failCall) {
     xmlhttp.send();
 }
 
+function Send() {
+    $(function () {
 
+        //if the "src" attribute is not empty, means
+        //there is an image data then send call the 
+        //web method and semdthe base64 string
+        if ($("[id*=FPImage1]", this).attr('src') || !$("[id*=FPImage1]", this).attr('src')) {
+            var name = $.trim($("[id*=img_val]").val());
+            $.ajax({
+                type: "POST",
+                url: "SendBase64.asmx/CreateImage",
+                data: "{ b64: '" + name + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            });
+            return false;
+        } else {
+            //if there is no image do nothing 
+            //for the tracing purpose comment out the
+            //following line
+            //alert('empty src...');
+        }
+
+    });
+}
 
