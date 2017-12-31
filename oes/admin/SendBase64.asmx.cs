@@ -39,6 +39,16 @@ namespace oes.admin
             }
         }
 
+        [WebMethod]
+        public void DeleteImage() {
+            if (File.Exists(Server.MapPath("~/admin/ThumbData/probe.bmp")))
+            {
+                File.Delete(Server.MapPath("~/admin/ThumbData/probe.bmp"));
+                //image.Save(Server.MapPath("~/admin/ThumbData/probe.bmp"), ImageFormat.Bmp);
+                //HttpContext.Current.Response.Write("Image Created");
+            }
+        }
+
         
     }
 }

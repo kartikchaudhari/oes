@@ -64,15 +64,22 @@
                           {
                               case 1:
                               {
-                                  //session time out
+                                //session time out
                                 Response.Write("<div class='alert alert-warning alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Sorry!</strong> The session is timed out. Please re-login below.</div>");
                               }
                               break;
 
                               case 2: 
                               {
-                                  //onvalid username and password
-                                  Response.Write("<div class='alert alert-warning alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Invalid Credentials</strong> The username and passwrod are invlaid.Please retry below.</div>");
+                                  //invalid username and password
+                                  Response.Write("<div class='alert alert-danger alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Invalid Credentials</strong> The username and passwrod are invlaid.Please retry below.</div>");
+                              }
+                              break;
+
+                              case 3:
+                              {
+                                  //no user found for the specifid fingerprint 
+                                  Response.Write("<div class='alert alert-danger alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>No user Found</strong> No such user foud for the provided fingerprint.</div>");
                               }
                               break;
                                   

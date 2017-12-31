@@ -43,6 +43,9 @@ namespace oes.admin
                 Session["id"] = probe.Id.ToString();
                 Response.Redirect("Dashboard.aspx");
             }
+            else {
+                Response.Redirect("Login.aspx?eid=3");
+            }
         }
 
         static public Person Des()
