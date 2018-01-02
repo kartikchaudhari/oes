@@ -65,25 +65,30 @@
                               case 1:
                               {
                                 //session time out
-                                Response.Write("<div class='alert alert-warning alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Sorry!</strong> The session is timed out. Please re-login below.</div>");
+                                Response.Write("<div class='alert alert-warning alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Sorry!</strong> : The session is timed out. Please re-login below.</div>");
                               }
                               break;
 
                               case 2: 
                               {
                                   //invalid username and password
-                                  Response.Write("<div class='alert alert-danger alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Invalid Credentials</strong> The username and passwrod are invlaid.Please retry below.</div>");
+                                  Response.Write("<div class='alert alert-danger alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Invalid Credentials</strong> : The username and passwrod are invlaid.Please retry below.</div>");
                               }
                               break;
 
                               case 3:
                               {
                                   //no user found for the specifid fingerprint 
-                                  Response.Write("<div class='alert alert-danger alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>No user Found</strong> No such user foud for the provided fingerprint.</div>");
+                                  Response.Write("<div class='alert alert-danger alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>No user Found</strong> : No such user foud for the provided fingerprint.</div>");
                               }
                               break;
-                                  
-
+                              
+                              case 444:
+                              {
+                                  //no thumb is scanned 
+                                  Response.Write("<div class='alert alert-info alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a> Please Scan your Thumb via Scanner.</div>");
+                              }
+                              break;      
                               default:
                                   break;
                           }
@@ -105,15 +110,17 @@
                         <div class="panel-footer" style="text-align:center;">
                                 <input id="btnScan" class="btn btn-primary" value="Click to Scan" onclick="captureFP()" type="button" />
                                 <strong>&middot;</strong>
-                                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success" Text="Login" OnClick="btnSubmit_Click" onmouseover="Send()"/>
+                                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success" Text="Login" OnClick="btnSubmit_Click"/>
                         &nbsp;
                         <asp:Label ID="Label1" runat="server"></asp:Label></div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-5 col-sm-offset-4">
+                        <div class="col-sm-8 col-sm-offset-3">
                             [&nbsp; <a href="#">Create  New Account</a> &nbsp;]
                             <strong>&middot;</strong>
                             [&nbsp; <a href="#">Request Login Page</a> &nbsp;]
+                            <strong>&middot;</strong>
+                            [&nbsp; <a class="links" href="LoginViaUid.aspx">Login Via Uid</a> &nbsp;]
                         </div>
                     </div>
                 </div>

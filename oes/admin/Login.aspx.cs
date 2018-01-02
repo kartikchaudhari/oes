@@ -24,28 +24,30 @@ namespace oes.admin
         Fingerprint fp;
         protected void Page_Load(object sender, EventArgs e)
         {
-            probe = new Person();
-            probe=Des();
-            sfis = new AfisEngine();
-            candidate = new Person();
-            fp = new Fingerprint();
+                probe = new Person();
+                probe = Des();
+                sfis = new AfisEngine();
+                candidate = new Person();
+                fp = new Fingerprint();
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            fp.AsBitmap = new System.Drawing.Bitmap(System.Drawing.Bitmap.FromFile(Server.MapPath("~/admin/ThumbData/probe.bmp")));
-            candidate.Fingerprints.Add(fp);
-            sfis.Extract(candidate);
-            int score = (int)Math.Ceiling(sfis.Verify(candidate, probe));
-            Label1.Text = score.ToString();
-            if (score > 0)
-            {
-                Session["id"] = probe.Id.ToString();
-                Response.Redirect("Dashboard.aspx");
-            }
-            else {
-                Response.Redirect("Login.aspx?eid=3");
-            }
+                fp.AsBitmap = new System.Drawing.Bitmap(System.Drawing.Bitmap.FromFile(Server.MapPath("~/admin/ThumbData/probe.bmp")));
+                candidate.Fingerprints.Add(fp);
+                sfis.Extract(candidate);
+                int score = (int)Math.Ceiling(sfis.Verify(candidate, probe));
+                Label1.Text = score.ToString();
+                if (score > 0)
+                {
+                    Session["id"] = probe.Id.ToString();
+                    Response.Redirect("Dashboard.aspx");
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx?eid=3");
+                }
+            
         }
 
         static public Person Des()

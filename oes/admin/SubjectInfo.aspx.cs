@@ -7,13 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace oes.admin
 {
-    public partial class Students : System.Web.UI.Page
+    public partial class SubjectInfo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
-
     }
 }

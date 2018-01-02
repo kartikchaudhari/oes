@@ -28,6 +28,7 @@ namespace oes.admin
         {
             fp.AsBitmap = new System.Drawing.Bitmap(System.Drawing.Bitmap.FromFile(HttpContext.Current.Server.MapPath("~/admin/ThumbData/probe.bmp")));
             kartik.Fingerprints.Add(fp);
+            kartik.Id = 1;
             sfis.Extract(kartik);
             Serialize(kartik);
         }

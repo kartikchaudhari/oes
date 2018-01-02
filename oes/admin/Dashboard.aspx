@@ -131,7 +131,7 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" style="padding:8px;">
             <div class="embed-responsive embed-responsive-12by6">
                 <iframe id="DashBoardFrame" src="DashboardContents.aspx" name="DashboardContentFrame"></iframe>
             </div>
@@ -153,7 +153,7 @@
                 {
                     clearInterval(timer);
                     alert('Times up PAL!');
-                    window.location.href = 'Login.aspx?eid=1';
+                    window.location.href = 'Logout.aspx';
                 }
             }, 1000);
             function two(x) { return ((x > 9) ? "" : "0") + x }

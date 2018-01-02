@@ -87,6 +87,7 @@
     <Content Include="admin\Profile.aspx" />
     <Content Include="admin\Results.aspx" />
     <Content Include="admin\SendBase64.asmx" />
+    <Content Include="admin\SubjectInfo.aspx" />
     <Content Include="admin\SystemSettings.aspx" />
     <Content Include="admin\Students.aspx" />
     <Content Include="admin\Subjects.aspx" />
@@ -251,6 +252,13 @@
     <Compile Include="admin\SendBase64.asmx.cs">
       <DependentUpon>SendBase64.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="admin\SubjectInfo.aspx.cs">
+      <DependentUpon>SubjectInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\SubjectInfo.aspx.designer.cs">
+      <DependentUpon>SubjectInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\SystemSettings.aspx.cs">
       <DependentUpon>SystemSettings.aspx</DependentUpon>
