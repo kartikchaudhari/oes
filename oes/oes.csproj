@@ -72,8 +72,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\AddQuestions.aspx" />
     <Content Include="admin\Dashboard.aspx" />
     <Content Include="admin\DashboardContents.aspx" />
+    <Content Include="admin\DataTableServices.asmx" />
     <Content Include="admin\DepartmentInfo.aspx" />
     <Content Include="admin\Departments.aspx" />
     <Content Include="admin\EnrollThumb.aspx" />
@@ -85,6 +87,7 @@
     <Content Include="admin\Logs.aspx" />
     <Content Include="admin\Notifications.aspx" />
     <Content Include="admin\Profile.aspx" />
+    <Content Include="admin\QuestionBank.aspx" />
     <Content Include="admin\Results.aspx" />
     <Content Include="admin\SendBase64.asmx" />
     <Content Include="admin\SubjectInfo.aspx" />
@@ -92,6 +95,7 @@
     <Content Include="admin\Students.aspx" />
     <Content Include="admin\Subjects.aspx" />
     <Content Include="admin\TestAdmin.aspx" />
+    <Content Include="admin\ViewQuestions.aspx" />
     <Content Include="App_Data\Examdb.mdf" />
     <Content Include="App_Data\Examdb_log.ldf">
       <DependentUpon>Examdb.mdf</DependentUpon>
@@ -102,6 +106,8 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\custom.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\jquery.dataTables.min.css" />
+    <Content Include="js\jquery.dataTables.min.js" />
     <Content Include="css\progress-bar.css" />
     <Content Include="css\simple-sidebar.css" />
     <Content Include="faculty\EnrollThumb.aspx" />
@@ -144,6 +150,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\AddQuestions.aspx.cs">
+      <DependentUpon>AddQuestions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AddQuestions.aspx.designer.cs">
+      <DependentUpon>AddQuestions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Class\SubjectClass.cs" />
     <Compile Include="admin\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -157,6 +171,10 @@
     </Compile>
     <Compile Include="admin\DashboardContents.aspx.designer.cs">
       <DependentUpon>DashboardContents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\DataTableServices.asmx.cs">
+      <DependentUpon>DataTableServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="admin\DepartmentInfo.aspx.cs">
       <DependentUpon>DepartmentInfo.aspx</DependentUpon>
@@ -242,6 +260,13 @@
     <Compile Include="admin\Profile.aspx.designer.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\QuestionBank.aspx.cs">
+      <DependentUpon>QuestionBank.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\QuestionBank.aspx.designer.cs">
+      <DependentUpon>QuestionBank.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Results.aspx.cs">
       <DependentUpon>Results.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -287,6 +312,13 @@
     </Compile>
     <Compile Include="admin\TestAdmin.aspx.designer.cs">
       <DependentUpon>TestAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\ViewQuestions.aspx.cs">
+      <DependentUpon>ViewQuestions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ViewQuestions.aspx.designer.cs">
+      <DependentUpon>ViewQuestions.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\Database.cs" />
     <Compile Include="App_Code\Functions.cs" />

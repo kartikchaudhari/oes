@@ -375,7 +375,15 @@ border-radius:4px;
 /***********************************************************************/
 
 /*****************************darkslategray tile******************************/
-.panel-dsg { border-color: #2F4F4F; }
+/*.panel-dsg { border-color: #2F4F4F; }
 .panel-dsg > .panel-heading { color: white; background-color: #2F4F4F;}
-.panel-dsg > a { color: #2F4F4F; }
+.panel-dsg > a { color: #2F4F4F; }*/
 /***********************************************************************/
+
+/*****************************darkslategray tile******************************/
+.panel-dsg { border-color: #E80000; }
+.panel-dsg > .panel-heading { color: white; background-color: #E80000;}
+.panel-dsg > a { color: #E80000; }
+/***********************************************************************/
+
+ 

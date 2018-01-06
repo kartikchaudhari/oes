@@ -5,13 +5,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace oes
+namespace oes.admin
 {
-    public partial class Index : System.Web.UI.Page
+    public partial class ViewQuestions : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Request.QueryString["subject_id"] == null)
+            {
+                Response.Redirect("Subjects.aspx");
+            }
         }
     }
 }

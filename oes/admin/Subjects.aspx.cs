@@ -25,26 +25,29 @@ namespace oes.admin
             //else {
             if (!IsPostBack)
             {
-                BindDeptRepeater();
+                //BindDeptRepeater();
             }
             //}
         }
 
-        private void BindDeptRepeater()
-        {
-            using (SqlCommand cmd = new SqlCommand("FetchAllSubject", db.DbConnect()))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                {
-                    DataTable dtSubject = new DataTable();
-                    sda.Fill(dtSubject);
-                    SubjectRepeater.DataSource = dtSubject;
-                    SubjectRepeater.DataBind();
-                }
-            }
-        }
+        //private void BindDeptRepeater()
+        //{
+        //    using (SqlCommand cmd = new SqlCommand("FetchAllSubject", db.DbConnect()))
+        //    {
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+        //        {
+        //            DataTable dtSubject = new DataTable();
+        //            sda.Fill(dtSubject);
+        //            SubjectRepeater.DataSource = dtSubject;
+        //            SubjectRepeater.DataBind();
+        //        }
+        //    }
+        //}
 
+        private void SearchAndBindRepeater() {
+            Response.Write("<script>alertt('You are Searching.');</script>");
+        }
 
         protected void submit_btn_Click(object sender, EventArgs e)
         {
@@ -64,7 +67,7 @@ namespace oes.admin
                 TextBox[] tb = new TextBox[2] { tbSubjectName, tbSubjectCode };
                 fn.CleartextBoxes(tb);
             }
-            this.BindDeptRepeater();
+            //this.BindDeptRepeater();
         }
 
        protected string FetchDeptById(string DeptId) {
@@ -79,5 +82,7 @@ namespace oes.admin
             }
             
         }
+
+       
     }
 }

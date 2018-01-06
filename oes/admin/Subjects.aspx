@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="Subjects" Language="C#" MasterPageFile="~/admin/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="Subjects.aspx.cs" Inherits="oes.admin.Subjects" %>
+<asp:Content ID="content2" ContentPlaceHolderID="ExternelCss" runat="server">
+    <link rel="stylesheet" href="../css/jquery.dataTables.min.css" />
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="page_contents" runat="server">
     <form id="form1" runat="server">
         <!--breadcrumb start-->
@@ -36,10 +39,7 @@
                         <h4>View Subjects</h4>
                         <hr />
                         <div class="form-group">
-                            <div class="col-sm-1 form-group" style="border: 1px solid red;">
-                                <label class="form-control">Search:</label>
-                            </div>
-                            <table class="table table-striped table-bordered table-hover">
+                            <table id="datatable" class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <td align="center"><strong>ID</strong></td>
@@ -51,7 +51,7 @@
                                     <td align="center"><strong>Action</strong></td>
                                 </tr>
                             </thead>
-                            <tbody>
+                           <%-- <tbody>
                             <asp:Repeater ID="SubjectRepeater" runat="server">
                                 <ItemTemplate>
                                     <tr>
@@ -62,13 +62,14 @@
                                         <td><%#Eval("sem_id") %></td>
                                         <td><%#Eval("total_exam_taken") %></td>
                                         <td>
-                                            <button type="button" class="btn btn-primary btn-sm">Primary</button>
-                                            <button type="button" class="btn btn-success btn-sm">Success</button>
-                                            <button type="button" class="btn btn-info btn-sm">Info</button>
+                                            <asp:Button ID="btnEdit" runat="server" Text="Edit" CssClass="btn btn-primary btn-sm"/>
+                                            <asp:Button ID="btnRemove" runat="server" CssClass="btn btn-danger btn-sm" Text="Remove" OnClientClick="return confirm('Do you want to delete this Subject?');"/>
+                                            <a class="links" href="AddQuestions.aspx?subject_id=<%#Eval("subject_id")%>" target="DashboardContentFrame"><button class="btn btn-success btn-sm">Add Questions</button></a>
+                                            <a class="links" href="ViewQuestions.aspx?subject_id=<%#Eval("subject_id")%>" target="DashboardContentFrame"><button class="btn btn-info btn-sm">View Questions</button></a>
                                         </td>
                                     </tr>
                                 </ItemTemplate>
-                            </asp:Repeater>
+                            </asp:Repeater>--%>
                            </table>
                         </div>
                     </div>
@@ -113,8 +114,37 @@
             <!-- /.panel-body -->
         </div>
     </form>
-    </div>
-    </div>
-    </div>
-    </div>
+</asp:Content>
+<asp:Content ID="content3" ContentPlaceHolderID="ExternalJs" runat="server">
+    <script src="../js/jquery.dataTables.min.js"></script>
+    <script type="text/ecmascript">
+        $(document).ready(function () {
+            $.ajax({
+                url: 'DataTableServices.asmx/GetSubjectDetail',
+                method: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                    $('#datatable').dataTable({
+                        data: data,
+                        columns: [
+                            { 'data': 'subject_id' },
+                            { 'data': 'subject_name' },
+                            { 'data': 'subject_code' },
+                            { 'data': 'dept_name' },
+                            { 'data': 'sem_id' },
+                            { 'data': 'total_exam_taken' },
+                            {
+                                'data': 'subject_id',
+                                'render':function(jsonId){
+                                    var id = parseInt(jsonId);
+                                    var btn = '<a href="ha.aspx?id=' + id + '">View</a>/<a href="ha.aspx">Edit</a>';
+                                    return btn;
+                                }
+                            }
+                        ]
+                        });
+                }
+            });
+        });
+    </script>
 </asp:Content>

@@ -97,6 +97,11 @@
                             <i class="fa fa-male fa-stack-1x"></i></span>Students</a>
                 </li>
                 <li>
+                    <a class="links" href="QuestionBank.aspx" target="DashboardContentFrame">
+                        <span class="fa-stack fa-lg pull-left">
+                            <i class="fa fa-question-circle fa-stack-1x"></i></span>Question Bank</a>
+                </li>
+                <li>
                     <a class="links" href="Exams.aspx" target="DashboardContentFrame">
                         <span class="fa-stack fa-lg pull-left">
                             <i class="fa fa-pencil  fa-stack-1x"></i></span>Exams</a>

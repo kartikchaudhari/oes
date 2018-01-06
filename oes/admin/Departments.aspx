@@ -29,7 +29,7 @@
                         <a aria-expanded="true" href="#view" data-toggle="tab">View</a>
                     </li>
                     <li>
-                        <a aria-expanded="false" href="#add" data-toggle="tab"><i class="fa fa-plus"></i>Add   </a>
+                        <a aria-expanded="false" href="#add" data-toggle="tab"><i class="fa fa-plus"></i> Add</a>
                     </li>
                 </ul>
 
