@@ -16,7 +16,6 @@ namespace oes.admin
     public partial class Dashboard : System.Web.UI.Page
     {
         Database db = new Database();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             //block the page from getting cached
@@ -39,16 +38,11 @@ namespace oes.admin
                 cmd.Parameters.AddWithValue("@id", id);
 
                 SqlDataReader rdr=cmd.ExecuteReader();
-                
                 while(rdr.Read()){
                     user.ImageUrl = rdr["avatar"].ToString();
                     admin_name.Text = rdr["first_name"].ToString() + " " + rdr["last_name"].ToString();
                 }
             }
         }
-
-
-
-        
     }
 }

@@ -38,38 +38,19 @@
                     <div class="tab-pane fade in active" id="view">
                         <h4>View Subjects</h4>
                         <hr />
-                        <div class="form-group">
-                            <table id="datatable" class="table table-striped table-bordered table-hover">
+                        <div class="table-responsive" style="padding-right:10px;">
+                            <table id="datatable" class="table table-striped table-bordered table-hover table-responsible">
                             <thead>
                                 <tr>
-                                    <td align="center"><strong>ID</strong></td>
-                                    <td align="center"><strong>Subject Name</strong></td>
-                                    <td align="center"><strong>Subject Code</strong></td>
-                                    <td align="center"><strong>Department</strong></td>
-                                    <td align="center"><strong>Semester</strong></td>
-                                    <td align="center"><strong>Total Exams Taken</strong></td>
-                                    <td align="center"><strong>Action</strong></td>
+                                    <td align="center" width="30px"><strong>ID</strong></td>
+                                    <td align="center" width="60px"><strong>Subject Name</strong></td>
+                                    <td align="center" width="50px"><strong>Subject Code</strong></td>
+                                    <td align="center" width="60px"><strong>Department</strong></td>
+                                    <td align="center" width="50px"><strong>Semester</strong></td>
+                                    <td align="center" width="80px"><strong>Total Exams Taken</strong></td>
+                                    <td align="center" width="280px"><strong>Action</strong></td>
                                 </tr>
                             </thead>
-                           <%-- <tbody>
-                            <asp:Repeater ID="SubjectRepeater" runat="server">
-                                <ItemTemplate>
-                                    <tr>
-                                        <td><%#Eval("subject_id")%></td>
-                                        <td><%#Eval("subject_name")%></td>
-                                        <td><%#Eval("sub_code")%></td>
-                                        <td><%#FetchDeptById(Eval("dept_id").ToString())%></td>
-                                        <td><%#Eval("sem_id") %></td>
-                                        <td><%#Eval("total_exam_taken") %></td>
-                                        <td>
-                                            <asp:Button ID="btnEdit" runat="server" Text="Edit" CssClass="btn btn-primary btn-sm"/>
-                                            <asp:Button ID="btnRemove" runat="server" CssClass="btn btn-danger btn-sm" Text="Remove" OnClientClick="return confirm('Do you want to delete this Subject?');"/>
-                                            <a class="links" href="AddQuestions.aspx?subject_id=<%#Eval("subject_id")%>" target="DashboardContentFrame"><button class="btn btn-success btn-sm">Add Questions</button></a>
-                                            <a class="links" href="ViewQuestions.aspx?subject_id=<%#Eval("subject_id")%>" target="DashboardContentFrame"><button class="btn btn-info btn-sm">View Questions</button></a>
-                                        </td>
-                                    </tr>
-                                </ItemTemplate>
-                            </asp:Repeater>--%>
                            </table>
                         </div>
                     </div>
@@ -117,34 +98,7 @@
 </asp:Content>
 <asp:Content ID="content3" ContentPlaceHolderID="ExternalJs" runat="server">
     <script src="../js/jquery.dataTables.min.js"></script>
-    <script type="text/ecmascript">
-        $(document).ready(function () {
-            $.ajax({
-                url: 'DataTableServices.asmx/GetSubjectDetail',
-                method: 'POST',
-                dataType: 'json',
-                success: function (data) {
-                    $('#datatable').dataTable({
-                        data: data,
-                        columns: [
-                            { 'data': 'subject_id' },
-                            { 'data': 'subject_name' },
-                            { 'data': 'subject_code' },
-                            { 'data': 'dept_name' },
-                            { 'data': 'sem_id' },
-                            { 'data': 'total_exam_taken' },
-                            {
-                                'data': 'subject_id',
-                                'render':function(jsonId){
-                                    var id = parseInt(jsonId);
-                                    var btn = '<a href="ha.aspx?id=' + id + '">View</a>/<a href="ha.aspx">Edit</a>';
-                                    return btn;
-                                }
-                            }
-                        ]
-                        });
-                }
-            });
-        });
+    <script type="text/javascript">        
+        SubjectDatatable();
     </script>
 </asp:Content>

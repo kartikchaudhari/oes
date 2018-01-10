@@ -129,3 +129,63 @@ $(function () {
     })
 })
 
+
+//Datatable for subject list
+function SubjectDatatable() {
+    $.ajax({
+        url: 'DataTableServices.asmx/GetSubjectDetail',
+        method: 'POST',
+        dataType: 'json',
+        success: function (data) {
+            $('#datatable').dataTable({
+                data: data,
+                columns: [
+                    {
+                        'data': 'subject_id',
+                        'sortable': true,
+                        'searcbale': true
+                    },
+                    {
+                        'data': 'subject_name',
+                        'sortable': false,
+                        'searchable': true
+                    },
+                    {
+                        'data': 'subject_code',
+                        'sortable': true,
+                        'searcbale': true
+                    },
+                    {
+                        'data': 'dept_name',
+                        'sortable': true
+                    },
+                    {
+                        'data': 'sem_id',
+                        'sortable': true
+                    },
+                    {
+                        'data': 'total_exam_taken',
+                        'sortable': true,
+                        'render':function(total_exam_taken){
+                            if (!total_exam_taken) {
+                                return 0;
+                            } else {
+                                return total_exam_taken;
+                            }
+                        }
+                    },
+                    {
+                        'data': 'subject_id',
+                        'sortable': false,
+                        'searchable': false,
+                        'render': function (jsonId) {
+                            var id = parseInt(jsonId);
+                            var btn = '<a class="links" href="ha.aspx?id=' + id + '"><button type="button" class="btn btn-primary btn-xs">Edit</button></a>&nbsp;<strong>&middot;</strong>&nbsp;<button type="button" class="btn btn-danger btn-xs">Delete</button>&nbsp;<strong>&middot;</strong>&nbsp;<a class="links" href="AddQuestions.aspx?subject_id=' + id + '"><button type="button" class="btn btn-success btn-xs">Add Questions</button></a>&nbsp;<strong>&middot;</strong>&nbsp;<a class="links" href="ViewQuestions.aspx?subject_id=' + id + '" target="DashboardContentFrame"><button type="button" class="btn btn-info btn-xs">View Questions</button></a>&nbsp;';
+                            return btn;
+                        }
+                    }
+                ]
+            });
+        }
+    });
+}
