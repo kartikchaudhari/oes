@@ -15,5 +15,11 @@ namespace oes.admin
                 Response.Redirect("Subjects.aspx");
             }
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            String str=Server.HtmlEncode(CKEditor1.Text);
+            Label1.Text = Server.HtmlDecode(str);
+        }
     }
 }
