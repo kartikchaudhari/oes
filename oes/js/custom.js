@@ -138,6 +138,11 @@ function SubjectDatatable() {
         dataType: 'json',
         success: function (data) {
             $('#datatable').dataTable({
+                //set the "show entries" select list
+                "aLengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
+                "iDisplayLength": 5,
+
+                //fetch the data
                 data: data,
                 columns: [
                     {

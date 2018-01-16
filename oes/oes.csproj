@@ -60,6 +60,7 @@
     <Reference Include="SourceAFIS">
       <HintPath>E:\exam_dev\sources\SourceAFIS-1.7.0\Sample\dll\SourceAFIS.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -80,7 +81,6 @@
   <ItemGroup>
     <Content Include="admin\AddQuestions.aspx" />
     <Content Include="admin\ckeditor\adapters\jquery.js" />
-    <Content Include="admin\ckeditor\CHANGES.html" />
     <Content Include="admin\ckeditor\ckeditor.asp" />
     <Content Include="admin\ckeditor\ckeditor.js" />
     <Content Include="admin\ckeditor\ckeditor_basic.js" />
@@ -89,7 +89,6 @@
     <Content Include="admin\ckeditor\config.js" />
     <Content Include="admin\ckeditor\contents.css" />
     <Content Include="admin\ckeditor\images\spacer.gif" />
-    <Content Include="admin\ckeditor\INSTALL.html" />
     <Content Include="admin\ckeditor\lang\af.js" />
     <Content Include="admin\ckeditor\lang\ar.js" />
     <Content Include="admin\ckeditor\lang\bg.js" />
@@ -433,47 +432,6 @@
     <Content Include="admin\ckeditor\skins\v2\skin.js" />
     <Content Include="admin\ckeditor\skins\v2\templates.css" />
     <Content Include="admin\ckeditor\themes\default\theme.js" />
-    <Content Include="admin\ckeditor\_samples\adobeair\application.xml" />
-    <Content Include="admin\ckeditor\_samples\adobeair\sample.html" />
-    <Content Include="admin\ckeditor\_samples\ajax.html" />
-    <Content Include="admin\ckeditor\_samples\api.html" />
-    <Content Include="admin\ckeditor\_samples\api_dialog.html" />
-    <Content Include="admin\ckeditor\_samples\api_dialog\my_dialog.js" />
-    <Content Include="admin\ckeditor\_samples\asp\advanced.asp" />
-    <Content Include="admin\ckeditor\_samples\asp\events.asp" />
-    <Content Include="admin\ckeditor\_samples\asp\index.html" />
-    <Content Include="admin\ckeditor\_samples\asp\replace.asp" />
-    <Content Include="admin\ckeditor\_samples\asp\replaceall.asp" />
-    <Content Include="admin\ckeditor\_samples\asp\sample_posteddata.asp" />
-    <Content Include="admin\ckeditor\_samples\asp\standalone.asp" />
-    <Content Include="admin\ckeditor\_samples\assets\output_for_flash.swf" />
-    <Content Include="admin\ckeditor\_samples\assets\output_xhtml.css" />
-    <Content Include="admin\ckeditor\_samples\assets\parsesample.css" />
-    <Content Include="admin\ckeditor\_samples\assets\swfobject.js" />
-    <Content Include="admin\ckeditor\_samples\autogrow.html" />
-    <Content Include="admin\ckeditor\_samples\bbcode.html" />
-    <Content Include="admin\ckeditor\_samples\devtools.html" />
-    <Content Include="admin\ckeditor\_samples\divreplace.html" />
-    <Content Include="admin\ckeditor\_samples\enterkey.html" />
-    <Content Include="admin\ckeditor\_samples\fullpage.html" />
-    <Content Include="admin\ckeditor\_samples\index.html" />
-    <Content Include="admin\ckeditor\_samples\jqueryadapter.html" />
-    <Content Include="admin\ckeditor\_samples\output_for_flash.html" />
-    <Content Include="admin\ckeditor\_samples\output_html.html" />
-    <Content Include="admin\ckeditor\_samples\output_xhtml.html" />
-    <Content Include="admin\ckeditor\_samples\php\index.html" />
-    <Content Include="admin\ckeditor\_samples\placeholder.html" />
-    <Content Include="admin\ckeditor\_samples\readonly.html" />
-    <Content Include="admin\ckeditor\_samples\replacebyclass.html" />
-    <Content Include="admin\ckeditor\_samples\replacebycode.html" />
-    <Content Include="admin\ckeditor\_samples\sample.css" />
-    <Content Include="admin\ckeditor\_samples\sample.js" />
-    <Content Include="admin\ckeditor\_samples\sharedspaces.html" />
-    <Content Include="admin\ckeditor\_samples\skins.html" />
-    <Content Include="admin\ckeditor\_samples\stylesheetparser.html" />
-    <Content Include="admin\ckeditor\_samples\tableresize.html" />
-    <Content Include="admin\ckeditor\_samples\ui_color.html" />
-    <Content Include="admin\ckeditor\_samples\ui_languages.html" />
     <Content Include="admin\ckeditor\_source\adapters\jquery.js" />
     <Content Include="admin\ckeditor\_source\core\ckeditor.js" />
     <Content Include="admin\ckeditor\_source\core\ckeditor_base.js" />
@@ -999,6 +957,7 @@
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\jquery.dataTables.min.css" />
     <Content Include="faculty\LoginViaUid.aspx" />
+    <Content Include="images\149071.png" />
     <Content Include="images\sort_asc.png" />
     <Content Include="images\sort_asc_disabled.png" />
     <Content Include="images\sort_both.png" />
@@ -1374,19 +1333,6 @@
     <Content Include="faculty\FrameContentMaster.Master" />
     <Content Include="admin\ckeditor\.htaccess" />
     <Content Include="admin\ckeditor\ckeditor.pack" />
-    <Content Include="admin\ckeditor\ckeditor.php" />
-    <Content Include="admin\ckeditor\ckeditor_php4.php" />
-    <Content Include="admin\ckeditor\ckeditor_php5.php" />
-    <Content Include="admin\ckeditor\_samples\adobeair\run.bat" />
-    <Content Include="admin\ckeditor\_samples\adobeair\run.sh" />
-    <Content Include="admin\ckeditor\_samples\assets\output_for_flash.fla" />
-    <Content Include="admin\ckeditor\_samples\assets\_posteddata.php" />
-    <Content Include="admin\ckeditor\_samples\php\advanced.php" />
-    <Content Include="admin\ckeditor\_samples\php\events.php" />
-    <Content Include="admin\ckeditor\_samples\php\replace.php" />
-    <Content Include="admin\ckeditor\_samples\php\replaceall.php" />
-    <Content Include="admin\ckeditor\_samples\php\standalone.php" />
-    <Content Include="admin\ckeditor\_samples\sample_posteddata.php" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
