@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,14 +8,12 @@ using System.Web.UI.WebControls;
 
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 
-using System.Web.Script;
-using System.Web.Services;
-//un-comment below if you change your mind
-//using System.Data.SqlTypes;
 
 using oes.App_Code;
-using System.Data;
+using System.Web.UI.DataVisualization.Charting;
+
 
 namespace oes.admin
 {
@@ -34,34 +33,17 @@ namespace oes.admin
             if (!IsPostBack)
             {
                 BindRepeater();
+                GetChart();
             }
             //}
             
         }
 
-
-        [System.Web.Services.WebMethod]
-        public void ConfirmRequest(string UserId)
+        protected void BindRepeater()
         {
-            //int fact_id = int.Parse(((sender as Button).NamingContainer.FindControl("hf_fact_id") as HiddenField).Value);
-            using (SqlCommand cmd = new SqlCommand("UPDATE faculty SET account_status=1 WHERE faculty_id=" +UserId+ "", db.DbConnect()))
+            using (SqlCommand cmd = new SqlCommand("FetchPendingFaculty", db.DbConnect()))
             {
-                if (cmd.ExecuteNonQuery() != 0)
-                {
-                    Response.Write("<script>alerrt('Updated');</script>");
-                }
-                else
-                {
-                    Response.Write("<script>alerrt('Error while Updation');</script>");
-                }
-            }
-            //Response.Write("<script>alert('kartik')</script>");
-        }
-
-        private void BindRepeater()
-        {
-            using (SqlCommand cmd = new SqlCommand("SELECT * FROM faculty WHERE account_status=0", db.DbConnect()))
-            {
+                cmd.CommandType = CommandType.StoredProcedure;
                 using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                 {
                     DataTable dtFacultyRequestsRepeater = new DataTable();
@@ -72,6 +54,33 @@ namespace oes.admin
             }
         }
 
+        protected void GetChart() {
+            //using (SqlCommand cmd = new SqlCommand("ChartsFaculty", db.DbConnect()))
+            //{
+            //    Series series = FacultyChart.Series["FacultyChartSeries"];
+            //    cmd.CommandType = CommandType.StoredProcedure;
+ 
+            //    SqlDataReader rdr = cmd.ExecuteReader();
+            //    while (rdr.Read()) {
+            //        series.Points.AddXY(rdr[0], rdr[1]);
+            //    }
+            //  }
+
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("ChartsFaculty", db.DbConnect());
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+            string[] x = new string[dt.Rows.Count];
+            int[] y = new int[dt.Rows.Count];
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                x[i] = dt.Rows[i][0].ToString();
+                y[i] = Convert.ToInt32(dt.Rows[i][1]);
+            }
+            //FacultyChart.Series["FacultyChartSeries"]["PieLabelStyle"] = "Disabled";
+            FacultyChart.Series[0].Points.DataBindXY(x, y);
+        }
        
     }
 }

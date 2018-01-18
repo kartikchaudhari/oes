@@ -10,20 +10,24 @@ using System.Data.SqlTypes;
 
 using oes.App_Code;
 
+
 namespace oes.admin.Class
 {
-    public class SubjectClass
+    public class FacultyClass
     {
         Database db = new Database();
 
-        public int subject_id { get; set; }
-        public string subject_name { get; set; }
-        public int subject_code { get; set; }
-        public string dept_name { get; set; }
-        public int sem_id { get; set; }
-        public string total_exam_taken { get; set; }
+        public int FacultyId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string FullName { get; set; }
+        public string AvatarPath { get; set; }
+        public string ThumbPath { get; set; }
+        public string UserName { get; set; }
+        public string EmailId { get; set; }
+        public string ContactNo { get; set; }
+        public string DeptName { get; set; }
 
-        
         public string FetchDeptById(string DeptId)
         {
             String DeptName = null;
@@ -38,6 +42,4 @@ namespace oes.admin.Class
             }
         }
     }
-
-    
 }

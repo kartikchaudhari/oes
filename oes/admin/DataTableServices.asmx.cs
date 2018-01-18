@@ -51,5 +51,33 @@ namespace oes.admin
             JavaScriptSerializer js = new JavaScriptSerializer();
             Context.Response.Write(js.Serialize(subjects));
         }
+
+        [WebMethod]
+        public void GetFacultyDetail()
+        {
+            List<FacultyClass> faculties = new List<FacultyClass>();
+            using (SqlCommand cmd = new SqlCommand("FetchAllFaculty", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    FacultyClass faculty = new FacultyClass();
+                    faculty.FacultyId = Convert.ToInt32(rdr["faculty_id"]);
+                    //faculty.FirstName = rdr["first_name"].ToString();
+                    //faculty.LastName = rdr["last_name"].ToString();
+                    faculty.FullName = rdr["first_name"].ToString() + " " + rdr["last_name"].ToString();
+                    faculty.AvatarPath = rdr["avatar"].ToString();
+                    faculty.ThumbPath =rdr["thumb_img"].ToString();
+                    faculty.UserName = rdr["username"].ToString();
+                    faculty.EmailId = rdr["email"].ToString();
+                    faculty.ContactNo = rdr["contact_no"].ToString();
+                    faculty.DeptName = faculty.FetchDeptById(rdr["dept_id"].ToString());
+                    faculties.Add(faculty);
+                }
+            }
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Context.Response.Write(js.Serialize(faculties));
+        }
     }
 }

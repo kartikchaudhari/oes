@@ -194,3 +194,116 @@ function SubjectDatatable() {
         }
     });
 }
+
+function FacultyDatatable() {
+    $.ajax({
+        url: 'DataTableServices.asmx/GetFacultyDetail',
+        method: 'POST',
+        dataType: 'json',
+        success: function (data) {
+            $('#DatatableFaculties').dataTable({
+                //set the "show entries" select list
+                "aLengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
+                "iDisplayLength": 5,
+
+                //fetch the data
+                data: data,
+                columns: [
+                    {
+                        'data': 'FacultyId',
+                        'sortable': true,
+                        'searcbale': true
+                    },
+                    {
+                        'data': 'FullName',
+                        'sortable': false,
+                        'searchable': true
+                    },
+                    {
+                        'data': 'AvatarPath',
+                        'sortable': false,
+                        'searchable': false,
+                        'render': function (Avatar) {
+                            if (Avatar.length == 0) {
+                                return "No Image";
+                            } else {
+                                var btn = '<img src="' + Avatar + '" style="height:50px;width:50px;"/>';
+                                return btn;
+                            }
+                        }
+                    },
+                    {
+                        'data': 'ThumbPath',
+                        'sortable': false,
+                        'searchable': false,
+                        'render': function (Thumb) {
+                            if (Thumb.length == 0) {
+                                return "No Thumb Impression";
+                            } else {
+                                var btn = '<img src="' + Thumb + '" style="height:50px;width:50px;"/>';
+                                return btn;
+                            }
+                        }
+                     
+                    },
+                    {
+                        'data': 'UserName',
+                        'searchable': true,
+                        'sortable':false
+                    },
+                    {
+                        'data': 'EmailId',
+                        'searchable': true,
+                        'sortable':false
+                    },
+                    {
+                        'data': 'ContactNo',
+                        'searchable': true,
+                        'sortable':false
+                    },
+                    {
+                        'data': 'DeptName',
+                        'searchable': true,
+                        'sortable':true
+                    },
+                    {
+                        'data': 'FacultyId',
+                        'sortable': false,
+                        'searchable': false,
+                        'render': function (jsonId) {
+                            var id = parseInt(jsonId);
+                            var btn = '<a class="links" href="ha.aspx?id=' + id + '"><button type="button" class="btn btn-primary btn-xs" style="margin-bottom:6%;">Edit</button></a>&nbsp;&nbsp;<button type="button" class="btn btn-danger btn-xs">Delete</button>&nbsp;';
+                            return btn;
+                        }
+                    }
+                ]
+            });
+        }
+    });
+}
+
+/*
+* Function : Confirms the Faculty Registration Request
+*
+*/
+function ConfirmFacultyRequest() {
+    var faculty_id = parseInt($.trim($("[id*=hf_fact_id]").val()));
+    $.ajax({
+        type: "POST",
+        url: "WebMethods/Faculty.asmx/ConfirmRequest",
+        data: '{UserId:"' + faculty_id + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (r) {
+            $("#RequestConfirmModal").modal("show", { keyboard: true });
+            //alert(r);
+        },
+        error: function (r) {
+            alert(r.responseText);
+        }
+    });
+    return false;
+}
+
+
+

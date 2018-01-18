@@ -27,9 +27,9 @@
                 %>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#view" data-toggle="tab">View</a>
+                    <li class="active"><a href="#view" data-toggle="tab">View Subjects</a>
                     </li>
-                    <li><a href="#add" data-toggle="tab">Add</a>
+                    <li><a href="#add" data-toggle="tab">Add Subject</a>
                     </li>
                 </ul>
 

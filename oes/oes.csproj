@@ -945,6 +945,7 @@
     <Content Include="admin\Subjects.aspx" />
     <Content Include="admin\TestAdmin.aspx" />
     <Content Include="admin\ViewQuestions.aspx" />
+    <Content Include="admin\WebMethods\Faculty.asmx" />
     <Content Include="App_Data\Examdb.mdf" />
     <Content Include="App_Data\Examdb_log.ldf">
       <DependentUpon>Examdb.mdf</DependentUpon>
@@ -1013,6 +1014,7 @@
     <Compile Include="admin\AddQuestions.aspx.designer.cs">
       <DependentUpon>AddQuestions.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\Class\FacultyClass.cs" />
     <Compile Include="admin\Class\SubjectClass.cs" />
     <Compile Include="admin\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
@@ -1175,6 +1177,10 @@
     </Compile>
     <Compile Include="admin\ViewQuestions.aspx.designer.cs">
       <DependentUpon>ViewQuestions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\WebMethods\Faculty.asmx.cs">
+      <DependentUpon>Faculty.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="App_Code\Database.cs" />
     <Compile Include="App_Code\Functions.cs" />
