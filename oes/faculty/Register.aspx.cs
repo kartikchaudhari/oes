@@ -57,7 +57,7 @@ namespace oes.faculty
             {
                 try //try to register a faculty
                 {
-                    SqlCommand FactRegCmd = new SqlCommand("INSERT INTO faculty(first_name,last_name,avatar,username,password,email,contact_no,dept_id,account_status) VALUES('" + fname.Text + "','" + lname.Text + "','../images/149071.png','" + uname.Text + "','" + pass.Text + "','" + email.Text + "','" + contactno.Text + "','" + dept_ddl.SelectedValue + "',0)", db.DbConnect());
+                    SqlCommand FactRegCmd = new SqlCommand("INSERT INTO faculty(first_name,last_name,avatar,username,password,email,contact_no,dept_id,account_status) VALUES('" + fname.Text + "','" + lname.Text + "','../images/default.png','" + uname.Text + "','" + pass.Text + "','" + email.Text + "','" + contactno.Text + "','" + dept_ddl.SelectedValue + "',0)", db.DbConnect());
                     if (FactRegCmd.ExecuteNonQuery()!=0)
                     {
                         Session["username"] = uname.Text;

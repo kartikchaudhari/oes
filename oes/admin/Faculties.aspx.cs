@@ -33,11 +33,13 @@ namespace oes.admin
             if (!IsPostBack)
             {
                 BindRepeater();
+                BindDeptList();
                 GetChart();
             }
             //}
-            
         }
+
+        
 
         protected void BindRepeater()
         {
@@ -48,39 +50,50 @@ namespace oes.admin
                 {
                     DataTable dtFacultyRequestsRepeater = new DataTable();
                     sda.Fill(dtFacultyRequestsRepeater);
-                    FacultyRequestsRepeater.DataSource = dtFacultyRequestsRepeater;
-                    FacultyRequestsRepeater.DataBind();
+                    if (dtFacultyRequestsRepeater.Rows.Count > 0)
+                    {
+                        FacultyRequestsRepeater.DataSource = dtFacultyRequestsRepeater;
+                        FacultyRequestsRepeater.DataBind();
+                     }
+                     else
+                    {
+                        NoRecordsMsg.Visible = true;
+                    }
                 }
             }
         }
 
-        protected void GetChart() {
-            //using (SqlCommand cmd = new SqlCommand("ChartsFaculty", db.DbConnect()))
-            //{
-            //    Series series = FacultyChart.Series["FacultyChartSeries"];
-            //    cmd.CommandType = CommandType.StoredProcedure;
- 
-            //    SqlDataReader rdr = cmd.ExecuteReader();
-            //    while (rdr.Read()) {
-            //        series.Points.AddXY(rdr[0], rdr[1]);
-            //    }
-            //  }
-
-            DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("ChartsFaculty", db.DbConnect());
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-
-            string[] x = new string[dt.Rows.Count];
-            int[] y = new int[dt.Rows.Count];
-            for (int i = 0; i < dt.Rows.Count; i++)
+        protected void GetChart(){
+            using (SqlCommand cmd = new SqlCommand("ChartsFaculty", db.DbConnect()))
             {
-                x[i] = dt.Rows[i][0].ToString();
-                y[i] = Convert.ToInt32(dt.Rows[i][1]);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader rdr = cmd.ExecuteReader();
+                Series series = FacultyChart.Series[0];
+                while (rdr.Read())
+                {
+                    series.Points.AddXY(rdr["DepartmentName"].ToString(), rdr["NoofEmployees"].ToString());
+                }
+                FacultyChart.Legends.Add(new Legend("FacultyChartLegend"));
+                FacultyChart.Legends[0].TableStyle = LegendTableStyle.Auto;
+                FacultyChart.Legends[0].Docking = Docking.Bottom;
+                FacultyChart.Legends[0].Alignment = System.Drawing.StringAlignment.Center;
+                FacultyChart.Series[0].Label = "#VALY";
+                FacultyChart.Series[0].Legend = "FacultyChartLegend";
+                FacultyChart.Series[0].LegendText = "#VALX";
             }
-            //FacultyChart.Series["FacultyChartSeries"]["PieLabelStyle"] = "Disabled";
-            FacultyChart.Series[0].Points.DataBindXY(x, y);
         }
-       
+
+        protected void BindDeptList()
+        {
+            using (SqlCommand cmd = new SqlCommand("FetchAllDepartment", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                ddl_dept.DataSource = cmd.ExecuteReader();
+                ddl_dept.DataTextField = "dept_name";
+                ddl_dept.DataValueField = "dept_id";
+                ddl_dept.DataBind();
+            }
+        }
+
     }
 }

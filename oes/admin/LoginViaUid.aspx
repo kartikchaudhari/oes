@@ -89,7 +89,7 @@
                             <div class="col-md-6 col-sm-offset-3">
                                 <div class="form-group">
                                     <label for="email">Username:</label>
-                                    <asp:TextBox ID="tbUsername" runat="server" CssClass="form-control" TextMode="SingleLine" required="required"></asp:TextBox>
+                                    <asp:TextBox ID="tbUsername" runat="server" CssClass="form-control" TextMode="SingleLine" required="required" data-validation="length"  data-validation-length="min4"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Password:</label>
@@ -132,5 +132,11 @@
 
     <!-- jquery -->
     <script src="../js/vendor.min.js"></script>
+    <script src="../js/jquery.form-validator.min.js"></script>
+    <script>
+        $.validate({
+            lang: 'en'
+        });
+</script>
 </body>
 </html>

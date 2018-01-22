@@ -132,12 +132,15 @@ $(function () {
 
 //Datatable for subject list
 function SubjectDatatable() {
+    
     $.ajax({
         url: 'DataTableServices.asmx/GetSubjectDetail',
         method: 'POST',
         dataType: 'json',
         success: function (data) {
-            $('#datatable').dataTable({
+
+            $('#datatable').DataTable({
+              
                 //set the "show entries" select list
                 "aLengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
                 "iDisplayLength": 5,
@@ -185,15 +188,25 @@ function SubjectDatatable() {
                         'searchable': false,
                         'render': function (jsonId) {
                             var id = parseInt(jsonId);
-                            var btn = '<a class="links" href="ha.aspx?id=' + id + '"><button type="button" class="btn btn-primary btn-xs">Edit</button></a>&nbsp;<strong>&middot;</strong>&nbsp;<button type="button" class="btn btn-danger btn-xs">Delete</button>&nbsp;<strong>&middot;</strong>&nbsp;<a class="links" href="AddQuestions.aspx?subject_id=' + id + '"><button type="button" class="btn btn-success btn-xs">Add Questions</button></a>&nbsp;<strong>&middot;</strong>&nbsp;<a class="links" href="ViewQuestions.aspx?subject_id=' + id + '" target="DashboardContentFrame"><button type="button" class="btn btn-info btn-xs">View Questions</button></a>&nbsp;';
+                            var btn = '<a class="links" href="EditSubject.aspx?subject_id=' + id + '"><button type="button" class="btn btn-primary btn-xs">Edit</button></a>&nbsp;<strong>&middot;</strong>&nbsp;<button type="button" class="btn btn-danger btn-xs">Delete</button>&nbsp;<strong>&middot;</strong>&nbsp;<a class="links" href="AddQuestions.aspx?subject_id=' + id + '"><button type="button" class="btn btn-success btn-xs">Add Questions</button></a>&nbsp;<strong>&middot;</strong>&nbsp;<a class="links" href="ViewQuestions.aspx?subject_id=' + id + '" target="DashboardContentFrame"><button type="button" class="btn btn-info btn-xs">View Questions</button></a>&nbsp;';
                             return btn;
                         }
+                    }
+                ],
+                 
+                dom: 'lBfrtip',
+                buttons: [
+                    {
+                        text: 'Export to CSV',
+                        extend: 'csv',
+                        className: 'btn btn-default btn-xs'
                     }
                 ]
             });
         }
     });
 }
+
 
 function FacultyDatatable() {
     $.ajax({
@@ -205,7 +218,7 @@ function FacultyDatatable() {
                 //set the "show entries" select list
                 "aLengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
                 "iDisplayLength": 5,
-
+                
                 //fetch the data
                 data: data,
                 columns: [
@@ -304,6 +317,7 @@ function ConfirmFacultyRequest() {
     });
     return false;
 }
+
 
 
 

@@ -17,7 +17,6 @@
          <!--breadcrumb end-->
 
          <button style="float: right; position: relative; margin-top:14.5px; margin-right: 20px;" onclick="javascript:location.reload(true);">Refresh</button>
-         
         <div class="panel panel-default">
             <div class="panel-heading panel-heading-custom-pages">
                 <i class="fa fa-edit fa-1x"></i>&nbsp;&nbsp;<span>Manage Faculties</span>
@@ -47,6 +46,11 @@
                                         <strong>Requests of Faculties</strong>
                                     </div>
                                     <div class="panel-body">
+                                        <asp:Panel runat="server" ID="NoRecordsMsg" Visible="false">
+                                            <div class="alert alert-info">
+                                                <strong>No new Pending Requests.</strong>
+                                            </div>
+                                        </asp:Panel>
                                         <asp:Repeater ID="FacultyRequestsRepeater" runat="server" ClientIDMode="Static">
                                             <ItemTemplate>
                                                 <div class="alert alert-success alert-dismissable" style="text-align:justify;">
@@ -70,24 +74,22 @@
                                         <strong>Statistics</strong>
                                     </div>
                                     <div class="panel-body" style="text-align:center;">
-                                        <asp:Chart ID="FacultyChart" runat="server" Height="214px" Width="369px" DataSourceID="SqlDataSource1">
-                                            <Legends>
-                                                <asp:Legend Alignment="Center" Docking="Right" Name="FacultyChartLegend"></asp:Legend>
-                                            </Legends>
+                                        <asp:Chart ID="FacultyChart" runat="server" Height="275px" Width="306px">
+                                            <Titles>
+                                                <asp:Title Text="No. of Faculties per Deaprtment" Font="Microsoft Sans Serif, 14.25pt"></asp:Title>
+                                            </Titles>
                                             <Series>
-                                                <asp:Series Name="FacultyChartSeries" ChartType="Pie" XValueMember="Department Name" YValueMembers="No of Employees" Label="#VALY{D}">
-                                                </asp:Series>
+                                                <asp:Series ChartArea="FacultyChartArea" Name="FacultyChartSeries" ChartType="Pie" 
+                                                    XValueMember="DepartmentName" YValueMembers="NoofEmployees" 
+                                                    XValueType="String" YValueType="Int32"></asp:Series>
                                             </Series>
-
                                             <ChartAreas>
-                                                <asp:ChartArea Name="ChartArea1">
+                                                <asp:ChartArea Name="FacultyChartArea">
+                                                    <AxisX Title="Department Name"></AxisX>
+                                                    <AxisY Title="Faculty Count"></AxisY>
                                                 </asp:ChartArea>
                                             </ChartAreas>
-                                            <Titles>
-                                                <asp:Title Text="No. of Faculties per Department" TextOrientation="Auto" Alignment="TopCenter" Font="Lucida Console, 12pt" IsDockedInsideChartArea="False"></asp:Title>
-                                            </Titles>
                                         </asp:Chart>
-                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ExamDbConString %>" SelectCommand="ChartsFaculty" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                                     </div>
                                 </div>
                              </div>
@@ -124,21 +126,69 @@
                        <h4>Add Faculty</h4>
                        <hr />
                         <div class="col-md-10">
-                            <div class="form-group">
-                                <label>Select Department:</label>
-                                <asp:DropDownList ID="ddl_dept" runat="server" CssClass="form-control"></asp:DropDownList>
-                            </div>
                             <div class="row">
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
-                                        <label>Enter First Name:</label>
-                                        <input maxlength="20" id="fname" class="form-control" required="required" onchange="return ValidateFname();" type="text" style="width:400px;">
+                                        <label>First Name:</label>
+                                        <input maxlength="20" id="fname" class="form-control" required="required" type="text" style="width:400px;">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
-                                        <label>Select Semester</label><br />
-                                        <input maxlength="20" id="lname" class="form-control" placeholder="Last Name" required="required" onchange="return ValidateLame();" type="text" style="width:400px;">
+                                        <label>Last Name:</label>
+                                        <input maxlength="20" id="lname" class="form-control" required="required" type="text" style="width:400px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Username:</label>
+                                        <input maxlength="20" id="tbUname" class="form-control" required="required type="text" style="width:400px;">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Email ID:</label>
+                                        <input maxlength="20" id="tbEmail" class="form-control" required="required" type="email" style="width:400px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Password:</label>
+                                        <input maxlength="20" id="tbPassword" class="form-control" required="required" type="password" style="width:400px;">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Confirm Password</label>
+                                        <input maxlength="20" id="tbConfirmPass" class="form-control" required="required"  type="password" style="width:400px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Contact No.:</label>
+                                        <input maxlength="20" id="tbContact" class="form-control" required="required" type="tel" style="width: 400px;">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Select Department:</label>
+                                        <asp:DropDownList ID="ddl_dept" runat="server" CssClass="form-control" Style="width: 400px;"></asp:DropDownList>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+
+                                        <button id="btnAddFaculty" type="button" class="btn btn-md btn-success">Submit</button>
+                                        <strong>&nbsp;&middot;&nbsp;</strong>
+                                        <button type="reset" class="btn btn-md btn-danger">Reset</button>
                                     </div>
                                 </div>
                             </div>
@@ -169,6 +219,19 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="EditFacultyModel" role="dialog">
+    <div class="modal-dialog">
+    	<div class="panel panel-default">
+  			<div class="panel-heading">
+            	<a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a>
+                <span>Panel Heading</span>
+            </div>
+  			<div class="panel-body">Panel Content</div>
+            <div class="panel-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+		</div>
+    </div>
+  </div>
+
 </asp:Content>
 <asp:Content ID="content3" ContentPlaceHolderID="ExternalJs" runat="server">
     <script src="../js/jquery.dataTables.min.js"></script>

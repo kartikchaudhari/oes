@@ -97,15 +97,20 @@
                         <h4>Add a Department</h4>
                         <hr />
                         <div class="col-md-10">
-                            <div class="form-group">
-                                <label>Department Name:</label>
-                                <asp:TextBox ID="dept_name" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
+                            <div class="row">
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Department Name:</label>
+                                        <asp:TextBox ID="dept_name" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                         <label>Department Code:</label>
+                                        <asp:TextBox ID="dept_code" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox> 
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>Department Code:</label>
-                                <asp:TextBox ID="dept_code" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
-                            </div>
-
                             <asp:Button ID="submit_btn" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="submit_btn_Click" />
                             <asp:Label ID="lbl_msg" runat="server" CssClass="lbl_msg"></asp:Label>
                         </div>

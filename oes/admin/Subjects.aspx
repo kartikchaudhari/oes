@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="Subjects" Language="C#" MasterPageFile="~/admin/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="Subjects.aspx.cs" Inherits="oes.admin.Subjects" %>
 <asp:Content ID="content2" ContentPlaceHolderID="ExternelCss" runat="server">
     <link rel="stylesheet" href="../css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="../css/buttons.dataTables.min.css" />
+    <link rel="stylesheet" href="../css/buttons.bootstrap.min.css" />
+    <style>
+        btn btn-primary btn-sm > .excelButton {
+           margin-left:60%;
+         }
+    </style>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="page_contents" runat="server">
     <form id="form1" runat="server">
@@ -58,36 +65,53 @@
                         <h4>Add Subject</h4>
                         <hr />
                         <div class="col-md-10">
-                            <div class="form-group">
-                                <label>Select Department:</label>
-                                <asp:DropDownList ID="ddl_dept" runat="server" CssClass="form-control" DataSourceID="SelectDeptDs" DataTextField="dept_name" DataValueField="dept_id">
-                                </asp:DropDownList>
-                                <asp:SqlDataSource ID="SelectDeptDs" runat="server" ConnectionString="<%$ ConnectionStrings:ExamDbConString %>" SelectCommand="SELECT [dept_id], [dept_name] FROM [department]"></asp:SqlDataSource>
+                            <div class="row">
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Select Department:</label>
+                                        <asp:DropDownList ID="ddl_dept" runat="server" CssClass="form-control" DataSourceID="SelectDeptDs" DataTextField="dept_name" DataValueField="dept_id" Width="400px">
+                                        </asp:DropDownList>
+                                        <asp:SqlDataSource ID="SelectDeptDs" runat="server" ConnectionString="<%$ ConnectionStrings:ExamDbConString %>" SelectCommand="SELECT [dept_id], [dept_name] FROM [department]"></asp:SqlDataSource>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Select Semester</label>
+                                        <asp:DropDownList ID="ddl_sem" runat="server" CssClass="form-control" Width="400px">
+                                            <asp:ListItem>1</asp:ListItem>
+                                            <asp:ListItem>2</asp:ListItem>
+                                            <asp:ListItem>3</asp:ListItem>
+                                            <asp:ListItem>4</asp:ListItem>
+                                            <asp:ListItem>5</asp:ListItem>
+                                            <asp:ListItem>6</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>Select Semester</label>
-                                <asp:DropDownList ID="ddl_sem" runat="server" CssClass="form-control">
-                                    <asp:ListItem>1</asp:ListItem>
-                                    <asp:ListItem>2</asp:ListItem>
-                                    <asp:ListItem>3</asp:ListItem>
-                                    <asp:ListItem>4</asp:ListItem>
-                                    <asp:ListItem>5</asp:ListItem>
-                                    <asp:ListItem>6</asp:ListItem>
-                                </asp:DropDownList>
+                            <div class="row">
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Subject Name:</label>
+                                        <asp:TextBox ID="tbSubjectName" runat="server" CssClass="form-control" TextMode="SingleLine" required="required" Width="400px"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Subject Code:</label>
+                                        <asp:TextBox ID="tbSubjectCode" runat="server" CssClass="form-control custom-input-control" TextMode="Number" required="required" Width="400px"></asp:TextBox>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>Enter Subject Name:</label>
-                                <asp:TextBox ID="tbSubjectName" runat="server" CssClass="form-control" TextMode="SingleLine" required="required"></asp:TextBox>
+                            <div class="row">
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <asp:Button ID="submit_btn" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="submit_btn_Click" />
+                                        <strong>&nbsp;&middot;&nbsp;</strong>
+                                        <button id="btnClear" class="btn btn-danger" type="reset">Clear</button>
+                                        <asp:Label ID="lbl_msg" runat="server" CssClass="lbl_msg"></asp:Label>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>Enter Subject Code:</label>
-                                <asp:TextBox ID="tbSubjectCode" runat="server" CssClass="form-control" TextMode="Number" required="required"></asp:TextBox>
-                            </div>
-
-                            <asp:Button ID="submit_btn" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="submit_btn_Click" />
-                            <strong>&nbsp;&middot;&nbsp;</strong>
-                            <button id="btnClear" class="btn btn-danger" type="reset">Clear</button>
-                            <asp:Label ID="lbl_msg" runat="server" CssClass="lbl_msg"></asp:Label>
                         </div>
                     </div>
                 </div>
@@ -98,6 +122,9 @@
 </asp:Content>
 <asp:Content ID="content3" ContentPlaceHolderID="ExternalJs" runat="server">
     <script src="../js/jquery.dataTables.min.js"></script>
+    <script src="../js/dataTables.buttons.min.js"></script>
+    <script src="../js/buttons.html5.min.js"></script>
+    <script src="../js/jszip.min.js"></script>
     <script type="text/javascript">        
         SubjectDatatable();
     </script>

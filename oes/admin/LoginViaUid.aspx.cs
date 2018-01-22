@@ -15,6 +15,12 @@ namespace oes.admin
         Database db = new Database();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //if the user is already logged in 
+            //then redirect him/her to dashboard page
+            Response.Cache.SetNoStore();
+            if(Session["id"]!=null){
+               Response.Redirect("Dashboard.aspx");
+           }
 
         }
 

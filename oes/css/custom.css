@@ -194,6 +194,10 @@ border-radius:4px;
     margin-bottom:10px;
 }
 
+.custom-input-control {
+    width:400px;
+}
+
 .custom-thumb_container-body {
     padding-top:30px;
     min-height:250px;
