@@ -1,13 +1,16 @@
-﻿<%@ Page Title="Profile" Language="C#" MasterPageFile="~/admin/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="oes.admin.Profile" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="page_contents" runat="server">
+﻿<%@ Page Title="Facylty Profile" Language="C#" MasterPageFile="~/admin/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="FacultyProfile.aspx.cs" Inherits="oes.admin.FacultyProfile" %>
+<asp:Content ID="Content3" ContentPlaceHolderID="page_contents" runat="server">
     <form id="ProfileForm" runat="server">
         <!--breadcrumb start-->
         <div class="row-fluid">
             <ol class="breadcrumb bc-custom">
                 <li class="breadcrumb-item">
-                    <a class="links" href="Dashboard.aspx" target="DashboardContents">Dashboard</a>
+                    <a class="links" href="Dashboard.aspx">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item active">Profile</li>
+                <li class="breadcrumb-item active">
+                    <a class="links" href="Faculties.aspx">Faculties</a>
+                </li>
+                <li class="breadcrumb-item active">Faculty Profile</li>
             </ol>
         </div>
         <!--breadcrumb end-->
@@ -48,7 +51,7 @@
                                 <table class="table table-striped" border="0">
                                     <tbody>
                                         <tr>
-                                            <td width="100"><strong>First Name :</strong></td>
+                                            <td width="130"><strong>First Name :</strong></td>
                                             <td><asp:Label ID="LblFname" runat="server"></asp:Label></td>
                                         </tr>
                                         <tr>
@@ -66,6 +69,18 @@
                                         <tr>
                                             <td><strong>Password :</strong></td>
                                             <td><asp:Label ID="LblPass" runat="server"></asp:Label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Contact No. :</strong></td>
+                                            <td><asp:Label ID="LblContact" runat="server"></asp:Label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Department :</strong></td>
+                                            <td><asp:Label ID="LblDept" runat="server"></asp:Label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Account Status :</strong></td>
+                                            <td><asp:Label ID="LblStatus" runat="server" Font-Bold="true"></asp:Label></td>
                                         </tr>
                                     </tbody>
                                 </table>

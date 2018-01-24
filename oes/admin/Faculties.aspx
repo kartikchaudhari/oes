@@ -98,26 +98,24 @@
                     <!-- registration requests end-->
 
                     <!-- datatabls flist faculties start-->
-                    <div class="tab-pane fade" id="view">
+                    <div class="tab-pane fade in active" id="view">
                         <h4>All Faculties</h4>
                         <hr />  
-                        <div class="table-responsive">
-                            <table width="99%" id="DatatableFaculties" class="table table-striped table-bordered table-hover table-responsible">
+                            <table width="100%" id="DatatableFaculties" class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <td align="center" width="30px"><strong>ID</strong></td>
-                                        <td align="center"><strong>Faculty Name</strong></td>
-                                        <td align="center"><strong>Avatar</strong></td>
-                                        <td align="center"><strong>Thumb Image</strong></td>
-                                        <td align="center"><strong>Username</strong></td>
-                                        <td align="center"><strong>Email ID</strong></td>
-                                        <td align="center"><strong>Contact No.</strong></td>
-                                        <td align="center"><strong>Department</strong></td>
-                                        <td align="center"><strong>Actions</strong></td>
+                                        <td align="center"><strong>ID</strong></td>
+                                        <td><strong>Faculty Name</strong></td>
+                                        <td><strong>Avatar</strong></td>
+                                        <td><strong>Thumb Image</strong></td>
+                                        <%--<td><strong>Username</strong></td>
+                                        <td><strong>Email ID</strong></td>--%>
+                                        <td><strong>Contact No.</strong></td>
+                                        <td><strong>Department</strong></td>
+                                        <td><strong>Actions</strong></td>
                                     </tr>
                                 </thead>
                             </table>
-                        </div>
                         </div>
                     <!-- datatabls flist faculties end-->
 
@@ -185,7 +183,6 @@
                             <div class="row">
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
-
                                         <button id="btnAddFaculty" type="button" class="btn btn-md btn-success">Submit</button>
                                         <strong>&nbsp;&middot;&nbsp;</strong>
                                         <button type="reset" class="btn btn-md btn-danger">Reset</button>
@@ -239,5 +236,3 @@
         FacultyDatatable();
     </script>
 </asp:Content>
-
-

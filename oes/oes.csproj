@@ -931,6 +931,7 @@
     <Content Include="admin\EnrollThumb.aspx" />
     <Content Include="admin\Exams.aspx" />
     <Content Include="admin\Faculties.aspx" />
+    <Content Include="admin\FacultyProfile.aspx" />
     <Content Include="admin\Login.aspx" />
     <Content Include="admin\LoginViaUid.aspx" />
     <Content Include="admin\Logout.aspx" />
@@ -1089,6 +1090,13 @@
     </Compile>
     <Compile Include="admin\Faculties.aspx.designer.cs">
       <DependentUpon>Faculties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\FacultyProfile.aspx.cs">
+      <DependentUpon>FacultyProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\FacultyProfile.aspx.designer.cs">
+      <DependentUpon>FacultyProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\FrameContentMaster.Master.cs">
       <DependentUpon>FrameContentMaster.Master</DependentUpon>

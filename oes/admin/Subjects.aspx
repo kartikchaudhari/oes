@@ -2,9 +2,9 @@
 <asp:Content ID="content2" ContentPlaceHolderID="ExternelCss" runat="server">
     <link rel="stylesheet" href="../css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="../css/buttons.dataTables.min.css" />
-    <link rel="stylesheet" href="../css/buttons.bootstrap.min.css" />
+   
     <style>
-        btn btn-primary btn-sm > .excelButton {
+        .excelButton {
            margin-left:60%;
          }
     </style>

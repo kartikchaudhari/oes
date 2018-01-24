@@ -188,7 +188,7 @@ function SubjectDatatable() {
                         'searchable': false,
                         'render': function (jsonId) {
                             var id = parseInt(jsonId);
-                            var btn = '<a class="links" href="EditSubject.aspx?subject_id=' + id + '"><button type="button" class="btn btn-primary btn-xs">Edit</button></a>&nbsp;<strong>&middot;</strong>&nbsp;<button type="button" class="btn btn-danger btn-xs">Delete</button>&nbsp;<strong>&middot;</strong>&nbsp;<a class="links" href="AddQuestions.aspx?subject_id=' + id + '"><button type="button" class="btn btn-success btn-xs">Add Questions</button></a>&nbsp;<strong>&middot;</strong>&nbsp;<a class="links" href="ViewQuestions.aspx?subject_id=' + id + '" target="DashboardContentFrame"><button type="button" class="btn btn-info btn-xs">View Questions</button></a>&nbsp;';
+                            var btn = '<div class="btn-group"><button type="button" class="btn btn-primary">Actions</button><button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="#">Tablet</a></li><li><a href="#">Smartphone</a></li></ul></div> ';
                             return btn;
                         }
                     }
@@ -204,6 +204,7 @@ function SubjectDatatable() {
                 ]
             });
         }
+        
     });
 }
 
@@ -259,16 +260,16 @@ function FacultyDatatable() {
                         }
                      
                     },
-                    {
-                        'data': 'UserName',
-                        'searchable': true,
-                        'sortable':false
-                    },
-                    {
-                        'data': 'EmailId',
-                        'searchable': true,
-                        'sortable':false
-                    },
+                    //{
+                    //    'data': 'UserName',
+                    //    'searchable': true,
+                    //    'sortable':false
+                    //},
+                    //{
+                    //    'data': 'EmailId',
+                    //    'searchable': true,
+                    //    'sortable':false
+                    //},
                     {
                         'data': 'ContactNo',
                         'searchable': true,
@@ -285,7 +286,7 @@ function FacultyDatatable() {
                         'searchable': false,
                         'render': function (jsonId) {
                             var id = parseInt(jsonId);
-                            var btn = '<a class="links" href="ha.aspx?id=' + id + '"><button type="button" class="btn btn-primary btn-xs" style="margin-bottom:6%;">Edit</button></a>&nbsp;&nbsp;<button type="button" class="btn btn-danger btn-xs">Delete</button>&nbsp;';
+                            var btn = '<div class="btn-group"><button type="button" class="btn btn-xs btn-primary">Actions</button><button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="FacultyProfile.aspx?FacultyId=' + id + '">View</a></li><li><a href="#">Smartphone</a></li></ul></div> ';
                             return btn;
                         }
                     }

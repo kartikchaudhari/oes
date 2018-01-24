@@ -394,4 +394,13 @@ border-radius:4px;
 .panel-dsg > a { color: #E80000; }
 /***********************************************************************/
 
- 
+.editLinks {
+    text-decoration:none;
+    color:white;
+}
+
+.editLinks:hover {
+    text-decoration:underline;
+    color:white;
+    cursor:pointer;
+}

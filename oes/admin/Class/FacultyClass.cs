@@ -23,12 +23,26 @@ namespace oes.admin.Class
         public string FullName { get; set; }
         public string AvatarPath { get; set; }
         public string ThumbPath { get; set; }
-        public string UserName { get; set; }
-        public string EmailId { get; set; }
+        //public string UserName { get; set; }
+        //public string EmailId { get; set; }
         public string ContactNo { get; set; }
         public string DeptName { get; set; }
 
         public string FetchDeptById(string DeptId)
+        {
+            String DeptName = null;
+            using (SqlCommand cmd = new SqlCommand("SELECT dept_name FROM department WHERE dept_id=" + DeptId, db.DbConnect()))
+            {
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    return DeptName = rdr["dept_name"].ToString();
+                }
+                return DeptName;
+            }
+        }
+
+        public string FetchDeptById(int DeptId)
         {
             String DeptName = null;
             using (SqlCommand cmd = new SqlCommand("SELECT dept_name FROM department WHERE dept_id=" + DeptId, db.DbConnect()))

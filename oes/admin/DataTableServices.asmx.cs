@@ -69,8 +69,8 @@ namespace oes.admin
                     faculty.FullName = rdr["first_name"].ToString() + " " + rdr["last_name"].ToString();
                     faculty.AvatarPath = rdr["avatar"].ToString();
                     faculty.ThumbPath =rdr["thumb_img"].ToString();
-                    faculty.UserName = rdr["username"].ToString();
-                    faculty.EmailId = rdr["email"].ToString();
+                    //faculty.UserName = rdr["username"].ToString();
+                    //faculty.EmailId = rdr["email"].ToString();
                     faculty.ContactNo = rdr["contact_no"].ToString();
                     faculty.DeptName = faculty.FetchDeptById(rdr["dept_id"].ToString());
                     faculties.Add(faculty);
