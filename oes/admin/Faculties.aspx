@@ -16,7 +16,7 @@
         </div>
          <!--breadcrumb end-->
 
-         <button style="float: right; position: relative; margin-top:14.5px; margin-right: 20px;" onclick="javascript:location.reload(true);">Refresh</button>
+         <button class="btn btn-primary btn-sm" style="float: right; position: relative; margin-top:14.5px; margin-right: 20px;" onclick="javascript:location.reload(true);">Refresh</button>
         <div class="panel panel-default">
             <div class="panel-heading panel-heading-custom-pages">
                 <i class="fa fa-edit fa-1x"></i>&nbsp;&nbsp;<span>Manage Faculties</span>
@@ -97,8 +97,8 @@
                     </div>
                     <!-- registration requests end-->
 
-                    <!-- datatabls flist faculties start-->
-                    <div class="tab-pane fade in active" id="view">
+                    <!-- datatabls for faculties list start-->
+                    <div class="tab-pane fade" id="view">
                         <h4>All Faculties</h4>
                         <hr />  
                             <table width="100%" id="DatatableFaculties" class="table table-striped table-bordered table-hover">

@@ -132,7 +132,7 @@ $(function () {
 
 //Datatable for subject list
 function SubjectDatatable() {
-    
+    //var d = Date.getDate() + "-" + Date.getMonth() + "-" + Date.getFullYear();
     $.ajax({
         url: 'DataTableServices.asmx/GetSubjectDetail',
         method: 'POST',
@@ -188,7 +188,7 @@ function SubjectDatatable() {
                         'searchable': false,
                         'render': function (jsonId) {
                             var id = parseInt(jsonId);
-                            var btn = '<div class="btn-group"><button type="button" class="btn btn-primary">Actions</button><button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="#">Tablet</a></li><li><a href="#">Smartphone</a></li></ul></div> ';
+                            var btn = '<div class="btn-group"><button type="button" class="btn btn-success btn-sm">Actions</button><button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="#">Tablet</a></li><li><a href="#">Smartphone</a></li></ul></div> ';
                             return btn;
                         }
                     }
@@ -199,7 +199,10 @@ function SubjectDatatable() {
                     {
                         text: 'Export to CSV',
                         extend: 'csv',
-                        className: 'btn btn-default btn-xs'
+                        className: 'btn btn-default btn-xs',
+                        exportOptions: {
+                            columns: [1, 2,3,4,5,5]
+                        }
                     }
                 ]
             });
@@ -210,12 +213,14 @@ function SubjectDatatable() {
 
 
 function FacultyDatatable() {
+   
     $.ajax({
         url: 'DataTableServices.asmx/GetFacultyDetail',
         method: 'POST',
         dataType: 'json',
         success: function (data) {
             $('#DatatableFaculties').dataTable({
+            
                 //set the "show entries" select list
                 "aLengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
                 "iDisplayLength": 5,
@@ -286,7 +291,7 @@ function FacultyDatatable() {
                         'searchable': false,
                         'render': function (jsonId) {
                             var id = parseInt(jsonId);
-                            var btn = '<div class="btn-group"><button type="button" class="btn btn-xs btn-primary">Actions</button><button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="FacultyProfile.aspx?FacultyId=' + id + '">View</a></li><li><a href="#">Smartphone</a></li></ul></div> ';
+                            var btn = '<div class="btn-group"><button type="button" class="btn btn-sm btn-success"><i class="fa fa-flash"></i>&nbsp;Actions</button><button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="FacultyProfile.aspx?FacultyId=' + id + '"><i class="fa fa-eye"></i>&nbsp;&nbsp;View</a></li><li><a href="#"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li><li><a href="#"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li><li><a href="#"><i class="fa fa-ban"></i>&nbsp;&nbsp;Ban</a></li></ul></div> ';
                             return btn;
                         }
                     }

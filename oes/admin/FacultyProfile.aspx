@@ -5,7 +5,7 @@
         <div class="row-fluid">
             <ol class="breadcrumb bc-custom">
                 <li class="breadcrumb-item">
-                    <a class="links" href="Dashboard.aspx">Dashboard</a>
+                    <a class="links" href="Dashboard.aspx" target="DashboardContent">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active">
                     <a class="links" href="Faculties.aspx">Faculties</a>
