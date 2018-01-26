@@ -22,6 +22,25 @@ namespace oes.admin
             if (Request.QueryString.Count > 0)
             {
                 BindProfile(Convert.ToInt16(Request.QueryString[0]));
+                if (Request.QueryString[1] == "edit") {
+                    //view panel visibility
+                    ProfiePicturePanelView.Visible = false;
+                    BiometricThumbView.Visible = false;
+                    ProfileInfoView.Visible = false;
+
+                    //edit panel visibility
+                    ProfilePicturePanelEdit.Visible = true;
+                    ProfileInfoEdit.Visible = true;
+                }
+                else if (Request.QueryString[1] == "view") {
+                    
+                    ProfiePicturePanelView.Visible =true;
+                    BiometricThumbView.Visible = true;
+                    ProfileInfoView.Visible = true;
+
+                    ProfilePicturePanelEdit.Visible = false;
+                    ProfileInfoEdit.Visible = false;
+                }
             }
         }
 
@@ -55,6 +74,15 @@ namespace oes.admin
                     if (ds.Tables[0].Rows[0]["account_status"].ToString() == "1") {
                         LblStatus.Text = "Active";
                         LblStatus.ForeColor = System.Drawing.Color.Green;
+                    }
+                    else if (ds.Tables[0].Rows[0]["account_status"].ToString() == "0")
+                    {   
+                        LblStatus.Text = "Not Activted Yet";
+                        LblStatus.ForeColor = System.Drawing.Color.BlueViolet;
+                    }
+                    else if (ds.Tables[0].Rows[0]["account_status"].ToString() == "3") {
+                        LblStatus.Text = "Banned";
+                        LblStatus.ForeColor = System.Drawing.Color.Red;
                     }
                 }
             }

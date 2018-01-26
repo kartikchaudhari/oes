@@ -40,11 +40,26 @@ namespace oes.admin.WebMethods
                 }
             }
             return msg;
-            
         }
 
-    
-    
-        
+        [WebMethod]
+        public string BanFaculty(int UserId) {
+            string msg=null;
+            using (SqlCommand cmd = new SqlCommand("BanFaculty", db.DbConnect()))
+            {
+                cmd.CommandType=CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@fact_id", UserId);
+                //cmd.ExecuteNonQuery();
+                if (cmd.ExecuteNonQuery() != 0)
+                {
+                    msg = "Banned";
+                }                                                                                                                                                                                                                                                                                           
+                else
+                {
+                    msg = "Error While Processing..";
+                }
+            }
+            return msg;
+        }
     }
 }

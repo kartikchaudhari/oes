@@ -291,7 +291,7 @@ function FacultyDatatable() {
                         'searchable': false,
                         'render': function (jsonId) {
                             var id = parseInt(jsonId);
-                            var btn = '<div class="btn-group"><button type="button" class="btn btn-sm btn-success"><i class="fa fa-flash"></i>&nbsp;Actions</button><button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="FacultyProfile.aspx?FacultyId=' + id + '"><i class="fa fa-eye"></i>&nbsp;&nbsp;View</a></li><li><a href="#"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li><li><a href="#"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li><li><a href="#"><i class="fa fa-ban"></i>&nbsp;&nbsp;Ban</a></li></ul></div> ';
+                            var btn = '<div class="btn-group"><button type="button" class="btn btn-sm btn-success"><i class="fa fa-flash"></i>&nbsp;Actions</button><button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="FacultyProfile.aspx?FacultyId=' + id + '&action=view"><i class="fa fa-eye"></i>&nbsp;&nbsp;View</a></li><li><a href="#"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li><li><a href="FacultyProfile.aspx?FacultyId=' + id + '&action=edit"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li></ul></div> ';
                             return btn;
                         }
                     }

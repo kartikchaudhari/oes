@@ -31,61 +31,146 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading clearfix"><strong>Profile Picture</strong><a class="editLinks links pull-right" href="" title="click to update your profile picture.">[&nbsp;Edit&nbsp;]</a></div>
-                            <div class="panel-body" style="text-align: center;">
-                                <asp:Image ID="UserAvatar" runat="server" Height="100" Width="100" />
+                        <asp:Panel ID="ProfiePicturePanelView" runat="server" Visible="true" EnableViewState="false">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading"><strong>Profile Picture</strong></div>
+                                <div class="panel-body" style="text-align: center;">
+                                    <asp:Image ID="UserAvatar" runat="server" Height="100" Width="100" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="panel panel-primary">
-                            <div class="panel-heading clearfix"><strong>Biometric Thumb Impression</strong><a class="editLinks links pull-right" href="" title="click to update your biometric thumb impression.">[&nbsp;Edit&nbsp;]</a></div>
-                            <div class="panel-body" style="text-align: center;">
-                                <asp:Image ID="UserThumb" runat="server" Height="120" Width="100" />
+                        </asp:Panel>
+                        <asp:Panel ID="ProfilePicturePanelEdit" runat="server" Visible="false" EnableViewState="false">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading"><strong>Profile Picture</strong></div>
+                                <div class="panel-body" style="text-align: center;">
+                                    <asp:Image ID="UserAvatarEdit" runat="server" Height="100" Width="100" />
+                                </div>
+                                <div class="panel-footer">
+                                    <asp:Button ID="Button1" runat="server" Text="Browse" />&middot;
+                                    <asp:Button ID="Button2" runat="server" Text="Upload" />
+                                </div>
                             </div>
-                        </div>
+                        </asp:Panel>
+
+                        <asp:Panel ID="BiometricThumbView" runat="server" Visible="true" EnableViewState="false">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading"><strong>Biometric Thumb Impression</strong><a class="editLinks links pull-right" href="" title="click to update your biometric thumb impression.">[&nbsp;Edit&nbsp;]</a></div>
+                                <div class="panel-body" style="text-align: center;">
+                                    <asp:Image ID="UserThumb" runat="server" Height="120" Width="100" />
+                                </div>
+                            </div>
+                        </asp:Panel>
                     </div>
                     <div class="col-md-8">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading clearfix"><strong>Profile Information</strong><a class="editLinks links pull-right" href="" title="click to update your profile information.">[&nbsp;Edit&nbsp;]</a></div>
-                            <div class="panel-body">
-                                <table class="table table-striped" border="0">
-                                    <tbody>
-                                        <tr>
-                                            <td width="130"><strong>First Name :</strong></td>
-                                            <td><asp:Label ID="LblFname" runat="server"></asp:Label></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Last Name :</strong></td>
-                                            <td><asp:Label ID="LblLname" runat="server"></asp:Label></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Email ID :</strong></td>
-                                            <td><asp:Label ID="LblEmail" runat="server"></asp:Label></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Username :</strong></td>
-                                            <td><asp:Label ID="LblUname" runat="server"></asp:Label></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Password :</strong></td>
-                                            <td><asp:Label ID="LblPass" runat="server"></asp:Label></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Contact No. :</strong></td>
-                                            <td><asp:Label ID="LblContact" runat="server"></asp:Label></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Department :</strong></td>
-                                            <td><asp:Label ID="LblDept" runat="server"></asp:Label></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Account Status :</strong></td>
-                                            <td><asp:Label ID="LblStatus" runat="server" Font-Bold="true"></asp:Label></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <asp:Panel ID="ProfileInfoView" runat="server" Visible="true" EnableViewState="false">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading clearfix"><strong>Profile Information</strong><a class="editLinks links pull-right" href="" title="click to update your profile information.">[&nbsp;Edit&nbsp;]</a></div>
+                                <div class="panel-body">
+                                    <table class="table table-striped" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td width="130"><strong>First Name :</strong></td>
+                                                <td>
+                                                    <asp:Label ID="LblFname" runat="server"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Last Name :</strong></td>
+                                                <td>
+                                                    <asp:Label ID="LblLname" runat="server"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Email ID :</strong></td>
+                                                <td>
+                                                    <asp:Label ID="LblEmail" runat="server"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Username :</strong></td>
+                                                <td>
+                                                    <asp:Label ID="LblUname" runat="server"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Password :</strong></td>
+                                                <td>
+                                                    <asp:Label ID="LblPass" runat="server"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Contact No. :</strong></td>
+                                                <td>
+                                                    <asp:Label ID="LblContact" runat="server"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Department :</strong></td>
+                                                <td>
+                                                    <asp:Label ID="LblDept" runat="server"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Account Status :</strong></td>
+                                                <td>
+                                                    <asp:Label ID="LblStatus" runat="server" Font-Bold="true"></asp:Label></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
+                        </asp:Panel>
+                        <asp:Panel ID="ProfileInfoEdit" runat="server" Visible="false" EnableViewState="false">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading clearfix"><strong>Profile Information</strong><a class="editLinks links pull-right" href="" title="click to update your profile information.">[&nbsp;Edit&nbsp;]</a></div>
+                                <div class="panel-body">
+                                    <table class="table table-striped" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td width="130"><strong>First Name :</strong></td>
+                                                <td>
+                                                    <asp:TextBox ID="tbFname" runat="server" TextMode="SingleLine"></asp:TextBox>    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Last Name :</strong></td>
+                                                <td>
+                                                    <asp:TextBox ID="tbLname" runat="server" TextMode="SingleLine"></asp:TextBox>   
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Email ID :</strong></td>
+                                                <td>
+                                                    <asp:TextBox ID="tbEmail" runat="server" TextMode="Email"></asp:TextBox>    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Username :</strong></td>
+                                                <td>
+                                                    <asp:TextBox ID="tbUserName" runat="server" TextMode="SingleLine"></asp:TextBox>    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Password :</strong></td>
+                                                <td>
+                                                    <asp:TextBox ID="tbPass" runat="server" TextMode="Password"></asp:TextBox>   
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Contact No. :</strong></td>
+                                                <td>
+                                                    <asp:TextBox ID="tbContact" runat="server" TextMode="Phone"></asp:TextBox> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Department :</strong></td>
+                                                <td>
+                                                       
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Account Status :</strong></td>
+                                                <td>
+                                                    <asp:Label ID="Label8" runat="server" Font-Bold="true"></asp:Label></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </asp:Panel>
                     </div>
                 </div>
             </div>
