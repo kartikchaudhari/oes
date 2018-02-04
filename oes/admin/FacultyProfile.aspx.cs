@@ -17,6 +17,7 @@ namespace oes.admin
     {
         Database db = new Database();
         FacultyClass fc = new FacultyClass();
+        int UserId;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString.Count > 0)
@@ -54,6 +55,7 @@ namespace oes.admin
                 da.Fill(ds);
                 if (ds != null && ds.Tables[0].Rows.Count > 0)
                 {
+                    UserId = Convert.ToInt32(ds.Tables[0].Rows[0]["faculty_id"].ToString());
                     UserAvatar.ImageUrl = ds.Tables[0].Rows[0]["avatar"].ToString();
                     UserAvatarEdit.ImageUrl = ds.Tables[0].Rows[0]["avatar"].ToString();
                     if (ds.Tables[0].Rows[0]["thumb_img"].ToString()==null)
@@ -118,7 +120,35 @@ namespace oes.admin
                     DdlAccStatus.SelectedItem.Selected = true;
                 }
             }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+
+            using (SqlCommand cmd = new SqlCommand("UpdateFacultyProfileInfo", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@FacultyId", UserId);
+                cmd.Parameters.AddWithValue("@FirstName", tbFname.Text.ToString().Trim());
+                cmd.Parameters.AddWithValue("@LastName", tbLname.Text.ToString().Trim());
+                cmd.Parameters.AddWithValue("@EmailId", tbEmail.Text.ToString().Trim());
+                cmd.Parameters.AddWithValue("@ContactNo", tbContact.Text.ToString().Trim());
+                cmd.Parameters.AddWithValue("@DeptId", DdlDept.SelectedValue);
+                cmd.Parameters.AddWithValue("@AccStatus", DdlAccStatus.SelectedValue);
+                if (cmd.ExecuteNonQuery() != 0)
+                {
+                    Response.Write("<script>alert('Faculty Info Updated');</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Error');</script>");
+                }
+
+            }
+        }
+
         
+
         
     }
 }

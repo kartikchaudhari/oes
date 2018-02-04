@@ -23,6 +23,12 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
+                <%if (Request.QueryString["action"]=="added")
+                  {
+                      Response.Write("<div class='alert alert-success alert-dismissable'><a href='#' class='close' data-dismiss='alert' aria-label='close' title='Click to close this Message.'>&times;</a><strong>Congratulations!</strong> Faculty added successfully, accept the Registration request to approve the faculty account.</div>");
+                  }
+                %>
+
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#new_requests" data-toggle="tab">Registration Requests & Statistics</a>
@@ -35,6 +41,7 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content" style="padding:20px;">
+
                     <!-- registration requests start-->
                     <div class="tab-pane fade in active" id="new_requests">
                         <h4 style="padding-top:20px;">New Requests</h4>
@@ -116,6 +123,25 @@
                                     </tr>
                                 </thead>
                             </table>
+                            
+                            <!--delete faculty modal starts-->
+                            <div class="modal fade" id="DeleteFacultyModal" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="panel panel-dsg">
+                                        <div class="panel-heading">
+                                            <a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a>
+                                            <strong>Confirm to Remove faculty</strong>
+                                        </div>
+                                        <div class="panel-body" style="padding:20px;">Are you Sure you want to Remove <strong><span id="fns"></span></strong> ??<br /><br />if <strong> Yes</strong> click <strong>Delete</strong> button otherwise click on <strong>Cancle</strong> button.</div>
+                                        <div class="panel-footer">
+                                            <button type="button" class="btn btn-danger btn-sm">Delete</button><strong>&nbsp;&middot;&nbsp;</strong>
+                                            <button type="button" class="btn btn-primary btn-sm">Cancle</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--delete faculty modal ends -->
+
                         </div>
                     <!-- datatabls flist faculties end-->
 
@@ -128,13 +154,13 @@
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
                                         <label>First Name:</label>
-                                        <input maxlength="20" id="fname" class="form-control" required="required" type="text" style="width:400px;">
+                                        <asp:TextBox ID="tbFname" runat="server" MaxLength="20" CssClass="form-control" TextMode="SingleLine" Width="400px"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
                                         <label>Last Name:</label>
-                                        <input maxlength="20" id="lname" class="form-control" required="required" type="text" style="width:400px;">
+                                        <asp:TextBox ID="tbLname" runat="server" MaxLength="20" CssClass="form-control" TextMode="SingleLine" Width="400px"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -142,13 +168,13 @@
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
                                         <label>Username:</label>
-                                        <input maxlength="20" id="tbUname" class="form-control" required="required type="text" style="width:400px;">
+                                        <asp:TextBox ID="tbUname" runat="server" MaxLength="20" CssClass="form-control" TextMode="SingleLine" Width="400px"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
                                         <label>Email ID:</label>
-                                        <input maxlength="20" id="tbEmail" class="form-control" required="required" type="email" style="width:400px;">
+                                        <asp:TextBox ID="tbEmail" runat="server" CssClass="form-control" TextMode="Email" Width="400px"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -156,13 +182,13 @@
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
                                         <label>Password:</label>
-                                        <input maxlength="20" id="tbPassword" class="form-control" required="required" type="password" style="width:400px;">
+                                        <asp:TextBox ID="tbPass" runat="server" CssClass="form-control" TextMode="Password" Width="400px"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
                                         <label>Confirm Password</label>
-                                        <input maxlength="20" id="tbConfirmPass" class="form-control" required="required"  type="password" style="width:400px;">
+                                        <asp:TextBox ID="tbConfirmPass" runat="server" CssClass="form-control" TextMode="Password" Width="400px"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +196,7 @@
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
                                         <label>Contact No.:</label>
-                                        <input maxlength="20" id="tbContact" class="form-control" required="required" type="tel" style="width: 400px;">
+                                        <asp:TextBox ID="tbContact" runat="server" MaxLength="10" CssClass="form-control" TextMode="Phone" Width="400px"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 form_controls_custom">
@@ -183,7 +209,7 @@
                             <div class="row">
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
-                                        <button id="btnAddFaculty" type="button" class="btn btn-md btn-success">Submit</button>
+                                        <asp:Button ID="btnAddFaculty" CssClass="btn btn-md btn-success" runat="server" Text="Submit" OnClick="btnAddFaculty_Click" />
                                         <strong>&nbsp;&middot;&nbsp;</strong>
                                         <button type="reset" class="btn btn-md btn-danger">Reset</button>
                                     </div>

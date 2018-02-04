@@ -83,7 +83,7 @@
                     <a class="links" href="Subjects.aspx" target="DashboardContentFrame">
                         <span class="fa-stack fa-lg pull-left">
                             <i class="fa fa-book fa-stack-1x"></i>
-                        </span>Subjects</a>
+                        </span>Subjects<%--<span class="label label-danger" style="border-radius:10px;">5</span>--%></a>
                 </li>
                 <li>
                     <a class="links" href="Faculties.aspx" target="DashboardContentFrame">

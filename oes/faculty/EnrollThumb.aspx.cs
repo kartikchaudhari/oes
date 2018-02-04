@@ -59,6 +59,7 @@ namespace oes.faculty
                         if (EnrollThumbDt.Rows.Count > 0)
                         {
                             lbl_welcome.Text = EnrollThumbDt.Rows[0]["first_name"].ToString() + " " + EnrollThumbDt.Rows[0]["last_name"].ToString();
+                            FullName = EnrollThumbDt.Rows[0]["first_name"].ToString() + " " + EnrollThumbDt.Rows[0]["last_name"].ToString();
                         }
                         else
                         {
@@ -112,7 +113,7 @@ namespace oes.faculty
                      *  value for faculty="Faculty"
                      */
 
-                    Session["UserType"] = "Student";
+                    Session["UserType"] = "Faculty";
                     Response.Redirect("../Congratulations.aspx");
                     //Label1.Text = "Thumb Image Uploaded";
                     //Label1.ForeColor = System.Drawing.Color.Green;

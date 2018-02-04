@@ -56,6 +56,9 @@
     <Reference Include="CKEditor.NET">
       <HintPath>..\..\..\..\..\Downloads\CkEditor\CkEditor\bin\CKEditor.NET.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>E:\exam_dev\sources\Zips\itextsharp-all-5.5.10\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="SourceAFIS">
       <HintPath>E:\exam_dev\sources\SourceAFIS-1.7.0\Sample\dll\SourceAFIS.dll</HintPath>
@@ -958,7 +961,6 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\buttons.bootstrap.min.css" />
     <Content Include="css\buttons.dataTables.min.css" />
-    <Content Include="css\croppie.css" />
     <Content Include="css\custom.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\jquery.dataTables.min.css" />
@@ -975,10 +977,12 @@
     <Content Include="images\sort_desc_disabled.png" />
     <Content Include="js\bootstrap-show-password.min.js" />
     <Content Include="js\buttons.html5.min.js" />
-    <Content Include="js\croppie.min.js" />
     <Content Include="js\dataTables.bootstrap.min.js" />
     <Content Include="js\dataTables.buttons.min.js" />
     <Content Include="js\dataTables.select.min.js" />
+    <Content Include="css\Jcrop.gif" />
+    <Content Include="css\Jcrop.min.css" />
+    <Content Include="js\Jcrop.min.js" />
     <Content Include="js\jquery.dataTables.min.js" />
     <Content Include="css\progress-bar.css" />
     <Content Include="css\simple-sidebar.css" />
@@ -1393,6 +1397,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="admin\FacultyData\PdfDoc\" />
+    <Folder Include="faculty\Avatar\" />
     <Folder Include="faculty\Class\" />
     <Folder Include="faculty\WebMethods\" />
   </ItemGroup>

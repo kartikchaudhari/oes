@@ -58,8 +58,11 @@ function Send() {
 
         //if the "src" attribute is not empty, means
         //there is an image data then send call the 
-        //web method and semdthe base64 string
+        //web method and sem dthe base64 string
         if ($("[id*=FPImage1]", this).attr('src') || !$("[id*=FPImage1]", this).attr('src')) {
+
+            //activate login button
+
             var name = $.trim($("[id*=img_val]").val());
             $.ajax({
                 type: "POST",

@@ -188,7 +188,7 @@ function SubjectDatatable() {
                         'searchable': false,
                         'render': function (jsonId) {
                             var id = parseInt(jsonId);
-                            var btn = '<div class="btn-group"><button type="button" class="btn btn-success btn-sm">Actions</button><button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="#">Tablet</a></li><li><a href="#">Smartphone</a></li></ul></div> ';
+                            var btn = '<div class="btn-group"><button type="button" class="btn btn-success btn-sm">Actions</button><button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="#">Tablet</a></li><li><a href="#">Smartphone</a></li></ul></div>&nbsp;<strong>&middot;</strong>&nbsp;<div class="btn-group"><button type="button" class="btn btn-primary btn-sm">Questions</button><button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="AddQuestions.aspx?subject_id=' + id + '">Add Questions</a></li><li><a href="ViewQuestions.aspx?subject_id=' + id + '">View Questions</a></li></ul></div>';
                             return btn;
                         }
                     }
@@ -211,6 +211,10 @@ function SubjectDatatable() {
     });
 }
 
+//append faculty  name to alert
+function fnn(nn) {
+    document.getElementById("fns").innerHTML = nn;
+}
 
 function FacultyDatatable() {
    
@@ -227,6 +231,7 @@ function FacultyDatatable() {
                 
                 //fetch the data
                 data: data,
+
                 columns: [
                     {
                         'data': 'FacultyId',
@@ -236,8 +241,9 @@ function FacultyDatatable() {
                     {
                         'data': 'FullName',
                         'sortable': false,
-                        'searchable': true
+                        'searchable': true,
                     },
+                   
                     {
                         'data': 'AvatarPath',
                         'sortable': false,
@@ -289,17 +295,23 @@ function FacultyDatatable() {
                         'data': 'FacultyId',
                         'sortable': false,
                         'searchable': false,
-                        'render': function (jsonId) {
-                            var id = parseInt(jsonId);
-                            var btn = '<div class="btn-group"><button type="button" class="btn btn-sm btn-success"><i class="fa fa-flash"></i>&nbsp;Actions</button><button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="FacultyProfile.aspx?FacultyId=' + id + '&action=view"><i class="fa fa-eye"></i>&nbsp;&nbsp;View</a></li><li><a href="#"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li><li><a href="FacultyProfile.aspx?FacultyId=' + id + '&action=edit"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li></ul></div> ';
+                        'render': function (data, type, row, meta) {
+                            var id = parseInt(row['FacultyId']);
+                            var btn = '<div class="btn-group"><button type="button" class="btn btn-sm btn-success"><i class="fa fa-flash"></i>&nbsp;Actions</button><button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a class="links" href="FacultyProfile.aspx?FacultyId=' + id + '&action=view"><i class="fa fa-eye"></i>&nbsp;&nbsp;View</a></li><li onclick="fnn(\''+row['FullName']+'\')"><a class="links" href="#" data-toggle="modal" data-target="#DeleteFacultyModal"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li><li><a class="links" href="FacultyProfile.aspx?FacultyId=' + id + '&action=edit"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li></ul></div> ';
                             return btn;
                         }
-                    }
+                    },
+                   
                 ]
             });
+           
+            
         }
+
     });
 }
+
+
 
 /*
 * Function : Confirms the Faculty Registration Request

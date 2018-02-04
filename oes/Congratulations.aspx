@@ -1,7 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Congratulations.aspx.cs" Inherits="oes.Congratulations" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
-    <title>Congratulations</title>
-</asp:Content>
+﻿<%@ Page Title="Congratulations" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Congratulations.aspx.cs" Inherits="oes.Congratulations" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="active_class_links" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="main_content" runat="server">

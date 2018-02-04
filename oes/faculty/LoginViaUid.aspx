@@ -108,6 +108,9 @@
                                         <a href="#">Reset Password</a><strong>&nbsp;&middot;&nbsp;</strong><a href="">Reset Password</a>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <asp:CheckBox ID="cbRemember" runat="server" Text="&nbsp;Remember Me"/>
+                                </div>
                             </div>
                         </div>
                     </div>
