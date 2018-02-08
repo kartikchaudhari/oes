@@ -141,9 +141,9 @@
                                 </div>
                             </div>
                             <!--delete faculty modal ends -->
-
+                            
                         </div>
-                    <!-- datatabls flist faculties end-->
+                    <!-- datatabls list faculties end-->
 
                     <!-- add new faculty start-->    
                     <div class="tab-pane fade" id="add">
