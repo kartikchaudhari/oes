@@ -79,5 +79,35 @@ namespace oes.admin
             JavaScriptSerializer js = new JavaScriptSerializer();
             Context.Response.Write(js.Serialize(faculties));
         }
+
+        [WebMethod]
+        public void GetStudentDetail()
+        {
+            List<StudentClass> students = new List<StudentClass>();
+            using (SqlCommand cmd = new SqlCommand("FetchAllStudent", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    StudentClass student = new StudentClass();
+                    student.StudentId = Convert.ToInt32(rdr["student_id"]);
+                    //faculty.FirstName = rdr["first_name"].ToString();
+                    //faculty.LastName = rdr["last_name"].ToString();
+                    student.FullName = rdr["first_name"].ToString() + " " + rdr["last_name"].ToString();
+                    student.EnrollmentNo = rdr["enrollment_no"].ToString();
+                    student.AvatarPath = rdr["avatar"].ToString();
+                    student.ThumbPath = rdr["thumb_img"].ToString();
+                    //faculty.UserName = rdr["username"].ToString();
+                    //faculty.EmailId = rdr["email"].ToString();
+                    student.ContactNo = rdr["stud_contact"].ToString();
+                    //student.ParentNo = rdr["parent_contact"].ToString();
+                    student.DeptName= student.FetchDeptById(rdr["dept_id"].ToString());
+                    students.Add(student);
+                }
+            }
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Context.Response.Write(js.Serialize(students));
+        }
     }
 }

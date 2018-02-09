@@ -234,7 +234,7 @@
                     <h4 class="modal-title">Request Confirmed</h4>
                 </div>
                 <div class="modal-body">
-                    <p>The Registration request For the Select user is Confirmed and Registered.</p>
+                    <p>The Registration request For the selected Faculty is confirmed and Registered.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" onclick="javascript:location.reload(true);">Close</button>
@@ -242,19 +242,6 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="EditFacultyModel" role="dialog">
-    <div class="modal-dialog">
-    	<div class="panel panel-default">
-  			<div class="panel-heading">
-            	<a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a>
-                <span>Panel Heading</span>
-            </div>
-  			<div class="panel-body">Panel Content</div>
-            <div class="panel-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
-		</div>
-    </div>
-  </div>
-
 </asp:Content>
 <asp:Content ID="content3" ContentPlaceHolderID="ExternalJs" runat="server">
     <script src="../js/jquery.dataTables.min.js"></script>

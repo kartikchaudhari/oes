@@ -12,7 +12,11 @@ using System.Data.SqlTypes;
 
 
 using oes.App_Code;
+
+//for build in charts
 using System.Web.UI.DataVisualization.Charting;
+
+//for pdf creation
 using iTextSharp.text;
 using System.Drawing;
 using iTextSharp.text.pdf;

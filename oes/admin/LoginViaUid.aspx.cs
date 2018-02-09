@@ -15,12 +15,21 @@ namespace oes.admin
         Database db = new Database();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+            //if (Request.Cookies["admin_id"] != null && Session["id"] != null)
+            //{
+            //    Session["id"] = Request.Cookies["admin_id"].Value;
+            //    Response.Redirect("Dashboard.aspx");
+            //}
+            
             //if the user is already logged in 
             //then redirect him/her to dashboard page
-            Response.Cache.SetNoStore();
-            if(Session["id"]!=null){
-               Response.Redirect("Dashboard.aspx");
-           }
+
+            if (Session["id"] != null)
+            {
+                Response.Redirect("Dashboard.aspx");
+            }
 
         }
 
@@ -36,9 +45,19 @@ namespace oes.admin
                 sda.Fill(dt);
                 if (dt.Rows.Count != 0)
                 {
-                    Session["id"] = dt.Rows[0]["admin_id"];
-                    //Label1.Text = dt.Rows[0]["admin_id"].ToString();
-                    Response.Redirect("Dashboard.aspx");
+                    //remember me function
+                    //if (cbRemember.Checked)
+                    //{
+                    //    //Response.Cookies["admin_id"].Value = dt.Rows[0]["admin_id"].ToString();
+                        
+                    //    Session["id"] = dt.Rows[0]["admin_id"];
+                    //    Response.Redirect("Dashboard.aspx");
+                    //}
+                    ////else
+                    //{   
+                        Session["id"] = dt.Rows[0]["admin_id"];
+                        Response.Redirect("Dashboard.aspx");
+                    //}
                 }
                 else {
                     Response.Redirect("LoginViaUid.aspx?eid=2");

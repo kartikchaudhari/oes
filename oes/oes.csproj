@@ -944,13 +944,14 @@
     <Content Include="admin\QuestionBank.aspx" />
     <Content Include="admin\Results.aspx" />
     <Content Include="admin\SendBase64.asmx" />
-    <Content Include="admin\SubjectInfo.aspx" />
+    <Content Include="admin\StudentProfile.aspx" />
     <Content Include="admin\SystemSettings.aspx" />
     <Content Include="admin\Students.aspx" />
     <Content Include="admin\Subjects.aspx" />
     <Content Include="admin\TestAdmin.aspx" />
     <Content Include="admin\ViewQuestions.aspx" />
     <Content Include="admin\WebMethods\Faculty.asmx" />
+    <Content Include="admin\WebMethods\Student.asmx" />
     <Content Include="App_Data\Examdb.mdf" />
     <Content Include="App_Data\Examdb_log.ldf">
       <DependentUpon>Examdb.mdf</DependentUpon>
@@ -1037,6 +1038,7 @@
       <DependentUpon>AddQuestions.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\Class\FacultyClass.cs" />
+    <Compile Include="admin\Class\StudentClass.cs" />
     <Compile Include="admin\Class\SubjectClass.cs" />
     <Compile Include="admin\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
@@ -1172,12 +1174,12 @@
       <DependentUpon>SendBase64.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="admin\SubjectInfo.aspx.cs">
-      <DependentUpon>SubjectInfo.aspx</DependentUpon>
+    <Compile Include="admin\StudentProfile.aspx.cs">
+      <DependentUpon>StudentProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\SubjectInfo.aspx.designer.cs">
-      <DependentUpon>SubjectInfo.aspx</DependentUpon>
+    <Compile Include="admin\StudentProfile.aspx.designer.cs">
+      <DependentUpon>StudentProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\SystemSettings.aspx.cs">
       <DependentUpon>SystemSettings.aspx</DependentUpon>
@@ -1216,6 +1218,10 @@
     </Compile>
     <Compile Include="admin\WebMethods\Faculty.asmx.cs">
       <DependentUpon>Faculty.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="admin\WebMethods\Student.asmx.cs">
+      <DependentUpon>Student.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="App_Code\Database.cs" />
@@ -1415,7 +1421,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>62075</DevelopmentServerPort>
+          <DevelopmentServerPort>6026</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:1553/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

@@ -19,15 +19,34 @@ namespace oes.admin
         protected void Page_Load(object sender, EventArgs e)
         {
             //block the page from getting cached
-            Response.Cache.SetNoStore();
-            if (Session["id"] == null)
-            {
-                Response.Redirect("Login.aspx?eid=1");
-            }
-            else
+            //Response.Cache.SetNoStore();
+
+            //if (Session["id"] == null || Response.Cookies["admin_id"] == null)
+            //    {
+            //        Response.Redirect("Login.aspx?eid=1&msg=cookie_sess");
+            //    }
+            //else
+            //{
+            //    if (Request.Cookies["admin_id"] != null)
+            //    {
+            //        Response.Write("<script>alert(" + Request.Cookies["admin_id"].Value + ");</script>");
+            //        LoadAdminData(Convert.ToInt16(Request.Cookies["admin_id"].Value));
+            //    }
+            //    else 
+            //    else {
+            //        Response.Redirect("Login.aspx?eid=1&msg=cookie_sess&inner_loop");
+            //    }
+
+            //}
+            if (Session["id"] != null)
             {
                 LoadAdminData(Convert.ToInt16(Session["id"]));
             }
+            else 
+            {
+                Response.Redirect("Login.aspx?eid=1");
+            }
+         
         }
 
         private void LoadAdminData(int id)

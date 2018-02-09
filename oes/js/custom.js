@@ -311,6 +311,115 @@ function FacultyDatatable() {
     });
 }
 
+function StudentDatatable() {
+
+    $.ajax({
+        url: 'DataTableServices.asmx/GetStudentDetail',
+        method: 'POST',
+        dataType: 'json',
+        success: function (data) {
+            $('#DatatableStudents').dataTable({
+
+                //set the "show entries" select list
+                "aLengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
+                "iDisplayLength": 5,
+
+                //fetch the data
+                data: data,
+
+                columns: [
+                    {
+                        'data': 'StudentId',
+                        'sortable': true,
+                        'searcbale': true
+                    },
+                    {
+                        'data': 'FullName',
+                        'sortable': false,
+                        'searchable': true,
+                    },
+                    {
+                        'data': 'EnrollmentNo',
+                        'sortable': false,
+                        'searchable': true,
+                    },
+                    {
+                        'data': 'AvatarPath',
+                        'sortable': false,
+                        'searchable': false,
+                        'render': function (Avatar) {
+                            if (Avatar.length == 0) {
+                                return "No Image";
+                            } else {
+                                var btn = '<img src="' + Avatar + '" style="height:50px;width:50px;"/>';
+                                return btn;
+                            }
+                        }
+                    },
+                    {
+                        'data': 'ThumbPath',
+                        'sortable': false,
+                        'searchable': false,
+                        'render': function (Thumb) {
+                            if (Thumb.length == 0) {
+                                return "No Thumb Impression";
+                            } else {
+                                var btn = '<img src="' + Thumb + '" style="height:50px;width:50px;"/>';
+                                return btn;
+                            }
+                        }
+
+                    },
+                    //{
+                    //    'data': 'UserName',
+                    //    'searchable': true,
+                    //    'sortable':false
+                    //},
+                    //{
+                    //    'data': 'EmailId',
+                    //    'searchable': true,
+                    //    'sortable':false
+                    //},
+                    {
+                        'data': 'ContactNo',
+                        'searchable': true,
+                        'sortable': false
+                    },
+                     //{
+                     //    'data': 'ParentNo',
+                     //    'searchable': true,
+                     //    'sortable': false
+                     //},
+                    {
+                        'data': 'DeptName',
+                        'searchable': true,
+                        'sortable': true
+                    },
+                    {
+                        'data': 'SemId',
+                        'searchable': true,
+                        'sortable': false
+                    },
+                    {
+                        'data': 'StudentId',
+                        'sortable': false,
+                        'searchable': false,
+                        'render': function (data, type, row, meta) {
+                            var id = parseInt(row['StudentId']);
+                            var btn = '<div class="btn-group"><button type="button" class="btn btn-sm btn-success"><i class="fa fa-flash"></i>&nbsp;Actions</button><button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a class="links" href="StudentProfile.aspx?StudentId=' + id + '&action=view"><i class="fa fa-eye"></i>&nbsp;&nbsp;View</a></li><li onclick="fnn(\'' + row['FullName'] + '\')"><a class="links" href="#" data-toggle="modal" data-target="#DeleteFacultyModal"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li><li><a class="links" href="StudentProfile.aspx?StudentId=' + id + '&action=edit"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li></ul></div> ';
+                            return btn;
+                        }
+                    },
+
+                ]
+            });
+
+
+        }
+
+    });
+}
+
 
 
 /*
@@ -335,6 +444,32 @@ function ConfirmFacultyRequest() {
     });
     return false;
 }
+
+
+/*
+* Function : Confirms the Student Registration Request
+*
+*/
+function ConfirmStudentRequest() {
+    var student_id = parseInt($.trim($("[id*=hf_stud_id]").val()));
+    $.ajax({
+        type: "POST",
+        url: "WebMethods/Student.asmx/ConfirmRequest",
+        data: '{UserId:"' + student_id + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (r) {
+            $("#RequestConfirmModal").modal("show", { keyboard: true });
+            //alert(r);
+        },
+        error: function (r) {
+            alert(r.responseText);
+        }
+    });
+    return false;
+}
+
+
 
 
 

@@ -12,6 +12,7 @@ namespace oes.admin
         protected void Page_Load(object sender, EventArgs e)
         {
             Session.Abandon();
+            Response.Cookies["admin_id"].Expires = DateTime.Now.AddDays(-1);
             Response.Redirect("Login.aspx?eid=1");
         }
     }
