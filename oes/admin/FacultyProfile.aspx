@@ -25,8 +25,9 @@
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6" style="text-align: right;">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-primary" onclick="javascript:window.print(this);" title="Print your Profile.">Print</button>
-                            <button type="button" class="btn btn-primary" onclick="javascript:location.reload(true);" title="Refresh the Page.">Refresh</button>
+                            <button type="button" class="btn btn-primary links" onclick="javascript:window.print(this);" title="Print your Profile.">Print</button>
+                            <button type="button" class="btn btn-primary links" onclick="javasscript:window.open('FacultyProfile.aspx?FacultyId=<%=Convert.ToInt16(Request.QueryString[0])%>&action=edit','DashboardContentFrame');" title="Edit this Profile.">Edit</button>
+                            <button type="button" class="btn btn-primary links" onclick="javascript:location.reload(true);" title="Refresh the Page.">Refresh</button>
                         </div>
                     </div>
                 </div>
@@ -38,7 +39,7 @@
                             <div class="panel panel-primary">
                                 <div class="panel-heading"><strong>Profile Picture</strong></div>
                                 <div class="panel-body" style="text-align: center;">
-                                    <asp:Image ID="UserAvatar" runat="server" Height="100" Width="100" />
+                                    <asp:Image ID="UserAvatar" runat="server" Height="100" Width="100" AlternateText="User Profile Picture"/>
                                 </div>
                             </div>
                         </asp:Panel>
@@ -46,7 +47,7 @@
                             <div class="panel panel-primary">
                                 <div class="panel-heading"><strong>Profile Picture</strong></div>
                                 <div class="panel-body" style="text-align: center;">
-                                    <asp:Image ID="UserAvatarEdit" runat="server" Height="200" Width="200" BorderStyle="Solid" BorderWidth="1" BorderColor="Black"/>
+                                    <asp:Image ID="UserAvatarEdit" runat="server" Height="200" Width="200" BorderStyle="Solid" BorderWidth="1" BorderColor="Black" AlternateText="User Profile Picture"/>
                                 </div>
                                 <div class="panel-footer">
                                     <asp:Button ID="btnUpload" runat="server" Text="Upload New" CssClass="btn btn-warning" Font-Bold="true"/>

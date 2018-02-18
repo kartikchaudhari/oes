@@ -382,16 +382,42 @@ border-radius:4px;
 .panel-rbrown > a { color: #BC8F8F; }
 /***********************************************************************/
 
-/*****************************darkslategray tile******************************/
-/*.panel-dsg { border-color: #2F4F4F; }
-.panel-dsg > .panel-heading { color: white; background-color: #2F4F4F;}
-.panel-dsg > a { color: #2F4F4F; }*/
-/***********************************************************************/
+
 
 /*****************************darkslategray tile******************************/
 .panel-dsg { border-color: #E80000; }
 .panel-dsg > .panel-heading { color: white; background-color: #E80000;}
 .panel-dsg > a { color: #E80000; }
+/***********************************************************************/
+
+/*****************************MediumVioletRed  tile******************************/
+.panel-mvr { border-color: #C71585; }
+.panel-mvr > .panel-heading { color: white; background-color:#C71585;}
+.panel-mvr > a { color:#C71585; }
+/***********************************************************************/
+
+/*****************************PureRed  tile******************************/
+.panel-pr { border-color:#FF0000; }
+.panel-pr > .panel-heading { color: white; background-color:#FF0000;}
+.panel-pr > a { color:#FF0000; }
+/***********************************************************************/
+
+/*****************************MidnightBlue  tile******************************/
+.panel-mnb { border-color:#191970; }
+.panel-mnb > .panel-heading { color: white; background-color:#191970;}
+.panel-mnb > a { color:#191970; }
+/***********************************************************************/
+
+/*****************************Fuchsia  tile******************************/
+.panel-f { border-color:#DC143C; }
+.panel-f > .panel-heading { color: white; background-color:#DC143C;}
+.panel-f > a { color:#DC143C; }
+/***********************************************************************/
+
+/*****************************Black  tile******************************/
+.panel-b { border-color:#000000; }
+.panel-b > .panel-heading { color: white; background-color:#000000;}
+.panel-b > a { color:#000000; }
 /***********************************************************************/
 
 .editLinks {

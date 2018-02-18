@@ -104,10 +104,10 @@
                 <div class="tab-pane fade" id="view">
                     <h4>All Faculties</h4>
                     <hr />
-                    <table width="100%" id="DatatableStudents" class="table table-striped table-bordered table-hover">
+                    <table id="DatatableStudents" style="width:100%;table-layout: fixed;word-wrap:break-word;" class="table table-striped table-bordered table-hover" style="width: 650px;">
                         <thead>
                             <tr>
-                                <td align="center"><strong>ID</strong></td>
+                                <td width="2%"><strong>ID</strong></td>
                                 <td><strong>Student Name</strong></td>
                                 <td><strong>Enrollment No.</strong></td>
                                 <td><strong>Avatar</strong></td>
@@ -117,8 +117,8 @@
                                 <td><strong>Contact No.</strong></td>
                                 <%--<td><strong>Parent's Contact No.</strong></td>--%>
                                 <td><strong>Department</strong></td>
-                                <td><strong>Semester</strong></td>
-                                <td width="10%"><strong>Actions</strong></td>
+                                <td><strong style="width:40px;">Semester</strong></td>
+                                <td><strong>Actions</strong></td>
                             </tr>
                         </thead>
                     </table>

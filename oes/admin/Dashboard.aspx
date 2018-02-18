@@ -30,12 +30,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
                <a class="navbar-brand" style="padding-left:0px;padding-right:0px;padding-bottom:0px;padding-top:7.5px;" href="../Index.aspx">
                    <span><img src="../images/secure-test.png" style="height:50px;width:50px;"></span>
                     <span id="oes_title">Online Examination System</span>    
                </a>
-               
            </div>
            <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">

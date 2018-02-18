@@ -326,12 +326,12 @@ function StudentDatatable() {
 
                 //fetch the data
                 data: data,
-
-                columns: [
+                //"bAutoWidth": false,
+                "aoColumns": [
                     {
                         'data': 'StudentId',
                         'sortable': true,
-                        'searcbale': true
+                        'searcbale': true,
                     },
                     {
                         'data': 'FullName',
@@ -398,7 +398,8 @@ function StudentDatatable() {
                     {
                         'data': 'SemId',
                         'searchable': true,
-                        'sortable': false
+                        'sortable': false,
+                        'sWidth':'1%'
                     },
                     {
                         'data': 'StudentId',
