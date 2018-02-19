@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ExternelCss" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="page_contents" runat="server">
-    
     <form id="AddQuestions" runat="server">
         <!--breadcrumb start-->
         <div class="row-fluid">
@@ -23,15 +22,57 @@
             <div class="panel-heading panel-heading-custom-pages">
                 <i class="fa fa-question-circle fa-1x"></i>&nbsp;&nbsp;<span>Add Questions</span>
             </div>
-            <div class="panel-body">
-                <div class="panel panel-info">
-                  <div class="panel-body" style="padding:4px 4px;">
-                      <div class="col-md-4"><strong>Subject:</strong>&nbsp;&nbsp;<span>AJAVA</span></div>
-                      <div class="col-md-4"><strong>Semester:</strong>&nbsp;&nbsp;<span>6</span></div>
-                      <div class="col-md-4"><strong>Department:</strong>&nbsp;&nbsp;<span>Computer Engineering</span></div>
-                  </div>
+            <div class="panel-body"  style="padding-left:6px;padding-right:6px;">
+            <!-- has subject_id -->
+            <asp:Panel ID="hasSubjectId" runat="server" Visible="false">
+                <div class="panel-body">
+                    <div class="panel panel-info">
+                        <div class="panel-body" style="padding: 4px 4px;">
+                            <div class="col-md-4"><strong>Subject:</strong>&nbsp;&nbsp;<span>AJAVA</span></div>
+                            <div class="col-md-4"><strong>Semester:</strong>&nbsp;&nbsp;<span>6</span></div>
+                            <div class="col-md-4"><strong>Department:</strong>&nbsp;&nbsp;<span>Computer Engineering</span></div>
+                        </div>
+                    </div>
                 </div>
+            </asp:Panel>
 
+            <!-- no subject_id -->
+            <asp:Panel ID="NoSubjectId" runat="server" Visible="true">
+                <div class="panel-body">
+                    <div class="panel panel-info">
+                        <div class="panel-body" style="padding: 4px 4px;">
+                            <div class="col-md-4">
+                                <strong>Department:</strong>&nbsp;&nbsp;
+                                <asp:DropDownList ID="DepartmentDdl" runat="server">
+                                    <asp:ListItem>Computer Engineering</asp:ListItem>
+                                    <asp:ListItem>Civil Engineering</asp:ListItem>
+                                    <asp:ListItem>Mechanical Engineering</asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                            <div class="col-md-4">
+                                <strong>Semester:</strong>&nbsp;&nbsp;
+                                <asp:DropDownList ID="SemDdl" runat="server">
+                                    <asp:ListItem>1</asp:ListItem>
+                                    <asp:ListItem>2</asp:ListItem>
+                                    <asp:ListItem>3</asp:ListItem>
+                                    <asp:ListItem>4</asp:ListItem>
+                                    <asp:ListItem>5</asp:ListItem>
+                                    <asp:ListItem>6</asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                            <div class="col-md-4">
+                                <strong>Subject:</strong>&nbsp;&nbsp;
+                                <asp:DropDownList ID="SubjectDdl" runat="server">
+                                    <asp:ListItem>AJAVA</asp:ListItem>
+                                    <asp:ListItem>M.A.T</asp:ListItem>
+                                    <asp:ListItem>C.O.A</asp:ListItem>
+                                    <asp:ListItem>D.B.M.S</asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </asp:Panel>
                 <!-- question container -->
                 <div class="panel panel-info">
                     <div class="panel-heading"><strong style="font-size:16px;">Question</strong></div>
@@ -180,17 +221,9 @@
                 <!-- fill in the blanks container ends-->
                 <h4>Subject ID:<%Response.Write(Request.QueryString["subject_id"]); %></h4>
              </div>
-         </div>
-                
-        <div>
-            
         </div>
         <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-    </form>
-    </form>
-    </form>
-    </form>
     </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ExternalJs" runat="server">

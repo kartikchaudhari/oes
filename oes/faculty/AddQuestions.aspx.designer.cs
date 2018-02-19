@@ -13,6 +13,51 @@ namespace oes.faculty {
     public partial class AddQuestions {
         
         /// <summary>
+        /// hasSubjectId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel hasSubjectId;
+        
+        /// <summary>
+        /// NoSubjectId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel NoSubjectId;
+        
+        /// <summary>
+        /// DepartmentDdl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DepartmentDdl;
+        
+        /// <summary>
+        /// SemDdl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList SemDdl;
+        
+        /// <summary>
+        /// SubjectDdl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList SubjectDdl;
+        
+        /// <summary>
         /// Question control.
         /// </summary>
         /// <remarks>
