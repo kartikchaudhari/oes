@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/faculty/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="AddQuestions.aspx.cs" Inherits="oes.faculty.AddQuestions" %>
+﻿<%@ Page Title="Add Questions" Language="C#" MasterPageFile="~/faculty/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="AddQuestions.aspx.cs" Inherits="oes.faculty.AddQuestions" %>
 <%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ExternelCss" runat="server">
 </asp:Content>
@@ -28,202 +28,274 @@
                 <div class="panel-body">
                     <div class="panel panel-info">
                         <div class="panel-body" style="padding: 4px 4px;">
-                            <div class="col-md-4"><strong>Subject:</strong>&nbsp;&nbsp;<span>AJAVA</span></div>
-                            <div class="col-md-4"><strong>Semester:</strong>&nbsp;&nbsp;<span>6</span></div>
-                            <div class="col-md-4"><strong>Department:</strong>&nbsp;&nbsp;<span>Computer Engineering</span></div>
+                            <div class="col-md-4"><strong>Subject:</strong>&nbsp;&nbsp;<asp:Label ID="SubjectName" runat="server"></asp:Label></div>
+                            <div class="col-md-4"><strong>Semester:</strong>&nbsp;&nbsp;<asp:Label ID="SubjectSem" runat="server"></asp:Label></div>
+                            <div class="col-md-4"><strong>Department:</strong>&nbsp;&nbsp;<asp:Label ID="SubjectDept" runat="server"></asp:Label></div>
                         </div>
                     </div>
                 </div>
             </asp:Panel>
-
-            <!-- no subject_id -->
+            
+            <asp:ScriptManager ID="ScriptManager1" runat="server" ClientIDMode="Static"></asp:ScriptManager>
             <asp:Panel ID="NoSubjectId" runat="server" Visible="true">
-                <div class="panel-body">
-                    <div class="panel panel-info">
-                        <div class="panel-body" style="padding: 4px 4px;">
-                            <div class="col-md-4">
-                                <strong>Department:</strong>&nbsp;&nbsp;
-                                <asp:DropDownList ID="DepartmentDdl" runat="server">
-                                    <asp:ListItem>Computer Engineering</asp:ListItem>
-                                    <asp:ListItem>Civil Engineering</asp:ListItem>
-                                    <asp:ListItem>Mechanical Engineering</asp:ListItem>
-                                </asp:DropDownList>
-                            </div>
-                            <div class="col-md-4">
-                                <strong>Semester:</strong>&nbsp;&nbsp;
-                                <asp:DropDownList ID="SemDdl" runat="server">
-                                    <asp:ListItem>1</asp:ListItem>
-                                    <asp:ListItem>2</asp:ListItem>
-                                    <asp:ListItem>3</asp:ListItem>
-                                    <asp:ListItem>4</asp:ListItem>
-                                    <asp:ListItem>5</asp:ListItem>
-                                    <asp:ListItem>6</asp:ListItem>
-                                </asp:DropDownList>
-                            </div>
-                            <div class="col-md-4">
-                                <strong>Subject:</strong>&nbsp;&nbsp;
-                                <asp:DropDownList ID="SubjectDdl" runat="server">
-                                    <asp:ListItem>AJAVA</asp:ListItem>
-                                    <asp:ListItem>M.A.T</asp:ListItem>
-                                    <asp:ListItem>C.O.A</asp:ListItem>
-                                    <asp:ListItem>D.B.M.S</asp:ListItem>
-                                </asp:DropDownList>
+                <asp:UpdatePanel ID="UpDeptSemSubDdl" runat="server">
+                    <ContentTemplate>
+                        <div class="panel-body">
+                            <div class="panel panel-info">
+                                <div class="panel-body" style="padding: 4px 4px;">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <strong>Department:</strong>&nbsp;&nbsp;
+                                            <asp:DropDownList ID="DepartmentDdl" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DepartmentDdl_SelectedIndexChanged">
+                                                <asp:ListItem Text="--Select Department--" Value="0"></asp:ListItem>
+                                            </asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="rfValidatorDdlDept" runat="server" ErrorMessage="Please Select Department" Text="&nbsp;*" CssClass="ErrMsg" ControlToValidate="DepartmentDdl" InitialValue="0"></asp:RequiredFieldValidator>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <strong>Semester:</strong>&nbsp;&nbsp;
+                                            <asp:DropDownList ID="SemDdl" runat="server" AutoPostBack="true" OnSelectedIndexChanged="SemDdl_SelectedIndexChanged">
+                                                <asp:ListItem Text="-- Select Semester --" Value="0"></asp:ListItem>
+                                                <asp:ListItem Value="1">1</asp:ListItem>
+                                                <asp:ListItem Value="2">2</asp:ListItem>
+                                                <asp:ListItem Value="3">3</asp:ListItem>
+                                                <asp:ListItem Value="4">4</asp:ListItem>
+                                                <asp:ListItem Value="5">5</asp:ListItem>
+                                                <asp:ListItem Value="6">6</asp:ListItem>
+                                            </asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="rfValidatorDdlSem" runat="server" ErrorMessage="Please Select Semester" Text="&nbsp;*" ControlToValidate="SemDdl" CssClass="ErrMsg" InitialValue="0"></asp:RequiredFieldValidator>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <strong>Subject:</strong>&nbsp;&nbsp;
+                                            <asp:DropDownList ID="SubjectDdl" runat="server" AutoPostBack="true">
+                                                <asp:ListItem Text="--Select Sbject--" Value="0"></asp:ListItem>
+                                            </asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="rfValidatorDdlSubject" runat="server" ErrorMessage="Please Select Subject" Text="&nbsp;*" ControlToValidate="SubjectDdl" CssClass="ErrMsg" InitialValue="0"></asp:RequiredFieldValidator>
+                                        </div>
+                                    </div>
+                                    <asp:Panel ID="ErrMsgPanel" runat="server" Visible="true" CssClass="row" Style="padding-left: 4%; padding-top: 1%;">
+                                        <div class="col-md-4">
+                                            <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="ErrMsg" />
+                                        </div>
+                                    </asp:Panel>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="DepartmentDdl" />
+                        <asp:AsyncPostBackTrigger ControlID="SemDdl" />
+                    </Triggers>
+                </asp:UpdatePanel>
             </asp:Panel>
+                
                 <!-- question container -->
                 <div class="panel panel-info">
                     <div class="panel-heading"><strong style="font-size:16px;">Question</strong></div>
                     <div class="panel-body">
                         <CKEditor:CKEditorControl ID="Question" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
                         <br />
+                    </div>
+                </div>
+                
+                <asp:UpdatePanel ID="UpDatePanel" runat="server">
+                    <ContentTemplate>
                         <div class="col-md-8">
                             <strong>Question Type:</strong>
                             <asp:DropDownList ID="QuestionTypeDdl" runat="server" AutoPostBack="true" OnSelectedIndexChanged="QuestionTypeDdl_SelectedIndexChanged">
+                                <asp:ListItem Text="-- Select Question Type --" Value="0"></asp:ListItem>
                                 <asp:ListItem Text="Multiple Choice Question (M.C.Q - 4 Options)" Value="1"></asp:ListItem>
                                 <asp:ListItem Text="True or False (2 Options)" Value="2"></asp:ListItem>
                                 <asp:ListItem Text="Identify Picture" Value="3"></asp:ListItem>
-                                <asp:ListItem Text="Fill in the Blanks" Value="4"></asp:ListItem>     
+                                <asp:ListItem Text="Fill in the Blanks" Value="4"></asp:ListItem>
                             </asp:DropDownList>
                         </div>
+                        <br />
+                        <!-- question container ends -->
+
+                        <!-- mcq container starts -->
+                        <asp:Panel ID="mcq" runat="server" Visible="false">
+                            <!-- mcq-option-A -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Option A:</strong></div>
+                                <div class="panel-body">
+                                    <CKEditor:CKEditorControl ID="McqOptionA" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                </div>
+                            </div>
+
+                            <!-- mcq-option-B -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Option B:</strong></div>
+                                <div class="panel-body">
+                                    <CKEditor:CKEditorControl ID="McqOptionB" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                </div>
+                            </div>
+
+                            <!-- mcq-option-C -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Option C:</strong></div>
+                                <div class="panel-body">
+                                    <CKEditor:CKEditorControl ID="McqOptionC" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                </div>
+                            </div>
+
+                            <!-- mcq-option-D -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Option D:</strong></div>
+                                <div class="panel-body">
+                                    <CKEditor:CKEditorControl ID="McqOptionD" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                </div>
+                            </div>
+
+                            <!-- mcq-option-correct_ans -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Option D:</strong></div>
+                                <div class="panel-body">
+                                    <asp:DropDownList ID="DdlMcqCorrectAns" runat="server">
+                                        <asp:ListItem Value="1">Option A</asp:ListItem>
+                                        <asp:ListItem Value="2">Option B</asp:ListItem>
+                                        <asp:ListItem Value="3">Option C</asp:ListItem>
+                                        <asp:ListItem Value="4">Option D</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                        </asp:Panel>
+                        <!-- mcq container ends-->
+
+                        <!-- true or false container starts-->
+                        <asp:Panel ID="tf" runat="server" Visible="false">
+                            <!-- true or false option A-->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Choose Option A</strong></div>
+                                <div class="panel-body">
+                                    <asp:RadioButton ID="rbOptionATrue" runat="server" Text="True" GroupName="OptionA" />
+                                    <br />
+                                    <asp:RadioButton ID="rbOptionAFalse" runat="server" Text="False" GroupName="OptionA" />
+                                </div>
+                            </div>
+
+                            <!-- true or false option B -->
+                            <div class="panel panel-danger">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Choose Option B</strong></div>
+                                <div class="panel-body">
+                                    <asp:RadioButton ID="rbOptionBTrue" runat="server" Text="True" GroupName="OptionB" />
+                                    <br />
+                                    <asp:RadioButton ID="rbOptionBFalse" runat="server" Text="False" GroupName="OptionB" />
+                                </div>
+                            </div>
+
+                            <!-- true or false correct ans -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Correct Answer</strong></div>
+                                <div class="panel-body">
+                                    <asp:DropDownList ID="DdlTfCorrectAns" runat="server">
+                                        <asp:ListItem Value="1">Option A</asp:ListItem>
+                                        <asp:ListItem Value="2">Option B</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                        </asp:Panel>
+                        <!-- true or false container ends-->
+
+                        <!-- identify the picture container start-->
+                        <asp:Panel ID="ip" runat="server" Visible="false">
+                            <!-- itp-option-A -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Option A:</strong></div>
+                                <div class="panel-body">
+                                    <CKEditor:CKEditorControl ID="ItpOptionA" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                </div>
+                            </div>
+
+                            <!-- itp-option-B -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Option B:</strong></div>
+                                <div class="panel-body">
+                                    <CKEditor:CKEditorControl ID="ItpOptionB" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                </div>
+                            </div>
+
+                            <!-- itp-option-C -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Option C:</strong></div>
+                                <div class="panel-body">
+                                    <CKEditor:CKEditorControl ID="ItpOptionC" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                </div>
+                            </div>
+
+                            <!-- itp-option-D -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Option D:</strong></div>
+                                <div class="panel-body">
+                                    <CKEditor:CKEditorControl ID="ItpOptionD" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                </div>
+                            </div>
+
+                            <!-- mcq-option-correct_ans -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Option D:</strong></div>
+                                <div class="panel-body">
+                                    <asp:DropDownList ID="DdlItpCorrectAns" runat="server">
+                                        <asp:ListItem Value="1">Option A</asp:ListItem>
+                                        <asp:ListItem Value="2">Option B</asp:ListItem>
+                                        <asp:ListItem Value="3">Option C</asp:ListItem>
+                                        <asp:ListItem Value="4">Option D</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                        </asp:Panel>
+                        <!-- identify the picture container ends-->
+
+                        <!-- fill in the blanks container start-->
+                        <asp:Panel ID="fib" runat="server" Visible="false">
+                            <!-- fib-option-A -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Option A:</strong></div>
+                                <div class="panel-body">
+                                    <CKEditor:CKEditorControl ID="FibOptionA" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                </div>
+                            </div>
+
+                            <!-- fib-option-B -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Option B:</strong></div>
+                                <div class="panel-body">
+                                    <CKEditor:CKEditorControl ID="FibOptionB" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                </div>
+                            </div>
+
+                            <!-- fib-option-C -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Option C:</strong></div>
+                                <div class="panel-body">
+                                    <CKEditor:CKEditorControl ID="FibOptionC" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                </div>
+                            </div>
+
+                            <!-- fib-option-D -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 16px;"><strong>Option D:</strong></div>
+                                <div class="panel-body">
+                                    <CKEditor:CKEditorControl ID="FibOptionD" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
+                                </div>
+                            </div>
+                        </asp:Panel>
+                        <!-- fill in the blanks container ends-->
+                        <%--                <h4>Subject ID:<%Response.Write(Request.QueryString["subject_id"]); %></h4>--%>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="QuestionTypeDdl" />
+                    </Triggers>
+                </asp:UpdatePanel>
+            </div>
+
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-3">
+                        <asp:Button ID="btnSubmitQuestion" CssClass="btn btn-primary btn-block" runat="server" Text="Add Question" OnClick="btnSubmitQuestion_Click" />
                     </div>
                 </div>
-                <!-- question container ends -->
-
-                <!-- mcq container starts -->
-                <asp:Panel ID="mcq" runat="server" Visible="false">
-                    <!-- mcq-option-A -->
-                    <div class="panel panel-success">
-                        <div class="panel-heading" style="font-size:16px;"><strong>Option A:</strong></div>
-                        <div class="panel-body">
-                            <CKEditor:CKEditorControl ID="McqOptionA" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
-                        </div>
-                    </div>
-
-                    <!-- mcq-option-B -->
-                    <div class="panel panel-success">
-                        <div class="panel-heading" style="font-size:16px;"><strong>Option B:</strong></div>
-                        <div class="panel-body">
-                            <CKEditor:CKEditorControl ID="McqOptionB" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
-                        </div>
-                    </div>
-
-                    <!-- mcq-option-C -->
-                    <div class="panel panel-success">
-                        <div class="panel-heading" style="font-size:16px;"><strong>Option C:</strong></div>
-                        <div class="panel-body">
-                            <CKEditor:CKEditorControl ID="McqOptionC" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
-                        </div>
-                    </div>
-
-                    <!-- mcq-option-D -->
-                    <div class="panel panel-success">
-                        <div class="panel-heading" style="font-size:16px;"><strong>Option D:</strong></div>
-                        <div class="panel-body">
-                             <CKEditor:CKEditorControl ID="McqOptionD" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
-                        </div>
-                    </div>
-                </asp:Panel>
-                <!-- mcq container ends-->
-
-                <!-- true or false container starts-->
-                <asp:Panel ID="tf" runat="server" Visible="false">
-                    <!-- true or false option A-->
-                    <div class="panel panel-success">
-                        <div class="panel-heading" style="font-size:16px;"><strong>Option A</strong></div>
-                        <div class="panel-body">
-                             <CKEditor:CKEditorControl ID="TfOptionA" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
-                        </div>
-                    </div>
-
-                    <!-- true or false option B -->
-                    <div class="panel panel-danger">
-                        <div class="panel-heading" style="font-size:16px;"><strong>Option B</strong></div>
-                        <div class="panel-body">
-                            <CKEditor:CKEditorControl ID="TfOptionB" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
-                        </div>
-                    </div>
-                </asp:Panel>
-                <!-- true or false container ends-->
-
-                <!-- identify the picture container start-->
-                <asp:Panel ID="ip" runat="server" Visible="false">
-                    <!-- itp-option-A -->
-                    <div class="panel panel-success">
-                        <div class="panel-heading" style="font-size:16px;"><strong>Option A:</strong></div>
-                        <div class="panel-body">
-                            <CKEditor:CKEditorControl ID="ItpOptionA" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
-                        </div>
-                    </div>
-
-                    <!-- itp-option-B -->
-                    <div class="panel panel-success">
-                        <div class="panel-heading" style="font-size:16px;"><strong>Option B:</strong></div>
-                        <div class="panel-body">
-                            <CKEditor:CKEditorControl ID="ItpOptionB" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
-                        </div>
-                    </div>
-
-                    <!-- itp-option-C -->
-                    <div class="panel panel-success">
-                        <div class="panel-heading" style="font-size:16px;"><strong>Option C:</strong></div>
-                        <div class="panel-body">
-                            <CKEditor:CKEditorControl ID="ItpOptionC" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
-                        </div>
-                    </div>
-
-                    <!-- itp-option-D -->
-                    <div class="panel panel-success">
-                        <div class="panel-heading" style="font-size:16px;"><strong>Option D:</strong></div>
-                        <div class="panel-body">
-                             <CKEditor:CKEditorControl ID="ItpOptionD" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
-                        </div>
-                    </div>
-                </asp:Panel>
-                <!-- identify the picture container ends-->
-
-                <!-- fill in the blanks container start-->
-                <asp:Panel ID="fib" runat="server" Visible="false">
-                    <!-- fib-option-A -->
-                    <div class="panel panel-success">
-                        <div class="panel-heading" style="font-size:16px;"><strong>Option A:</strong></div>
-                        <div class="panel-body">
-                            <CKEditor:CKEditorControl ID="FibOptionA" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
-                        </div>
-                    </div>
-
-                    <!-- fib-option-B -->
-                    <div class="panel panel-success">
-                        <div class="panel-heading" style="font-size:16px;"><strong>Option B:</strong></div>
-                        <div class="panel-body">
-                            <CKEditor:CKEditorControl ID="FibOptionB" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
-                        </div>
-                    </div>
-
-                    <!-- fib-option-C -->
-                    <div class="panel panel-success">
-                        <div class="panel-heading" style="font-size:16px;"><strong>Option C:</strong></div>
-                        <div class="panel-body">
-                            <CKEditor:CKEditorControl ID="FibOptionC" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
-                        </div>
-                    </div>
-
-                    <!-- fib-option-D -->
-                    <div class="panel panel-success">
-                        <div class="panel-heading" style="font-size:16px;"><strong>Option D:</strong></div>
-                        <div class="panel-body">
-                             <CKEditor:CKEditorControl ID="FibOptionD" BasePath="ckeditor/" runat="server"></CKEditor:CKEditorControl>
-                        </div>
-                    </div>
-                </asp:Panel>
-                <!-- fill in the blanks container ends-->
-                <h4>Subject ID:<%Response.Write(Request.QueryString["subject_id"]); %></h4>
-             </div>
+            </div>
         </div>
-        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ExternalJs" runat="server">

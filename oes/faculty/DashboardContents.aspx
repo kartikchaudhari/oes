@@ -63,29 +63,6 @@
                     </a>
                 </div>
             </div>
-         <%--   <div class="col-lg-3 col-md-3">
-                <div class="panel panel-pr">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-group fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">
-                                    <asp:Label ID="lbl_faculties" runat="server"></asp:Label></div>
-                                <div>Faculties</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="links" href="Faculties.aspx" target="DashboardContentFrame" title="Faculties">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>--%>
             <div class="col-lg-3 col-md-3">
                 <div class="panel panel-pr">
                     <div class="panel-heading">
@@ -109,8 +86,6 @@
                     </a>
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-lg-3 col-md-3">
                 <div class="panel panel-b">
                     <div class="panel-heading">
@@ -120,7 +95,7 @@
                             </div>
                              <div class="col-xs-9 text-right">
                                 <div class="huge">
-                                    <asp:Label ID="Label1" runat="server"></asp:Label></div>
+                                    <asp:Label ID="Label2" runat="server"></asp:Label></div>
                                 <div>Question Bank</div>
                             </div>
                         </div>
@@ -134,6 +109,8 @@
                     </a>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-lg-3 col-md-3">
                 <div class="panel panel-maroon">
                     <div class="panel-heading">

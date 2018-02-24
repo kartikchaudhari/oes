@@ -53,5 +53,19 @@ namespace oes.App_Code
             return NumRows;
         }
 
+        public string FetchDeptById(string DeptId)
+        {
+            String DeptName = null;
+            using (SqlCommand cmd = new SqlCommand("SELECT dept_name FROM department WHERE dept_id=" + DeptId, db.DbConnect()))
+            {
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    return DeptName = rdr["dept_name"].ToString();
+                }
+                return DeptName;
+            }
+        }
+
     }
 }

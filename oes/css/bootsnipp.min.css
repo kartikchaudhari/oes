@@ -1,0 +1,49 @@
+/*! * Ladda * http://lab.hakim.se/ladda * MIT licensed * * Copyright (C) 2014 Hakim El Hattab, http://hakim.se */
+.animate{
+    -webkit-transition:all .3s ease-in-out;
+    -moz-transition:all .3s ease-in-out;
+    -o-transition:all .3s ease-in-out;
+    -ms-transition:all .3s ease-in-out;
+    transition:all .3s ease-in-out;
+    text-decoration:none;
+
+}
+.animbrand a::after,.animbrand a::before{
+    display:inline-block;
+    opacity:0;
+    -webkit-transition:-webkit-transform .3s,opacity .2s;
+    -moz-transition:-moz-transform .3s,opacity .2s;
+    transition:transform .3s,opacity .2s;
+    color:white;
+    font-size:22px;
+    line-height:20px;
+    text-decoration:none;
+}
+.animbrand a::before{
+    margin-right:3px;
+    content:'<';
+    -webkit-transform:translateX(50px);
+    -moz-transform:translateX(50px);
+    transform:translateX(50px);
+    text-decoration:none;
+}
+.animbrand a::after{
+    margin-left:3px;
+    content:'>';
+    -webkit-transform:translateX(-50px);
+    -moz-transform:translateX(-50px);
+    transform:translateX(-50px);
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration:none;
+}
+.animbrand a:focus::after,.animbrand a:focus::before,.animbrand a:hover::after,.animbrand a:hover::before{
+    opacity:1;
+    -webkit-transform:translateX(0);
+    -moz-transform:translateX(0);
+    transform:translateX(0);
+    text-decoration:none;
+}
+ 

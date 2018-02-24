@@ -63,7 +63,6 @@
 
     <div id="wrapper">
         <!-- Sidebar -->
-        <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
                 <li style="border:2px solid red;border-radius:4px;">
@@ -100,9 +99,14 @@
                             <i class="fa fa-male fa-stack-1x"></i></span>Students</a>
                 </li>
                 <li>
-                    <a class="links" href="QuestionBank.aspx" target="DashboardContentFrame">
+                    <a href="#">
                         <span class="fa-stack fa-lg pull-left">
                             <i class="fa fa-question-circle fa-stack-1x"></i></span>Question Bank</a>
+                    <ul class="nav-pills nav-stacked collapse in" style="list-style-type: none;" aria-expanded="true">
+                        <li><a class="links" href="AddQuestions.aspx" target="DashboardContentFrame" style="padding-left:25%;" title="Add Questions to Question Bank">Add Questions</a></li>
+                        <li><a class="links" href="ManageQuestions.aspx" target="DashboardContentFrame" style="padding-left:25%;" title="Manage Question Bank Questions">Manage Questions</a></li>
+                        <li><a class="links" href="Pictures.aspx" target="_blank" style="padding-left:25%;" title="Manage Question Pictures">Question Pictures</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a class="links" href="Exams.aspx" target="DashboardContentFrame">
@@ -124,19 +128,18 @@
                         <span class="fa-stack fa-lg pull-left">
                             <i class="fa fa-cogs fa-stack-1x"></i></span>System Settings</a>
                 </li>--%>
-                <%--<li>
+                <li>
                     <a class="links" href="Logs.aspx" target="DashboardContentFrame">
                         <span class="fa-stack fa-lg pull-left">
                             <i class="fa fa-list-alt fa-stack-1x"></i></span>Logs <span class="fa arrow"></span>
-                    </a>--%>
-                    <%--<ul class="nav-pills nav-stacked" style="list-style-type: none;">
+                    </a>
+                    <ul class="nav-pills nav-stacked" style="list-style-type: none;">
                         <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x"></i></span>link1</a></li>
                         <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x"></i></span>link2</a></li>
-                    </ul>--%>
+                    </ul>
                 </li>
             </ul>
         </div>
-        <!-- /#sidebar-wrapper -->
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->

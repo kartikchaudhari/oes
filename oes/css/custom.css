@@ -436,3 +436,88 @@ border-radius:4px;
     padding-bottom:0px;
     padding-top:0px;
 }
+
+.ErrMsg {
+    color:red;
+    font-weight:bold;
+}
+
+/*************************** sample panel colors styles start*****************************/
+/*
+    See Bootflat Documentation :- Color Swatches section for color preview
+*/
+
+/*****************************BLUE JEANS one******************************/
+.panel-bj-one { border-color:#5D9CEC; }
+.panel-bj-one > .panel-heading { color: white; background-color:#5D9CEC;}
+.panel-bj-one > a { color:#5D9CEC; }
+/***********************************************************************/
+
+/*****************************BLUE JEANS Two******************************/
+.panel-bj-two { border-color:#4A89DC; }
+.panel-bj-two > .panel-heading { color: white; background-color:#4A89DC;}
+.panel-bj-two > a { color:#4A89DC; }
+/***********************************************************************/
+
+/*****************************Lavender once******************************/
+.panel-lv-one { border-color:#AC92EC; }
+.panel-lv-one > .panel-heading { color: white; background-color:#AC92EC;}
+.panel-lv-one > a { color:#AC92EC; }
+/***********************************************************************/
+
+/*****************************Lavender Two******************************/
+.panel-bj-two { border-color:#967ADC; }
+.panel-bj-two > .panel-heading { color: white; background-color:#967ADC;}
+.panel-bj-two > a { color:#967ADC; }
+/***********************************************************************/
+
+/*****************************BITTERSWEET once******************************/
+.panel-bs-one { border-color:#FC6E51; }
+.panel-bs-one > .panel-heading { color: white; background-color:#FC6E51;}
+.panel-bs-one > a { color:#FC6E51; }
+/***********************************************************************/
+
+/*****************************BITTERSWEET Two******************************/
+.panel-bs-two { border-color:#E9573F; }
+.panel-bs-two > .panel-heading { color: white; background-color:#E9573F;}
+.panel-bs-two > a { color:#E9573F; }
+/***********************************************************************/
+
+
+/*.animate {
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.animbrand a::before {
+    margin-right: 3px;
+    content: '<';
+    -webkit-transform: translateX(50px);
+    -moz-transform: translateX(50px);
+    transform: translateX(50px);
+    display: inline-block;
+    opacity: 0;
+    -webkit-transition: -webkit-transform .3s,opacity .2s;
+    -moz-transition: -moz-transform .3s,opacity .2s;
+    transition: transform .3s,opacity .2s;
+    font-size: 22px;
+    line-height: 16px;
+}
+
+.animbrand a::after {
+    margin-left: 3px;
+    content: '>';
+    -webkit-transform: translateX(-50px);
+    -moz-transform: translateX(-50px);
+    transform: translateX(-50px);
+    display: inline-block;
+    opacity: 0;
+    transition: transform .3s,opacity .2s;
+    font-size: 22px;
+    line-height: 16px;
+}
+
+
+}*/

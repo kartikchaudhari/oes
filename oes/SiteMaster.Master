@@ -11,11 +11,14 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/custom.css" rel="stylesheet" />
     <link href="css/progress-bar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/bootsnipp.min.css" />
     <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
 
     <!-- jquery and progressbar-->
     <script src="js/vendor.min.js"></script>
     <script src="js/progress-bar.js"></script>
+    <script src="js/bootsnip.scripts.min.js"></script>
+    
 </head>
 
 <body style="background-color: #EAEDF1;">
@@ -29,10 +32,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" style="padding-left:0px;padding-right:0px;padding-bottom:0px;padding-top:3px;" href="../Index.aspx">
+                <span class="navbar-brand" style="padding-left:0px;padding-right:0px;padding-bottom:0px;padding-top:3px;" href="../Index.aspx">
                     <span><img src="../images/secure-test.png" style="height:50px;width:50px;"></span>
-                    <span id="oes_title">Online Examination System</span>    
-                </a>
+                    <span class="animbrand">
+                        <a id="oes_title" class="animate" style="color:inherit;">Online Examination System</a>
+                    </span>    
+                </span>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">

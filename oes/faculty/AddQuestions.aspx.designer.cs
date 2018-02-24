@@ -22,6 +22,42 @@ namespace oes.faculty {
         protected global::System.Web.UI.WebControls.Panel hasSubjectId;
         
         /// <summary>
+        /// SubjectName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SubjectName;
+        
+        /// <summary>
+        /// SubjectSem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SubjectSem;
+        
+        /// <summary>
+        /// SubjectDept control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SubjectDept;
+        
+        /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
         /// NoSubjectId control.
         /// </summary>
         /// <remarks>
@@ -29,6 +65,15 @@ namespace oes.faculty {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel NoSubjectId;
+        
+        /// <summary>
+        /// UpDeptSemSubDdl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpDeptSemSubDdl;
         
         /// <summary>
         /// DepartmentDdl control.
@@ -40,6 +85,15 @@ namespace oes.faculty {
         protected global::System.Web.UI.WebControls.DropDownList DepartmentDdl;
         
         /// <summary>
+        /// rfValidatorDdlDept control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfValidatorDdlDept;
+        
+        /// <summary>
         /// SemDdl control.
         /// </summary>
         /// <remarks>
@@ -47,6 +101,15 @@ namespace oes.faculty {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList SemDdl;
+        
+        /// <summary>
+        /// rfValidatorDdlSem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfValidatorDdlSem;
         
         /// <summary>
         /// SubjectDdl control.
@@ -58,6 +121,33 @@ namespace oes.faculty {
         protected global::System.Web.UI.WebControls.DropDownList SubjectDdl;
         
         /// <summary>
+        /// rfValidatorDdlSubject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfValidatorDdlSubject;
+        
+        /// <summary>
+        /// ErrMsgPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ErrMsgPanel;
+        
+        /// <summary>
+        /// ValidationSummary1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        
+        /// <summary>
         /// Question control.
         /// </summary>
         /// <remarks>
@@ -65,6 +155,15 @@ namespace oes.faculty {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::CKEditor.NET.CKEditorControl Question;
+        
+        /// <summary>
+        /// UpDatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpDatePanel;
         
         /// <summary>
         /// QuestionTypeDdl control.
@@ -121,6 +220,15 @@ namespace oes.faculty {
         protected global::CKEditor.NET.CKEditorControl McqOptionD;
         
         /// <summary>
+        /// DdlMcqCorrectAns control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlMcqCorrectAns;
+        
+        /// <summary>
         /// tf control.
         /// </summary>
         /// <remarks>
@@ -130,22 +238,49 @@ namespace oes.faculty {
         protected global::System.Web.UI.WebControls.Panel tf;
         
         /// <summary>
-        /// TfOptionA control.
+        /// rbOptionATrue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKEditor.NET.CKEditorControl TfOptionA;
+        protected global::System.Web.UI.WebControls.RadioButton rbOptionATrue;
         
         /// <summary>
-        /// TfOptionB control.
+        /// rbOptionAFalse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKEditor.NET.CKEditorControl TfOptionB;
+        protected global::System.Web.UI.WebControls.RadioButton rbOptionAFalse;
+        
+        /// <summary>
+        /// rbOptionBTrue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbOptionBTrue;
+        
+        /// <summary>
+        /// rbOptionBFalse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbOptionBFalse;
+        
+        /// <summary>
+        /// DdlTfCorrectAns control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlTfCorrectAns;
         
         /// <summary>
         /// ip control.
@@ -193,6 +328,15 @@ namespace oes.faculty {
         protected global::CKEditor.NET.CKEditorControl ItpOptionD;
         
         /// <summary>
+        /// DdlItpCorrectAns control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlItpCorrectAns;
+        
+        /// <summary>
         /// fib control.
         /// </summary>
         /// <remarks>
@@ -238,21 +382,12 @@ namespace oes.faculty {
         protected global::CKEditor.NET.CKEditorControl FibOptionD;
         
         /// <summary>
-        /// Button1 control.
+        /// btnSubmitQuestion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button btnSubmitQuestion;
     }
 }
