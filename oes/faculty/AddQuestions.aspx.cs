@@ -147,6 +147,7 @@ namespace oes.faculty
             String OptC = null;
             String OptD = null;
             int CorrectAns;
+            int Marks;
             
             int QuestionType = Convert.ToInt16(QuestionTypeDdl.SelectedItem.Value);
             
@@ -158,7 +159,9 @@ namespace oes.faculty
                     OptC = Server.HtmlEncode(McqOptionC.Text);
                     OptD = Server.HtmlEncode(McqOptionD.Text);
                     CorrectAns = Convert.ToInt16(DdlMcqCorrectAns.SelectedItem.Value);
-                    InsertQuestionToDb(DeptId, SemId, SubjectId, QuestionType, Server.HtmlDecode(QuestionVar), Server.HtmlDecode(OptA), Server.HtmlDecode(OptB), Server.HtmlDecode(OptC), Server.HtmlDecode(OptD),CorrectAns);
+                    Marks = Convert.ToInt16(tbMarks.Text);
+                    InsertQuestionToDb(DeptId, SemId, SubjectId, QuestionType, Server.HtmlDecode(QuestionVar), Server.HtmlDecode(OptA), Server.HtmlDecode(OptB), Server.HtmlDecode(OptC), Server.HtmlDecode(OptD),CorrectAns,Marks);
+                        
                 break;
 
                 case 2:
@@ -173,13 +176,28 @@ namespace oes.faculty
                     else
                         OptB = Server.HtmlEncode(rbOptionBFalse.Text);
                         CorrectAns = Convert.ToInt16(DdlTfCorrectAns.SelectedItem.Value);
-                        InsertQuestionToDb(DeptId, SemId, SubjectId, QuestionType, Server.HtmlDecode(QuestionVar), Server.HtmlDecode(OptA), Server.HtmlDecode(OptB),"", "", CorrectAns);
+                        Marks = Convert.ToInt16(tbMarks.Text);
+                        InsertQuestionToDb(DeptId, SemId, SubjectId, QuestionType, Server.HtmlDecode(QuestionVar), Server.HtmlDecode(OptA), Server.HtmlDecode(OptB),"", "", CorrectAns,Marks);
                 break;
 
                 case 3:
+                    OptA = Server.HtmlEncode(ItpOptionA.Text);
+                    OptB = Server.HtmlEncode(ItpOptionB.Text);
+                    OptC = Server.HtmlEncode(ItpOptionC.Text);
+                    OptD = Server.HtmlEncode(ItpOptionD.Text);
+                    CorrectAns = Convert.ToInt16(DdlItpCorrectAns.SelectedItem.Value);
+                    Marks = Convert.ToInt16(tbMarks.Text);
+                    InsertQuestionToDb(DeptId, SemId, SubjectId, QuestionType, Server.HtmlDecode(QuestionVar), Server.HtmlDecode(OptA), Server.HtmlDecode(OptB), Server.HtmlDecode(OptC), Server.HtmlDecode(OptD), CorrectAns,Marks);
                 break;
 
                 case 4:
+                    OptA = Server.HtmlEncode(FibOptionA.Text);
+                    OptB = Server.HtmlEncode(FibOptionB.Text);
+                    OptC = Server.HtmlEncode(FibOptionC.Text);
+                    OptD = Server.HtmlEncode(FibOptionD.Text);
+                    CorrectAns = Convert.ToInt16(DdlFibCorrectAns.SelectedItem.Value);
+                    Marks = Convert.ToInt16(tbMarks.Text);
+                    InsertQuestionToDb(DeptId, SemId, SubjectId, QuestionType, Server.HtmlDecode(QuestionVar), Server.HtmlDecode(OptA), Server.HtmlDecode(OptB), Server.HtmlDecode(OptC), Server.HtmlDecode(OptD), CorrectAns,Marks);
                 break;
 
 
@@ -206,7 +224,7 @@ namespace oes.faculty
             }
         }
 
-        public void InsertQuestionToDb(int dept_id,int sem_id,int subject_id,int qtype,string question,string a,string b,string c,string d,int correct_ans){
+        public void InsertQuestionToDb(int dept_id,int sem_id,int subject_id,int qtype,string question,string a,string b,string c,string d,int correct_ans,int QMarks){
             using (SqlCommand cmd = new SqlCommand("AddQuestionToQBank", db.DbConnect()))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -220,6 +238,8 @@ namespace oes.faculty
                 cmd.Parameters.AddWithValue("@OptC", c);
                 cmd.Parameters.AddWithValue("@OptD", d);
                 cmd.Parameters.AddWithValue("@CorrectAns", correct_ans);
+                cmd.Parameters.AddWithValue("@Marks", QMarks);
+                
                 if (cmd.ExecuteNonQuery() != 0)
                 {
                     Response.Write("<script>alert('Question Added');</script>");
@@ -231,7 +251,7 @@ namespace oes.faculty
                 
             }
         }
-        public void InsertQuestionToDb(int dept_id, int sem_id, int subject_id, int qtype, string question, string a, string b, int correct_ans)
+        public void InsertQuestionToDb(int dept_id, int sem_id, int subject_id, int qtype, string question, string a, string b, int correct_ans,int QMarks)
         {
             using (SqlCommand cmd = new SqlCommand("AddQuestionToQBank", db.DbConnect()))
             {
@@ -244,6 +264,7 @@ namespace oes.faculty
                 cmd.Parameters.AddWithValue("@OptA", a);
                 cmd.Parameters.AddWithValue("@OptB", b);
                 cmd.Parameters.AddWithValue("@CorrectAns", correct_ans);
+                cmd.Parameters.AddWithValue("@Marks", QMarks);
                 if (cmd.ExecuteNonQuery() != 0)
                 {
                     Response.Write("<script>alert('Question Added');</script>");
@@ -256,5 +277,39 @@ namespace oes.faculty
 
             }
         }
+
+        public void ClearFields() {
+            Question.Text = "";
+            McqOptionA.Text = "";
+            McqOptionB.Text = "";
+            McqOptionC.Text = "";
+            McqOptionD.Text = "";
+
+            ItpOptionA.Text = "";
+            ItpOptionB.Text = "";
+            ItpOptionC.Text = "";
+            ItpOptionD.Text = "";
+
+
+            FibOptionA.Text = "";
+            FibOptionB.Text = "";
+            FibOptionC.Text = "";
+            FibOptionD.Text = "";
+
+
+            tbMarks.Text = "";
+
+        }
+
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+
+            string fileName = System.IO.Path.GetFileName(ExcelFileUpload.FileName);
+            ExcelFileUpload.SaveAs(Server.MapPath("~/images/") + fileName);
+            lblMsg.Text = "File Uploaded";
+            lblMsg.ForeColor = System.Drawing.Color.Green;
+            lblMsg.Font.Bold = true;
+        }
+
     }
 }

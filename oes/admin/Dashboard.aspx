@@ -11,7 +11,7 @@
     <!-- App Styling Bundle -->
     <link href="../css/bootstrap.beautified.css" rel="stylesheet" />
     <link href="../css/custom.css" rel="stylesheet" />
-    <link href="../css/simple-sidebar.css" rel="stylesheet" />
+    <link href="../css/sidebar.css" rel="stylesheet" />
     <link href="../css/progress-bar.css" rel="stylesheet" />
     <link rel="icon" type="../image/x-icon" href="images/favicon.ico" />
     
@@ -37,7 +37,7 @@
            </div>
            <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
+                    <li id="DropDownRight" class="dropdown">
                         <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown">
                             <asp:Image ID="user" CssClass="user-profile-img" runat="server" />&nbsp;<asp:Label ID="admin_name" runat="server"></asp:Label> <b class="caret"></b>
                         </a>
@@ -57,84 +57,120 @@
     </nav>
     <!--navbar_top/-->
 
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
-                <li style="border:2px solid red;border-radius:4px;">
-                    <strong>Time Left:</strong>&nbsp;<span id="countDown"></span><span>&nbsp;</span>
-                    
-                </li>
-                <li class="active">
-                    <a class="links" href="DashboardContents.aspx" target="DashboardContentFrame">
-                        <span class="fa fa-stack fa-lg pull-left">
-                            <i class="fa fa-dashboard fa-stack-1x"></i>
-                        </span>Dashboard</a>
-                </li>
-                <li>
-                    <a class="links" href="Departments.aspx" target="DashboardContentFrame">
-                        <span class="fa fa-stack fa-lg pull-left">
-                               <i class="fa fa-sitemap fa-fw fa-stack-1x"></i>
-                        </span>Departments</a>
-                </li>
-                <li>
-                    <a class="links" href="Subjects.aspx" target="DashboardContentFrame">
-                        <span class="fa-stack fa-lg pull-left">
-                            <i class="fa fa-book fa-stack-1x"></i>
-                        </span>Subjects<%--<span class="label label-danger" style="border-radius:10px;">5</span>--%></a>
-                </li>
-                <li>
-                    <a class="links" href="Faculties.aspx" target="DashboardContentFrame">
-                        <span class="fa-stack fa-lg pull-left">
-                            <i class="fa fa-group fa-stack-1x"></i>
-                        </span>Faculties</a>
-                </li>
-                <li>
-                    <a class="links" href="Students.aspx" target="DashboardContentFrame">
-                        <span class="fa-stack fa-lg pull-left">
-                            <i class="fa fa-male fa-stack-1x"></i></span>Students</a>
-                </li>
-                <li>
-                    <a class="links" href="QuestionBank.aspx" target="DashboardContentFrame">
-                        <span class="fa-stack fa-lg pull-left">
-                            <i class="fa fa-question-circle fa-stack-1x"></i></span>Question Bank</a>
-                </li>
-                <li>
-                    <a class="links" href="Exams.aspx" target="DashboardContentFrame">
-                        <span class="fa-stack fa-lg pull-left">
-                            <i class="fa fa-pencil  fa-stack-1x"></i></span>Exams</a>
-                </li>
-                <li>
-                    <a class="links" href="Results.aspx" target="DashboardContentFrame">
-                        <span class="fa-stack fa-lg pull-left">
-                            <i class="fa fa-trophy fa-stack-1x"></i></span>Results</a>
-                </li>
-                <li>
-                    <a class="links" href="Notifications.aspx" target="DashboardContentFrame">
-                        <span class="fa-stack fa-lg pull-left">
-                            <i class="fa fa-bell fa-stack-1x"></i></span>Notifications</a>
-                </li>
-                <li>
-                    <a class="links" href="SystemSettings.aspx" target="DashboardContentFrame">
-                        <span class="fa-stack fa-lg pull-left">
-                            <i class="fa fa-cogs fa-stack-1x"></i></span>System Settings</a>
-                </li>
-                <li>
-                    <a class="links" href="Logs.aspx" target="DashboardContentFrame">
-                        <span class="fa-stack fa-lg pull-left">
-                            <i class="fa fa-list-alt fa-stack-1x"></i></span>Logs <span class="fa arrow"></span>
-                    </a>
-                    <%--<ul class="nav-pills nav-stacked" style="list-style-type: none;">
-                        <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x"></i></span>link1</a></li>
-                        <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x"></i></span>link2</a></li>
-                    </ul>--%>
-                </li>
-            </ul>
-        </div>
+    <!-- page wrapper-->
+    <div class="wrapper">
         <!-- /#sidebar-wrapper -->
+        <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h4 id="CountDownHeader"><span class="TimeText">Time Left:&nbsp;</span><span id="countDown"></span></h4>
+                </div>
+                <ul class="list-unstyled components" id="menu">
+                    <li class="active">
+                        <a class="links" href="DashboardContents.aspx" target="DashboardContentFrame">
+                            <span class="fa fa-stack">
+                               <i class="fa fa-dashboard fa-fw fa-stack-1x"></i>
+                            </span>
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="links" href="Departments.aspx" target="DashboardContentFrame">
+                            <span class="fa fa-stack">
+                               <i class="fa fa-sitemap fa-fw fa-stack-1x"></i>
+                            </span>
+                            Departments
+                        </a>
+                    </li>
+                    <li>
+                        <a class="links" href="Subjects.aspx" target="DashboardContentFrame">
+                            <span class="fa fa-stack">
+                               <i class="fa fa-book fa-fw fa-stack-1x"></i>
+                            </span>
+                            Subjects&nbsp;&nbsp;
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a class="links" href="Faculties.aspx" target="DashboardContentFrame">
+                            <span class="fa fa-stack">
+                                <i class="fa fa-group fa-fw fa-stack-1x"></i>
+                            </span>
+                            Faculties&nbsp;&nbsp;
+                        </a>
+                    </li>
+                    <li>
+                        <a class="links" href="QuestionBank.aspx" target="DashboardContentFrame">
+                            <span class="fa fa-stack">
+                                <i class="fa fa-question-circle fa-fw fa-stack-1x"></i>
+                            </span>
+                            Questions
+                        </a>
+                    </li>
+                    <li>
+                        <a class="links" href="Exams.aspx" target="DashboardContentFrame">
+                            <span class="fa fa-stack">
+                                <i class="fa fa-pencil fa-fw fa-stack-1x"></i>
+                            </span>
+                            &nbsp;Exams&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </a>
+                    </li>
+                
+
+                    <li>
+                        <a class="links" href="Results.aspx" target="DashboardContentFrame">
+                            <span class="fa fa-stack">
+                                <i class="fa fa-trophy fa-fw fa-stack-1x"></i>
+                            </span>
+                            &nbsp;Results&nbsp;&nbsp;&nbsp;
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a class="links" href="Notifications.aspx" target="DashboardContentFrame">
+                            <span class="fa fa-stack">
+                                <i class="fa fa-bell fa-fw fa-stack-1x"></i>
+                            </span>
+                            Notifications
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a class="links" href="SystemSettings.aspx" target="DashboardContentFrame">
+                            <span class="fa fa-stack">
+                                <i class="fa fa-cogs fa-fw fa-stack-1x"></i>
+                            </span>
+                            Settings&nbsp;&nbsp;&nbsp;
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a class="my" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+                            <span class="fa-stack">
+                                <i class="fa fa-list-alt fa-stack-1x"></i></span> Logs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="caret"></b>
+                        </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li><a href="#">Home 1</a></li>
+                            <li><a href="#">Home 2</a></li>
+                            <li><a href="#">Home 3</a></li>
+                        </ul>
+                    </li>
+
+                    
+                    <li>
+                        <a href="#" id="sidebarCollapse">
+                               <span class="fa fa-stack">
+                                <i class="fa fa-chevron-circle-left fa-fw fa-stack-1x"></i>
+                            </span>
+                            Toggle Sidebar
+                            </a>
+                    </li>
+                </ul>
+            </nav>
 
         <!-- Page Content -->
-        <div id="page-content-wrapper" style="padding:8px;">
+        <div id="content" style="padding:8px;">
             <div class="embed-responsive embed-responsive-12by6">
                 <iframe id="DashBoardFrame" src="DashboardContents.aspx" name="DashboardContentFrame"></iframe>
             </div>
@@ -143,9 +179,22 @@
     </div>
 
     <!--javascripts -->
+    <script src="../js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>
-    <script src="../js/sidebar_menu.js"></script>
+   
     <script type="text/javascript">
+         $(document).ready(function () {
+             $('#sidebarCollapse').on('click', function () {
+                 $('#sidebar').toggleClass('active');
+                 $('.TimeText').toggleClass('HideData');
+             });
+
+                 $('#DropDownRight').on('click', function () {
+                     $('#DropDownRight').toggleClass('open');
+                 });
+
+             });
+        
         function Timer() {
             var timeout = '<%= Session.Timeout * 60 * 1000 %>';
             var timer = setInterval(function ()
@@ -176,9 +225,11 @@
                 t = two(min) + ":" + t;
 
 
-                return t + "<strong>&nbsp;minutes</strong>";
+                return t ;
             }
         }
+
+        PreventHrefJump();
     </script>
 </body>
 </html>

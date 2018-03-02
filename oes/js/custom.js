@@ -121,6 +121,29 @@ function ValidateEmail() {
 }
 
 
+// prevent href=# click jump
+function PreventHrefJump() {
+    document.addEventListener("DOMContentLoaded", function () {
+        var links = document.getElementsByTagName("A");
+        for (var i = 0; i < links.length; i++) {
+            if (links[i].href.indexOf('#') != -1) {
+                links[i].addEventListener("click", function (e) {
+                    console.debug("prevent href=# click");
+                    if (this.hash) {
+                        if (this.hash == "#") {
+                            e.preventDefault();
+                            return false;
+                        }
+                        else {
+                        }
+                    }
+                    return false;
+                })
+            }
+        }
+    }, false);
+}
+
 //add active class to clicked sidebar iteam
 $(function () {
     $('#menu a').filter(function () { return this.href == location.href }).parent().addClass('active').siblings().removeClass('active')

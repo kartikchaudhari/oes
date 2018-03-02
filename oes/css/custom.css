@@ -24,7 +24,7 @@
 }
 /*******************************************************************************/
 
-/****************************** Top Slide-In Overlay***************************/
+/****************************** Top Slidemint-In Overlay***************************/
 .container-top {
   position: relative;
   width: 100%;
@@ -459,6 +459,78 @@ border-radius:4px;
 .panel-bj-two > a { color:#4A89DC; }
 /***********************************************************************/
 
+/*****************************AQUA one******************************/
+.panel-aqua-one { border-color:#4FC1E9; }
+.panel-aqua-one > .panel-heading { color: white; background-color:#4FC1E9;}
+.panel-aqua-one > a { color:#4FC1E9; }
+/***********************************************************************/
+
+/*****************************AQUA Two******************************/
+.panel-aqua-two { border-color:#3BAFDA; }
+.panel-aqua-two > .panel-heading { color: white; background-color:#3BAFDA;}
+.panel-aqua-two > a { color:#3BAFDA; }
+/***********************************************************************/
+
+/*****************************mint one******************************/
+.panel-mint-one { border-color:#48CFAD; }
+.panel-mint-one > .panel-heading { color: white; background-color:#48CFAD;}
+.panel-mint-one > a { color:#48CFAD; }
+/***********************************************************************/
+
+/*****************************mint Two******************************/
+.panel-mint-two { border-color:#37BC9B; }
+.panel-mint-two > .panel-heading { color: white; background-color:#37BC9B;}
+.panel-mint-two > a { color:#37BC9B; }
+/***********************************************************************/
+
+/*****************************grass one******************************/
+.panel-grass-one { border-color:#A0D468; }
+.panel-grass-one > .panel-heading { color: white; background-color:#A0D468;}
+.panel-grass-one > a { color:#A0D468; }
+/***********************************************************************/
+
+/*****************************grass Two******************************/
+.panel-grass-two { border-color:#8CC152; }
+.panel-grass-two > .panel-heading { color: white; background-color:#8CC152;}
+.panel-grass-two > a { color:#8CC152; }
+/***********************************************************************/
+
+/*****************************sunflower one******************************/
+.panel-sf-one { border-color:#FFCE54; }
+.panel-sf-one > .panel-heading { color: white; background-color:#FFCE54;}
+.panel-sf-one > a { color:#FFCE54; }
+/***********************************************************************/
+
+/*****************************sunflower Two******************************/
+.panel-sf-two { border-color: #F6BB42; }
+.panel-sf-two > .panel-heading { color: white; background-color: #F6BB42;}
+.panel-sf-two > a { color: #F6BB42; }
+/***********************************************************************/
+
+/*****************************bittersweet one******************************/
+.panel-bs-one { border-color:#FC6E51; }
+.panel-bs-one > .panel-heading { color: white; background-color:#FC6E51;}
+.panel-bs-one > a { color:#FC6E51; }
+/***********************************************************************/
+
+/*****************************bittersweet Two******************************/
+.panel-bs-two { border-color: #E9573F; }
+.panel-bs-two > .panel-heading { color: white; background-color: #E9573F;}
+.panel-bs-two > a { color: #E9573F; }
+/***********************************************************************/
+
+/*****************************grapefruit one******************************/
+.panel-gf-one { border-color:#ED5565; }
+.panel-gf-one > .panel-heading { color: white; background-color:#ED5565;}
+.panel-gf-one > a { color:#ED5565; }
+/***********************************************************************/
+
+/*****************************grapefruit Two******************************/
+.panel-gf-two { border-color: #DA4453; }
+.panel-gf-two > .panel-heading { color: white; background-color: #DA4453;}
+.panel-gf-two > a { color: #DA4453; }
+/***********************************************************************/
+
 /*****************************Lavender once******************************/
 .panel-lv-one { border-color:#AC92EC; }
 .panel-lv-one > .panel-heading { color: white; background-color:#AC92EC;}
@@ -471,53 +543,19 @@ border-radius:4px;
 .panel-bj-two > a { color:#967ADC; }
 /***********************************************************************/
 
-/*****************************BITTERSWEET once******************************/
-.panel-bs-one { border-color:#FC6E51; }
-.panel-bs-one > .panel-heading { color: white; background-color:#FC6E51;}
-.panel-bs-one > a { color:#FC6E51; }
+
+
+
+
+
+/*******************bootflate style panel-sucess-green*******************/
+.panel-psg { border-color:#8cc152; }
+.panel-psg > .panel-heading { color: white; background-color:#8cc152;}
+.panel-psg > a { color:#8cc152; }
 /***********************************************************************/
 
-/*****************************BITTERSWEET Two******************************/
-.panel-bs-two { border-color:#E9573F; }
-.panel-bs-two > .panel-heading { color: white; background-color:#E9573F;}
-.panel-bs-two > a { color:#E9573F; }
-/***********************************************************************/
 
-
-/*.animate {
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-}
-.animbrand a::before {
-    margin-right: 3px;
-    content: '<';
-    -webkit-transform: translateX(50px);
-    -moz-transform: translateX(50px);
-    transform: translateX(50px);
-    display: inline-block;
-    opacity: 0;
-    -webkit-transition: -webkit-transform .3s,opacity .2s;
-    -moz-transition: -moz-transform .3s,opacity .2s;
-    transition: transform .3s,opacity .2s;
-    font-size: 22px;
-    line-height: 16px;
+.HideData {
+    display:none;
 }
 
-.animbrand a::after {
-    margin-left: 3px;
-    content: '>';
-    -webkit-transform: translateX(-50px);
-    -moz-transform: translateX(-50px);
-    transform: translateX(-50px);
-    display: inline-block;
-    opacity: 0;
-    transition: transform .3s,opacity .2s;
-    font-size: 22px;
-    line-height: 16px;
-}
-
-
-}*/

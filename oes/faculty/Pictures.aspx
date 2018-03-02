@@ -30,6 +30,7 @@
                 </div>                   
             </div>
             <div class="panel-body" style="padding-left: 6px; padding-right: 6px;">
+                <span><strong>Note :</strong>Click on "<strong>Thumbnail</strong>" to enlarge image.</span><br /> 
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
@@ -84,10 +85,22 @@
                 </div>
             </div>
         </div>
+
+        <!-- coped text alert-->
+        <div class="alert alert-success" id="TextCopedAlert">
+            <button type="button" class="close" data-dismiss="alert">X</button>
+            <strong>Image Url Copied</strong>
+        </div>
     </form>
     <script type="text/javascript">
+        var ImagePath;
         function AssignSrc(ImageSource) {
             EnlargedImage.src = ImageSource;
+            ImagePath = ImageSource;
+        }
+
+        function CopyUrl() {
+        
         }
     </script>
 </asp:Content>
