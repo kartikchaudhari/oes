@@ -966,6 +966,7 @@
     <Content Include="css\custom.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\jquery.dataTables.min.css" />
+    <Content Include="css\jquery.gritter.css" />
     <Content Include="css\select.dataTables.min.css" />
     <Content Include="css\sidebar.css" />
     <Content Include="faculty\AddQuestions.aspx" />
@@ -1827,6 +1828,11 @@
     <Content Include="Global.asax" />
     <Content Include="images\149071.png" />
     <Content Include="images\default.png" />
+    <Content Include="images\Green _Tick_ 2.png" />
+    <Content Include="images\gritter-light.png" />
+    <Content Include="images\gritter-long.png" />
+    <Content Include="images\gritter.png" />
+    <Content Include="images\ie-spacer.gif" />
     <Content Include="images\loading.gif" />
     <Content Include="images\sort_asc.png" />
     <Content Include="images\sort_asc_disabled.png" />
@@ -1872,11 +1878,13 @@
     <Content Include="js\custom.js" />
     <Content Include="js\FingerCapture.js" />
     <Content Include="js\jquery.form-validator.min.js" />
+    <Content Include="js\jquery.gritter.min.js" />
     <Content Include="js\json2.js" />
     <Content Include="js\jszip.min.js" />
     <Content Include="js\progress-bar.js" />
     <Content Include="js\sidebar_menu.js" />
     <Content Include="js\bootsnip.scripts.min.js" />
+    <Content Include="ProjectProgressPresentation.aspx" />
     <Content Include="SendBase64.asmx" />
     <Content Include="SidebarSample.aspx" />
     <Content Include="student\EnrollThumb.aspx" />
@@ -1887,6 +1895,22 @@
     <Content Include="TestBootstrap.html" />
     <Content Include="TestPage.aspx" />
     <Content Include="ThumbTest.aspx" />
+    <Content Include="TreeLineImages\dash.gif" />
+    <Content Include="TreeLineImages\dashminus.gif" />
+    <Content Include="TreeLineImages\dashplus.gif" />
+    <Content Include="TreeLineImages\i.gif" />
+    <Content Include="TreeLineImages\l.gif" />
+    <Content Include="TreeLineImages\lminus.gif" />
+    <Content Include="TreeLineImages\lplus.gif" />
+    <Content Include="TreeLineImages\minus.gif" />
+    <Content Include="TreeLineImages\noexpand.gif" />
+    <Content Include="TreeLineImages\plus.gif" />
+    <Content Include="TreeLineImages\r.gif" />
+    <Content Include="TreeLineImages\rminus.gif" />
+    <Content Include="TreeLineImages\rplus.gif" />
+    <Content Include="TreeLineImages\t.gif" />
+    <Content Include="TreeLineImages\tminus.gif" />
+    <Content Include="TreeLineImages\tplus.gif" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2228,6 +2252,13 @@
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectProgressPresentation.aspx.cs">
+      <DependentUpon>ProjectProgressPresentation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectProgressPresentation.aspx.designer.cs">
+      <DependentUpon>ProjectProgressPresentation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SendBase64.asmx.cs">

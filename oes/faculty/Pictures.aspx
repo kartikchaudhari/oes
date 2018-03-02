@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="Pictures" Language="C#" MasterPageFile="~/faculty/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="Pictures.aspx.cs" Inherits="oes.faculty.Pictures" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ExternelCss" runat="server">
+    <link rel="stylesheet" href="../css/jquery.gritter.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="page_contents" runat="server">
     <form id="MediaForm" runat="server">
@@ -8,6 +9,9 @@
             <ol class="breadcrumb bc-custom">
                 <li class="breadcrumb-item">
                     <a class="links" href="Dashboard.aspx">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a class="links">Questions</a>
                 </li>
                 <li class="breadcrumb-item">Pictures</li>
             </ol>
@@ -85,24 +89,38 @@
                 </div>
             </div>
         </div>
-
-        <!-- coped text alert-->
-        <div class="alert alert-success" id="TextCopedAlert">
-            <button type="button" class="close" data-dismiss="alert">X</button>
-            <strong>Image Url Copied</strong>
-        </div>
     </form>
     <script type="text/javascript">
-        var ImagePath;
         function AssignSrc(ImageSource) {
             EnlargedImage.src = ImageSource;
-            ImagePath = ImageSource;
         }
-
-        function CopyUrl() {
-        
-        }
+     
     </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ExternalJs" runat="server">
+    <script type="text/javascript" src="../js/jquery.gritter.min.js">
+
+    </script>
+    <script type="text/javascript">
+        function CopyUrl(textAreaId) {
+            document.getElementById("" + textAreaId + "").select();
+            document.execCommand('copy');
+            $.gritter.add({
+                // (string | mandatory) the heading of the notification
+                title: 'Image URL Copied!',
+                // (string | mandatory) the text inside the notification
+                text: 'The Image URL is successfully copied to clipboard.',
+                // (string | optional) the image to display on the left
+                image: '../images/Green _Tick_ 2.png',
+                // (bool | optional) if you want it to fade out on its own or just sit there
+                sticky: false,
+                // (int | optional) the time you want it to be alive for before fading out
+                time: 5000
+            });
+
+            return false;
+            
+        }
+    </script>
 </asp:Content>
+

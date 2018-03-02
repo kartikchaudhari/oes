@@ -100,6 +100,14 @@
                         </a>
                     </li>
                     <li>
+                        <a class="links" href="Students.aspx" target="DashboardContentFrame">
+                            <span class="fa fa-stack">
+                                <i class="fa fa-male fa-fw fa-stack-1x"></i>
+                            </span>
+                            Students&nbsp;&nbsp;
+                        </a>
+                    </li>
+                    <li>
                         <a class="links" href="QuestionBank.aspx" target="DashboardContentFrame">
                             <span class="fa fa-stack">
                                 <i class="fa fa-question-circle fa-fw fa-stack-1x"></i>

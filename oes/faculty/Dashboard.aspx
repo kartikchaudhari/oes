@@ -99,7 +99,7 @@
                             <span class="fa fa-stack">
                                 <i class="fa fa-male fa-fw fa-stack-1x"></i>
                             </span>
-                            Faculties&nbsp;&nbsp;
+                            Students&nbsp;&nbsp;
                         </a>
                     </li>
                     <li> <a class="my" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
