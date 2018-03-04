@@ -1821,10 +1821,12 @@
     <Content Include="faculty\ImportQuestions.aspx" />
     <Content Include="faculty\LoginViaUid.aspx" />
     <Content Include="faculty\Logout.aspx" />
+    <Content Include="faculty\ManageQuestions.aspx" />
     <Content Include="faculty\Pictures.aspx" />
     <Content Include="faculty\Students.aspx" />
     <Content Include="faculty\Subjects.aspx" />
     <Content Include="faculty\ViewQuestions.aspx" />
+    <Content Include="faculty\WebMethods\Questions.asmx" />
     <Content Include="Global.asax" />
     <Content Include="images\149071.png" />
     <Content Include="images\default.png" />
@@ -1887,6 +1889,7 @@
     <Content Include="ProjectProgressPresentation.aspx" />
     <Content Include="SendBase64.asmx" />
     <Content Include="SidebarSample.aspx" />
+    <Content Include="student\Countdown.aspx" />
     <Content Include="student\EnrollThumb.aspx" />
     <Content Include="student\Login.aspx" />
     <Content Include="student\QuestionPaper.aspx" />
@@ -2131,6 +2134,7 @@
     <Compile Include="faculty\AddQuestions.aspx.designer.cs">
       <DependentUpon>AddQuestions.aspx</DependentUpon>
     </Compile>
+    <Compile Include="faculty\Class\QuestionsClass.cs" />
     <Compile Include="faculty\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2194,6 +2198,13 @@
     <Compile Include="faculty\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="faculty\ManageQuestions.aspx.cs">
+      <DependentUpon>ManageQuestions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="faculty\ManageQuestions.aspx.designer.cs">
+      <DependentUpon>ManageQuestions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="faculty\Pictures.aspx.cs">
       <DependentUpon>Pictures.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2235,6 +2246,10 @@
     </Compile>
     <Compile Include="faculty\ViewQuestions.aspx.designer.cs">
       <DependentUpon>ViewQuestions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="faculty\WebMethods\Questions.asmx.cs">
+      <DependentUpon>Questions.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2278,6 +2293,13 @@
     </Compile>
     <Compile Include="SiteMaster.Master.designer.cs">
       <DependentUpon>SiteMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="student\Countdown.aspx.cs">
+      <DependentUpon>Countdown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="student\Countdown.aspx.designer.cs">
+      <DependentUpon>Countdown.aspx</DependentUpon>
     </Compile>
     <Compile Include="student\EnrollThumb.aspx.cs">
       <DependentUpon>EnrollThumb.aspx</DependentUpon>
@@ -2364,9 +2386,7 @@
   <ItemGroup>
     <Folder Include="admin\FacultyData\PdfDoc\" />
     <Folder Include="faculty\Avatar\" />
-    <Folder Include="faculty\Class\" />
     <Folder Include="faculty\QuestionImports\" />
-    <Folder Include="faculty\WebMethods\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

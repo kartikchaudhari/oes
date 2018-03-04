@@ -88,7 +88,7 @@ function ValidateFname() {
         alert("Invalid name length");
     }
 
-    var pattern = new RegExp("^[a-z\. ]+$");
+    var pattern = new RegExp("^[a-z\. ][A-Z\. ]+$");
     var return_value = pattern.exec(name);
     if (return_value == null) {
         alert("Please give valid name.");
@@ -493,6 +493,106 @@ function ConfirmStudentRequest() {
     return false;
 }
 
+//fetch all question in datatbales
+function QuestionsByDeptDatatable() {
+    //var dept_id = parseInt($.trim($("[id*=hf_dept_id]").val()));
+
+    $.ajax({
+        type: 'POST',
+        url: 'WebMethods/Questions.asmx/FetchAllQuestionsByDepartment',
+        data: '{:"' + dept_id + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: 'json',
+        success: function (data) {
+            $('#DatatableQuestionsByDept').dataTable({
+
+                //set the "show entries" select list
+                "aLengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
+                "iDisplayLength": 5,
+
+                data: data,
+
+                columns: [
+                    {
+                        'data': 'QuestionId',
+                        'sortable': true,
+                        'searcbale': true,
+                    },
+                    {
+                        'data': 'DepartmentName',
+                        'sortable': true,
+                        'searchable': true,
+                    },
+                    {
+                        'data': 'SemId',
+                        'sortable': true,
+                        'searchable': true,
+                    },
+                    {
+                        'data': 'SubjectName',
+                        'sortable': true,
+                        'searchable': true,
+                    },
+                    {
+                        'data': 'QuestionType',
+                        'sortable': true,
+                        'searchable': false,
+                    },
+                    {
+                        'data': 'Question',
+                        'sortable': false,
+                        'searchable': false,
+                    },
+                    {
+                        'data': 'OptionA',
+                        'sortable': false,
+                        'searchable': false,
+                    },
+                    {
+                        'data': 'OptionB',
+                        'sortable': false,
+                        'searchable': false,
+                    },
+
+                    {
+                        'data': 'OptionC',
+                        'sortable': false,
+                        'searchable': false,
+                    },
+                    {
+                         'data': 'OptionD',
+                         'sortable': false,
+                         'searchable': false,
+                    },
+                    {
+                        'data': 'CorrectAns',
+                        'sortable': false,
+                        'searchable': false,
+                    },
+                    {
+                        'data': 'Marks',
+                        'sortable': false,
+                        'searchable': false,
+                    },
+                    {
+                        'data': 'QuestionId',
+                        'sortable': false,
+                        'searchable': false,
+                        'render': function (data, type, row, meta) {
+                            var id = parseInt(row['QuestionId']);
+                            var btn = '<div class="btn-group"><button type="button" class="btn btn-sm btn-success"><i class="fa fa-flash"></i>&nbsp;Actions</button><button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a class="links" href="StudentProfile.aspx?StudentId=' + id + '&action=view"><i class="fa fa-eye"></i>&nbsp;&nbsp;View</a></li><li onclick="fnn(\'' + row['FullName'] + '\')"><a class="links" href="#" data-toggle="modal" data-target="#DeleteFacultyModal"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li><li><a class="links" href="StudentProfile.aspx?StudentId=' + id + '&action=edit"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li></ul></div> ';
+                            return btn;
+                        }
+                    },
+
+                ]
+            });
+
+
+        }
+
+    });
+}
 
 
 

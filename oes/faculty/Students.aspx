@@ -3,7 +3,6 @@
      <link rel="stylesheet" href="../css/jquery.dataTables.min.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="page_contents" runat="server">
-
         <form id="form1" runat="server">
             <!--breadcrumb start-->
         <div class="row-fluid">

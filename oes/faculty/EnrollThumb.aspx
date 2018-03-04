@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Enroll your Thumb Imression" Language="C#" MasterPageFile="~/faculty/RegisterLoginMaster.Master" AutoEventWireup="true" CodeBehind="EnrollThumb.aspx.cs" Inherits="oes.faculty.EnrollThumb" ClientIDMode="Static" %>
+﻿<%@ Page Title="Enroll your Thumb Imression" Language="C#" MasterPageFile="~/faculty/RegisterLoginMaster.Master" AutoEventWireup="true" CodeBehind="EnrollThumb.aspx.cs" Inherits="oes.faculty.EnrollThumb" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="active_class_links" runat="server">
      <li class="dropdown active">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registration <b class="caret"></b></a>
@@ -31,7 +31,7 @@
                 <div class="panel-footer">
                     <input id="btnScan" class="col-md-offset-5 btn btn-primary" value="Click to Scan" onclick="captureFP()" type="button" />             
                     <strong>&middot;</strong>
-                    <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success"  Text="Upload" OnClick="btnSubmit_Click"/>
+                    <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success"  Text="Upload" OnClick="btnSubmit_Click" disabled="true"/>
         <asp:Label ID="Label1" runat="server"></asp:Label>   
                 </div>
             </div>

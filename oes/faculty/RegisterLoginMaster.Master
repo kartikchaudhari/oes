@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="RegisterLoginMaster.master.cs" Inherits="oes.faculty.RegisterLoginMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="RegisterLoginMaster.master.cs" Inherits="oes.faculty.RegisterLoginMaster" ClientIDMode="Static" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">

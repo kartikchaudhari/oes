@@ -95,9 +95,11 @@
                                     <label for="pwd">Password:</label>
                                     <asp:TextBox ID="tbPass" runat="server" CssClass="form-control" TextMode="Password"  required="required"></asp:TextBox>
                                 </div>
+
                                 <div class="form-group">
                                     <asp:CheckBox ID="cbRemember" runat="server" Text="&nbsp;Remember Me" />
                                 </div>
+
                                 <div class="form-group">
                                     <asp:Button ID="btn_login" runat="server" Text="Login" CssClass="btn btn-success" OnClick="btn_login_Click"/>
                                     <strong>&nbsp;&middot;&nbsp;</strong>
