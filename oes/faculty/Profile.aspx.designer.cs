@@ -7,90 +7,108 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace oes.admin {
+namespace oes.faculty {
     
     
-    public partial class Settings {
+    public partial class Profile {
         
         /// <summary>
-        /// SystemSettingForm control.
+        /// ProfileForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm SystemSettingForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm ProfileForm;
         
         /// <summary>
-        /// lblSiteTitle control.
+        /// UserAvatar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSiteTitle;
+        protected global::System.Web.UI.WebControls.Image UserAvatar;
         
         /// <summary>
-        /// lblTagLine control.
+        /// UserThumb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTagLine;
+        protected global::System.Web.UI.WebControls.Image UserThumb;
         
         /// <summary>
-        /// SiteLogo control.
+        /// LblFname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image SiteLogo;
+        protected global::System.Web.UI.WebControls.Label LblFname;
         
         /// <summary>
-        /// lblCoyright control.
+        /// LblLname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCoyright;
+        protected global::System.Web.UI.WebControls.Label LblLname;
         
         /// <summary>
-        /// tbSiteTitle control.
+        /// LblEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbSiteTitle;
+        protected global::System.Web.UI.WebControls.Label LblEmail;
         
         /// <summary>
-        /// tbTagLine control.
+        /// LblUname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbTagLine;
+        protected global::System.Web.UI.WebControls.Label LblUname;
         
         /// <summary>
-        /// Image1 control.
+        /// LblPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Label LblPass;
         
         /// <summary>
-        /// lblCopyrightContent control.
+        /// lblContactNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lblCopyrightContent;
+        protected global::System.Web.UI.WebControls.Label lblContactNo;
+        
+        /// <summary>
+        /// lblDept control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDept;
+        
+        /// <summary>
+        /// lblAccountStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAccountStatus;
     }
 }

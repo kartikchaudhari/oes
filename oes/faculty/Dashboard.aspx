@@ -86,7 +86,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="links" href="Subjects.aspx" target="DashboardContentFrame">
+                        <a class="links" href="../admin/Subjects.aspx" target="DashboardContentFrame">
                             <span class="fa fa-stack">
                                <i class="fa fa-sitemap fa-fw fa-stack-1x"></i>
                             </span>
@@ -95,7 +95,7 @@
                     </li>
                     
                     <li>
-                        <a class="links" href="Students.aspx" target="DashboardContentFrame">
+                        <a class="links" href="../admin/Students.aspx" target="DashboardContentFrame">
                             <span class="fa fa-stack">
                                 <i class="fa fa-male fa-fw fa-stack-1x"></i>
                             </span>
@@ -112,14 +112,16 @@
                             <li><a class="links" href="Pictures.aspx" target="_blank" style="padding-left: 25%;" title="Manage Question Pictures">Question Pictures</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="links" href="Exams.aspx" target="DashboardContentFrame">
-                            <span class="fa fa-stack">
-                                <i class="fa fa-pencil fa-fw fa-stack-1x"></i>
-                            </span>
-                            &nbsp;Exams&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li> <a class="my" href="#ExamSubMenu" data-toggle="collapse" aria-expanded="false">
+                            <span class="fa-stack">
+                                <i class="fa fa-pencil fa-stack-1x"></i></span>&nbsp;&nbsp;Exams&nbsp;&nbsp;&nbsp;&nbsp;<b class="caret"></b>
                         </a>
+                        <ul class="collapse list-unstyled" id="ExamSubMenu">
+                            <li><a class="links" href="CreateExam.aspx" target="DashboardContentFrame" style="padding-left: 25%;" title="Create Exam">Create Exam</a></li>
+                            <li><a class="links" href="ManageExams.aspx" target="DashboardContentFrame" style="padding-left: 25%;" title="Manage Exams">Manage Exam</a></li>
+                        </ul>
                     </li>
+                    
                 
                     <li>
                         <a class="links" href="Results.aspx" target="DashboardContentFrame">

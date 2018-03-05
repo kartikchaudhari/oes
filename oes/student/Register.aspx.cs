@@ -26,7 +26,7 @@ namespace oes.student
                 try
                 {
                     SqlCommand cmd = new SqlCommand("SELECT dept_id,dept_name,dept_code FROM department", db.DbConnect());
-
+                    dept_ddl.AppendDataBoundItems = true;
                     dept_ddl.DataSource = cmd.ExecuteReader();
                     //text property of select list
                     dept_ddl.DataTextField = "dept_name"; 
@@ -42,21 +42,22 @@ namespace oes.student
             }
 
             /*************************** Client Side Form validation attributes*********************/
-            fname.Attributes.Add("onchange", "return ValidateFname();");
-            lname.Attributes.Add("onchange", "return ValidateLame();");
-            email.Attributes.Add("onchange", "return ValidateEmail()");
-            parent_contactno.Attributes.Add("onchange", "return ValidateContactNo(2);");
-            stud_contactno.Attributes.Add("onchange", "return ValidateContactNo(3);");
-            cpass.Attributes.Add("onchange", "return ValidatePassword();");
+            //fname.Attributes.Add("onchange", "return ValidateFname();");
+            //lname.Attributes.Add("onchange", "return ValidateLame();");
+            //email.Attributes.Add("onchange", "return ValidateEmail()");
+            //parent_contactno.Attributes.Add("onchange", "return ValidateContactNo(2);");
+            //stud_contactno.Attributes.Add("onchange", "return ValidateContactNo(3);");
+            //cpass.Attributes.Add("onchange", "return ValidatePassword();");
             /***************************************************************************************/
         }
 
         protected void submit_btn_Click(object sender, EventArgs e)
         {
-           using(db.DbConnect()){
+            using (db.DbConnect())
+            {
                 try
                 {
-                    SqlCommand StudRegCommand = new SqlCommand("INSERT INTO student(first_name,last_name,enrollment_no,username,password,sem_id,email,stud_contact,parent_contact,dept_id,reg_date,account_status) VALUES ('" + fname.Text + "','" + lname.Text + "','" + enrollment.Text + "','" + uname.Text + "','" + pass.Text + "','" + ddl_sem.SelectedValue + "','" + email.Text + "','" + stud_contactno.Text + "','" + parent_contactno.Text + "','" + dept_ddl.SelectedValue + "','" + DateTime.Now.ToString("yyyy-MM-dd h:m:s")+"',0)", db.DbConnect());
+                    SqlCommand StudRegCommand = new SqlCommand("INSERT INTO student(first_name,last_name,enrollment_no,username,password,sem_id,email,stud_contact,parent_contact,dept_id,reg_date,account_status) VALUES ('" + fname.Text + "','" + lname.Text + "','" + enrollment.Text + "','" + uname.Text + "','" + pass.Text + "','" + ddl_sem.SelectedItem.Value + "','" + email.Text + "','" + stud_contactno.Text + "','" + parent_contactno.Text + "','" + dept_ddl.SelectedItem.Value + "','" + DateTime.Now.ToString("yyyy-MM-dd h:m:s") + "',0)", db.DbConnect());
 
                     if (StudRegCommand.ExecuteNonQuery() == 1)
                     {
@@ -64,25 +65,24 @@ namespace oes.student
                         Response.Redirect("EnrollThumb.aspx");
 
                     }
-                    else {
-                        /*
-                         * array of textbox,
-                         * after the form submitted successfully all the textbox having following ids
-                         * are automatically cleared.
-                         */
+                    else
+                    {
                         TextBox[] tb = new TextBox[8] { fname, lname, enrollment, uname, pass, email, stud_contactno, parent_contactno };
                         fn.CleartextBoxes(tb);
-                        
+
                         lbl_msg.Text = "Error While Registration.";
                         lbl_msg.ForeColor = System.Drawing.Color.Red;
                     }
-                
+
                 }
-                catch (SqlException StudRegException) {
+                catch (SqlException StudRegException)
+                {
                     lbl_msg.Text = StudRegException.ToString();
                 }
-            
+
             }
+
+            //Response.Write(dept_ddl.SelectedItem.Value + "<br>" + ddl_sem.SelectedItem.Value);
         }
     }
 }

@@ -21,7 +21,8 @@ namespace oes.faculty
         {
             //block the page from getting cached
             Response.Cache.SetNoStore();
-            if (Session["id"] == null)
+            int UserType = Convert.ToInt16(Session["type"]);
+            if (Session["id"] == null && UserType == 2)
             {
                 Response.Redirect("Login.aspx?eid=1");
             }

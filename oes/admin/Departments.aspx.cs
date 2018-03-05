@@ -77,5 +77,17 @@ namespace oes.admin
 
             this.BindDeptRepeater();
         }
+        
+        protected void btnDeptUpdate_Click(object sender, EventArgs e)
+        {
+            
+            //using (SqlCommand cmd = new SqlCommand("UpdateDepartment", db.DbConnect())) {
+            //    cmd.CommandType = CommandType.StoredProcedure;
+                
+            //    cmd.Parameters.AddWithValue("");
+            //}
+        }
+
+        
     }
 }

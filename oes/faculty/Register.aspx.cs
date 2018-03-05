@@ -43,11 +43,11 @@ namespace oes.faculty
                 }
             }
       /*************************** Client Side Form validation attributes*********************/
-            fname.Attributes.Add("onchange", "return ValidateFname();");
-            lname.Attributes.Add("onchange", "return ValidateLame();");
-            email.Attributes.Add("onchange", "return ValidateEmail()");
-            contactno.Attributes.Add("onchange", "return ValidateContactNo(1);");
-            cpass.Attributes.Add("onchange", "return ValidatePassword();");
+            //fname.Attributes.Add("onchange", "return ValidateFname();");
+            //lname.Attributes.Add("onchange", "return ValidateLame();");
+            //email.Attributes.Add("onchange", "return ValidateEmail()");
+            //contactno.Attributes.Add("onchange", "return ValidateContactNo(1);");
+            //cpass.Attributes.Add("onchange", "return ValidatePassword();");
       /***************************************************************************************/
         }
 

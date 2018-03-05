@@ -7,13 +7,14 @@
         <div class="row-fluid">
             <ol class="breadcrumb bc-custom">
                 <li class="breadcrumb-item">
-                    <a class="links" href="Dashboard.aspx">Dashboard</a>
+                    <a class="links" href="#">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active">Departments</li>
             </ol>
         </div>
         <!--breadcrumb end-->
-          <button style="float: right; position: relative; margin-top: 14.5px; margin-right: 20px;" onclick="javascript:location.reload(true);">Refresh</button>
+
+         <button style="float: right; position: relative; margin-top: 14.5px; margin-right: 20px;" onclick="javascript:location.reload(true);">Refresh</button>
          <div class="panel panel-default">
              <div class="panel-heading panel-heading-custom-pages">
                  <i class="fa fa-edit fa-1x"></i>&nbsp;&nbsp;<span>Departments</span>

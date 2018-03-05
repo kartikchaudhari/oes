@@ -41,6 +41,7 @@ namespace oes.admin
                 if (score > 0)
                 {
                     Session["id"] = probe.Id.ToString();
+                    Session["type"] = 1;
                     Response.Redirect("Dashboard.aspx");
                 }
                 else

@@ -123,7 +123,7 @@
                         </thead>
                     </table>
 
-                    <!--delete faculty modal starts-->
+                    <!--delete student modal starts-->
                     <div class="modal fade" id="DeleteFacultyModal" role="dialog">
                         <div class="modal-dialog">
                             <div class="panel panel-dsg">
@@ -141,11 +141,84 @@
                             </div>
                         </div>
                     </div>
-                    <!--delete faculty modal ends -->
+                    <!--delete student modal ends -->
 
                 </div>
                 <!-- datatabls list faculties end-->
 
+                 <!-- add new faculty start-->    
+                    <div class="tab-pane fade" id="add">
+                       <h4>Add Student</h4>
+                       <hr />
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>First Name:</label>
+                                        <input maxlength="20" id="fname" class="form-control" required="required" type="text" style="width:400px;">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Last Name:</label>
+                                        <input maxlength="20" id="lname" class="form-control" required="required" type="text" style="width:400px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Username:</label>
+                                        <input maxlength="20" id="tbUname" class="form-control" required="required type="text" style="width:400px;">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Email ID:</label>
+                                        <input maxlength="20" id="tbEmail" class="form-control" required="required" type="email" style="width:400px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Password:</label>
+                                        <input maxlength="20" id="tbPassword" class="form-control" required="required" type="password" style="width:400px;">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Confirm Password</label>
+                                        <input maxlength="20" id="tbConfirmPass" class="form-control" required="required"  type="password" style="width:400px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Contact No.:</label>
+                                        <input maxlength="20" id="tbContact" class="form-control" required="required" type="tel" style="width: 400px;">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Select Department:</label>
+                                        <asp:DropDownList ID="ddl_dept" runat="server" CssClass="form-control" Style="width: 400px;"></asp:DropDownList>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <button id="btnAddFaculty" type="button" class="btn btn-md btn-success">Submit</button>
+                                        <strong>&nbsp;&middot;&nbsp;</strong>
+                                        <button type="reset" class="btn btn-md btn-danger">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- add new faculty end-->
 
             </div>
         </div>

@@ -11,6 +11,14 @@
             <li><a href="../faculty/Register.aspx">Faculty</a></li>
         </ul>
     </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="student/Login.aspx">Student</a></li>
+            <li><a href="faculty/Login.aspx">Faculty</a></li>
+            <li><a href="admin/Login.aspx">Administratior</a></li>
+        </ul>
+    </li>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content" runat="server">
@@ -21,7 +29,6 @@
             <div class="panel-body custom-body">
 
                 <form id="StudentRegisterForm" runat="server">
-
                     <!-- first name last name-->
                     <div class="row">
                         <div class="col-sm-5 form_controls_custom">
@@ -101,13 +108,16 @@
                        <div class="col-md-5 form_controls_custom">
                            <div class="input-group">
                                <label><strong>Department:</strong></label>
-                               <asp:DropDownList ID="dept_ddl" runat="server"></asp:DropDownList>
+                               <asp:DropDownList ID="dept_ddl" runat="server">
+                                   <asp:ListItem Value="NA" Text="---- Select Department ----"></asp:ListItem>
+                               </asp:DropDownList>
                            </div>
                        </div>
                        <div class="col-md-5 form_controls_custom">
                            <div class="input-group">
                                <label><strong>Semester:</strong></label>
                                <asp:DropDownList ID="ddl_sem" runat="server">
+                                   <asp:ListItem Value="NA" Text="---- Select Semester ----"></asp:ListItem>
                                    <asp:ListItem>1</asp:ListItem>
                                    <asp:ListItem>2</asp:ListItem>
                                    <asp:ListItem>3</asp:ListItem>
@@ -115,11 +125,17 @@
                                    <asp:ListItem>5</asp:ListItem>
                                    <asp:ListItem>6</asp:ListItem>
                                </asp:DropDownList> 
-                                
                            </div>
                        </div>
                     </div>
-
+                    <div class="row">
+                        <div class="col-md-5 form_controls_custom">
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Select Department" ForeColor="Red" Font-Bold="true" InitialValue="NA" ControlToValidate="dept_ddl"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="col-md-5 form_controls_custom">
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Select Semester" ForeColor="Red" Font-Bold="true" InitialValue="NA" ControlToValidate="ddl_sem" ></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
                    <!-- submit, reset -->
                    <div class="col-md-5 form_controls_custom">
                        <div class="input-group">

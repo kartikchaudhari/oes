@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="Login &colon;&colon; Faculty" Language="C#" MasterPageFile="~/faculty/RegisterLoginMaster.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="oes.faculty.Login" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="active_class_links" runat="server">
-    <li><a href="Index.aspx">Home</a></li>
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registration <b class="caret"></b></a>
         <ul class="dropdown-menu">
@@ -17,7 +16,6 @@
             <li><a href="../admin/Login.aspx">Administratior</a></li>
         </ul>
     </li>
-    <li><a href="Help.aspx">Help</a></li>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="main_content" runat="server">

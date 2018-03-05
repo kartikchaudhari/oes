@@ -20,7 +20,7 @@
             <div class="panel-body">
                 <%if (Request.QueryString.Count > 0)
                   {
-                      Response.Write("<div class='alert alert-success alert-dismissable'><a href='#' class='close' data-dismiss='alert' aria-label='close' title='Click to close this Message.'>&times;</a><strong>Brilliant!</strong> Department added successfully click <a class='links' href='Subjects.aspx?action=add' target='DashboardContentFrame'>here</a> to add Subjects to it.</div>");
+                      Response.Write("<div class='alert alert-success alert-dismissable'><a href='#' class='close' data-dismiss='alert' aria-label='close' title='Click to close this Message.'>&times;</a><strong>Brilliant!</strong> Department added successfully click <a class='links' href='Subjects.aspx' target='DashboardContentFrame'>here</a> to add Subjects to it.</div>");
                   }
                 %>
                 <!-- Nav tabs -->
@@ -64,7 +64,7 @@
                                             </td>
                                         </tr>
                                         <!-- Modal -->
-                                        <div id="EditDeptInfo_<%#Eval("dept_id")%>" class="modal fade" role="dialog">
+                                       <div id='EditDeptInfo_<%#Eval("dept_id")%>' class="modal fade" role="dialog">
                                             <div class="modal-dialog">
                                                 <!-- Modal content-->
                                                 <div class="modal-content">
@@ -75,7 +75,7 @@
                                                     <div class="modal-body">
                                                         <div class="form-group">
                                                             <label>Department Name:</label>
-                                                            <asp:TextBox ID="update_dept_name" runat="server" CssClass="form-control" TextMode="SingleLine" Text='<%#Eval("dept_name")%>'></asp:TextBox>
+                                                            <asp:TextBox ID="update_dept_name" runat="server" CssClass="form-control" TextMode="SingleLine" Text='<%#Eval("dept_name")%>' ClientIDMode="Static"></asp:TextBox>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Department Code:</label>
@@ -83,16 +83,18 @@
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
+                                                        <asp:Button ID="btnDeptUpdate" runat="server" Text="Update" CssClass="btn btn-success" OnClick="btnDeptUpdate_Click" />
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> 
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </tbody>
                         </table>
                     </div>
+                    
                     <div class="tab-pane fade" id="add">
                         <h4>Add a Department</h4>
                         <hr />

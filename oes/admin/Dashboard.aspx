@@ -107,21 +107,24 @@
                             Students&nbsp;&nbsp;
                         </a>
                     </li>
-                    <li>
-                        <a class="links" href="QuestionBank.aspx" target="DashboardContentFrame">
-                            <span class="fa fa-stack">
-                                <i class="fa fa-question-circle fa-fw fa-stack-1x"></i>
-                            </span>
-                            Questions
+                    <li> <a class="my" href="#QuestionSubMenu" data-toggle="collapse" aria-expanded="false">
+                            <span class="fa-stack">
+                                <i class="fa fa-question-circle fa-stack-1x"></i></span>&nbsp;&nbsp;Questions&nbsp;&nbsp;&nbsp;&nbsp;<b class="caret"></b>
                         </a>
+                        <ul class="collapse list-unstyled" id="QuestionSubMenu">
+                            <li><a class="links" href="../faculty/AddQuestions.aspx" target="DashboardContentFrame" style="padding-left: 25%;" title="Add Questions to Question Bank">Add Questions</a></li>
+                            <li><a class="links" href="../faculty/ManageQuestions.aspx" target="DashboardContentFrame" style="padding-left: 25%;" title="Manage Question Bank Questions">Manage Questions</a></li>
+                            <li><a class="links" href="../faculty/Pictures.aspx" target="_blank" style="padding-left: 25%;" title="Manage Question Pictures">Question Pictures</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a class="links" href="Exams.aspx" target="DashboardContentFrame">
-                            <span class="fa fa-stack">
-                                <i class="fa fa-pencil fa-fw fa-stack-1x"></i>
-                            </span>
-                            &nbsp;Exams&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li> <a class="my" href="#ExamSubMenu" data-toggle="collapse" aria-expanded="false">
+                            <span class="fa-stack">
+                                <i class="fa fa-pencil fa-stack-1x"></i></span>&nbsp;&nbsp;Exams&nbsp;&nbsp;&nbsp;&nbsp;<b class="caret"></b>
                         </a>
+                        <ul class="collapse list-unstyled" id="ExamSubMenu">
+                            <li><a class="links" href="../faculty/CreateExam.aspx" target="DashboardContentFrame" style="padding-left: 25%;" title="Create Exam">Create Exam</a></li>
+                            <li><a class="links" href="../faculty/ManageExams.aspx" target="DashboardContentFrame" style="padding-left: 25%;" title="Manage Exams">Manage Exam</a></li>
+                        </ul>
                     </li>
                 
 
@@ -144,19 +147,19 @@
                     </li>
                     
                     <li>
-                        <a class="links" href="SystemSettings.aspx" target="DashboardContentFrame">
-                            <span class="fa fa-stack">
-                                <i class="fa fa-cogs fa-fw fa-stack-1x"></i>
-                            </span>
-                            Settings&nbsp;&nbsp;&nbsp;
+                        <a class="my" href="#SettingsList" data-toggle="collapse" aria-expanded="false">
+                            <span class="fa-stack">
+                                <i class="fa fa-cogs fa-fw fa-stack-1x"></i></span>&nbsp;Settings&nbsp;&nbsp;&nbsp;<b class="caret"></b>
                         </a>
+                        <ul class="collapse list-unstyled" id="SettingsList">
+                            <li><a class="links" href="SystemSettings.aspx" target="DashboardContentFrame">System Settings</a></li>
+                            <li><a class="links" href="SmsSettings.aspx" target="DashboardContentFrame">SMS Settings</a></li>
+                        </ul>
                     </li>
-                    
-                    
                     <li>
                         <a class="my" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
                             <span class="fa-stack">
-                                <i class="fa fa-list-alt fa-stack-1x"></i></span> Logs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="caret"></b>
+                                <i class="fa fa-list-alt fa-stack-1x"></i></span>&nbsp;&nbsp;Logs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="caret"></b>
                         </a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li><a href="#">Home 1</a></li>

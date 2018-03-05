@@ -26,10 +26,10 @@ namespace oes.admin
             //if the user is already logged in 
             //then redirect him/her to dashboard page
 
-            if (Session["id"] != null)
-            {
-                Response.Redirect("Dashboard.aspx");
-            }
+            //if (Session["id"] != null )
+            //{
+            //    Response.Redirect("Dashboard.aspx");
+            //}
 
         }
 
@@ -56,6 +56,7 @@ namespace oes.admin
                     ////else
                     //{   
                         Session["id"] = dt.Rows[0]["admin_id"];
+                        Session["type"] = 1;
                         Response.Redirect("Dashboard.aspx");
                     //}
                 }

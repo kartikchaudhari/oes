@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="oes.admin.Login" ClientIDMode="Static" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginViaUid.aspx.cs" Inherits="oes.student.LoginViaUid" ClientIDMode="Static" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Online Examination system for Educational Organizations" />
     <meta name="keywords" content="Online examination system" />
-    <title>Login &colon;&colon; Administrator</title>
+    <title>Login &colon;&colon; Student</title>
 
     <!-- App Styling Bundle -->
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
@@ -20,16 +20,13 @@
     <nav class="navbar navbar-inverse custom-navbar">
         <div class="container-fluid">
             <div class="navbar-header">
+                <a class="navbar-brand" href="../Index.aspx">Online Examination System</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" style="padding-left:0px;padding-right:0px;padding-bottom:0px;padding-top:3px;" href="../Index.aspx">
-                    <span><img src="../images/secure-test.png" style="height:50px;width:50px;"></span>
-                    <span id="oes_title">Online Examination System</span>    
-                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -44,9 +41,9 @@
                     <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="../student/Login.aspx">Student</a></li>
+                            <li  class="active"><a href="../student/Login.aspx">Student</a></li>
                             <li><a href="../faculty/Login.aspx">Faculty</a></li>
-                            <li class="active"><a href="#">Administratior</a></li>
+                            <li><a href="../admin/Login.aspx">Administratior</a></li>
                         </ul>
                     </li>
                     <li><a href="../Help.aspx">Help</a></li>
@@ -58,7 +55,7 @@
 
     <!-- main content-->
     <div class="container">
-        <form id="AdminThumbLoginForm" runat="server" method="post">
+        <form id="AdminUidLoginForm" runat="server">
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1">
                     <%if(Request.QueryString.Count>0){
@@ -68,63 +65,65 @@
                           {
                               case 1:
                               {
-                                //session time out
-                                Response.Write("<div class='alert alert-warning alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Sorry!</strong> : The session is timed out. Please re-login below.</div>");
+                                  //session timed out
+                                Response.Write("<div class='alert alert-warning alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Sorry!</strong> The session is timed out. Please re-login below.</div>");
                               }
                               break;
 
                               case 2: 
                               {
                                   //invalid username and password
-                                  Response.Write("<div class='alert alert-danger alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Invalid Credentials</strong> : The username and passwrod are invlaid.Please retry below.</div>");
+                                  Response.Write("<div class='alert alert-warning alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Invalid Credentials</strong> The username and passwrod are invlaid.Please retry below.</div>");
                               }
                               break;
+                                  
 
-                              case 3:
-                              {
-                                  //no user found for the specifid fingerprint 
-                                  Response.Write("<div class='alert alert-danger alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>No user Found</strong> : No such user foud for the provided fingerprint.</div>");
-                              }
-                              break;
-                              
-                              case 444:
-                              {
-                                  //no thumb is scanned 
-                                  Response.Write("<div class='alert alert-info alert-dismissable fade in' style='margin-top:30px;'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a> Please Scan your Thumb via Scanner.</div>");
-                              }
-                              break;      
                               default:
                                   break;
                           }
                       } %>
                     <div class="panel panel-primary thumb_container">
                         <div class="panel-heading panel-heading-custom">
-                            Administrator  Login
+                            Student  Login
                         </div>
                         <div class="panel-body custom-thumb_container-body">
-                            <div class="tag-note">
-                                <strong>Instrunctions:</strong> Click on "<strong>Scan</strong>" button then put your "<strong>Left thumb</strong>" or "<strong>Right thumb</strong>" on scanner. 
-                            </div>
-                            <hr />
-                            <div class="col-md-8 col-sm-offset-2 thumb_img">
-                                <img id="FPImage1" alt="Fingerpint Image" src="" onload="Send()"/>
-                                <input type="hidden" id="img_val" runat="server" />
+                            <div class="col-md-6 col-sm-offset-3">
+                                <<%--div class="form-group">
+                                    <label for="email">Enrollment No.:</label>
+                                    <asp:TextBox ID="tbEnrollment" runat="server" CssClass="form-control" TextMode="SingleLine" required="required"></asp:TextBox>
+                                </div>--%>
+                                <div class="form-group">
+                                    <label for="email">Username:</label>
+                                    <asp:TextBox ID="tbUsername" runat="server" CssClass="form-control" TextMode="SingleLine" required="required"></asp:TextBox>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">Password:</label>
+                                    <asp:TextBox ID="tbPass" runat="server" CssClass="form-control" TextMode="Password"  required="required"></asp:TextBox>
+                                </div>
+                                <div class="form-group">
+                                    <asp:CheckBox ID="cbRemember" runat="server" Text="&nbsp;Remember Me" />
+                                </div>
+                                <div class="form-group">
+                                    <asp:Button ID="btn_login" runat="server" Text="Login" CssClass="btn btn-success" OnClick="btn_login_Click"/>
+                                    <strong>&nbsp;&middot;&nbsp;</strong>
+                                    <button id="btnClear" class="btn btn-danger" type="reset">Clear</button> 
+                                &nbsp;&nbsp;&nbsp;
+                                    <asp:Label ID="Label1" runat="server"></asp:Label>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-7 col-sm-offset-3">
+                                        <a href="#">Reset Password</a><strong>&nbsp;&middot;&nbsp;</strong><a href="">Reset Password</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="panel-footer" style="text-align:center;">
-                                <input id="btnScan" class="btn btn-primary" value="Click to Scan" onclick="captureFP()" type="button" />
-                                <strong>&middot;</strong>
-                                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success" Text="Login" OnClick="btnSubmit_Click"/>
-                        &nbsp;
-                        <asp:Label ID="Label1" runat="server"></asp:Label></div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-8 col-sm-offset-3">
+                        <div class="col-sm-5 col-sm-offset-4">
                             [&nbsp; <a href="#">Create  New Account</a> &nbsp;]
                             <strong>&middot;</strong>
                             [&nbsp; <a href="#">Request Login Page</a> &nbsp;]
-                            <strong>&middot;</strong>
-                            [&nbsp; <a class="links" href="LoginViaUid.aspx">Login Via Uid</a> &nbsp;]
                         </div>
                     </div>
                 </div>
@@ -141,9 +140,5 @@
 
     <!-- jquery -->
     <script src="../js/vendor.min.js"></script>
-   
-    
-    <!-- add FingerCapture javascript on Login page-->
-    <script src="../js/FingerCapture.js"></script>
 </body>
 </html>

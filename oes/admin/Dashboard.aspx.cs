@@ -38,7 +38,8 @@ namespace oes.admin
             //    }
 
             //}
-            if (Session["id"] != null)
+            int UserType=Convert.ToInt16(Session["type"]);
+            if (Session["id"] != null && UserType==1)
             {
                 LoadAdminData(Convert.ToInt16(Session["id"]));
             }

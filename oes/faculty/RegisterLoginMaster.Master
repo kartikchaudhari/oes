@@ -11,7 +11,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../css/custom.css" rel="stylesheet" />
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="icon" type="../image/x-icon" href="images/favicon.ico" />
+    <link rel="icon" type="../image/x-icon" href="../images/favicon.ico" />
 
 </head>
 <body style="background-color: #EAEDF1;">
@@ -32,7 +32,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="Index.aspx">Home</a></li>
                     <asp:ContentPlaceHolder ID="active_class_links" runat="server"></asp:ContentPlaceHolder>
+                    <li><a href="Help.aspx">Help</a></li>
                 </ul>
             </div>
         </div>
