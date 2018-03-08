@@ -40,13 +40,13 @@ namespace oes.admin {
         protected global::System.Web.UI.WebControls.Label lblTagLine;
         
         /// <summary>
-        /// SiteLogo control.
+        /// Image1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image SiteLogo;
+        protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
         /// lblCoyright control.
@@ -74,15 +74,6 @@ namespace oes.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbTagLine;
-        
-        /// <summary>
-        /// Image1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
         /// lblCopyrightContent control.

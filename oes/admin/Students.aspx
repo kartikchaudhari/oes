@@ -22,7 +22,7 @@
         <div class="panel-body">
                 <%if (Request.QueryString["action"]=="added")
                   {
-                      Response.Write("<div class='alert alert-success alert-dismissable'><a href='#' class='close' data-dismiss='alert' aria-label='close' title='Click to close this Message.'>&times;</a><strong>Congratulations!</strong> Faculty added successfully, accept the Registration request to approve the faculty account.</div>");
+                      Response.Write("<div class='alert alert-success alert-dismissable'><a href='#' class='close' data-dismiss='alert' aria-label='close' title='Click to close this Message.'>&times;</a><strong>Congratulations!</strong> Student added successfully, accept the Registration request to approve the student account.</div>");
                   }
                 %>
 
@@ -146,7 +146,7 @@
                 </div>
                 <!-- datatabls list faculties end-->
 
-                 <!-- add new faculty start-->    
+                 <!-- add new student start-->    
                     <div class="tab-pane fade" id="add">
                        <h4>Add Student</h4>
                        <hr />
@@ -155,13 +155,17 @@
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
                                         <label>First Name:</label>
-                                        <input maxlength="20" id="fname" class="form-control" required="required" type="text" style="width:400px;">
+                                        <asp:TextBox ID="tbFname" runat="server" CssClass="form-control" TextMode="SingleLine" Width="400"></asp:TextBox>
+                                        <br /><br /><br />
+                                        <asp:RequiredFieldValidator ID="rfvFname" runat="server" ErrorMessage="Enter First Name" ControlToValidate="tbFname" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
                                         <label>Last Name:</label>
-                                        <input maxlength="20" id="lname" class="form-control" required="required" type="text" style="width:400px;">
+                                        <asp:TextBox ID="tbLName" runat="server" CssClass="form-control" TextMode="SingleLine" Width="400"></asp:TextBox>
+                                        <br /><br /><br />
+                                        <asp:RequiredFieldValidator ID="rfvLname" runat="server" ErrorMessage="Enter Last Name" ControlToValidate="tbLname" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
@@ -169,13 +173,18 @@
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
                                         <label>Username:</label>
-                                        <input maxlength="20" id="tbUname" class="form-control" required="required type="text" style="width:400px;">
+                                        <asp:TextBox ID="tbUname" runat="server" CssClass="form-control" Width="400" TextMode="SingleLine"></asp:TextBox>
+                                        <br /><br />
+                                        <asp:RequiredFieldValidator ID="rfUname" runat="server" ErrorMessage="Enter Username" ControlToValidate="tbUname" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
                                         <label>Email ID:</label>
-                                        <input maxlength="20" id="tbEmail" class="form-control" required="required" type="email" style="width:400px;">
+                                        <asp:TextBox ID="tbEmail" runat="server" CssClass="form-control" Width="400" TextMode="Email"></asp:TextBox>
+                                        <br /><br />
+                                        <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="Enter Email Address" ControlToValidate="tbEmail" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator><br />
+                                        <asp:RegularExpressionValidator ID="RegExVEmail" runat="server" ErrorMessage="Please Enter Valid Email" ControlToValidate="tbEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                     </div>
                                 </div>
                             </div>
@@ -183,13 +192,17 @@
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
                                         <label>Password:</label>
-                                        <input maxlength="20" id="tbPassword" class="form-control" required="required" type="password" style="width:400px;">
+                                        <asp:TextBox ID="tbPass" runat="server" CssClass="form-control" Width="400" TextMode="Password"></asp:TextBox>
+                                        <br /><br /><br />
+                                        <asp:RequiredFieldValidator ID="rfvPass" runat="server" ErrorMessage="Enter Password" ControlToValidate="tbPass" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
                                         <label>Confirm Password</label>
-                                        <input maxlength="20" id="tbConfirmPass" class="form-control" required="required"  type="password" style="width:400px;">
+                                        <asp:TextBox ID="tbConfirmPss" runat="server" CssClass="form-control" Width="400" TextMode="Password"></asp:TextBox>
+                                        <br /><br /><br />
+                                        <asp:RequiredFieldValidator ID="rfvConfirmPass" runat="server" ErrorMessage="Confirm Password" ControlToValidate="tbConfirmPss" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
@@ -197,20 +210,63 @@
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
                                         <label>Contact No.:</label>
-                                        <input maxlength="20" id="tbContact" class="form-control" required="required" type="tel" style="width: 400px;">
+                                        <asp:TextBox ID="tbStudContact" runat="server" CssClass="form-control" Width="400" TextMode="Phone"> </asp:TextBox>
+                                        <br /><br /><br />
+                                        <asp:RequiredFieldValidator ID="rfvStudContact" runat="server" ErrorMessage="Enter Student Contact No." ControlToValidate="tbStudContact" ForeColor="Red" Font-Bold="True"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
-                                        <label>Select Department:</label>
-                                        <asp:DropDownList ID="ddl_dept" runat="server" CssClass="form-control" Style="width: 400px;"></asp:DropDownList>
+                                        <label>Parent's Contact No.:</label>
+                                        <asp:TextBox ID="tbParentContactNo" runat="server" CssClass="form-control" Width="400" TextMode="Phone"> </asp:TextBox>
+                                        <br /><br /><br />
+                                        <asp:RequiredFieldValidator ID="rfvParentContact" runat="server" ErrorMessage="Enter Parent's Contact No." ControlToValidate="tbParentContactNo" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
-                                        <button id="btnAddFaculty" type="button" class="btn btn-md btn-success">Submit</button>
+                                        <label>Select Department:</label>
+                                        <asp:DropDownList ID="ddl_dept" runat="server" CssClass="form-control" Style="width: 400px;">
+                                            <asp:ListItem Value="NA" Text="---- Select Department ----"></asp:ListItem>
+                                        </asp:DropDownList>
+                                        <br /><br /><br />
+                                        <asp:RequiredFieldValidator ID="rfvDdlDept" runat="server" ErrorMessage="Select Department" ControlToValidate="ddl_dept" InitialValue="NA" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Select Semestser:</label>
+                                        <asp:DropDownList ID="DdlSem" runat="server" CssClass="form-control" Style="width: 400px;">
+                                            <asp:ListItem Value="NA" Text="---- Selecet Semester ----"></asp:ListItem>
+                                            <asp:ListItem Value="1" Text="1"></asp:ListItem>
+                                            <asp:ListItem Value="2" Text="2"></asp:ListItem>
+                                            <asp:ListItem Value="3" Text="3"></asp:ListItem>
+                                            <asp:ListItem Value="4" Text="4"></asp:ListItem>
+                                            <asp:ListItem Value="5" Text="5"></asp:ListItem>
+                                            <asp:ListItem Value="6" Text="6"></asp:ListItem>
+                                        </asp:DropDownList>
+                                        <br /><br /><br />
+                                        <asp:RequiredFieldValidator ID="rfvSem" runat="server" ErrorMessage="Select Semester" ControlToValidate="DdlSem" InitialValue="NA" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Enrollment No.:</label>
+                                        <asp:TextBox ID="tbEnroll" runat="server" CssClass="form-control" Width="400" TextMode="Number"> </asp:TextBox>
+                                        <br /><br /><br />
+                                        <asp:RequiredFieldValidator ID="rfvEnrollment" runat="server" ErrorMessage="Enter Enrollment No." ControlToValidate="tbEnroll" ForeColor="Red" Font-Bold="True"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 form_controls_custom">
+                                    <div class="input-group">
+                                        <asp:Button ID="btnAddStudent" CssClass="btn btn-md btn-success" runat="server" Text="Add Student" OnClick="btnAddStudent_Click"/>
+
                                         <strong>&nbsp;&middot;&nbsp;</strong>
                                         <button type="reset" class="btn btn-md btn-danger">Reset</button>
                                     </div>
@@ -218,12 +274,11 @@
                             </div>
                         </div>
                     </div>
-                    <!-- add new faculty end-->
+                    <!-- add new student end-->
 
             </div>
         </div>
         <!-- /.panel-body -->
-    </div>
 </form>
     <div id="RequestConfirmModal" class="modal fade" role="dialog">
         <div class="modal-dialog">

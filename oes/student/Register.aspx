@@ -14,9 +14,9 @@
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
         <ul class="dropdown-menu">
-            <li><a href="student/Login.aspx">Student</a></li>
-            <li><a href="faculty/Login.aspx">Faculty</a></li>
-            <li><a href="admin/Login.aspx">Administratior</a></li>
+            <li><a href="Login.aspx">Student</a></li>
+            <li><a href="../faculty/Login.aspx">Faculty</a></li>
+            <li><a href="../admin/Login.aspx">Administratior</a></li>
         </ul>
     </li>
 </asp:Content>

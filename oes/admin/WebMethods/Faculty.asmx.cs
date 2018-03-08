@@ -61,5 +61,27 @@ namespace oes.admin.WebMethods
             }
             return msg;
         }
+
+        [WebMethod]
+        public string RemoveFaculty(int FacultyId)
+        {
+            string msg = null;
+            using (SqlCommand cmd = new SqlCommand("DeleteFacultyByFacultyId", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@FacultyId", FacultyId);
+                //cmd.ExecuteNonQuery();
+                if (cmd.ExecuteNonQuery() != 0)
+                {
+                    msg = "Faculty Deleted";
+                }
+                else
+                {
+                    msg = "Error While Processing..";
+                }
+            }
+            return msg;
+        }
+
     }
 }

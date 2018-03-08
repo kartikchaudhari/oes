@@ -57,7 +57,7 @@ namespace oes.student
             {
                 try
                 {
-                    SqlCommand StudRegCommand = new SqlCommand("INSERT INTO student(first_name,last_name,enrollment_no,username,password,sem_id,email,stud_contact,parent_contact,dept_id,reg_date,account_status) VALUES ('" + fname.Text + "','" + lname.Text + "','" + enrollment.Text + "','" + uname.Text + "','" + pass.Text + "','" + ddl_sem.SelectedItem.Value + "','" + email.Text + "','" + stud_contactno.Text + "','" + parent_contactno.Text + "','" + dept_ddl.SelectedItem.Value + "','" + DateTime.Now.ToString("yyyy-MM-dd h:m:s") + "',0)", db.DbConnect());
+                    SqlCommand StudRegCommand = new SqlCommand("INSERT INTO student(first_name,last_name,enrollment_no,avatar,username,password,sem_id,email,stud_contact,parent_contact,dept_id,reg_date,account_status) VALUES ('" + fname.Text + "','" + lname.Text + "','" + enrollment.Text + "','../images/default.png','" + uname.Text + "','" + pass.Text + "','" + ddl_sem.SelectedItem.Value + "','" + email.Text + "','" + stud_contactno.Text + "','" + parent_contactno.Text + "','" + dept_ddl.SelectedItem.Value + "','" + DateTime.Now.ToString("yyyy-MM-dd h:m:s") + "',0)", db.DbConnect());
 
                     if (StudRegCommand.ExecuteNonQuery() == 1)
                     {

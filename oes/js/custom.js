@@ -211,7 +211,7 @@ function SubjectDatatable() {
                         'searchable': false,
                         'render': function (jsonId) {
                             var id = parseInt(jsonId);
-                            var btn = '<div class="btn-group"><button type="button" class="btn btn-success btn-sm">Actions</button><button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="../faculty/ViewSubject.aspx?subject_id=' + id + '">View</a></li><li><a href="../faculty/EditSubject.aspx?subject_id=' + id + '">Edit / Update</a></li><li><a href="#">Delete</a></li></ul></div>&nbsp;<strong>&middot;</strong>&nbsp;<div class="btn-group"><button type="button" class="btn btn-primary btn-sm">Questions</button><button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a class="links" href="../faculty/AddQuestions.aspx?subject_id=' + id + '">Add Questions</a></li><li><a href="../faculty/ViewQuestions.aspx?subject_id=' + id + '">View Questions</a></li></ul></div>';
+                            var btn = '<div class="btn-group"><button type="button" class="btn btn-success btn-sm">Actions</button><button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="../faculty/ViewSubject.aspx?subject_id=' + id + '">View</a></li><li><a href="../faculty/EditSubject.aspx?subject_id=' + id + '">Edit / Update</a></li><li><a href="#" data-toggle="modal" data-target="#DeleteSubjectsModal" onclick="DeleteSubjectByIdForButton(' + id + ')">Delete</a></li></ul></div>&nbsp;<strong>&middot;</strong>&nbsp;<div class="btn-group"><button type="button" class="btn btn-primary btn-sm">Questions</button><button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a class="links" href="../faculty/AddQuestions.aspx?subject_id=' + id + '">Add Questions</a></li><li><a href="../faculty/ViewQuestions.aspx?subject_id=' + id + '">View Questions</a></li></ul></div>';
                             return btn;
                         }
                     }
@@ -320,7 +320,7 @@ function FacultyDatatable() {
                         'searchable': false,
                         'render': function (data, type, row, meta) {
                             var id = parseInt(row['FacultyId']);
-                            var btn = '<div class="btn-group"><button type="button" class="btn btn-sm btn-success"><i class="fa fa-flash"></i>&nbsp;Actions</button><button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a class="links" href="FacultyProfile.aspx?FacultyId=' + id + '&action=view"><i class="fa fa-eye"></i>&nbsp;&nbsp;View</a></li><li onclick="fnn(\''+row['FullName']+'\')"><a class="links" href="#" data-toggle="modal" data-target="#DeleteFacultyModal"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li><li><a class="links" href="FacultyProfile.aspx?FacultyId=' + id + '&action=edit"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li></ul></div> ';
+                            var btn = '<div class="btn-group"><button type="button" class="btn btn-sm btn-success"><i class="fa fa-flash"></i>&nbsp;Actions</button><button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a class="links" href="FacultyProfile.aspx?FacultyId=' + id + '&action=view"><i class="fa fa-eye"></i>&nbsp;&nbsp;View</a></li><li onclick="fnn(\'' + row['FullName'] + '\')"><a class="links" href="#" data-toggle="modal" data-target="#DeleteFacultyModel" onclick="DeleteFacultyByIdForButton(' + id + ')"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li><li><a class="links" href="FacultyProfile.aspx?FacultyId=' + id + '&action=edit"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li></ul></div> ';
                             return btn;
                         }
                     },
@@ -495,17 +495,16 @@ function ConfirmStudentRequest() {
 
 //fetch all question in datatbales
 function QuestionsByDeptDatatable() {
-    //var dept_id = parseInt($.trim($("[id*=hf_dept_id]").val()));
+    var dept_id = parseInt($.trim($("[id*=hf_dept_id]").val()));
 
     $.ajax({
         type: 'POST',
         url: 'WebMethods/Questions.asmx/FetchAllQuestionsByDepartment',
-        data: '{:"' + dept_id + '"}',
+        data: '{DeptId:"' + dept_id + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: 'json',
         success: function (data) {
             $('#DatatableQuestionsByDept').dataTable({
-
                 //set the "show entries" select list
                 "aLengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
                 "iDisplayLength": 5,
@@ -574,27 +573,104 @@ function QuestionsByDeptDatatable() {
                         'sortable': false,
                         'searchable': false,
                     },
-                    {
-                        'data': 'QuestionId',
-                        'sortable': false,
-                        'searchable': false,
-                        'render': function (data, type, row, meta) {
-                            var id = parseInt(row['QuestionId']);
-                            var btn = '<div class="btn-group"><button type="button" class="btn btn-sm btn-success"><i class="fa fa-flash"></i>&nbsp;Actions</button><button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a class="links" href="StudentProfile.aspx?StudentId=' + id + '&action=view"><i class="fa fa-eye"></i>&nbsp;&nbsp;View</a></li><li onclick="fnn(\'' + row['FullName'] + '\')"><a class="links" href="#" data-toggle="modal" data-target="#DeleteFacultyModal"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li><li><a class="links" href="StudentProfile.aspx?StudentId=' + id + '&action=edit"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li></ul></div> ';
-                            return btn;
-                        }
-                    },
+                    //,
+                    //{
+                    //    'data': 'QuestionId',
+                    //    'sortable': false,
+                    //    'searchable': false,
+                    //    'render': function (data, type, row, meta) {
+                    //        var id = parseInt(row['QuestionId']);
+                    //        var btn = '<div class="btn-group"><button type="button" class="btn btn-sm btn-success"><i class="fa fa-flash"></i>&nbsp;Actions</button><button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a class="links" href="StudentProfile.aspx?StudentId=' + id + '&action=view"><i class="fa fa-eye"></i>&nbsp;&nbsp;View</a></li><li onclick="fnn(\'' + row['FullName'] + '\')"><a class="links" href="#" data-toggle="modal" data-target="#DeleteFacultyModal"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li><li><a class="links" href="StudentProfile.aspx?StudentId=' + id + '&action=edit"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li></ul></div> ';
+                    //        return btn;
+                    //    }
+                    //}
 
                 ]
             });
-
-
+        },
+        error: function (r) {
+            alert(r.responseText);
         }
-
     });
 }
 
+var SubjectIdToDelete;
+function DeleteSubjectByIdForButton(subjectId) {
+    SubjectIdToDelete = subjectId;
+}
+function DeleteSubjectBySubjectIdForModal() {
+    $.ajax({
+        type: "POST",
+        url: "WebMethods/Subjects.asmx/RemoveSubject",
+        data: '{SubjectId:"' + SubjectIdToDelete + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (r) {
+            $.gritter.add({
+                // (string | mandatory) the heading of the notification
+                title: 'Subject Deleted!',
+                // (string | mandatory) the text inside the notification
+                text: 'The selected Subject was deleted successfully.',
+                // (string | optional) the image to display on the left
+                image: '../images/Green _Tick_ 2.png',
+                // (bool | optional) if you want it to fade out on its own or just sit there
+                sticky: false,
+                // (int | optional) the time you want it to be alive for before fading out
+                time: 5000,
+				// (function | optional) function called after it closes
+                    after_open: function(e){
+                        location.reload(this);
+                    }
+            });
+            //location.reload(true);
+            //$("#DeleteSubjectsModal").modal("show", { keyboard: true });
+            //alert(r);
+        },
+        error: function (r) {
+            alert(r.responseText);
+        }
+    });
+    return false;
+}
 
 
+var FacultyToDelete;
+function DeleteFacultyByIdForButton(facultyId) {
+    FacultyToDelete = facultyId;
+}
+function DeleteFacultyByFacultyIdForModal() {
+    $.ajax({
+        type: "POST",
+        url: "WebMethods/Faculty.asmx/RemoveFaculty",
+        data: '{FacultyId:"' + FacultyToDelete + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (r) {
+            $.gritter.add({
+                // (string | mandatory) the heading of the notification
+                title: 'Faculty Deleted!',
+                // (string | mandatory) the text inside the notification
+                text: 'The selected Faculty was deleted successfully.',
+                // (string | optional) the image to display on the left
+                image: '../images/Green _Tick_ 2.png',
+                // (bool | optional) if you want it to fade out on its own or just sit there
+                sticky: false,
+                // (int | optional) the time you want it to be alive for before fading out
+                time: 5000,
+                // (function | optional) function called after it closes
+                after_open: function (e) {
+                    location.reload(this);
+                }
+            });
+            //location.reload(true);
+            //$("#DeleteSubjectsModal").modal("show", { keyboard: true });
+            //alert(r);
+        },
+        error: function (r) {
+            alert(r.responseText);
+        }
+    });
+    return false;
+}
 
 

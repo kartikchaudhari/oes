@@ -336,7 +336,7 @@
                     </div>
                     <div class="modal-body panel-body">
                         <div class="row" style="padding:30px;">
-                            <div class="col-md-5" style="border:1px solid red;">
+                            <div class="col-md-5">
                                 <asp:UpdatePanel ID="UploadQuestionUpdatePanel" runat="server">
                                     <ContentTemplate>
                                         <strong>Select File to Upload :</strong><hr />
@@ -354,7 +354,7 @@
                                     </Triggers>
                                 </asp:UpdatePanel> 
                             </div>
-                            <div class="col-md-2" style="border:1px solid blue;text-align:left; vertical-align:middle;padding-top:55px;padding-bottom:45px;">
+                            <div class="col-md-2" style="text-align:left; vertical-align:middle;padding-top:55px;padding-bottom:45px;">
                                 <asp:UpdateProgress ID="UpdateProgressLoading" runat="server" AssociatedUpdatePanelID="UploadQuestionUpdatePanel">
                                     <ProgressTemplate>
                                         <img src="../images/loading.gif" />

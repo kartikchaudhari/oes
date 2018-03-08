@@ -7,54 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace oes.faculty {
+namespace oes.admin {
     
     
-    public partial class ManageQuestions {
+    public partial class TestLoginLink {
         
         /// <summary>
-        /// ManagqQuestionsForm control.
+        /// frm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm ManagqQuestionsForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frm;
         
         /// <summary>
-        /// hf_dept_id control.
+        /// btnCreateCookie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hf_dept_id;
+        protected global::System.Web.UI.WebControls.Button btnCreateCookie;
         
         /// <summary>
-        /// DdlSem control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlSem;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// GridViewQuestionList control.
+        /// btnCheckCookie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewQuestionList;
+        protected global::System.Web.UI.WebControls.Button btnCheckCookie;
         
         /// <summary>
-        /// QuestionListDataSource control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource QuestionListDataSource;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
+        /// Panel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel1;
     }
 }

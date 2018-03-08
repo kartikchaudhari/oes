@@ -3,6 +3,7 @@
 <%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
 <asp:Content ID="content2" ContentPlaceHolderID="ExternelCss" runat="server">
     <link rel="stylesheet" href="../css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="../css/jquery.gritter.css" />
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="page_contents" runat="server">
@@ -224,7 +225,28 @@
             <!-- /.panel-body -->
         </div> 
     </form>
-   
+    <!--delete faculty modal starts-->
+    <div class="modal fade" id="DeleteFacultyModel" role="dialog">
+        <div class="modal-dialog">
+            <div class="panel panel-dsg">
+                <div class="panel-heading">
+                    <a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a>
+                    <strong>Confirm to Remove faculty</strong>
+                </div>
+                <div class="panel-body" style="padding: 20px;">
+                    Are you Sure you want to Remove <strong><span id="Span1"></span></strong>??<br />
+                    <br />
+                    if <strong>Yes</strong> click <strong>Delete</strong> button otherwise click on <strong>Cancle</strong> button.
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-danger btn-sm" onclick="DeleteFacultyByFacultyIdForModal();">Delete</button><strong>&nbsp;&middot;&nbsp;</strong>
+                    <button type="button" class="btn btn-primary btn-sm">Cancle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--delete faculty modal ends -->
+
     <div id="RequestConfirmModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
@@ -245,6 +267,7 @@
 </asp:Content>
 <asp:Content ID="content3" ContentPlaceHolderID="ExternalJs" runat="server">
     <script src="../js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.gritter.min.js"></script>
     <script type="text/javascript">
         FacultyDatatable();
     </script>

@@ -10,33 +10,51 @@
 namespace oes.admin {
     
     
-    public partial class AddQuestions {
+    public partial class SmsSettings {
         
         /// <summary>
-        /// CKEditor1 control.
+        /// SmsSettingsForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKEditor.NET.CKEditorControl CKEditor1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm SmsSettingsForm;
         
         /// <summary>
-        /// Button1 control.
+        /// lblUsernameSms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Label lblUsernameSms;
         
         /// <summary>
-        /// Label1 control.
+        /// lblPasswordSms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblPasswordSms;
+        
+        /// <summary>
+        /// tbUsernameSms control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbUsernameSms;
+        
+        /// <summary>
+        /// tbPasswordSms control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbPasswordSms;
     }
 }

@@ -10,6 +10,11 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 
+using System.IO;
+using System.Data.OleDb;
+using System.Configuration;
+
+
 using oes.App_Code;
 
 namespace oes.faculty
@@ -18,6 +23,10 @@ namespace oes.faculty
     {
         Database db = new Database();
         Functions fn = new Functions();
+        bool HasSubjectIdFlag = false;
+        //to store value of subject_id,sem_id,dept_id when there is query string named as 
+        //subject_id.... aka has SubjectId
+        int HasQueryStringSubjectId, HasQueryStringDeptId, HasQueryStringSemId;
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -36,6 +45,7 @@ namespace oes.faculty
             {
                 NoSubjectId.Visible = false;
                 hasSubjectId.Visible = true;
+                HasSubjectIdFlag = true;
                 BindHasSubjectId(Convert.ToInt16(Request.QueryString["subject_id"]));
             }
 
@@ -138,9 +148,19 @@ namespace oes.faculty
 
         public void AddQuestionToQBank() {
             //String question = Server.HtmlEncode(Question.Text);
-            int DeptId = Convert.ToInt16(DepartmentDdl.SelectedItem.Value);
-            int SemId = Convert.ToInt16(SemDdl.SelectedItem.Value);
-            int SubjectId = Convert.ToInt16(SubjectDdl.SelectedItem.Value);
+            int DeptId, SemId, SubjectId;
+            if (HasSubjectIdFlag == true)
+            {
+                DeptId=HasQueryStringDeptId;
+                SemId=HasQueryStringSemId;
+                SubjectId=HasQueryStringSubjectId;
+            }
+            else {
+                DeptId = Convert.ToInt16(DepartmentDdl.SelectedItem.Value);
+                SemId = Convert.ToInt16(SemDdl.SelectedItem.Value);
+                SubjectId = Convert.ToInt16(SubjectDdl.SelectedItem.Value);
+            }
+            
             String QuestionVar = Server.HtmlEncode(Question.Text);
             String OptA = null;
             String OptB = null;
@@ -220,6 +240,10 @@ namespace oes.faculty
                     SubjectName.Text = rdr["subject_name"].ToString();
                     SubjectSem.Text = rdr["sem_id"].ToString();
                     SubjectDept.Text=fn.FetchDeptById(rdr["dept_id"].ToString());
+                   
+                    HasQueryStringDeptId = Convert.ToInt16(rdr["dept_id"].ToString());
+                    HasQueryStringSemId = Convert.ToInt16(rdr["sem_id"].ToString());
+                    HasQueryStringSubjectId = Convert.ToInt16(rdr["subject_id"].ToString());
                 }
             }
         }
@@ -304,11 +328,75 @@ namespace oes.faculty
         protected void btnUpload_Click(object sender, EventArgs e)
         {
 
-            string fileName = System.IO.Path.GetFileName(ExcelFileUpload.FileName);
-            ExcelFileUpload.SaveAs(Server.MapPath("~/images/") + fileName);
-            lblMsg.Text = "File Uploaded";
-            lblMsg.ForeColor = System.Drawing.Color.Green;
-            lblMsg.Font.Bold = true;
+            string UploadDir = Server.MapPath("~/faculty/QuestionImports/");
+
+            string conString = string.Empty;
+            string FileName = Path.GetFileName(ExcelFileUpload.PostedFile.FileName);
+            string extension = Path.GetExtension(ExcelFileUpload.PostedFile.FileName);
+
+
+
+            string excelPath = UploadDir + "QuestionsImport-" + DateTime.Now.ToString(("dd-MM-yyyy--hh-mm--tt")) + extension;
+            ExcelFileUpload.SaveAs(excelPath);
+            switch (extension)
+            {
+                case ".xls": //Excel 97-03
+                    conString = ConfigurationManager.ConnectionStrings["Excel03ConString"].ConnectionString;
+                    break;
+                case ".xlsx": //Excel 07 or higher
+                    conString = ConfigurationManager.ConnectionStrings["Excel07+ConString"].ConnectionString;
+                    break;
+
+            }
+
+
+            conString = string.Format(conString, excelPath);
+            using (OleDbConnection excel_con = new OleDbConnection(conString))
+            {
+                excel_con.Open();
+                string sheet1 = excel_con.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null).Rows[0]["TABLE_NAME"].ToString();
+                DataTable dtExcelData = new DataTable();
+
+                dtExcelData.Columns.AddRange(new DataColumn[11] {
+                    new DataColumn("Department Id", typeof(int)),
+                    new DataColumn("Semester", typeof(int)),
+                    new DataColumn("Subject", typeof(int)),
+                    new DataColumn("Question Type", typeof(string)),
+                    new DataColumn("Question", typeof(string)),
+                    new DataColumn("Option A", typeof(string)),
+                    new DataColumn("Option B", typeof(string)),
+                    new DataColumn("Option C", typeof(string)),
+                    new DataColumn("Option D", typeof(string)),
+                    new DataColumn("Correct Answer", typeof(int)),
+                    new DataColumn("Marks", typeof(int)),
+                });
+                using (OleDbDataAdapter oda = new OleDbDataAdapter("SELECT * FROM [" + sheet1 + "]", excel_con))
+                {
+                    oda.Fill(dtExcelData);
+                }
+                excel_con.Close();
+
+                using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(db.DbConnect()))
+                {
+                    //Set the database table name
+                    sqlBulkCopy.DestinationTableName = "dbo.questions";
+                    sqlBulkCopy.ColumnMappings.Add("Department Id", "dept_id");
+                    sqlBulkCopy.ColumnMappings.Add("Semester", "sem_id");
+                    sqlBulkCopy.ColumnMappings.Add("Subject", "subject_id");
+                    sqlBulkCopy.ColumnMappings.Add("Question Type", "question_type");
+                    sqlBulkCopy.ColumnMappings.Add("Question", "question");
+                    sqlBulkCopy.ColumnMappings.Add("Option A", "opt_a");
+                    sqlBulkCopy.ColumnMappings.Add("Option B", "opt_b");
+                    sqlBulkCopy.ColumnMappings.Add("Option C", "opt_c");
+                    sqlBulkCopy.ColumnMappings.Add("Option D", "opt_d");
+                    sqlBulkCopy.ColumnMappings.Add("Correct Answer", "correct_ans");
+                    sqlBulkCopy.ColumnMappings.Add("Marks", "marks");
+
+                    sqlBulkCopy.WriteToServer(dtExcelData);
+
+                }
+            }
+            
         }
 
     }

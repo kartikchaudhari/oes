@@ -56,10 +56,16 @@
     <Reference Include="CKEditor.NET">
       <HintPath>..\..\..\..\..\Downloads\CkEditor\CkEditor\bin\CKEditor.NET.dll</HintPath>
     </Reference>
+    <Reference Include="CsQuery">
+      <HintPath>..\..\SendSMS\Nitin.Sms.Api\bin\Debug\CsQuery.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp">
       <HintPath>E:\exam_dev\sources\Zips\itextsharp-all-5.5.10\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Nitin.Sms.Api">
+      <HintPath>..\..\SendSMS\Nitin.Sms.Api\bin\Debug\Nitin.Sms.Api.dll</HintPath>
+    </Reference>
     <Reference Include="SourceAFIS">
       <HintPath>E:\exam_dev\sources\SourceAFIS-1.7.0\Sample\dll\SourceAFIS.dll</HintPath>
     </Reference>
@@ -82,7 +88,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="admin\AddQuestions.aspx" />
     <Content Include="admin\ckeditor\adapters\jquery.js" />
     <Content Include="admin\ckeditor\ckeditor.asp" />
     <Content Include="admin\ckeditor\ckeditor.js" />
@@ -943,14 +948,17 @@
     <Content Include="admin\QuestionBank.aspx" />
     <Content Include="admin\Results.aspx" />
     <Content Include="admin\SendBase64.asmx" />
+    <Content Include="admin\SmsSettings.aspx" />
     <Content Include="admin\StudentProfile.aspx" />
     <Content Include="admin\SystemSettings.aspx" />
     <Content Include="admin\Students.aspx" />
     <Content Include="admin\Subjects.aspx" />
     <Content Include="admin\TestAdmin.aspx" />
+    <Content Include="admin\TestLoginLink.aspx" />
     <Content Include="admin\ViewQuestions.aspx" />
     <Content Include="admin\WebMethods\Faculty.asmx" />
     <Content Include="admin\WebMethods\Student.asmx" />
+    <Content Include="admin\WebMethods\Subjects.asmx" />
     <Content Include="App_Data\Examdb.mdf" />
     <Content Include="App_Data\Examdb_log.ldf">
       <DependentUpon>Examdb.mdf</DependentUpon>
@@ -1902,7 +1910,6 @@
     <Content Include="student\Register.aspx" />
     <Content Include="student\ThumbLogin.aspx" />
     <Content Include="TestBootstrap.html" />
-    <Content Include="TestPage.aspx" />
     <Content Include="ThumbTest.aspx" />
     <Content Include="TreeLineImages\dash.gif" />
     <Content Include="TreeLineImages\dashminus.gif" />
@@ -1923,13 +1930,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="admin\AddQuestions.aspx.cs">
-      <DependentUpon>AddQuestions.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\AddQuestions.aspx.designer.cs">
-      <DependentUpon>AddQuestions.aspx</DependentUpon>
-    </Compile>
     <Compile Include="admin\Class\FacultyClass.cs" />
     <Compile Include="admin\Class\StudentClass.cs" />
     <Compile Include="admin\Class\SubjectClass.cs" />
@@ -2060,6 +2060,13 @@
       <DependentUpon>SendBase64.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="admin\SmsSettings.aspx.cs">
+      <DependentUpon>SmsSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\SmsSettings.aspx.designer.cs">
+      <DependentUpon>SmsSettings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\StudentProfile.aspx.cs">
       <DependentUpon>StudentProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2095,6 +2102,13 @@
     <Compile Include="admin\TestAdmin.aspx.designer.cs">
       <DependentUpon>TestAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\TestLoginLink.aspx.cs">
+      <DependentUpon>TestLoginLink.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\TestLoginLink.aspx.designer.cs">
+      <DependentUpon>TestLoginLink.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\ViewQuestions.aspx.cs">
       <DependentUpon>ViewQuestions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2108,6 +2122,10 @@
     </Compile>
     <Compile Include="admin\WebMethods\Student.asmx.cs">
       <DependentUpon>Student.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="admin\WebMethods\Subjects.asmx.cs">
+      <DependentUpon>Subjects.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="App_Code\Database.cs" />
@@ -2384,13 +2402,6 @@
     <Compile Include="student\ThumbLogin.aspx.designer.cs">
       <DependentUpon>ThumbLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TestPage.aspx.cs">
-      <DependentUpon>TestPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestPage.aspx.designer.cs">
-      <DependentUpon>TestPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ThumbTest.aspx.cs">
       <DependentUpon>ThumbTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2442,7 +2453,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>6026</DevelopmentServerPort>
+          <DevelopmentServerPort>39728</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:1553/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

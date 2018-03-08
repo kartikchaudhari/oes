@@ -2,10 +2,10 @@
 <asp:Content ID="content2" ContentPlaceHolderID="ExternelCss" runat="server">
     <link rel="stylesheet" href="../css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="../css/buttons.dataTables.min.css" />
-   
+    <link rel="stylesheet" href="../css/jquery.gritter.css" />
     <style>
-        .excelButton {
-           margin-left:60%;
+        .buttons-csv {
+           margin-left:84%;
          }
     </style>
 </asp:Content>
@@ -20,7 +20,7 @@
         </div>
         <!--breadcrumb end-->
 
-        <button style="float: right; position: relative; margin-top: 14.5px; margin-right: 20px;" onclick="javascript:location.reload(true);">Refresh</button>
+        <button class="btn btn-primary btn-sm"  style="float: right; position: relative; margin-top: 14.5px; margin-right: 20px;" onclick="javascript:location.reload(true);">Refresh</button>
         <div class="panel panel-default">
             <div class="panel-heading panel-heading-custom-pages">
                 <i class="fa fa-edit fa-1x"></i>&nbsp;&nbsp;<span>Manage Subjects</span>
@@ -118,6 +118,29 @@
             </div>
             <!-- /.panel-body -->
         </div>
+        
+        <!--delete subject modal starts-->
+        <div class="modal fade" id="DeleteSubjectsModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="panel panel-dsg">
+                    <div class="panel-heading">
+                        <a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a>
+                        <strong>Confirm to Remove Subject</strong>
+                    </div>
+                    <div class="panel-body" style="padding: 20px;">
+                        Are you Sure you want to Remove this Subject<br />
+                        <br />
+                        if <strong>Yes</strong> click <strong>Delete</strong> button otherwise click on <strong>Cancle</strong> button.
+                    </div>
+                    <div class="panel-footer">
+                        <button type="button" class="btn btn-danger btn-sm" onclick="DeleteSubjectBySubjectIdForModal();">Delete</button>
+                        <strong>&nbsp;&middot;&nbsp;</strong>
+                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" aria-label="close">Cancle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--delete subject modal ends -->
     </form>
 </asp:Content>
 <asp:Content ID="content3" ContentPlaceHolderID="ExternalJs" runat="server">
@@ -125,6 +148,7 @@
     <script src="../js/dataTables.buttons.min.js"></script>
     <script src="../js/buttons.html5.min.js"></script>
     <script src="../js/jszip.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.gritter.min.js"></script>
     <script type="text/javascript">        
         SubjectDatatable();
     </script>

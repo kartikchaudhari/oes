@@ -73,5 +73,11 @@ namespace oes.admin
             }
         }
 
+
+        protected void btnAddStudent_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

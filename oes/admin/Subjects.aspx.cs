@@ -83,6 +83,11 @@ namespace oes.admin
             
         }
 
+       protected void btnDeleteSubject_Click(object sender, EventArgs e,string name)
+       {
+           Response.Write(name);
+       }
+
        
     }
 }

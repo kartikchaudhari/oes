@@ -98,5 +98,46 @@ namespace oes.faculty.Class
             return QType;
 
         }
+
+        
+
+    }
+
+    public class QuestionDataAccessLayer {
+
+        public static List<QuestionsClass> GetAllQuestionsByDeptId(int DeptId,string sortColumn)
+        {
+            Database db = new Database();
+            List<QuestionsClass> QuestionsList = new List<QuestionsClass>();
+            using (db.DbConnect())
+            {
+                string sqlQuery = "SELECT * FROM questions WHERE dept_id=" + DeptId;
+                if (!string.IsNullOrEmpty(sortColumn))
+                {
+                    sqlQuery += "ORDER BY " + sortColumn;
+                }
+
+                SqlCommand cmd = new SqlCommand(sqlQuery, db.DbConnect());
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    QuestionsClass questions = new QuestionsClass();
+                    questions.QuestionId = Convert.ToInt16(rdr["q_id"].ToString());
+                    questions.DepartmentName = questions.FetchDeptById(Convert.ToInt16(rdr["dept_id"].ToString()));
+                    questions.SemId = Convert.ToInt16(rdr["sem_id"].ToString());
+                    questions.SubjectName = questions.FetchSubjectById(Convert.ToInt16(rdr["subject_id"].ToString()));
+                    questions.QuestionType = questions.DetermineQuestionType(Convert.ToInt16(rdr["question_type"].ToString()));
+                    questions.Question = rdr["question"].ToString();
+                    questions.OptionA = rdr["opt_a"].ToString();
+                    questions.OptionB = rdr["opt_b"].ToString();
+                    questions.OptionC = rdr["opt_c"].ToString();
+                    questions.OptionD = rdr["opt_d"].ToString();
+                    questions.CorrectAns = rdr["correct_ans"].ToString();
+                    questions.Marks = Convert.ToInt16(rdr["marks"].ToString());
+                    QuestionsList.Add(questions);
+                }
+            }
+            return QuestionsList;
+        }
     }
 }

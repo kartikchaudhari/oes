@@ -32,9 +32,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="Index.aspx">Home</a></li>
+                    <li><a href="../Index.aspx">Home</a></li>
                     <asp:ContentPlaceHolder ID="active_class_links" runat="server"></asp:ContentPlaceHolder>
-                    <li><a href="Help.aspx">Help</a></li>
+                    <li><a href="../Help.aspx">Help</a></li>
                 </ul>
             </div>
         </div>

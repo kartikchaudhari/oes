@@ -10,29 +10,32 @@ using System.Data.SqlClient;
 using System.Data.SqlTypes;
 
 using oes.App_Code;
-
 namespace oes.admin.WebMethods
 {
- 
+    /// <summary>
+    /// Summary description for Subjects
+    /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     [System.Web.Script.Services.ScriptService]
-    public class Student : System.Web.Services.WebService
+    public class Subjects : System.Web.Services.WebService
     {
-        //database object
         Database db = new Database();
 
         [WebMethod]
-        public string ConfirmRequest(int UserId)
+        public string RemoveSubject(int SubjectId)
         {
             string msg = null;
-            using (SqlCommand cmd = new SqlCommand("UPDATE student SET account_status=1 WHERE student_id=" + UserId + "", db.DbConnect()))
+            using (SqlCommand cmd = new SqlCommand("DeleteSubjectsBySubjectId", db.DbConnect()))
             {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SubjectId", SubjectId);
+                //cmd.ExecuteNonQuery();
                 if (cmd.ExecuteNonQuery() != 0)
                 {
-                    msg = "Request Confirmed";
+                    msg = "Subject Deleted";
                 }
                 else
                 {
@@ -41,6 +44,5 @@ namespace oes.admin.WebMethods
             }
             return msg;
         }
-
     }
 }
