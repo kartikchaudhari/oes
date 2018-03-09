@@ -31,15 +31,6 @@ namespace oes.faculty {
         protected global::System.Web.UI.WebControls.HiddenField hf_dept_id;
         
         /// <summary>
-        /// DdlSem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlSem;
-        
-        /// <summary>
         /// GridViewQuestionList control.
         /// </summary>
         /// <remarks>
@@ -49,12 +40,21 @@ namespace oes.faculty {
         protected global::System.Web.UI.WebControls.GridView GridViewQuestionList;
         
         /// <summary>
-        /// QuestionListDataSource control.
+        /// lblMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource QuestionListDataSource;
+        protected global::System.Web.UI.WebControls.Label lblMsg;
+        
+        /// <summary>
+        /// ObjectDataSourceQuestionList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceQuestionList;
     }
 }

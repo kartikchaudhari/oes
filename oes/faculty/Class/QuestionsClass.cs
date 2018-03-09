@@ -103,21 +103,17 @@ namespace oes.faculty.Class
 
     }
 
-    public class QuestionDataAccessLayer {
+    public class QuestionDataAccessLayer
+    {
 
-        public static List<QuestionsClass> GetAllQuestionsByDeptId(int DeptId,string sortColumn)
+        public static List<QuestionsClass> GetAllQuestionsByDeptId(int DeptId)
         {
             Database db = new Database();
             List<QuestionsClass> QuestionsList = new List<QuestionsClass>();
-            using (db.DbConnect())
+            using (SqlCommand cmd = new SqlCommand("FetchAllQuestionsByDeptId", db.DbConnect()))
             {
-                string sqlQuery = "SELECT * FROM questions WHERE dept_id=" + DeptId;
-                if (!string.IsNullOrEmpty(sortColumn))
-                {
-                    sqlQuery += "ORDER BY " + sortColumn;
-                }
-
-                SqlCommand cmd = new SqlCommand(sqlQuery, db.DbConnect());
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@DeptId", DeptId);
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -139,5 +135,116 @@ namespace oes.faculty.Class
             }
             return QuestionsList;
         }
-    }
+
+        public static List<QuestionsClass> GetAllQuestionsByDeptId(int DeptId, string sortColumn)
+        {
+            Database db = new Database();
+            List<QuestionsClass> QuestionsList = new List<QuestionsClass>();
+            using (db.DbConnect())
+            {
+                string SqlQuery = "SELECT * FROM questions WHERE dept_id=" + DeptId;
+                if (!string.IsNullOrEmpty(sortColumn))
+                {
+                    SqlQuery += " ORDER BY " + sortColumn;
+                }
+
+
+                SqlCommand cmd = new SqlCommand(SqlQuery, db.DbConnect());
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    QuestionsClass questions = new QuestionsClass();
+                    questions.QuestionId = Convert.ToInt16(rdr["q_id"].ToString());
+                    questions.DepartmentName = questions.FetchDeptById(Convert.ToInt16(rdr["dept_id"].ToString()));
+                    questions.SemId = Convert.ToInt16(rdr["sem_id"].ToString());
+                    questions.SubjectName = questions.FetchSubjectById(Convert.ToInt16(rdr["subject_id"].ToString()));
+                    questions.QuestionType = questions.DetermineQuestionType(Convert.ToInt16(rdr["question_type"].ToString()));
+                    questions.Question = rdr["question"].ToString();
+                    questions.OptionA = rdr["opt_a"].ToString();
+                    questions.OptionB = rdr["opt_b"].ToString();
+                    questions.OptionC = rdr["opt_c"].ToString();
+                    questions.OptionD = rdr["opt_d"].ToString();
+                    questions.CorrectAns = rdr["correct_ans"].ToString();
+                    questions.Marks = Convert.ToInt16(rdr["marks"].ToString());
+                    QuestionsList.Add(questions);
+                }
+            }
+            return QuestionsList;
+        }
+
+        public static List<QuestionsClass> GetAllQuestionsBySemId(int SemId)
+        {
+            Database db = new Database();
+            List<QuestionsClass> QuestionsList = new List<QuestionsClass>();
+            using (SqlCommand cmd = new SqlCommand("FetchAllQuestionsBySemId", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SemId", SemId);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    QuestionsClass questions = new QuestionsClass();
+                    questions.QuestionId = Convert.ToInt16(rdr["q_id"].ToString());
+                    questions.DepartmentName = questions.FetchDeptById(Convert.ToInt16(rdr["dept_id"].ToString()));
+                    questions.SemId = Convert.ToInt16(rdr["sem_id"].ToString());
+                    questions.SubjectName = questions.FetchSubjectById(Convert.ToInt16(rdr["subject_id"].ToString()));
+                    questions.QuestionType = questions.DetermineQuestionType(Convert.ToInt16(rdr["question_type"].ToString()));
+                    questions.Question = rdr["question"].ToString();
+                    questions.OptionA = rdr["opt_a"].ToString();
+                    questions.OptionB = rdr["opt_b"].ToString();
+                    questions.OptionC = rdr["opt_c"].ToString();
+                    questions.OptionD = rdr["opt_d"].ToString();
+                    questions.CorrectAns = rdr["correct_ans"].ToString();
+                    questions.Marks = Convert.ToInt16(rdr["marks"].ToString());
+                    QuestionsList.Add(questions);
+                }
+            }
+            return QuestionsList;
+        }
+
+        public static List<QuestionsClass> GetAllQuestionsBySemIdAndDeptId(int SemId, int DeptId)
+        {
+            Database db = new Database();
+            List<QuestionsClass> QuestionsList = new List<QuestionsClass>();
+            using (SqlCommand cmd = new SqlCommand("FetchAllQuestionsByDeptIdAndSemId", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@DeptId", DeptId);
+                cmd.Parameters.AddWithValue("@SemId", SemId);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    QuestionsClass questions = new QuestionsClass();
+                    questions.QuestionId = Convert.ToInt16(rdr["q_id"].ToString());
+                    questions.DepartmentName = questions.FetchDeptById(Convert.ToInt16(rdr["dept_id"].ToString()));
+                    questions.SemId = Convert.ToInt16(rdr["sem_id"].ToString());
+                    questions.SubjectName = questions.FetchSubjectById(Convert.ToInt16(rdr["subject_id"].ToString()));
+                    questions.QuestionType = questions.DetermineQuestionType(Convert.ToInt16(rdr["question_type"].ToString()));
+                    questions.Question = rdr["question"].ToString();
+                    questions.OptionA = rdr["opt_a"].ToString();
+                    questions.OptionB = rdr["opt_b"].ToString();
+                    questions.OptionC = rdr["opt_c"].ToString();
+                    questions.OptionD = rdr["opt_d"].ToString();
+                    questions.CorrectAns = rdr["correct_ans"].ToString();
+                    questions.Marks = Convert.ToInt16(rdr["marks"].ToString());
+                    QuestionsList.Add(questions);
+                }
+            }
+            return QuestionsList;
+        }
+
+        public static void DeleteQuestion(int QuestionId)
+        {
+            Database Db = new Database();
+            using (Db.DbConnect())
+            {
+                SqlCommand cmd = new SqlCommand("DELETE FROM questions WHERE q_id=@QId", Db.DbConnect());
+                SqlParameter param = new SqlParameter("@QId", QuestionId);
+                cmd.Parameters.Add(param);
+                cmd.ExecuteNonQuery();
+            }
+
+        }
+
+    }   
 }

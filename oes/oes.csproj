@@ -972,6 +972,7 @@
     <Content Include="css\buttons.dataTables.min.css" />
     <Content Include="css\custom.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\gridview.css" />
     <Content Include="css\jquery.dataTables.min.css" />
     <Content Include="css\jquery.gritter.css" />
     <Content Include="css\select.dataTables.min.css" />

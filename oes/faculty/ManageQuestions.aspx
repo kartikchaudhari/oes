@@ -2,9 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ExternelCss" runat="server">
     <link rel="stylesheet" href="../css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="../css/buttons.dataTables.min.css" />
+    <link rel="stylesheet" href="../css/gridview.css" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="page_contents" runat="server">
+    
     <form id="ManagqQuestionsForm" runat="server">
         <!--breadcrumb start-->
         <div class="row-fluid">
@@ -33,66 +35,61 @@
                     <!-- view all questions start-->
                     <div class="tab-pane fade in active" id="view_questions">
                         <div class="row">
-                            <div class="col-md-6" style="border:1px solid red;">
-                                <label>Sort By:</label>
-                                <asp:DropDownList ID="DdlSem" runat="server" OnSelectedIndexChanged="DdlSem_SelectedIndexChanged">
-                                    <asp:ListItem Value="NA" Text="---- Select Semester ----"></asp:ListItem>
-                                    <asp:ListItem Value="1" Text="1"></asp:ListItem>
-                                    <asp:ListItem Value="2" Text="2"></asp:ListItem>
-                                    <asp:ListItem Value="3" Text="3"></asp:ListItem>
-                                    <asp:ListItem Value="4" Text="4"></asp:ListItem>
-                                    <asp:ListItem Value="5" Text="5"></asp:ListItem>
-                                    <asp:ListItem Value="6" Text="6"></asp:ListItem>
-                                </asp:DropDownList>
-                                &nbsp;
-                                &nbsp;
-                                &nbsp;
-                                
-                            </div>
-                        </div>
+                                    <div class="col-md-6" style="border:1px solid blue;">
+                                    </div>
+                                </div>
                         <hr />
                         <div class="row">
-                            <div class="table-responsive" style="padding:1%;">
-                                <asp:GridView ID="GridViewQuestionList" runat="server" 
-                                    AutoGenerateColumns="False" 
-                                    CssClass="table table-bordered table-striped"
-                                     DataSourceID="QuestionListDataSource" 
-                                    PageSize="5" AllowPaging="True"
-                                    AllowSorting="True" DataKeyNames="q_id" CellPadding="3" CellSpacing="2" ClientIDMode="Static">
-                                <Columns>
-                                    <asp:BoundField DataField="q_id" HeaderText="q_id" SortExpression="q_id" InsertVisible="False" ReadOnly="True"></asp:BoundField>
-                                    <asp:BoundField DataField="dept_id" HeaderText="dept_id" SortExpression="dept_id" >
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="sem_id" HeaderText="sem_id" SortExpression="sem_id" >
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="subject_id" HeaderText="subject_id" SortExpression="subject_id" >
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="question_type" HeaderText="question_type" SortExpression="question_type" >
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="question" HeaderText="question" SortExpression="question" HtmlEncode="false" HtmlEncodeFormatString="false" >
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="opt_a" HeaderText="opt_a" SortExpression="opt_a" >
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="opt_b" HeaderText="opt_b" SortExpression="opt_b" >
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="opt_c" HeaderText="opt_c" SortExpression="opt_c" >
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="opt_d" HeaderText="opt_d" SortExpression="opt_d" >
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="correct_ans" HeaderText="correct_ans" SortExpression="correct_ans" >
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="marks" HeaderText="marks" SortExpression="marks" >
-                                    </asp:BoundField>
-                                </Columns>
-                                    <PagerStyle HorizontalAlign="Center" Wrap="False" />
-                            </asp:GridView>
-                                <asp:SqlDataSource ID="QuestionListDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ExamDbConString %>" SelectCommand="FetchAllQuestionsByDeptId" SelectCommandType="StoredProcedure">
-                                    <SelectParameters>
-                                        <asp:ControlParameter ControlID="hf_dept_id" Name="DeptId" PropertyName="Value" Type="Int32" />
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
-                            </div>
-                        </div>
+                                    <div class="table-responsive" style="padding: 1%;">
+                                        <br />
+                                        <asp:GridView ID="GridViewQuestionList" runat="server"
+                                            AllowPaging="True" AutoGenerateColumns="False" DataSourceID="ObjectDataSourceQuestionList"
+                                            PageSize="5" CssClass="table table-bordered table-striped" AllowSorting="True" DataKeyNames="QuestionId" EnableViewState="false">
+                                            <Columns>
+                                                <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-sm btn-danger"/>
+                                                <asp:CommandField ShowEditButton="true" ControlStyle-CssClass="btn btn-sm  btn-success" />
+                                                <asp:TemplateField>
+                                                    <HeaderTemplate>
+                                                        <asp:CheckBox ID="cbDeleteHeader" onclick="toggleSelectionUsingHeaderCheckBox(this);"  runat="server" />
+                                                    </HeaderTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:CheckBox ID="cbDelete" onclick="toggleSelectionOfHeaderCheckBox();" runat="server" OnCheckedChanged="cbDelete_CheckedChanged" />
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Question ID" SortExpression="q_id">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblQId" runat="server" Text='<%# Bind("QuestionId") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:BoundField DataField="DepartmentName" HeaderText="Department"/>
+                                                <asp:BoundField DataField="SemId" HeaderText="Semester" SortExpression="sem_id" />
+                                                <asp:BoundField DataField="SubjectName" HeaderText="Subject"/>
+                                                <asp:BoundField DataField="QuestionType" HeaderText="Question Type" SortExpression="question_type" />
+                                                <asp:BoundField DataField="Question" HeaderText="Question" HtmlEncode="False" HtmlEncodeFormatString="False" >
+                                                
+                                                </asp:BoundField>
+                                                <asp:BoundField DataField="OptionA" HeaderText="Option A"/>
+                                                <asp:BoundField DataField="OptionB" HeaderText="Option B"/>
+                                                <asp:BoundField DataField="OptionC" HeaderText="Option C"/>
+                                                <asp:BoundField DataField="OptionD" HeaderText="Option D"/>
+                                                <asp:BoundField DataField="CorrectAns" HeaderText="Correct Answer"/>
+                                                <asp:BoundField DataField="Marks" HeaderText="Marks"/>
+                                            </Columns>
+                                            <PagerStyle HorizontalAlign="Center" VerticalAlign="Middle" CssClass="pagination-ys" />
+                                        </asp:GridView>
+                                        <asp:Label ID="lblMsg" runat="server"></asp:Label>
+                                        <br />
+                                        <asp:ObjectDataSource ID="ObjectDataSourceQuestionList" runat="server" SelectMethod="GetAllQuestionsByDeptId" SortParameterName="sortColumn" TypeName="oes.faculty.Class.QuestionDataAccessLayer" DeleteMethod="DeleteQuestion">
+                                            <DeleteParameters>
+                                                <asp:Parameter Name="QuestionId" Type="Int32" />
+                                            </DeleteParameters>
+                                            <SelectParameters>
+                                                <asp:ControlParameter ControlID="hf_dept_id" Name="DeptId" PropertyName="Value" Type="Int32" />
+                                                <asp:Parameter Name="sortColumn" Type="String" />
+                                            </SelectParameters>
+                                        </asp:ObjectDataSource>
+                                    </div>
+                                </div>
                     </div>
                 </div>
             </div>
@@ -103,12 +100,36 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ExternalJs" runat="server">
-    <script src="../js/jquery.dataTables.min.js"></script>
-    <script src="../js/dataTables.buttons.min.js"></script>
-    <script src="../js/buttons.html5.min.js"></script>
-    <script src="../js/jszip.min.js"></script>
-    <script src="../js/json2.js"></script>
     <script type="text/javascript">
-        //QuestionsByDeptDatatable();
+        function toggleSelectionUsingHeaderCheckBox(source) {
+            $("#GridViewQuestionList input[name$='cbDelete']").each(function () {
+                $(this).attr('checked', source.checked);
+            });
+        }
+
+        function toggleSelectionOfHeaderCheckBox() {
+            if ($("#GridViewQuestionList input[name$='cbDelete']").length == $("#GridViewQuestionList input[name$='cbDelete']:checked").length) {
+                $("#GridViewQuestionList input[name$='cbDeleteHeader']").first().attr('checked', true);
+            } else {
+                $("#GridViewQuestionList input[name$='cbDeleteHeader']").first().attr('checked', false);
+            }
+        }
+
+        $(document).ready(function () {
+            $('#btnDelete').click(function () {
+                var rowSelected = $("#GridViewQuestionList input[name$='cbDelete']:checked").length;
+                if (rowSelected == 0) {
+                    alert("No row selected");
+                    return false;
+                }
+                else {
+                    return confirm(rowSelected + " row(s) will be deleted");
+                }
+            });
+            $('img').load(function () {
+                $('img').addClass("GvQImg");
+            }).removeAttr('width').removeAttr('height');
+        });
+
     </script>
 </asp:Content>

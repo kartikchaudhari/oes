@@ -367,7 +367,7 @@ namespace oes.faculty
                     new DataColumn("Option B", typeof(string)),
                     new DataColumn("Option C", typeof(string)),
                     new DataColumn("Option D", typeof(string)),
-                    new DataColumn("Correct Answer", typeof(int)),
+                    new DataColumn("Correct Answers", typeof(int)),
                     new DataColumn("Marks", typeof(int)),
                 });
                 using (OleDbDataAdapter oda = new OleDbDataAdapter("SELECT * FROM [" + sheet1 + "]", excel_con))
@@ -389,7 +389,7 @@ namespace oes.faculty
                     sqlBulkCopy.ColumnMappings.Add("Option B", "opt_b");
                     sqlBulkCopy.ColumnMappings.Add("Option C", "opt_c");
                     sqlBulkCopy.ColumnMappings.Add("Option D", "opt_d");
-                    sqlBulkCopy.ColumnMappings.Add("Correct Answer", "correct_ans");
+                    sqlBulkCopy.ColumnMappings.Add("Correct Answers", "correct_ans");
                     sqlBulkCopy.ColumnMappings.Add("Marks", "marks");
 
                     sqlBulkCopy.WriteToServer(dtExcelData);
