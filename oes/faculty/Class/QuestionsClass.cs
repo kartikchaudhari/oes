@@ -202,15 +202,137 @@ namespace oes.faculty.Class
             return QuestionsList;
         }
 
-        public static List<QuestionsClass> GetAllQuestionsBySemIdAndDeptId(int SemId, int DeptId)
+        public static List<QuestionsClass> GetAllQuestionsBySemIdAndDeptId(string SemId, string DeptId)
         {
+            int Dept_Id = Convert.ToInt16(DeptId);
+            int Sem_Id = Convert.ToInt16(SemId);
             Database db = new Database();
             List<QuestionsClass> QuestionsList = new List<QuestionsClass>();
             using (SqlCommand cmd = new SqlCommand("FetchAllQuestionsByDeptIdAndSemId", db.DbConnect()))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@DeptId", DeptId);
-                cmd.Parameters.AddWithValue("@SemId", SemId);
+                cmd.Parameters.AddWithValue("@DeptId", Dept_Id);
+                cmd.Parameters.AddWithValue("@SemId", Sem_Id);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    QuestionsClass questions = new QuestionsClass();
+                    questions.QuestionId = Convert.ToInt16(rdr["q_id"].ToString());
+                    questions.DepartmentName = questions.FetchDeptById(Convert.ToInt16(rdr["dept_id"].ToString()));
+                    questions.SemId = Convert.ToInt16(rdr["sem_id"].ToString());
+                    questions.SubjectName = questions.FetchSubjectById(Convert.ToInt16(rdr["subject_id"].ToString()));
+                    questions.QuestionType = questions.DetermineQuestionType(Convert.ToInt16(rdr["question_type"].ToString()));
+                    questions.Question = rdr["question"].ToString();
+                    questions.OptionA = rdr["opt_a"].ToString();
+                    questions.OptionB = rdr["opt_b"].ToString();
+                    questions.OptionC = rdr["opt_c"].ToString();
+                    questions.OptionD = rdr["opt_d"].ToString();
+                    questions.CorrectAns = rdr["correct_ans"].ToString();
+                    questions.Marks = Convert.ToInt16(rdr["marks"].ToString());
+                    QuestionsList.Add(questions);
+                }
+            }
+            return QuestionsList;
+        }
+
+        public static List<QuestionsClass> GetAllQuestionsBySemIdAndDeptId(string SemId, string DeptId,string sortColumn)
+        {
+            int Dept_Id = Convert.ToInt16(DeptId);
+            int Sem_Id = Convert.ToInt16(SemId);
+            Database db = new Database();
+            List<QuestionsClass> QuestionsList = new List<QuestionsClass>();
+
+            
+            using (db.DbConnect())
+            {
+                string SqlQuery = "SELECT * FROM questions WHERE dept_id=" + Dept_Id+"AND sem_id="+Sem_Id;
+                if (!string.IsNullOrEmpty(sortColumn))
+                {
+                    SqlQuery += " ORDER BY " + sortColumn;
+                }
+
+
+                SqlCommand cmd = new SqlCommand(SqlQuery, db.DbConnect());
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    QuestionsClass questions = new QuestionsClass();
+                    questions.QuestionId = Convert.ToInt16(rdr["q_id"].ToString());
+                    questions.DepartmentName = questions.FetchDeptById(Convert.ToInt16(rdr["dept_id"].ToString()));
+                    questions.SemId = Convert.ToInt16(rdr["sem_id"].ToString());
+                    questions.SubjectName = questions.FetchSubjectById(Convert.ToInt16(rdr["subject_id"].ToString()));
+                    questions.QuestionType = questions.DetermineQuestionType(Convert.ToInt16(rdr["question_type"].ToString()));
+                    questions.Question = rdr["question"].ToString();
+                    questions.OptionA = rdr["opt_a"].ToString();
+                    questions.OptionB = rdr["opt_b"].ToString();
+                    questions.OptionC = rdr["opt_c"].ToString();
+                    questions.OptionD = rdr["opt_d"].ToString();
+                    questions.CorrectAns = rdr["correct_ans"].ToString();
+                    questions.Marks = Convert.ToInt16(rdr["marks"].ToString());
+                    QuestionsList.Add(questions);
+                }
+            }
+            return QuestionsList;
+        }
+        public static List<QuestionsClass> GetAllQuestionsBySemIdAndDeptIdAndSubId(string SubId, string SemId, string DeptId)
+        {
+            int Dept_Id = Convert.ToInt16(DeptId);
+            int Sem_Id = Convert.ToInt16(SemId);
+            int Subject_Id = Convert.ToInt16(SubId);
+            Database db = new Database();
+            List<QuestionsClass> QuestionsList = new List<QuestionsClass>();
+
+
+            using (db.DbConnect())
+            {
+                string SqlQuery = "SELECT * FROM questions WHERE dept_id=" + Dept_Id + "AND sem_id=" + Sem_Id + "AND subject_id=" + Subject_Id;
+                //if (!string.IsNullOrEmpty(sortColumn))
+                //{
+                //    SqlQuery += " ORDER BY " + sortColumn;
+                //}
+
+
+                SqlCommand cmd = new SqlCommand(SqlQuery, db.DbConnect());
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    QuestionsClass questions = new QuestionsClass();
+                    questions.QuestionId = Convert.ToInt16(rdr["q_id"].ToString());
+                    questions.DepartmentName = questions.FetchDeptById(Convert.ToInt16(rdr["dept_id"].ToString()));
+                    questions.SemId = Convert.ToInt16(rdr["sem_id"].ToString());
+                    questions.SubjectName = questions.FetchSubjectById(Convert.ToInt16(rdr["subject_id"].ToString()));
+                    questions.QuestionType = questions.DetermineQuestionType(Convert.ToInt16(rdr["question_type"].ToString()));
+                    questions.Question = rdr["question"].ToString();
+                    questions.OptionA = rdr["opt_a"].ToString();
+                    questions.OptionB = rdr["opt_b"].ToString();
+                    questions.OptionC = rdr["opt_c"].ToString();
+                    questions.OptionD = rdr["opt_d"].ToString();
+                    questions.CorrectAns = rdr["correct_ans"].ToString();
+                    questions.Marks = Convert.ToInt16(rdr["marks"].ToString());
+                    QuestionsList.Add(questions);
+                }
+            }
+            return QuestionsList;
+        }
+        public static List<QuestionsClass> GetAllQuestionsBySemIdAndDeptIdAndSubId(string SubId, string SemId, string DeptId, string sortColumn)
+        {
+            int Dept_Id = Convert.ToInt16(DeptId);
+            int Sem_Id = Convert.ToInt16(SemId);
+            int Subject_Id = Convert.ToInt16(SubId);
+            Database db = new Database();
+            List<QuestionsClass> QuestionsList = new List<QuestionsClass>();
+
+
+            using (db.DbConnect())
+            {
+                string SqlQuery = "SELECT * FROM questions WHERE dept_id=" + Dept_Id + "AND sem_id=" + Sem_Id+"AND subject_id="+Subject_Id;
+                if (!string.IsNullOrEmpty(sortColumn))
+                {
+                    SqlQuery += " ORDER BY " + sortColumn;
+                }
+
+
+                SqlCommand cmd = new SqlCommand(SqlQuery, db.DbConnect());
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {

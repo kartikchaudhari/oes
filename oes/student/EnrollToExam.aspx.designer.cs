@@ -7,45 +7,63 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace oes.faculty {
+namespace oes.student {
     
     
-    public partial class ManageExams {
+    public partial class EnrollToExam {
         
         /// <summary>
-        /// ManageExamsForm control.
+        /// EnrollToExamForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm ManageExamsForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm EnrollToExamForm;
         
         /// <summary>
-        /// hf_dept_id control.
+        /// DdlDept control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hf_dept_id;
+        protected global::System.Web.UI.WebControls.DropDownList DdlDept;
         
         /// <summary>
-        /// ExamListGirdView control.
+        /// RfVDdlDept control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ExamListGirdView;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfVDdlDept;
         
         /// <summary>
-        /// ObjectDataSourceExamList control.
+        /// DdlSem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceExamList;
+        protected global::System.Web.UI.WebControls.DropDownList DdlSem;
+        
+        /// <summary>
+        /// RfvDdlSem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvDdlSem;
+        
+        /// <summary>
+        /// btnSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSearch;
     }
 }

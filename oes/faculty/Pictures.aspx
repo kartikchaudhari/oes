@@ -98,9 +98,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ExternalJs" runat="server">
-    <script type="text/javascript" src="../js/jquery.gritter.min.js">
-
-    </script>
+    <script type="text/javascript" src="../js/jquery.gritter.min.js"></script>
     <script type="text/javascript">
         function CopyUrl(textAreaId) {
             document.getElementById("" + textAreaId + "").select();

@@ -7,12 +7,17 @@ using System.Web.UI.WebControls;
 
 namespace oes.faculty
 {
-    public partial class Logout : System.Web.UI.Page
+    public partial class TestFaculty : System.Web.UI.Page
     {
+       
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Abandon();
-            Response.Redirect("Login.aspx?eid=1");
+            
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

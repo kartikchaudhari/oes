@@ -568,3 +568,21 @@ border-radius:4px;
     height:80px;
     width:200px;
 }
+
+.GvQImg2 {
+    height:80px;
+    width:80px;
+}
+.row-detail-container {
+    padding:10px;
+    border-radius:4px;
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border:1px solid #faebcc;
+    margin-left:0px;
+    margin-right:0px;
+}
+
+.hideBtn {
+    display:none;
+}

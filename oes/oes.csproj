@@ -978,6 +978,7 @@
     <Content Include="css\select.dataTables.min.css" />
     <Content Include="css\sidebar.css" />
     <Content Include="faculty\AddQuestions.aspx" />
+    <Content Include="faculty\AddQuestionToExam.aspx" />
     <Content Include="faculty\ckeditor\adapters\jquery.js" />
     <Content Include="faculty\ckeditor\ckeditor.asp" />
     <Content Include="faculty\ckeditor\ckeditor.js" />
@@ -1837,6 +1838,7 @@
     <Content Include="faculty\Profile.aspx" />
     <Content Include="faculty\Students.aspx" />
     <Content Include="faculty\Subjects.aspx" />
+    <Content Include="faculty\TestFaculty.aspx" />
     <Content Include="faculty\ViewQuestions.aspx" />
     <Content Include="faculty\ViewSubject.aspx" />
     <Content Include="faculty\WebMethods\Questions.asmx" />
@@ -1904,9 +1906,12 @@
     <Content Include="SendBase64.asmx" />
     <Content Include="student\Countdown.aspx" />
     <Content Include="student\Dashboard.aspx" />
+    <Content Include="student\DashboardContents.aspx" />
     <Content Include="student\EnrollThumb.aspx" />
+    <Content Include="student\EnrollToExam.aspx" />
     <Content Include="student\Login.aspx" />
     <Content Include="student\LoginViaUid.aspx" />
+    <Content Include="student\Logout.aspx" />
     <Content Include="student\QuestionPaper.aspx" />
     <Content Include="student\Register.aspx" />
     <Content Include="student\ThumbLogin.aspx" />
@@ -2152,6 +2157,14 @@
     <Compile Include="faculty\AddQuestions.aspx.designer.cs">
       <DependentUpon>AddQuestions.aspx</DependentUpon>
     </Compile>
+    <Compile Include="faculty\AddQuestionToExam.aspx.cs">
+      <DependentUpon>AddQuestionToExam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="faculty\AddQuestionToExam.aspx.designer.cs">
+      <DependentUpon>AddQuestionToExam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="faculty\Class\ExamClass.cs" />
     <Compile Include="faculty\Class\QuestionsClass.cs" />
     <Compile Include="faculty\CreateExam.aspx.cs">
       <DependentUpon>CreateExam.aspx</DependentUpon>
@@ -2286,6 +2299,13 @@
     <Compile Include="faculty\Subjects.aspx.designer.cs">
       <DependentUpon>Subjects.aspx</DependentUpon>
     </Compile>
+    <Compile Include="faculty\TestFaculty.aspx.cs">
+      <DependentUpon>TestFaculty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="faculty\TestFaculty.aspx.designer.cs">
+      <DependentUpon>TestFaculty.aspx</DependentUpon>
+    </Compile>
     <Compile Include="faculty\ViewQuestions.aspx.cs">
       <DependentUpon>ViewQuestions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2354,12 +2374,33 @@
     <Compile Include="student\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="student\DashboardContents.aspx.cs">
+      <DependentUpon>DashboardContents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="student\DashboardContents.aspx.designer.cs">
+      <DependentUpon>DashboardContents.aspx</DependentUpon>
+    </Compile>
     <Compile Include="student\EnrollThumb.aspx.cs">
       <DependentUpon>EnrollThumb.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="student\EnrollThumb.aspx.designer.cs">
       <DependentUpon>EnrollThumb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="student\EnrollToExam.aspx.cs">
+      <DependentUpon>EnrollToExam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="student\EnrollToExam.aspx.designer.cs">
+      <DependentUpon>EnrollToExam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="student\FrameContentMaster.Master.cs">
+      <DependentUpon>FrameContentMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="student\FrameContentMaster.Master.designer.cs">
+      <DependentUpon>FrameContentMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="student\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -2374,6 +2415,13 @@
     </Compile>
     <Compile Include="student\LoginViaUid.aspx.designer.cs">
       <DependentUpon>LoginViaUid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="student\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="student\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="student\QuestionPaper.aspx.cs">
       <DependentUpon>QuestionPaper.aspx</DependentUpon>
@@ -2429,6 +2477,7 @@
     <Content Include="admin\ckeditor\ckeditor.pack" />
     <Content Include="faculty\ckeditor\.htaccess" />
     <Content Include="faculty\ckeditor\ckeditor.pack" />
+    <Content Include="student\FrameContentMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

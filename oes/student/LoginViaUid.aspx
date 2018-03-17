@@ -20,13 +20,17 @@
     <nav class="navbar navbar-inverse custom-navbar">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="../Index.aspx">Online Examination System</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a class="navbar-brand" style="padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 3px;" href="../Index.aspx">
+                    <span>
+                        <img src="../images/secure-test.png" style="height: 50px; width: 50px;"></span>
+                    <span id="oes_title">Online Examination System</span>
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -88,7 +92,7 @@
                         </div>
                         <div class="panel-body custom-thumb_container-body">
                             <div class="col-md-6 col-sm-offset-3">
-                                <<%--div class="form-group">
+                                <%--<div class="form-group">
                                     <label for="email">Enrollment No.:</label>
                                     <asp:TextBox ID="tbEnrollment" runat="server" CssClass="form-control" TextMode="SingleLine" required="required"></asp:TextBox>
                                 </div>--%>

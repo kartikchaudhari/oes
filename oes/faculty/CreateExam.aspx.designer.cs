@@ -112,40 +112,13 @@ namespace oes.faculty {
         protected global::System.Web.UI.WebControls.TextBox tbExamDate;
         
         /// <summary>
-        /// tbExamCode control.
+        /// tbTotalTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbExamCode;
-        
-        /// <summary>
-        /// tbSTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbSTime;
-        
-        /// <summary>
-        /// tbETime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbETime;
-        
-        /// <summary>
-        /// DdlAmPm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlAmPm;
+        protected global::System.Web.UI.WebControls.TextBox tbTotalTime;
         
         /// <summary>
         /// tbPassingMarks control.
@@ -164,6 +137,15 @@ namespace oes.faculty {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbTotalQuestion;
+        
+        /// <summary>
+        /// tbTotalMarks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbTotalMarks;
         
         /// <summary>
         /// btnCreateExam control.

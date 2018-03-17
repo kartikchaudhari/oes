@@ -16,11 +16,20 @@ namespace oes.admin
     public partial class TestAdmin : System.Web.UI.Page
     {
 
-        Functions fn = new Functions();
+        //Functions fn = new Functions();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = fn.RowCounter("admin").ToString();
+           // Label1.Text = fn.RowCounter("admin").ToString();
            
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+            string dt = DateTime.Parse(TextBox1.Text).ToShortDateString();
+            Response.Write(dt);
+            //Response.Write(DateTime.Parse(TextBox1.Text).ToShortDateString());
+            //Response.Write(Calendar1.SelectedDate.ToShortDateString());
         }
     }
 }

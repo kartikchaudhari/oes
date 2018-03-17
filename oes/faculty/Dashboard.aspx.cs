@@ -21,14 +21,18 @@ namespace oes.faculty
         {
             //block the page from getting cached
             Response.Cache.SetNoStore();
-            int UserType = Convert.ToInt16(Session["type"]);
-            if (Session["id"] == null && UserType == 2)
+            
+            if (Session["id"] == null && Session["type"]==null)
             {
                 Response.Redirect("Login.aspx?eid=1");
             }
             else
             {
-                LoadFacultyData(Convert.ToInt16(Session["id"]));
+                int UserType = Convert.ToInt16(Session["type"]);
+                if (UserType==2)
+                {
+                    LoadFacultyData(Convert.ToInt16(Session["id"]));   
+                }
             }
         }
         private void LoadFacultyData(int id)

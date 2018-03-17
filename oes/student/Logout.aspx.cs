@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace oes.faculty
+namespace oes.student
 {
     public partial class Logout : System.Web.UI.Page
     {
