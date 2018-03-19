@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Create Exam" Language="C#" MasterPageFile="~/faculty/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="CreateExam.aspx.cs" Inherits="oes.faculty.CreateExam" %>
+﻿<%@ Page Title="Create Exam" Language="C#" MasterPageFile="~/faculty/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="CreateExam.aspx.cs" Inherits="oes.faculty.CreateExam"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="ExternelCss" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="page_contents" runat="server">
@@ -68,76 +68,54 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="row">
-                                        <div class="col-sm-4 form_controls_custom">
-                                            <div class="input-group">
-                                                <label>Exam Type :</label>
-                                                <asp:DropDownList ID="DdlExamType" runat="server" Width="300" CssClass="form-control" required="required">
-                                                    <asp:ListItem Value="NA" Text="---- Select Exam Type ----"></asp:ListItem>
-                                                    <asp:ListItem Value="MID" Text="Mid Semester Exam"></asp:ListItem>
-                                                    <asp:ListItem Value="CT" Text="Class Test"></asp:ListItem>
-                                                </asp:DropDownList>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 form_controls_custom">
-                                            <div class="input-group">
-                                                <label>Exam Date :</label>
-                                                <asp:TextBox ID="tbExamDate" TextMode="Date" runat="server" CssClass="form-control" Width="300"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 form_controls_custom">
-                                            <div class="input-group">
-                                                <label>Exam Code :</label>
-                                                <asp:TextBox ID="tbExamCode" TextMode="SingleLine" runat="server" CssClass="form-control" Width="300" disabled="true"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </ContentTemplate>
                                 <Triggers>
                                     <asp:AsyncPostBackTrigger ControlID="DdlDept" />
                                     <asp:AsyncPostBackTrigger ControlID="DdlSem" />
-                                    <asp:AsyncPostBackTrigger ControlID="tbExamDate" />
                                 </Triggers>
                             </asp:UpdatePanel>
+                           <div class="row">
+                               <div class="col-sm-4 form_controls_custom">
+                                   <div class="input-group">
+                                       <label>Exam Type :</label>
+                                       <asp:DropDownList ID="DdlExamType" runat="server" Width="300" CssClass="form-control" required="required">
+                                           <asp:ListItem Value="NA" Text="---- Select Exam Type ----"></asp:ListItem>
+                                           <asp:ListItem Value="MID" Text="Mid Semester Exam"></asp:ListItem>
+                                           <asp:ListItem Value="CT" Text="Class Test"></asp:ListItem>
+                                       </asp:DropDownList>
+                                   </div>
+                               </div>
+                               <div class="col-sm-4 form_controls_custom">
+                                   <div class="input-group">
+                                       <label>Exam Date :</label>
+                                       <asp:TextBox ID="tbExamDate" TextMode="Date" runat="server" CssClass="form-control" Width="300"></asp:TextBox>
+                                   </div>
+                               </div>
+                               <div class="col-sm-4 form_controls_custom">
+                                   <div class="input-group">
+                                       <label>Total Time (int Minute):</label>
+                                       <asp:TextBox ID="tbTotalTime" TextMode="SingleLine" runat="server" CssClass="form-control" Width="300"></asp:TextBox>
+                                   </div>
+                               </div>
+                           </div>
                             <br />
                            <div class="row">
-                               <div class="col-sm-4 form_controls_custom">
-                                    <div class="input-group">
-                                        <label>Start Time: (in HH : MM : SS format)</label><br />
-                                        <asp:TextBox ID="tbSTime" CssClass="form-control" runat="server" Width="300" TextMode="SingleLine"></asp:TextBox><br />
-                                        
-                                        
-                                    </div>
-                                </div>
-                               <div class="col-sm-4 form_controls_custom">
-                                    <div class="input-group">
-                                        <label>End Time: (in HH : MM : SS format)</label><br />
-                                       <asp:TextBox ID="tbETime" CssClass="form-control" runat="server" TextMode="SingleLine" Width="300"></asp:TextBox>
-                                    </div>
-                                </div>
-                               <div class="col-sm-4 form_controls_custom">
-                                    <div class="input-group">
-                                        <label>AM/PM:</label><br />
-                                        <asp:DropDownList ID="DdlAmPm" runat="server" Width="300" CssClass="form-control">
-                                            <asp:ListItem Value="NA" Text="---- Select AM or PM ----"></asp:ListItem>
-                                            <asp:ListItem Value="AM" Text="AM"></asp:ListItem>
-                                            <asp:ListItem Value="PM" Text="PM"></asp:ListItem>
-                                        </asp:DropDownList>
-                                    </div>
-                                </div>
-                           </div>
-                           <br />
-                           <div class="row">
-                                <div class="col-sm-6 form_controls_custom">
+                                <div class="col-sm-4 form_controls_custom">
                                     <div class="input-group">
                                         <label>Passing Marks :</label>
-                                        <asp:TextBox ID="tbPassingMarks" runat="server" TextMode="Number" Width="500" CssClass="form-control" ></asp:TextBox>
+                                        <asp:TextBox ID="tbPassingMarks" runat="server" TextMode="Number" Width="300" CssClass="form-control" ></asp:TextBox>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 form_controls_custom">
+                                <div class="col-sm-4 form_controls_custom">
                                     <div class="input-group">
                                         <label>Total Questions</label>
-                                        <asp:TextBox id="tbTotalQuestion" runat="server" TextMode="Number" Width="500" CssClass="form-control"></asp:TextBox>
+                                        <asp:TextBox id="tbTotalQuestion" runat="server" TextMode="Number" Width="300" CssClass="form-control"></asp:TextBox>
+                                    </div>
+                                </div>
+                               <div class="col-sm-4 form_controls_custom">
+                                    <div class="input-group">
+                                        <label>Total Marks</label>
+                                        <asp:TextBox id="tbTotalMarks" runat="server" TextMode="Number" Width="300" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>

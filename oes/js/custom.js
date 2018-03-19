@@ -674,3 +674,20 @@ function DeleteFacultyByFacultyIdForModal() {
 }
 
 
+
+//file uplaod validatior 
+function ValidateFileTypes(FileType) {
+    switch(FileType){
+        case 1: //image validation 
+            var FileName = document.getElementById("FileUpload");
+            var FileNameValue = FileName.value;
+            var FileExt = FileNameVale.substring(FileNameValue.lastIndexOf('.') + 1);
+            if (FileExt=="jpg"||FileExt=="JPG"||FileExt=="png"||FileExt=="PNG") {
+
+            }
+        break;
+
+        case 2: //excel file validatin
+            break;
+    }
+}

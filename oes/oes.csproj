@@ -1909,11 +1909,13 @@
     <Content Include="student\DashboardContents.aspx" />
     <Content Include="student\EnrollThumb.aspx" />
     <Content Include="student\EnrollToExam.aspx" />
+    <Content Include="student\ExamInstructions.aspx" />
     <Content Include="student\Login.aspx" />
     <Content Include="student\LoginViaUid.aspx" />
     <Content Include="student\Logout.aspx" />
     <Content Include="student\QuestionPaper.aspx" />
     <Content Include="student\Register.aspx" />
+    <Content Include="student\StartExam.aspx" />
     <Content Include="student\ThumbLogin.aspx" />
     <Content Include="TestBootstrap.html" />
     <Content Include="ThumbTest.aspx" />
@@ -2395,6 +2397,13 @@
     <Compile Include="student\EnrollToExam.aspx.designer.cs">
       <DependentUpon>EnrollToExam.aspx</DependentUpon>
     </Compile>
+    <Compile Include="student\ExamInstructions.aspx.cs">
+      <DependentUpon>ExamInstructions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="student\ExamInstructions.aspx.designer.cs">
+      <DependentUpon>ExamInstructions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="student\FrameContentMaster.Master.cs">
       <DependentUpon>FrameContentMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2443,6 +2452,13 @@
     </Compile>
     <Compile Include="student\RegisterLoginMaster.Master.designer.cs">
       <DependentUpon>RegisterLoginMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="student\StartExam.aspx.cs">
+      <DependentUpon>StartExam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="student\StartExam.aspx.designer.cs">
+      <DependentUpon>StartExam.aspx</DependentUpon>
     </Compile>
     <Compile Include="student\ThumbLogin.aspx.cs">
       <DependentUpon>ThumbLogin.aspx</DependentUpon>

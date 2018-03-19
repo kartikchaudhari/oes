@@ -22,31 +22,64 @@
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2" style="padding:8px;">
-                        <div class="form-group">
-                            <label for="email">Select Department:</label>
-                            <asp:DropDownList ID="DdlDept" CssClass="form-control" runat="server">
-                                <asp:ListItem Value="NA" Text="---- Select Department ----"></asp:ListItem>
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RfVDdlDept" runat="server" ErrorMessage="Please Select Department" ControlToValidate="DdlDept" CssClass="ErrMsg" InitialValue="NA"></asp:RequiredFieldValidator>
-                        </div>
-                        <div class="form-group">
-                            <label for="pwd">Select Semester:</label>
-                            <asp:DropDownList ID="DdlSem" CssClass="form-control" runat="server">
-                                <asp:ListItem Value="NA" Text="---- Select Semester ----"></asp:ListItem>
-                                <asp:ListItem Value="1" Text="1"></asp:ListItem>
-                                <asp:ListItem Value="2" Text="2"></asp:ListItem>
-                                <asp:ListItem Value="3" Text="3"></asp:ListItem>
-                                <asp:ListItem Value="4" Text="4"></asp:ListItem>
-                                <asp:ListItem Value="5" Text="5"></asp:ListItem>
-                                <asp:ListItem Value="6" Text="6"></asp:ListItem>
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RfvDdlSem" runat="server" ErrorMessage="Please Select Semester" ControlToValidate="DdlSem" CssClass="ErrMsg" InitialValue="NA"></asp:RequiredFieldValidator>
-                        </div>
-                        <asp:Button ID="btnSearch" runat="server" CssClass="btn btn-success" Text="Search Exam" />
-                        <strong>&middot;</strong>
-                        <button type="reset" class="btn btn-danger">Reset</button>
-                    </div>
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <div class="col-md-8 col-md-offset-2" style="padding:8px;">
+                                <div class="form-group">
+                                    <label for="email">Select Department:</label>
+                                    <asp:DropDownList ID="DdlDept" CssClass="form-control" runat="server">
+                                        <asp:ListItem Value="NA" Text="---- Select Department ----"></asp:ListItem>
+                                    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="RfVDdlDept" runat="server" ErrorMessage="Please Select Department" ControlToValidate="DdlDept" CssClass="ErrMsg" InitialValue="NA"></asp:RequiredFieldValidator>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">Select Semester:</label>
+                                    <asp:DropDownList ID="DdlSem" CssClass="form-control" runat="server">
+                                        <asp:ListItem Value="NA" Text="---- Select Semester ----"></asp:ListItem>
+                                        <asp:ListItem Value="1" Text="1"></asp:ListItem>
+                                        <asp:ListItem Value="2" Text="2"></asp:ListItem>
+                                        <asp:ListItem Value="3" Text="3"></asp:ListItem>
+                                        <asp:ListItem Value="4" Text="4"></asp:ListItem>
+                                        <asp:ListItem Value="5" Text="5"></asp:ListItem>
+                                        <asp:ListItem Value="6" Text="6"></asp:ListItem>
+                                    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="RfvDdlSem" runat="server" ErrorMessage="Please Select Semester" ControlToValidate="DdlSem" CssClass="ErrMsg" InitialValue="NA"></asp:RequiredFieldValidator>
+                                </div>
+                                <asp:Button ID="btnSearch" runat="server" CssClass="btn btn-success" Text="Search Exam" OnClick="btnSearch_Click" />
+                                <strong>&middot;</strong>
+                                <button type="reset" class="btn btn-danger">Reset</button>
+                                <br /><br />
+                                <asp:Panel ID="PanelSearchResult" runat="server" Visible="false">
+                                     <div class="table-responsive">
+                                         <table class="table table-bordered">
+                                             <tr>
+                                                 <th style="text-align:center;">Exam Name</th>
+                                                 <th style="text-align:center;">Exam Date</th>
+                                                 <th style="text-align:center;">Action</th>
+                                             </tr>
+                                             
+                                                 <tr>
+                                                 <td align="center">
+                                                     <asp:Label ID="lblExamName" runat="server"></asp:Label>
+                                                 </td>
+                                                 <td style="text-align:center;">
+                                                     <asp:Label ID="lblExamDate" runat="server"></asp:Label>
+                                                 </td>
+                                                 <td align="center">
+                                                     <asp:Panel ID="ExamLinkPanel" runat="server" Visible="true"></asp:Panel>
+                                                 </td>
+                                             </tr>
+                                         </table>
+                                     </div>
+                                </asp:Panel>
+                            </div>
+                        </ContentTemplate>
+                        <Triggers>
+                           <asp:AsyncPostBackTrigger ControlID="btnSearch" />
+                        </Triggers>
+                    </asp:UpdatePanel>
+                    
                 </div>
             </div>
         </div>

@@ -23,8 +23,10 @@
 
            
             //DateTime DesiredDate = DateTime.Parse("11-03-2018");
-            //DateTime CurrentDate = DateTime.Parse(DateTime.Now.ToString("dd-mm-yyyy"));
-            //int ResultCompare = DateTime.Compare(DesiredDate, CurrentDate);
+            //DateTime CurrentDate = 
+            string dt=DateTime.Now.ToShortDateString();
+            dt.CompareTo();
+            int ResultCompare = DateTime.Compare(DesiredDate, CurrentDate);
             //if (ResultCompare==-1)
             //{
             //    Response.Write("Desired Date is less then Current Date.");
@@ -39,6 +41,7 @@
             //}
 
             //Response.Write(DesiredDate);
+            Response.Write(dt);
              %>
         
         <br />
