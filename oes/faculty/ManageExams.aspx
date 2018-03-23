@@ -26,42 +26,45 @@
                 <i class="fa fa-pencil fa-1x"></i>&nbsp;&nbsp;<span>Manage Exams</span>
             </div>
             <div class="panel-body">
-
                 <asp:HiddenField ID="hf_dept_id" runat="server" />
-                <asp:GridView ID="ExamListGirdView" runat="server" AutoGenerateColumns="False" DataKeyNames="ExamId" DataSourceID="ObjectDataSourceExamList" AllowPaging="True" AllowSorting="True" PageSize="5">
-                    <Columns>
-                        <asp:TemplateField HeaderText="checkbox"></asp:TemplateField>
-                        <asp:TemplateField HeaderText="Exam ID">
-                            <ItemTemplate>
-                                <asp:Label ID="lblExamIdIteams" runat="server" Text='<%# Bind("ExamId") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:BoundField HeaderText="Exam Name" DataField="ExamName" />
-                        <asp:BoundField HeaderText="Exam Type" DataField="ExamType" />
-                        <asp:BoundField HeaderText="Semester" DataField="SemId"/>
-                        <asp:BoundField HeaderText="Subject" DataField="SubjectName" />
-                        <asp:BoundField HeaderText="Exam Code" DataField="ExamCode" />
-                        <asp:BoundField HeaderText="Exam Date" DataField="ExamDate" />
+                <div class="table-responsive" style="padding:1%;">
+                    <asp:GridView ID="ExamListGirdView" runat="server" AutoGenerateColumns="False" 
+                        DataKeyNames="ExamId" DataSourceID="ObjectDataSourceExamList" 
+                        AllowPaging="True" AllowSorting="True" PageSize="5" CssClass="table table-bordered table-hover" >
+                        <Columns>
+                            <asp:TemplateField HeaderText="checkbox"></asp:TemplateField>
+                            <asp:TemplateField HeaderText="Exam ID">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblExamIdIteams" runat="server" Text='<%# Bind("ExamId") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField HeaderText="Exam Name" DataField="ExamName" />
+                            <asp:BoundField HeaderText="Exam Type" DataField="ExamType" />
+                            <asp:BoundField HeaderText="Semester" DataField="SemId"/>
+                            <asp:BoundField HeaderText="Subject" DataField="SubjectName" />
+                            <asp:BoundField HeaderText="Exam Code" DataField="ExamCode" />
+                            <asp:BoundField HeaderText="Exam Date" DataField="ExamDate" />
                        
-                         <asp:HyperLinkField DataNavigateUrlFields="ExamId" DataNavigateUrlFormatString="~/faculty/AddQuestionToExam.aspx?ExamId={0}"
-                                HeaderText="Actions" ItemStyle-Width = "150" DataTextFormatString="Add Questions" Text="Add Questions" >
-                                <ItemStyle Width="150px"></ItemStyle>
-                         </asp:HyperLinkField>
+                             <asp:HyperLinkField DataNavigateUrlFields="ExamId" DataNavigateUrlFormatString="~/faculty/AddQuestionToExam.aspx?ExamId={0}"
+                                    HeaderText="Actions" ItemStyle-Width = "150" DataTextFormatString="Add Questions" Text="Add Questions" >
+                                    <ItemStyle Width="150px"></ItemStyle>
+                             </asp:HyperLinkField>
         
-                        <asp:CommandField ButtonType="Button" ShowEditButton="True" />
-                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" />
+                            <asp:CommandField ButtonType="Button" ShowEditButton="True" HeaderText="Edit" />
+                            <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" />
         
-                    </Columns>
-                    <PagerStyle HorizontalAlign="Center" VerticalAlign="Middle" CssClass="pagination-ys" />
-                </asp:GridView>
-                <asp:ObjectDataSource ID="ObjectDataSourceExamList" runat="server" SelectMethod="GetAllExamsByDeptId" TypeName="oes.faculty.Class.ExamDataAccessLayer" DeleteMethod="DeleteExam">
-                    <DeleteParameters>
-                        <asp:Parameter Name="ExamId" Type="Int32" />
-                   </DeleteParameters>
-                    <SelectParameters>
-                        <asp:ControlParameter ControlID="hf_dept_id" Name="DeptId" PropertyName="Value" Type="Int32" />
-                    </SelectParameters>
-                </asp:ObjectDataSource>
+                        </Columns>
+                        <PagerStyle HorizontalAlign="Center" VerticalAlign="Middle" CssClass="pagination-ys" />
+                    </asp:GridView>
+                    <asp:ObjectDataSource ID="ObjectDataSourceExamList" runat="server" SelectMethod="GetAllExamsByDeptId" TypeName="oes.faculty.Class.ExamDataAccessLayer" DeleteMethod="DeleteExam">
+                        <DeleteParameters>
+                            <asp:Parameter Name="ExamId" Type="Int32" />
+                       </DeleteParameters>
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="hf_dept_id" Name="DeptId" PropertyName="Value" Type="Int32" />
+                        </SelectParameters>
+                    </asp:ObjectDataSource>
+                </div>
             </div>
         </div>
     </form>

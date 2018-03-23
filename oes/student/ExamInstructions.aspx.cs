@@ -10,6 +10,8 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 
+using System.Collections;
+
 using oes.App_Code;
 namespace oes.student
 {
@@ -18,9 +20,16 @@ namespace oes.student
         Database db = new Database();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            ArrayList al = new ArrayList();
+            Session.Add("AnswerList", al);
+
+
             if (Request.QueryString["ExamId"]!=null)
-            {
-                LoadExamDetail(Convert.ToInt16(Request.QueryString["ExamId"]));
+            {   
+                int ExamId=Convert.ToInt16(Request.QueryString["ExamId"]);
+                Session.Add("ExamID", ExamId);
+                LoadExamDetail(ExamId);
             }
         }
 

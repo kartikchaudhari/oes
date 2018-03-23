@@ -28,7 +28,7 @@
                     <!-- question counter panel -->
                     <div class="row row-detail-container">
                         <strong>No. of Question Added :</strong>
-                        <span><asp:Label ID="lblNoOfQAdded" runat="server"></asp:Label> of 20</span>&nbsp;&nbsp;&nbsp;
+                        <span><asp:Label ID="lblNoOfQAdded" runat="server"></asp:Label></span>&nbsp;&nbsp;&nbsp;
                         <strong>|</strong>
                     </div>
                     <br />

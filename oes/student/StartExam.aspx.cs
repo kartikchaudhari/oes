@@ -11,7 +11,25 @@ namespace oes.student
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+        	
 
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            //for (int i = 0; i < 30; i++)
+            //{
+            //    Button btn = new Button();
+            //    btn.Text = "btn_" + i;
+            //    btn.ID = i.ToString();
+            //    btnPanel.Controls.Add(btn);
+            //}
+        }
+
+        protected void btnReurnId(object sender, CommandEventArgs e)
+        {
+            //Response.Write("<script>alert('" + e.CommandArgument.ToString() + "');</script>");
+            
         }
     }
 }

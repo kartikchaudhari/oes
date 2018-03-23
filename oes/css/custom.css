@@ -586,3 +586,20 @@ border-radius:4px;
 .hideBtn {
     display:none;
 }
+
+.iteamStyleDetailsView {
+    height:35px;
+    padding:6px;
+}
+
+.borderTop {
+    border-top:2px solid white;
+}
+
+.borderRight {
+    border-right:2px solid white;
+}
+
+#ansRadioBtnList td {
+    width:20%;
+}

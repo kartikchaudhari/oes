@@ -977,6 +977,7 @@
     <Content Include="css\jquery.gritter.css" />
     <Content Include="css\select.dataTables.min.css" />
     <Content Include="css\sidebar.css" />
+    <Content Include="Error.aspx" />
     <Content Include="faculty\AddQuestions.aspx" />
     <Content Include="faculty\AddQuestionToExam.aspx" />
     <Content Include="faculty\ckeditor\adapters\jquery.js" />
@@ -1852,6 +1853,7 @@
     <Content Include="images\gritter.png" />
     <Content Include="images\ie-spacer.gif" />
     <Content Include="images\loading.gif" />
+    <Content Include="images\oops_error_broken_pencil.jpg" />
     <Content Include="images\sort_asc.png" />
     <Content Include="images\sort_asc_disabled.png" />
     <Content Include="images\sort_both.png" />
@@ -2151,6 +2153,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="faculty\AddQuestions.aspx.cs">
       <DependentUpon>AddQuestions.aspx</DependentUpon>
@@ -2502,6 +2511,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="admin\ErrorLog\" />
     <Folder Include="admin\FacultyData\PdfDoc\" />
     <Folder Include="faculty\Avatar\" />
     <Folder Include="faculty\QuestionImports\" />

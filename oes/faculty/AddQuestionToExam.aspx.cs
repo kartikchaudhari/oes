@@ -20,6 +20,8 @@ namespace oes.faculty
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            //dsiplay small images in grid view 
+            ScriptManager.RegisterStartupScript(Page, typeof(Page), "somekey3", "AdjustImgSize();", true);
             
             if (Request.QueryString["ExamId"] != null)
             {
@@ -46,6 +48,7 @@ namespace oes.faculty
                     hf_dept_id.Value = rdr["dept_id"].ToString();
                     hf_subject_id.Value = rdr["subject_id"].ToString();
                 }
+                lblNoOfQAdded.Text = CountNoOfQuestionAdded(ExamId);
             }
         }
 
@@ -64,7 +67,6 @@ namespace oes.faculty
             //Response.Write(Question_Id);
         }
 
-        //int NoQAddedToQPaper;
         public void AddQuestionsToQPaper(int EId,int QId){
 
             using (SqlCommand cmd = new SqlCommand("AddQToPaperAndReturnNoOfQ", db.DbConnect()))
@@ -75,15 +77,26 @@ namespace oes.faculty
                 cmd.Parameters.Add("@NoOfQ",SqlDbType.Int);
                 cmd.Parameters["@NoOfQ"].Direction = ParameterDirection.Output;
                 cmd.ExecuteNonQuery();
-                //Response.Write("<script>alert('" + cmd.Parameters["@NoOfQ"].Value.ToString() + "');</script>");
 
-                //NoQAddedToQPaper=Convert.ToInt16(cmd.Parameters["@NoOfQ"].Value.ToString());
                 ScriptManager.RegisterStartupScript(Page, typeof(Page), "somekey", "AlertSuccess();", true);
                 ScriptManager.RegisterStartupScript(Page, typeof(Page), "somekey2", "AdjustImgSize();", true);
-                //Page.ClientScript.RegisterStartupScript(this.GetType(), "helloAlert", "AlertSuccess();", true);
-              
+                lblNoOfQAdded.Text = CountNoOfQuestionAdded(EId);
             }
-            //return NoQAddedToQPaper;
+        }
+
+        public string CountNoOfQuestionAdded(int EId) {
+            string NoOfQuestionAdded=null;
+            using (SqlCommand cmd = new SqlCommand("CountNoOfQuestionAddedToQPaper",db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Eid", EId);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    NoOfQuestionAdded = rdr["NoOFQAdded"].ToString();
+                }
+            }
+            return NoOfQuestionAdded;
         }
     }
 }

@@ -65,7 +65,7 @@
                                                 <asp:BoundField DataField="SemId" HeaderText="Semester" SortExpression="sem_id" />
                                                 <asp:BoundField DataField="SubjectName" HeaderText="Subject"/>
                                                 <asp:BoundField DataField="QuestionType" HeaderText="Question Type" SortExpression="question_type" />
-                                                <asp:BoundField DataField="Question" HeaderText="Question" HtmlEncode="False" HtmlEncodeFormatString="False" >
+                                                <asp:BoundField DataField="Question" HeaderText="Question" HtmlEncode="False" HtmlEncodeFormatString="False">
                                                 
                                                 </asp:BoundField>
                                                 <asp:BoundField DataField="OptionA" HeaderText="Option A"/>

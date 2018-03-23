@@ -19,6 +19,7 @@ namespace oes.student
         Database db = new Database();
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
                 BindDeptDdl();
@@ -39,16 +40,19 @@ namespace oes.student
                 SqlDataReader rdr=cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    PanelSearchResult.Visible = true;
-                    lblExamName.Text = rdr["exam_name"].ToString();
-                    lblExamDate.Text = rdr["exam_date"].ToString();
-                    HyperLink HlInk = new HyperLink();
-                    HlInk.CssClass = "links";
-                    HlInk.NavigateUrl = "ExamInstructions.aspx?ExamId=" + rdr["exam_id"].ToString();
-                    HlInk.Text="Enroll to Exam";
-                    HlInk.CssClass = "btn btn-primary";
-                    ExamLinkPanel.Visible = true;
-                    ExamLinkPanel.Controls.Add(HlInk);
+                   
+                        PanelSearchResult.Visible = true;
+                        lblExamName.Text = rdr["exam_name"].ToString();
+                        lblExamDate.Text = rdr["exam_date"].ToString();
+                        HyperLink HlInk = new HyperLink();
+                        HlInk.CssClass = "links";
+                        HlInk.NavigateUrl = "ExamInstructions.aspx?ExamId=" + rdr["exam_id"].ToString();
+                        HlInk.Text = "Enroll to Exam";
+                        HlInk.CssClass = "btn btn-primary";
+                        ExamLinkPanel.Visible = true;
+                        ExamLinkPanel.Controls.Add(HlInk);
+                   
+                   
                 }
             }
         }
