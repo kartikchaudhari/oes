@@ -44,7 +44,10 @@ namespace oes.student
                     lblPassingMarks.Text = rdr["passing_marks"].ToString();
                     lblTotalMarks.Text = rdr["total_marks"].ToString();
                     lblTotalTime.Text = rdr["total_time"].ToString();
+                    lblExamDuration.Text = rdr["total_time"].ToString();
                     HyperLink StartExambtn = new HyperLink();
+                    StartExambtn.Attributes.Add("disabled","disabled");
+                    StartExambtn.ID = "btnStartExam";
                     StartExambtn.Text = "Start Exam";
                     StartExambtn.NavigateUrl = "StartExam.aspx?ExamId=" + rdr["exam_id"].ToString();
                     StartExambtn.Target = "_blank";

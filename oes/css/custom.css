@@ -603,3 +603,23 @@ border-radius:4px;
 #ansRadioBtnList td {
     width:20%;
 }
+
+.InstButton {
+    height:30px;
+    width:30px;
+    text-align:center;
+    color: black;
+    font-weight:bold;
+    border:1px solid grey;
+    border-radius:4px;
+    padding:0px;
+}
+
+.QuestBtn {
+    margin:2px;
+}
+
+.blank {
+    border-left:1px solid white;
+    border-right:1px solid white;
+}

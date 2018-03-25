@@ -49,6 +49,15 @@ namespace oes.student {
         protected global::System.Web.UI.WebControls.Label lblPassingMarks;
         
         /// <summary>
+        /// lblExamDuration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblExamDuration;
+        
+        /// <summary>
         /// pnlStartExamBtn control.
         /// </summary>
         /// <remarks>

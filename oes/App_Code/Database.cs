@@ -6,10 +6,12 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 using oes.App_Code;
+
 namespace oes.App_Code
 {
     public class Database
     {
+       
         public SqlConnection DbConnect()
         {
             
@@ -18,12 +20,11 @@ namespace oes.App_Code
             try
             {
                 con.Open();
-
+                return con;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Logger.ErrorLogger(ex);
             } 
             return con;
         }

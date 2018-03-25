@@ -38,9 +38,9 @@ namespace oes.student
                 cmd.Parameters.AddWithValue("@SemId",SemId);
                 cmd.Parameters.AddWithValue("@CurrentDate",CurrentDate);
                 SqlDataReader rdr=cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                   
+                if (rdr.HasRows){
+                    
+                    while (rdr.Read()){
                         PanelSearchResult.Visible = true;
                         lblExamName.Text = rdr["exam_name"].ToString();
                         lblExamDate.Text = rdr["exam_date"].ToString();
@@ -51,9 +51,18 @@ namespace oes.student
                         HlInk.CssClass = "btn btn-primary";
                         ExamLinkPanel.Visible = true;
                         ExamLinkPanel.Controls.Add(HlInk);
-                   
-                   
+
+                    }
                 }
+                else {
+                    PanelSearchResult.Visible = true;
+                    Label lbl = new Label();
+                    lbl.Text = "No Exam Found";
+                    lbl.ForeColor = System.Drawing.Color.Red;
+                    lbl.Font.Bold = true; PanelSearchResult.Controls.Add(lbl);
+                        
+                }
+
             }
         }
         public void BindDeptDdl()

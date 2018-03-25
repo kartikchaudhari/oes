@@ -978,6 +978,7 @@
     <Content Include="css\select.dataTables.min.css" />
     <Content Include="css\sidebar.css" />
     <Content Include="Error.aspx" />
+    <Content Include="ErrorPages\DefaultError.aspx" />
     <Content Include="faculty\AddQuestions.aspx" />
     <Content Include="faculty\AddQuestionToExam.aspx" />
     <Content Include="faculty\ckeditor\adapters\jquery.js" />
@@ -1920,6 +1921,7 @@
     <Content Include="student\StartExam.aspx" />
     <Content Include="student\ThumbLogin.aspx" />
     <Content Include="TestBootstrap.html" />
+    <Content Include="TestErrorPage.aspx" />
     <Content Include="ThumbTest.aspx" />
     <Content Include="TreeLineImages\dash.gif" />
     <Content Include="TreeLineImages\dashminus.gif" />
@@ -2140,6 +2142,7 @@
     </Compile>
     <Compile Include="App_Code\Database.cs" />
     <Compile Include="App_Code\Functions.cs" />
+    <Compile Include="App_Code\Logger.cs" />
     <Compile Include="Congratulations.aspx.cs">
       <DependentUpon>Congratulations.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2160,6 +2163,13 @@
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPages\DefaultError.aspx.cs">
+      <DependentUpon>DefaultError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPages\DefaultError.aspx.designer.cs">
+      <DependentUpon>DefaultError.aspx</DependentUpon>
     </Compile>
     <Compile Include="faculty\AddQuestions.aspx.cs">
       <DependentUpon>AddQuestions.aspx</DependentUpon>
@@ -2475,6 +2485,13 @@
     </Compile>
     <Compile Include="student\ThumbLogin.aspx.designer.cs">
       <DependentUpon>ThumbLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestErrorPage.aspx.cs">
+      <DependentUpon>TestErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestErrorPage.aspx.designer.cs">
+      <DependentUpon>TestErrorPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ThumbTest.aspx.cs">
       <DependentUpon>ThumbTest.aspx</DependentUpon>

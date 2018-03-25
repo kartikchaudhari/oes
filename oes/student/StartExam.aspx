@@ -3,25 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="page_contents" runat="server">
     <form id="form1" runat="server">
-	<style type="text/css">
-		.qbtn{
-			text-align: center;
-			border:1px solid grey;
-			border-radius: 3px;
-			cursor:pointer;
-			margin-top: 5px;
-			width: 35px;
-			height: 25px;
-		}
-		.q{
-			font-size: 18px;
-			font-weight: bold;
-		}
-
-		label{
-			font-weight: bold;
-		}
-	</style>
+	
     <div class="row"><br /><br />
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-primary">
@@ -46,15 +28,12 @@
 	        </table>
 	        <table border="1" align="center" width="100%" style="border-top:1px solid white;">
 		        <tr>
-			        <td style="height: 7px;padding: 4px;" width="830">
+			        <td style="height: 7px;padding: 4px;" width="830" colspan="2">
 				        <span style="font-size: 20px;"><strong>Question 14 of 200</strong></span>
-			        </td>
-			        <td style="padding: 10px;" align="center">
-				        <span style="font-size: 20px;">Question Pellet</span>
 			        </td>
 		        </tr>
 		        <tr>
-			        <td valign="top" style="padding-left:20px;padding-top: 20px;">
+			        <td valign="top" style="padding-left:20px;padding-top: 20px;width:830px;">
                         <div class="col-md-offset-1" style="height:300px;overflow:auto;padding-top:40px;" >
                             <asp:DetailsView ID="questionDetails" runat="server" Width="631px" AutoGenerateRows="False" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="q_id,QPaperId" DataSourceID="SqlDataSourceQuestionPaper" BorderColor="#9999FF" BorderStyle="Solid" BorderWidth="4px">
                             <RowStyle BackColor="#EFF3FB"/>
@@ -106,41 +85,44 @@
                             </table>
                         </div>
 			        </td>
-			        <td style="padding: 10px;" align="center">
-				        <button class='qbtn'>1</button>&nbsp;&nbsp;<button class='qbtn'>2</button>&nbsp;&nbsp;
-                        <button class='qbtn'>3</button>&nbsp;&nbsp;<button class='qbtn'>4</button>&nbsp;&nbsp;
-                        <button class='qbtn'>5</button>&nbsp;&nbsp;<button class='qbtn'>6</button>&nbsp;&nbsp;
-                        <button class='qbtn'>7</button>&nbsp;&nbsp;<button class='qbtn'>8</button>&nbsp;&nbsp;
-                        <button class='qbtn'>9</button>&nbsp;&nbsp;<button class='qbtn'>10</button>&nbsp;&nbsp;
-                        <button class='qbtn'>11</button>&nbsp;&nbsp;<button class='qbtn'>12</button>&nbsp;&nbsp;
-                        <button class='qbtn'>13</button>&nbsp;&nbsp;<button class='qbtn'>14</button>&nbsp;&nbsp;
-                        <button class='qbtn'>15</button>&nbsp;&nbsp;<button class='qbtn'>16</button>&nbsp;&nbsp;
-                        <button class='qbtn'>17</button>&nbsp;&nbsp;<button class='qbtn'>18</button>&nbsp;&nbsp;
-                        <button class='qbtn'>19</button>&nbsp;&nbsp;<button class='qbtn'>20</button>&nbsp;&nbsp;
-                        <button class='qbtn'>21</button>&nbsp;&nbsp;<button class='qbtn'>22</button>&nbsp;&nbsp;
-                        <button class='qbtn'>23</button>&nbsp;&nbsp;<button class='qbtn'>24</button>&nbsp;&nbsp;
-                        <button class='qbtn'>25</button>&nbsp;&nbsp;<button class='qbtn'>26</button>&nbsp;&nbsp;
-                        <button class='qbtn'>27</button>&nbsp;&nbsp;<button class='qbtn'>28</button>&nbsp;&nbsp;
-                        <button class='qbtn'>29</button>&nbsp;&nbsp;<button class='qbtn'>30</button>&nbsp;&nbsp;
+			        <td style="padding: 14px;" align="center" valign="top" >
+                        <table border="1" style="position:relative;width:230px;">
+                            <tr>
+                                <td style="padding:6px;" align="center" colspan="2"><strong>Choose a Question</strong></td>
+                            </tr>
+                            <tr>
+                                <td style="padding:6px;" align="center" colspan="2">
+                                     <asp:Panel ID="btnPanel" runat="server"></asp:Panel>
+                                </td>
+                            </tr>
+                            <tr><td style="padding:6px;" colspan="2" class="blank"></td></tr>
+                            <tr><td style="padding:6px;border-top:1px solid white;" colspan="2" class="blank" ></td></tr>
+                            <tr>
+                                <td style="padding:6px;" align="center" colspan="2"><strong>Indicators</strong></td>
+                            </tr>
+                            <tr>
+                                <td style="padding:6px;" align="center"><button type="button" class="InstButton">1</button><br />No visited</td>
+                                <td style="padding:6px;" align="center"><button type="button" class="InstButton" style="background-color:red;">2</button><br />Not Answered</td>
+                            </tr>
+                             <tr>
+                                 <td style="padding:6px;" align="center"><button type="button" class="InstButton" style="background-color:green;">3</button><br />Answered</td>
+                                 <td style="padding:6px;" align="center"><button type="button" class="InstButton" style="background-color:yellow;">4</button><br /> Marked for Review</td>
+                             </tr>
+                            
+                        </table>
 			        </td>
 		        </tr>
-	        </table>
-            <table border="1" align="center" width="100%">
                 <tr>
-                    <td align="center">
-                      <button type="reset">Clear Response</button>
-                    </td>
-                    <td align="center">
-                      <button>Make for Review Next</button>
-                    </td>
-                    <td align="center">
-                       <button>Save &amp; Next</button>
-                    </td>
-                    <td align="center">
-                       <button>Submit</button>
+                    <td align="center" colspan="2">
+                     <div class="row">
+                         <div class="col-md-3"> <button type="reset">Clear Response</button></div>
+                         <div class="col-md-3"><button>Make for Review Next</button></div>
+                         <div class="col-md-3"><button>Save &amp; Next</button></div>
+                         <div class="col-md-3"><button>Submit</button></div>
+                     </div>
                     </td>
                  </tr>
-               </table>
+            </table>
          </div>
         </div>
        </div>
