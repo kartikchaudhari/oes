@@ -11,7 +11,7 @@
                     <table border="1" align="center" width="100%">
 		        <tr>
 			        <td style="width:830px;padding:10px;">
-				         <h3>MID-2 SEM EXAM-SEPTEEMBER-2017 DWPD COMPUTER-SEM-5</h3>
+				         <h3 id="ExamFullName" runat="server"></h3>
 			        </td>
 			        <td>
                         <div class="media" style="padding:6px;" >
@@ -29,7 +29,7 @@
 	        <table border="1" align="center" width="100%" style="border-top:1px solid white;">
 		        <tr>
 			        <td style="height: 7px;padding: 4px;" width="830" colspan="2">
-				        <span style="font-size: 20px;"><strong>Question 14 of 200</strong></span>
+				        <span style="font-size: 20px;"><strong>Question <span id="ShowingQuestionId" runat="server"></span> of <span id="TotalQuestionCount" runat="server"></span></strong></span>
 			        </td>
 		        </tr>
 		        <tr>
@@ -140,6 +140,9 @@
         <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
         <%-- <asp:Button ID="btn" runat="server" CommandArgument="1" OnCommand="btnReurnId" Text="Click Me" />
         <asp:Panel ID="btnPanel" runat="server" BorderWidth="1" BorderStyle="Solid" BorderColor="red" ></asp:Panel>--%>
+        
+    &nbsp;&nbsp;
+        <asp:Label ID="Label1" runat="server"></asp:Label>
         
     </form>
 </asp:Content>

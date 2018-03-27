@@ -33,11 +33,12 @@ namespace oes.faculty
             //create exam name
             string ExamName = null;
             string Sem = DdlSem.SelectedItem.Value;
+            string DeptName = DdlDept.SelectedItem.Text.ToUpper();
             if (DdlExamType.SelectedItem.Value == "MID") {
-                ExamName = Sem + "-" + "MID SEM EXAM";
+                ExamName = DeptName+"-"+Sem + "-" + "MID SEM EXAM";
             }
             else{
-                ExamName = Sem + "-" + "CLASS TEST";
+                ExamName = DeptName + "-" + Sem + "-" + "CLASS TEST";
             }
 
 

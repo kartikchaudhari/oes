@@ -28,6 +28,7 @@ namespace oes.student
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            
             using (SqlCommand cmd = new SqlCommand("FetchEnrollmentExamDetail", db.DbConnect()))
             {
                 int DeptId = Convert.ToInt16(DdlDept.SelectedItem.Value);
@@ -39,28 +40,16 @@ namespace oes.student
                 cmd.Parameters.AddWithValue("@CurrentDate",CurrentDate);
                 SqlDataReader rdr=cmd.ExecuteReader();
                 if (rdr.HasRows){
-                    
+                    PanelSearchResult.Visible = true;
+                    ExamListDiv.InnerHtml = "<table class='table table-bordered'><tr><th style='text-align:center;'>Exam Name</th><th style='text-align:center;'>Exam Date</th><th style='text-align:center;'>Action</th></tr>";
                     while (rdr.Read()){
-                        PanelSearchResult.Visible = true;
-                        lblExamName.Text = rdr["exam_name"].ToString();
-                        lblExamDate.Text = rdr["exam_date"].ToString();
-                        HyperLink HlInk = new HyperLink();
-                        HlInk.CssClass = "links";
-                        HlInk.NavigateUrl = "ExamInstructions.aspx?ExamId=" + rdr["exam_id"].ToString();
-                        HlInk.Text = "Enroll to Exam";
-                        HlInk.CssClass = "btn btn-primary";
-                        ExamLinkPanel.Visible = true;
-                        ExamLinkPanel.Controls.Add(HlInk);
-
+                        ExamListDiv.InnerHtml += "<tr><td align='center'>" + rdr["exam_name"].ToString() + "</td><td style='text-align:center;'>" + rdr["exam_date"].ToString() + "</td><td align='center'><a class='links btn btn-primary' href='ExamInstructions.aspx?ExamId="+ rdr["exam_id"].ToString()+"'>Enroll to Exam</a></td></tr>";
                     }
+                    ExamListDiv.InnerHtml += "</table>";
                 }
                 else {
-                    PanelSearchResult.Visible = true;
-                    Label lbl = new Label();
-                    lbl.Text = "No Exam Found";
-                    lbl.ForeColor = System.Drawing.Color.Red;
-                    lbl.Font.Bold = true; PanelSearchResult.Controls.Add(lbl);
-                        
+
+                    ExamListDiv.InnerHtml = "<strong style='color:red;'>No Exam Found</strong>"; 
                 }
 
             }

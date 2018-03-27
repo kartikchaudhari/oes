@@ -51,26 +51,8 @@
                                 <button type="reset" class="btn btn-danger">Reset</button>
                                 <br /><br />
                                 <asp:Panel ID="PanelSearchResult" runat="server" Visible="false">
-                                     <div class="table-responsive">
-                                         <table class="table table-bordered">
-                                             <tr>
-                                                 <th style="text-align:center;">Exam Name</th>
-                                                 <th style="text-align:center;">Exam Date</th>
-                                                 <th style="text-align:center;">Action</th>
-                                             </tr>
-                                             
-                                                 <tr>
-                                                 <td align="center">
-                                                     <asp:Label ID="lblExamName" runat="server"></asp:Label>
-                                                 </td>
-                                                 <td style="text-align:center;">
-                                                     <asp:Label ID="lblExamDate" runat="server"></asp:Label>
-                                                 </td>
-                                                 <td align="center">
-                                                     <asp:Panel ID="ExamLinkPanel" runat="server" Visible="true"></asp:Panel>
-                                                 </td>
-                                             </tr>
-                                         </table>
+                                     <div id="ExamListDiv" class="table-responsive" runat="server">
+                                         
                                      </div>
                                 </asp:Panel>
                             </div>

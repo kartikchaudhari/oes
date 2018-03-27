@@ -76,6 +76,13 @@
                     $("#btnStartExam").attr("disabled", "disabled");
                 }
             });
+
+            $('#btnStartExam').click(function(){
+                if ($('input[type="checkbox"]').prop("checked") == false) {
+                    alert("Please Accept the terms and conditions before start exam.");
+                    return false;
+                }
+            });
         });
     </script>
 </asp:Content>

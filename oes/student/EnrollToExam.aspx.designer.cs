@@ -94,30 +94,12 @@ namespace oes.student {
         protected global::System.Web.UI.WebControls.Panel PanelSearchResult;
         
         /// <summary>
-        /// lblExamName control.
+        /// ExamListDiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblExamName;
-        
-        /// <summary>
-        /// lblExamDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblExamDate;
-        
-        /// <summary>
-        /// ExamLinkPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel ExamLinkPanel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ExamListDiv;
     }
 }
