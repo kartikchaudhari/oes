@@ -963,6 +963,10 @@
     <Content Include="App_Data\Examdb_log.ldf">
       <DependentUpon>Examdb.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\FingerPrintsDb.mdf" />
+    <Content Include="App_Data\FingerPrintsDb_log.ldf">
+      <DependentUpon>FingerPrintsDb.mdf</DependentUpon>
+    </Content>
     <Content Include="css\bootsnipp.min.css" />
     <Content Include="Congratulations.aspx" />
     <Content Include="Contact.aspx" />
@@ -1918,8 +1922,12 @@
     <Content Include="student\Logout.aspx" />
     <Content Include="student\QuestionPaper.aspx" />
     <Content Include="student\Register.aspx" />
+    <Content Include="student\Results.aspx" />
     <Content Include="student\StartExam.aspx" />
     <Content Include="student\ThumbLogin.aspx" />
+    <Content Include="student\UpCommingExams.aspx" />
+    <Content Include="student\UploadAvatar.aspx" />
+    <Content Include="student\WebServices\BioMatricEnrollment.asmx" />
     <Content Include="TestBootstrap.html" />
     <Content Include="TestErrorPage.aspx" />
     <Content Include="ThumbTest.aspx" />
@@ -2381,6 +2389,7 @@
     <Compile Include="SiteMaster.Master.designer.cs">
       <DependentUpon>SiteMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="student\Class\Answer.cs" />
     <Compile Include="student\Countdown.aspx.cs">
       <DependentUpon>Countdown.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2472,6 +2481,13 @@
     <Compile Include="student\RegisterLoginMaster.Master.designer.cs">
       <DependentUpon>RegisterLoginMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="student\Results.aspx.cs">
+      <DependentUpon>Results.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="student\Results.aspx.designer.cs">
+      <DependentUpon>Results.aspx</DependentUpon>
+    </Compile>
     <Compile Include="student\StartExam.aspx.cs">
       <DependentUpon>StartExam.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2485,6 +2501,24 @@
     </Compile>
     <Compile Include="student\ThumbLogin.aspx.designer.cs">
       <DependentUpon>ThumbLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="student\UpCommingExams.aspx.cs">
+      <DependentUpon>UpCommingExams.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="student\UpCommingExams.aspx.designer.cs">
+      <DependentUpon>UpCommingExams.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="student\UploadAvatar.aspx.cs">
+      <DependentUpon>UploadAvatar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="student\UploadAvatar.aspx.designer.cs">
+      <DependentUpon>UploadAvatar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="student\WebServices\BioMatricEnrollment.asmx.cs">
+      <DependentUpon>BioMatricEnrollment.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="TestErrorPage.aspx.cs">
       <DependentUpon>TestErrorPage.aspx</DependentUpon>
@@ -2532,6 +2566,7 @@
     <Folder Include="admin\FacultyData\PdfDoc\" />
     <Folder Include="faculty\Avatar\" />
     <Folder Include="faculty\QuestionImports\" />
+    <Folder Include="student\Avatar\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -10,96 +10,105 @@
 namespace oes.student {
     
     
-    public partial class StartExam {
+    public partial class UploadAvatar {
         
         /// <summary>
-        /// form1 control.
+        /// UploadAvatarForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm UploadAvatarForm;
         
         /// <summary>
-        /// ExamFullName control.
+        /// FileUpload1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ExamFullName;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
         
         /// <summary>
-        /// ShowingQuestionId control.
+        /// btnUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ShowingQuestionId;
+        protected global::System.Web.UI.WebControls.Button btnUpload;
         
         /// <summary>
-        /// TotalQuestionCount control.
+        /// lblMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TotalQuestionCount;
+        protected global::System.Web.UI.WebControls.Label lblMsg;
         
         /// <summary>
-        /// questionDetails control.
+        /// Panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView questionDetails;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// ddlAnswer control.
+        /// imgUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAnswer;
+        protected global::System.Web.UI.WebControls.Image imgUpload;
         
         /// <summary>
-        /// rfvUserAnserDdl control.
+        /// btnCrop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUserAnserDdl;
+        protected global::System.Web.UI.WebControls.Button btnCrop;
         
         /// <summary>
-        /// btnPanel control.
+        /// X control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel btnPanel;
+        protected global::System.Web.UI.WebControls.HiddenField X;
         
         /// <summary>
-        /// SaveNext control.
+        /// Y control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SaveNext;
+        protected global::System.Web.UI.WebControls.HiddenField Y;
         
         /// <summary>
-        /// SqlDataSourceQuestionPaper control.
+        /// W control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceQuestionPaper;
+        protected global::System.Web.UI.WebControls.HiddenField W;
+        
+        /// <summary>
+        /// H control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField H;
     }
 }

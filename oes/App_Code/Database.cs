@@ -28,5 +28,22 @@ namespace oes.App_Code
             } 
             return con;
         }
+
+        public SqlConnection ConnectFingerDb()
+        {
+
+            String ConString = ConfigurationManager.ConnectionStrings["FingerDbConString"].ConnectionString; //connection string
+            SqlConnection con = new SqlConnection(ConString);
+            try
+            {
+                con.Open();
+                return con;
+            }
+            catch (Exception ex)
+            {
+                Logger.ErrorLogger(ex);
+            }
+            return con;
+        }
     }
 }

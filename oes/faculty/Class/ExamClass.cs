@@ -12,6 +12,7 @@ using oes.App_Code;
 
 namespace oes.faculty.Class
 {
+   
     public class ExamClass
     {
         Database db = new Database();
@@ -45,6 +46,7 @@ namespace oes.faculty.Class
 
     public class ExamDataAccessLayer
     {
+        
         public static List<ExamClass> GetAllExamsByDeptId(int DeptId)
         {
             Database db = new Database();
@@ -62,7 +64,7 @@ namespace oes.faculty.Class
                     exams.ExamType = rdr["exam_type"].ToString();
                     exams.DeptpartmentName = rdr["dept_id"].ToString();
                     exams.SemId = Convert.ToInt16(rdr["sem_id"].ToString());
-                    exams.SubjectName = rdr["subject_id"].ToString();
+                    exams.SubjectName = FetchSubjectNameById(Convert.ToInt16(rdr["subject_id"].ToString()));
                     exams.ExamCode = rdr["exam_code"].ToString();
                     exams.ExamDate = rdr["exam_date"].ToString();
                     ExamsList.Add(exams);
@@ -84,5 +86,23 @@ namespace oes.faculty.Class
 
         }
 
+        public static string FetchSubjectNameById(int SubjectId)
+        {
+            Database db = new Database();
+            string SubjectName = null;
+            using (SqlCommand cmd = new SqlCommand("FetchSubjectDetailById", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@subject_id", SubjectId);
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    SubjectName = rdr["subject_name"].ToString();
+                }
+            }
+            return SubjectName;
+        }
+       
     }   
 }

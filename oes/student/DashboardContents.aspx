@@ -27,11 +27,11 @@
                             <div class="col-xs-9 text-right">
                                 <div class="huge">
                                     <asp:Label ID="lbl_exams" runat="server"></asp:Label></div>
-                                <div>Exams</div>
+                                <div>Enroll to Exam</div>
                             </div>
                         </div>
                     </div>
-                    <a class="links" href="ManageExams.aspx" target="DashboardContentFrame" title="Exams">
+                    <a class="links" href="EnrollToExam.aspx" target="DashboardContentFrame" title="Exams">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

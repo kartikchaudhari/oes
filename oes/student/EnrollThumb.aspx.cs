@@ -51,7 +51,7 @@ namespace oes.student
                     {
                         String uname = Session["username"].ToString();
                         
-                        SqlCommand FetchNameCmd = new SqlCommand("SELECT first_name,last_name FROM student WHERE username='" + uname.ToString() + "'", db.DbConnect());
+                        SqlCommand FetchNameCmd = new SqlCommand("SELECT student_id,first_name,last_name FROM student WHERE username='" + uname.ToString() + "'", db.DbConnect());
                         
                         DataTable EnrollThumbDt = new DataTable();
                         
@@ -62,6 +62,8 @@ namespace oes.student
                         {
                             lbl_welcome.Text = EnrollThumbDt.Rows[0]["first_name"].ToString() + " " + EnrollThumbDt.Rows[0]["last_name"].ToString();
                             FullName = lbl_welcome.Text;
+                            userid.Value = EnrollThumbDt.Rows[0]["student_id"].ToString();
+                            Session["id"] = EnrollThumbDt.Rows[0]["student_id"].ToString();
                         }
                         else
                         {
@@ -98,8 +100,11 @@ namespace oes.student
                 {
                     ms.Write(imageBytes, 0, imageBytes.Length);
                     System.Drawing.Image image = System.Drawing.Image.FromStream(ms,true);
-                    image.Save(Server.MapPath("~/student/ThumbData/"+Session["username"]+".bmp"), ImageFormat.Bmp); //save the image as bmp
-                    //ThumbFileFullPath=Server.MapPath("~/student/ThumbData/"+Session["username"]+".bmp");                   
+                    image.Save(Server.MapPath("~/student/ThumbData/" + Session["username"] + ".bmp"), ImageFormat.Bmp); //save the image as bmp
+                    
+                    ThumbFileFullPath="/student/ThumbData/"+Session["username"]+".bmp";
+                    
+
                     //stores the fullname for greeting message on congratulations.aspx page
                     Session["fullname"] = FullName;
                     
@@ -110,11 +115,15 @@ namespace oes.student
                      *  value for student="Student"
                      *  value for faculty="Faculty"
                      */
-
                     Session["UserType"] = "Student";
-                    Response.Redirect("../Congratulations.aspx");
-                    //Label1.Text = "Thumb Image Uploaded";
-                    //Label1.ForeColor = System.Drawing.Color.Green;
+                    
+                    //update thumb image to student table
+                    UpdateThumbFilePath(ThumbFileFullPath, Convert.ToInt16(userid.Value.ToString()));
+                    
+                    //if all good then, congratulations
+                    Response.Redirect("UploadAvatar.aspx");
+                    
+                    
                 }
                 catch (IOException ext)
                 {
@@ -126,6 +135,17 @@ namespace oes.student
                 Label1.Text = "Session not Set\nPage: EnrollThumb.";
             }
 
+        }
+
+        public void UpdateThumbFilePath(string FilePath,int StudentId) {
+            Database db = new Database();
+            using (SqlCommand cmd = new SqlCommand("AddStudentThumbImageFile", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id",StudentId);
+                cmd.Parameters.AddWithValue("@ThumbPath", FilePath);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

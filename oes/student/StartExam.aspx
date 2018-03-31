@@ -74,12 +74,20 @@
                                     <td><strong>Select Answer :-</strong></td>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                     <td>
-                                        <asp:RadioButtonList ID="ansRadioBtnList" runat="server" RepeatDirection="Horizontal" ClientIDMode="Static" CellPadding="20" CellSpacing="20" Width="400px" >
+                                        <%--<asp:RadioButtonList ID="ansRadioBtnList" runat="server" RepeatDirection="Horizontal" ClientIDMode="Static" CellPadding="20" CellSpacing="20" Width="400px" >
                                             <asp:ListItem Value="1" Text="A">A</asp:ListItem>
                                             <asp:ListItem Value="2" Text="B">B</asp:ListItem>
                                             <asp:ListItem Value="3" Text="C">C</asp:ListItem>
                                             <asp:ListItem Value="4" Text="D">D</asp:ListItem>
-                                        </asp:RadioButtonList>
+                                        </asp:RadioButtonList>--%>
+                                        <asp:DropDownList ID="ddlAnswer" runat="server">
+                                            <asp:ListItem Value="NA" Text="---- Select Answer ----"></asp:ListItem>
+                                            <asp:ListItem Value="1">Answer 1</asp:ListItem>
+                                            <asp:ListItem Value="2">Answer 2</asp:ListItem>
+                                            <asp:ListItem Value="3">Answer 3</asp:ListItem>
+                                            <asp:ListItem Value="4">Answer 4</asp:ListItem>
+                                        </asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="rfvUserAnserDdl" runat="server" ErrorMessage="Plese Select Your answer.." ControlToValidate="ddlAnswer" InitialValue="NA"></asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
                             </table>
@@ -117,7 +125,7 @@
                      <div class="row">
                          <div class="col-md-3"> <button type="reset">Clear Response</button></div>
                          <div class="col-md-3"><button>Make for Review Next</button></div>
-                         <div class="col-md-3"><button>Save &amp; Next</button></div>
+                         <div class="col-md-3"><asp:Button id="SaveNext" runat="server" Text="Save &amp; Next" OnClick="SaveNext_Click" /></div>
                          <div class="col-md-3"><button>Submit</button></div>
                      </div>
                     </td>
@@ -127,23 +135,11 @@
         </div>
        </div>
       </div>
-	
-
-          
-            <asp:SqlDataSource ID="SqlDataSourceQuestionPaper" runat="server" ConnectionString="<%$ ConnectionStrings:ExamDbConString %>" SelectCommand="FetchQuestionsToQuestionPaper" SelectCommandType="StoredProcedure">
-                <SelectParameters>
-                    <asp:SessionParameter DefaultValue="0" Name="ExamId" SessionField="ExamId" Type="Int32" />
-                </SelectParameters>
-            </asp:SqlDataSource>
-            <br />
-      
-        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
-        <%-- <asp:Button ID="btn" runat="server" CommandArgument="1" OnCommand="btnReurnId" Text="Click Me" />
-        <asp:Panel ID="btnPanel" runat="server" BorderWidth="1" BorderStyle="Solid" BorderColor="red" ></asp:Panel>--%>
-        
-    &nbsp;&nbsp;
-        <asp:Label ID="Label1" runat="server"></asp:Label>
-        
+        <asp:SqlDataSource ID="SqlDataSourceQuestionPaper" runat="server" ConnectionString="<%$ ConnectionStrings:ExamDbConString %>" SelectCommand="SELECT questions.q_id, questions.dept_id, questions.sem_id, questions.subject_id, questions.question_type, questions.question, questions.opt_a, questions.opt_b, questions.opt_c, questions.opt_d, questions.correct_ans, questions.marks, QuestionPaper.QPaperId, QuestionPaper.QId, QuestionPaper.exam_id FROM questions INNER JOIN QuestionPaper ON questions.q_id = QuestionPaper.QId WHERE (QuestionPaper.exam_id = @ExamId) ORDER BY NEWID()">
+            <SelectParameters>
+                <asp:SessionParameter DefaultValue="0" Name="ExamId" SessionField="ExamId" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
     </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ExternalJs" runat="server">

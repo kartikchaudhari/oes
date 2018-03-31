@@ -9,8 +9,12 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Collections;
 
 using oes.App_Code;
+using oes.student.Class;
+
+
 
 namespace oes.student
 {
@@ -20,22 +24,20 @@ namespace oes.student
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            CreateQuestionButtonAndExanDetail(Convert.ToInt16(Request.QueryString["ExamId"].ToString()));
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            for (int i = 0,j=60; i < 30; i++,j++)
+            questionDetails.DataBind();
+            if (Request.QueryString["ExamId"] != null)
             {
-                
+                //create question buttons
+                CreateQuestionButtonAndExanDetail(Convert.ToInt16(Request.QueryString["ExamId"].ToString()));
             }
-        }
+            else
+            {
+                Response.Write("Plese select the exam..");
+            }
 
-        protected void btnReurnId(object sender, CommandEventArgs e)
-        {
-            //Response.Write("<script>alert('" + e.CommandArgument.ToString() + "');</script>");
             
         }
+
 
         public void CreateQuestionButtonAndExanDetail(int ExamId) {
             //we are not using it
@@ -80,6 +82,52 @@ namespace oes.student
                     btnPanel.Controls.Add(btn);
                     i++;
                 }
+            }
+        }
+
+        protected void SaveNext_Click(object sender, EventArgs e)
+        {
+            System.Data.DataRowView dr = (System.Data.DataRowView)questionDetails.DataItem;
+
+            Answer a = new Answer();
+            int ExamId = Convert.ToInt16(Request.QueryString["ExamId"].ToString());
+            a.QuestionID = dr["q_id"].ToString();
+            a.CorrectAnswer = dr["correct_ans"].ToString();
+            a.UserAnswer = ddlAnswer.SelectedValue.ToString();
+
+            ArrayList al = (ArrayList)Session["AnswerList"];
+            al.Add(a);
+            Session.Add("AnswerList", al);
+
+            if (questionDetails.PageIndex == questionDetails.PageCount - 1)
+            {
+
+                Response.Redirect("Results.aspx");
+            }
+            else
+            {
+                questionDetails.PageIndex++;
+                AddAnsewerToDb(Convert.ToInt16(dr["q_id"].ToString()), ExamId, Convert.ToInt16(dr["correct_ans"].ToString()), Convert.ToInt16(ddlAnswer.SelectedValue.ToString()));
+
+            }
+
+            if (questionDetails.PageIndex == questionDetails.PageCount - 1)
+            {
+                SaveNext.Text = "Finished";
+            }
+
+
+        }
+
+        public void AddAnsewerToDb(int Question_Id,int Exam_Id,int Correct_ans,int User_ans) {
+            using (SqlCommand cmd=new SqlCommand("AddToAnswers",db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@QuestionId",Question_Id);
+                cmd.Parameters.AddWithValue("@ExamId",Exam_Id);
+                cmd.Parameters.AddWithValue("@CorrectAns",Correct_ans);
+                cmd.Parameters.AddWithValue("@UserAns",User_ans);
+                cmd.ExecuteNonQuery();
             }
         }
     }

@@ -10,60 +10,51 @@
 namespace oes.student {
     
     
-    public partial class RegisterLoginMaster {
+    public partial class UpCommingExams {
         
         /// <summary>
-        /// Head1 control.
+        /// UpCommingExamsForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm UpCommingExamsForm;
         
         /// <summary>
-        /// title control.
+        /// hd_dept_it control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder title;
+        protected global::System.Web.UI.WebControls.HiddenField hd_dept_it;
         
         /// <summary>
-        /// ExternalJs control.
+        /// hd_sem_d control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ExternalJs;
+        protected global::System.Web.UI.WebControls.HiddenField hd_sem_d;
         
         /// <summary>
-        /// active_class_links control.
+        /// hf_current_date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder active_class_links;
+        protected global::System.Web.UI.WebControls.HiddenField hf_current_date;
         
         /// <summary>
-        /// main_content control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder main_content;
-        
-        /// <summary>
-        /// FingerCaptureHolder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder FingerCaptureHolder;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

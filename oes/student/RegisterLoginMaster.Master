@@ -1,6 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="RegisterLoginMaster.master.cs" Inherits="oes.student.RegisterLoginMaster" %>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="RegisterLoginMaster.master.cs" Inherits="oes.student.RegisterLoginMaster" ClientIDMode="Static" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
@@ -13,6 +11,10 @@
         <asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>
     <!--title ends -->
 
+     <!-- jquery and javascript-->
+    <script src="../js/vendor.min.js"></script>
+    <script src="../js/custom.js"></script>
+    <asp:ContentPlaceHolder ID="ExternalJs" runat="server"></asp:ContentPlaceHolder>
     <!-- App Styling Bundle -->
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../css/custom.css" rel="stylesheet" />
@@ -55,9 +57,7 @@
     <footer class="footer custom-footer">
         <!--#include file="../footer.html"-->
     </footer>
-    <!-- jquery and javascript-->
-    <script src="../js/vendor.min.js"></script>
-    <script src="../js/custom.js"></script>
+   
 
       <!-- add FingerCapture javascript on EnrollThumb page-->
     <asp:ContentPlaceHolder ID="FingerCaptureHolder" runat="server"></asp:ContentPlaceHolder>

@@ -85,7 +85,7 @@
                         </a>
                         <ul class="collapse list-unstyled" id="ExamSubMenu">
                             <li><a class="links" href="EnrollToExam.aspx" target="DashboardContentFrame" style="padding-left: 25%;" title="Enroll to Exam">Enroll to Exam</a></li>
-                            <li><a class="links" href="ManageExams.aspx" target="DashboardContentFrame" style="padding-left: 25%;" title="Manage Exams">Manage Exam</a></li>
+                            <li><a class="links" href="UpCommingExams.aspx" target="DashboardContentFrame" style="padding-left: 25%;" title="Manage Exams">Upcomming Exams</a></li>
                         </ul>
                     </li>
                     <li>

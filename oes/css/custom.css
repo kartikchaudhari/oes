@@ -543,6 +543,17 @@ border-radius:4px;
 .panel-lv-two > a { color:#967ADC; }
 /***********************************************************************/
 
+/*****************************Pink rose one******************************/
+.panel-pr-one { border-color:#EC87C0; }
+.panel-pr-one > .panel-heading { color: white; background-color:#EC87C0;}
+.panel-pr-one > a { color:#EC87C0; }
+/***********************************************************************/
+
+/*****************************Pink rose Two******************************/
+.panel-pr-two { border-color:#D770AD; }
+.panel-pr-two > .panel-heading { color: white; background-color:#D770AD;}
+.panel-pr-two > a { color:#D770AD; }
+/***********************************************************************/
 
 
 

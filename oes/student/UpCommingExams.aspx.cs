@@ -10,18 +10,19 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 
-using SourceAFIS.Simple;
-
 using oes.App_Code;
-namespace oes
+namespace oes.student
 {
-    public partial class ThumbTest : System.Web.UI.Page
+    public partial class UpCommingExams : System.Web.UI.Page
     {
-       
-
+        Database db = new Database();
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            hf_current_date.Value = DateTime.Now.ToShortDateString();
+        }
+
+        public void LoadStudentData(int StudentId) {
+            
         }
     }
 }

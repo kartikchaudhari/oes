@@ -57,15 +57,22 @@
                                     </asp:Panel>
                                     <asp:Repeater ID="StudentRequestsRepeater" runat="server" ClientIDMode="Static">
                                         <ItemTemplate>
-                                            <div class="alert alert-success alert-dismissable" style="text-align: justify;">
-                                                <strong><%#Eval("first_name")%> <%#Eval("last_name")%></strong> requested for Registration.&nbsp;
-                                                    <asp:HiddenField ID="hf_stud_id" runat="server" Value='<%#Eval("student_id")%>' />
-                                                <input type="button" class="btn btn-primary btn-sm" value="Confirm" onclick=" ConfirmStudentRequest()" />
-                                                <strong>&middot;</strong>
-                                                <asp:Button ID="btnDeclain" CssClass="btn btn-danger btn-sm" runat="server" Text="Declain" />
-                                                <strong>&middot;</strong>
-                                                <asp:Button ID="btnView" CssClass="btn btn-info btn-sm" runat="server" Text="Profile" />
-                                            </div>
+                                            <asp:HiddenField ID="hf_stud_id" runat="server" Value='<%#Eval("student_id")%>' />
+                                                <div class="media" style="padding:6px;color: #3c763d;background-color: #dff0d8;border-color: #d6e9c6;">
+                                                    <div class="pull-left">
+                                                        <img src='<%#Eval("avatar")%>' class="media-object" style="width:60px;width:60px;">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading"><strong><%#Eval("first_name")%> <%#Eval("last_name")%></strong> requested for Registration.&nbsp;</h4>
+                                                        <p>
+                                                            <input type="button" class="btn btn-primary btn-xs" value="Confirm" onclick="ConfirmStudentRequest()" />
+                                                                <strong>&middot;</strong>
+                                                            <asp:Button ID="btnDeclain" CssClass="btn btn-danger btn-xs" runat="server" Text="Declain" />
+                                                                <strong>&middot;</strong>
+                                                            <a class="btn btn-info btn-xs" href="StudentProfile.aspx?StudentId=<%#Eval("student_id")%>&action=view">Profile</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
                                         </ItemTemplate>
                                     </asp:Repeater>
                                 </div>
