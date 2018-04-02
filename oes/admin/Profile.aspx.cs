@@ -27,19 +27,31 @@ namespace oes.admin
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", id);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                if (ds != null && ds.Tables[0].Rows.Count > 0)
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
                 {
-                    UserAvatar.ImageUrl = ds.Tables[0].Rows[0]["avatar"].ToString();
-                    UserThumb.ImageUrl = ds.Tables[0].Rows[0]["thumb_img"].ToString();
-                    LblFname.Text = ds.Tables[0].Rows[0]["first_name"].ToString();
-                    LblLname.Text = ds.Tables[0].Rows[0]["last_name"].ToString();
-                    LblEmail.Text = ds.Tables[0].Rows[0]["email"].ToString();
-                    LblUname.Text = ds.Tables[0].Rows[0]["username"].ToString();
-                    LblPass.Text = ds.Tables[0].Rows[0]["password"].ToString();
+                    UserAvatar.ImageUrl = rdr["avatar"].ToString();
+                    UserThumb.ImageUrl = rdr["thumb_img"].ToString();
+                    LblFname.Text = rdr["first_name"].ToString();
+                    LblLname.Text = rdr["last_name"].ToString();
+                    LblEmail.Text = rdr["email"].ToString();
+                    LblUname.Text = rdr["username"].ToString();
+                    LblPass.Text =rdr["password"].ToString();
                 }
+                //SqlDataAdapter da = new SqlDataAdapter(cmd);
+                //DataSet ds = new DataSet();
+                //da.Fill(ds);
+                //if (ds != null && ds.Tables[0].Rows.Count > 0)
+                //{
+                //    UserAvatar.ImageUrl = ds.Tables[0].Rows[0]["avatar"].ToString();
+                //    UserThumb.ImageUrl = ds.Tables[0].Rows[0]["thumb_img"].ToString();
+                //    LblFname.Text = ds.Tables[0].Rows[0]["first_name"].ToString();
+                //    LblLname.Text = ds.Tables[0].Rows[0]["last_name"].ToString();
+                //    LblEmail.Text = ds.Tables[0].Rows[0]["email"].ToString();
+                //    LblUname.Text = ds.Tables[0].Rows[0]["username"].ToString();
+                //    LblPass.Text = ds.Tables[0].Rows[0]["password"].ToString();
+                //}
             }
         }
     }

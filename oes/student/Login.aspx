@@ -76,7 +76,7 @@
                         <div class="panel-footer" style="text-align:center;">
                                 <input id="btnScan" class="btn btn-primary" value="Click to Scan" onclick="captureFP()" type="button" />
                                 <strong>&middot;</strong>
-                                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success" Text="Login"/>
+                                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success" Text="Login" OnClick="btnSubmit_Click"/>
                         &nbsp;
                         <asp:Label ID="Label1" runat="server"></asp:Label></div>
                     </div>
@@ -96,4 +96,5 @@
     <!-- main content ends-->
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="FingerCaptureHolder" runat="server">
+    <script src="../js/FingerCapture.js"></script>
 </asp:Content>

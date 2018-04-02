@@ -85,4 +85,18 @@
             });
         });
     </script>
+    <script type="text/javascript">
+        function openerNew(examId) {
+            var params = 'top=0, left=0';
+            params += ', width=' + screen.width + ', height=' + screen.height + ',statusbar=no,toolbar=no,location=no,directories=no,menubar=no,resizable=no';
+            params += ', scrollbars=yes, status=no, fullscreen=yes';
+
+            newwin = window.open("StartExam.aspx?ExamId="+examId, "_blank", params);
+            if (window.focus) {
+                newwin.focus();
+                $("#btnStartExam").attr("disabled", "disabled");
+            }
+            return false;
+        }
+    </script>
 </asp:Content>

@@ -9,11 +9,9 @@ using System.ComponentModel;
 //namespaces for bitmap image formation
 using System.Drawing;
 using System.Drawing.Imaging;
-
     
 //namespace for memory management 
 using System.IO;
-
 
 //these two namespaces are for DataTables, DataSet and DataSource(Database)
 using System.Data;
@@ -28,6 +26,7 @@ namespace oes.faculty
     {
         Database db = new Database();
         string FullName;
+        string ThumbFileFullPath;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["username"] != null)
@@ -48,8 +47,8 @@ namespace oes.faculty
                     if (Session["username"] != null)
                     {
                         String uname = Session["username"].ToString();
-                       
-                        SqlCommand FetchNameCmd = new SqlCommand("SELECT first_name,last_name FROM faculty WHERE username='"+uname.ToString()+"'",db.DbConnect());
+
+                        SqlCommand FetchNameCmd = new SqlCommand("SELECT faculty_id,first_name,last_name FROM faculty WHERE username='" + uname.ToString() + "'", db.DbConnect());
                         
                         DataTable EnrollThumbDt = new DataTable();
                         
@@ -60,6 +59,9 @@ namespace oes.faculty
                         {
                             lbl_welcome.Text = EnrollThumbDt.Rows[0]["first_name"].ToString() + " " + EnrollThumbDt.Rows[0]["last_name"].ToString();
                             FullName = EnrollThumbDt.Rows[0]["first_name"].ToString() + " " + EnrollThumbDt.Rows[0]["last_name"].ToString();
+                            FullName = lbl_welcome.Text;
+                            userid.Value = EnrollThumbDt.Rows[0]["faculty_id"].ToString();
+                            Session["id"] = EnrollThumbDt.Rows[0]["faculty_id"].ToString();
                         }
                         else
                         {
@@ -88,6 +90,7 @@ namespace oes.faculty
         public void btnSubmit_Click(object sender, EventArgs e)
         {
             string base64StringValue=img_val.Value;
+
             if (Session["username"] != null)
             {
                 byte[] imageBytes = Convert.FromBase64String(base64StringValue);
@@ -99,7 +102,8 @@ namespace oes.faculty
                     ms.Write(imageBytes, 0, imageBytes.Length);
                     System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
                     image.Save(Server.MapPath("~/faculty/ThumbData/"+Session["username"]+".bmp"), ImageFormat.Bmp); //save the image as bmp
-                    
+
+                    ThumbFileFullPath = "/faculty/ThumbData/" + Session["username"] + ".bmp";
                     //update figerprint image file location to database
 
                     //stores the fullname for greeting message on congratulations.aspx page
@@ -112,11 +116,13 @@ namespace oes.faculty
                      *  value for student="Student"
                      *  value for faculty="Faculty"
                      */
-
                     Session["UserType"] = "Faculty";
-                    Response.Redirect("../Congratulations.aspx");
-                    //Label1.Text = "Thumb Image Uploaded";
-                    //Label1.ForeColor = System.Drawing.Color.Green;
+
+                    //update thumb image to faculty table
+                    UpdateThumbFilePath(ThumbFileFullPath, Convert.ToInt16(userid.Value.ToString()));
+
+                    Response.Redirect("UploadAvatar.aspx");
+
                 }
                 catch (IOException ext)
                 {
@@ -127,6 +133,18 @@ namespace oes.faculty
                 Label1.Text = "Session not Set\nPage: EnrollThumb.";
             }
 
+        }
+
+        public void UpdateThumbFilePath(string FilePath, int StudentId)
+        {
+            Database db = new Database();
+            using (SqlCommand cmd = new SqlCommand("AddFacultyThumbImageFile", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", StudentId);
+                cmd.Parameters.AddWithValue("@ThumbPath", FilePath);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

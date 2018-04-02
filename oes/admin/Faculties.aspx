@@ -60,17 +60,24 @@
                                             </div>
                                         </asp:Panel>
                                         <asp:Repeater ID="FacultyRequestsRepeater" runat="server" ClientIDMode="Static">
-                                            <ItemTemplate>
-                                                <div class="alert alert-success alert-dismissable" style="text-align:justify;">
-                                                    <strong><%#Eval("first_name")%> <%#Eval("last_name")%></strong> requested for Registration.&nbsp;
-                                                    <asp:HiddenField ID="hf_fact_id" runat="server" Value='<%#Eval("faculty_id")%>'/>
-                                                    <input type="button" class="btn btn-primary btn-sm" value="Confirm" onclick="ConfirmFacultyRequest()" />
-                                                    <strong>&middot;</strong>
-                                                    <asp:Button ID="btnDeclain" CssClass="btn btn-danger btn-sm" runat="server" Text="Declain"/>
-                                                    <strong>&middot;</strong>
-                                                    <asp:Button ID="btnView" CssClass="btn btn-info btn-sm" runat="server" Text="Profile"/>
+                                           <ItemTemplate>
+                                            <asp:HiddenField ID="hf_fact_id" runat="server" Value='<%#Eval("faculty_id")%>' />
+                                                <div class="media" style="padding:6px;color: #3c763d;background-color: #dff0d8;border-color: #d6e9c6;">
+                                                    <div class="pull-left">
+                                                        <img src='<%#Eval("avatar")%>' class="media-object" style="width:60px;width:60px;">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading"><strong><%#Eval("first_name")%> <%#Eval("last_name")%></strong> requested for Registration.&nbsp;</h4>
+                                                        <p>
+                                                            <input type="button" class="btn btn-primary btn-xs" value="Confirm" onclick="ConfirmFacultyRequest()" />
+                                                                <strong>&middot;</strong>
+                                                            <input type="button" class="btn btn-danger btn-xs" value="Delete" onclick="DeleteFacultyRequest()" />
+                                                                <strong>&middot;</strong>
+                                                            <a class="btn btn-info btn-xs" href="FacultyProfile.aspx?FacultyId=<%#Eval("faculty_id")%>&action=view">Profile</a>
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                            </ItemTemplate>
+                                        </ItemTemplate>
                                         </asp:Repeater>
                                     
                                     </div>
@@ -257,6 +264,24 @@
                 </div>
                 <div class="modal-body">
                     <p>The Registration request For the selected Faculty is confirmed and Registered.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="javascript:location.reload(true);">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="RequestDeleteModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Delete Request</h4>
+                </div>
+                <div class="modal-body">
+                    <p>The Registration request For the selected Faculty is Deleted.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" onclick="javascript:location.reload(true);">Close</button>

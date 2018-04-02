@@ -107,7 +107,7 @@
                             </div>
                             <hr />
                             <div class="col-md-8 col-sm-offset-2 thumb_img">
-                                <img id="FPImage1" alt="Fingerpint Image" src="" onload="Send()"/>
+                                <img id="FPImage1" alt="Fingerpint Image" src=""/>
                                 <input type="hidden" id="img_val" runat="server" />
                             </div>
                         </div>

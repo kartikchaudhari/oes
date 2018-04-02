@@ -86,6 +86,40 @@ namespace oes.faculty.Class
 
         }
 
+        public static List<ExamClass> GetUpCommingExam(string Dept_ID,string SemId,string CurDate)
+        {
+            Database db = new Database();
+            List<ExamClass> ExamsList = new List<ExamClass>();
+            using (SqlCommand cmd = new SqlCommand("FetchUpCommingExams", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@DeptId", Convert.ToInt16(Dept_ID));
+                cmd.Parameters.AddWithValue("@SemId", Convert.ToInt16(SemId));
+                //cmd.Parameters.AddWithValue("@CurrentDate", CurDate);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows)
+                {
+                    while (rdr.Read())
+                    {
+                        DateTime ExamDate = DateTime.Parse(rdr["exam_date"].ToString());
+                        DateTime CurrentDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                        int ResultCompare = DateTime.Compare(CurrentDate,ExamDate);
+                        if (ResultCompare == 0 || ResultCompare == -1)
+                        {
+                            ExamClass UpCommingExams = new ExamClass();
+                            UpCommingExams.ExamName = rdr["exam_name"].ToString();
+                            UpCommingExams.ExamType = DetermineExamType(rdr["exam_type"].ToString());
+                            UpCommingExams.ExamDate = rdr["exam_date"].ToString();
+                            UpCommingExams.ExamCode = rdr["exam_code"].ToString();
+                            UpCommingExams.SubjectName = FetchSubjectNameById(Convert.ToInt16(rdr["subject_id"].ToString()));
+                            ExamsList.Add(UpCommingExams);
+                        }
+                        
+                    }
+                }
+            }
+            return ExamsList;
+        }
         public static string FetchSubjectNameById(int SubjectId)
         {
             Database db = new Database();
@@ -102,6 +136,17 @@ namespace oes.faculty.Class
                 }
             }
             return SubjectName;
+        }
+
+        public static string  DetermineExamType(string ExamTypeShortCode){
+            string ExamType = null;
+            if (ExamTypeShortCode=="MID") {
+                ExamType = "MID SEM EXAM";
+            }
+            else{
+                ExamType="CLASS TEST";
+            }
+            return ExamType;
         }
        
     }   

@@ -12,7 +12,6 @@ using SourceAFIS.Simple;
 
 using System.Drawing;
 using System.Drawing.Imaging;
-
 using System.IO;
 namespace oes.admin
 {
@@ -29,11 +28,15 @@ namespace oes.admin
                 sfis = new AfisEngine();
                 candidate = new Person();
                 fp = new Fingerprint();
+                //sfis.Threshold = 11;
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-                fp.AsBitmap = new System.Drawing.Bitmap(System.Drawing.Bitmap.FromFile(Server.MapPath("~/admin/ThumbData/probe.bmp")));
+            byte[] imageBytes = Convert.FromBase64String(img_val.Value);
+
+            fp.AsBitmap = CreateBmpImage(imageBytes);
+                //fp.AsBitmap = new System.Drawing.Bitmap(System.Drawing.Bitmap.FromFile(Server.MapPath("~/admin/ThumbData/probe.bmp")));
                 candidate.Fingerprints.Add(fp);
                 sfis.Extract(candidate);
                 int score = (int)Math.Ceiling(sfis.Verify(candidate, probe));
@@ -60,5 +63,15 @@ namespace oes.admin
             reader.Close();
             return XmlData;
         }
+
+        public Bitmap CreateBmpImage(byte[] ImageDateByte)
+        {
+            using (MemoryStream ms = new MemoryStream(ImageDateByte))
+            {
+                Bitmap img = (Bitmap)System.Drawing.Image.FromStream(ms);
+                return img;
+            }
+        }
+
     }
 }

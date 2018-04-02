@@ -25,6 +25,7 @@ namespace oes.student
         {
 
             questionDetails.DataBind();
+            Session["StartExamFlag"] = 1;
             if (Request.QueryString["ExamId"] != null)
             {
                 //create question buttons
@@ -93,6 +94,7 @@ namespace oes.student
             int ExamId = Convert.ToInt16(Request.QueryString["ExamId"].ToString());
             a.QuestionID = dr["q_id"].ToString();
             a.CorrectAnswer = dr["correct_ans"].ToString();
+            a.MarksOfQuestion = Convert.ToInt16(dr["marks"].ToString());
             a.UserAnswer = ddlAnswer.SelectedValue.ToString();
 
             ArrayList al = (ArrayList)Session["AnswerList"];

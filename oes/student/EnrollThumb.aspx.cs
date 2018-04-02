@@ -120,7 +120,6 @@ namespace oes.student
                     //update thumb image to student table
                     UpdateThumbFilePath(ThumbFileFullPath, Convert.ToInt16(userid.Value.ToString()));
                     
-                    //if all good then, congratulations
                     Response.Redirect("UploadAvatar.aspx");
                     
                     

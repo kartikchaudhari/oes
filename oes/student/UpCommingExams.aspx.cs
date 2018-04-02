@@ -18,11 +18,25 @@ namespace oes.student
         Database db = new Database();
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            LoadStudentData(Convert.ToInt16(Session["id"]));
             hf_current_date.Value = DateTime.Now.ToShortDateString();
         }
 
-        public void LoadStudentData(int StudentId) {
-            
+        private void LoadStudentData(int id)
+        {
+            using (SqlCommand cmd = new SqlCommand("FetchStudentData", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    hf_dept_id.Value = rdr["dept_id"].ToString();
+                    hf_sem_id.Value = rdr["sem_id"].ToString();
+                }
+            }
         }
     }
 }

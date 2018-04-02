@@ -49,8 +49,9 @@ namespace oes.student
                     StartExambtn.Attributes.Add("disabled","disabled");
                     StartExambtn.ID = "btnStartExam";
                     StartExambtn.Text = "Start Exam";
-                    StartExambtn.NavigateUrl = "StartExam.aspx?ExamId=" + rdr["exam_id"].ToString();
-                    StartExambtn.Target = "_blank";
+                    StartExambtn.Attributes.Add("onclick", "openerNew(" + rdr["exam_id"].ToString() + ")");
+                    //StartExambtn.NavigateUrl = "StartExam.aspx?ExamId=" + rdr["exam_id"].ToString();
+                    //StartExambtn.Target = "_blank";
                     StartExambtn.CssClass = "btn btn-success";
                     pnlStartExamBtn.Controls.Add(StartExambtn);
                 }

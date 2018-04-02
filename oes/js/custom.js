@@ -468,6 +468,28 @@ function ConfirmFacultyRequest() {
     });
     return false;
 }
+/*
+* Function : Delete the Faculty Registration Request
+*
+*/
+function DeleteFacultyRequest() {
+    var faculty_id = parseInt($.trim($("[id*=hf_fact_id]").val()));
+    $.ajax({
+        type: "POST",
+        url: "WebMethods/Faculty.asmx/RemoveFaculty",
+        data: '{FacultyId:"' + faculty_id + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (r) {
+            $("#RequestDeleteModal").modal("show", { keyboard: true });
+            //alert(r);
+        },
+        error: function (r) {
+            alert(r.responseText);
+        }
+    });
+    return false;
+}
 
 
 /*

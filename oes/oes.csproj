@@ -1845,8 +1845,10 @@
     <Content Include="faculty\Students.aspx" />
     <Content Include="faculty\Subjects.aspx" />
     <Content Include="faculty\TestFaculty.aspx" />
+    <Content Include="faculty\UploadAvatar.aspx" />
     <Content Include="faculty\ViewQuestions.aspx" />
     <Content Include="faculty\ViewSubject.aspx" />
+    <Content Include="faculty\WebMethods\BioMatricEnrollment.asmx" />
     <Content Include="faculty\WebMethods\Questions.asmx" />
     <Content Include="Global.asax" />
     <Content Include="images\149071.png" />
@@ -2335,6 +2337,13 @@
     <Compile Include="faculty\TestFaculty.aspx.designer.cs">
       <DependentUpon>TestFaculty.aspx</DependentUpon>
     </Compile>
+    <Compile Include="faculty\UploadAvatar.aspx.cs">
+      <DependentUpon>UploadAvatar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="faculty\UploadAvatar.aspx.designer.cs">
+      <DependentUpon>UploadAvatar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="faculty\ViewQuestions.aspx.cs">
       <DependentUpon>ViewQuestions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2348,6 +2357,10 @@
     </Compile>
     <Compile Include="faculty\ViewSubject.aspx.designer.cs">
       <DependentUpon>ViewSubject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="faculty\WebMethods\BioMatricEnrollment.asmx.cs">
+      <DependentUpon>BioMatricEnrollment.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="faculty\WebMethods\Questions.asmx.cs">
       <DependentUpon>Questions.asmx</DependentUpon>
@@ -2581,7 +2594,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>39728</DevelopmentServerPort>
+          <DevelopmentServerPort>1257</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:1553/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

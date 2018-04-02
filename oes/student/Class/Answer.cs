@@ -19,7 +19,8 @@ namespace oes.student.Class
         private string _correctAnswer;
         private string _userAnswer;
         private string _result;
-
+        private int _marksOfQuestion;
+        private int CountCorrectAns;
         public string QuestionID
         {
             get { return _questionID; }
@@ -29,7 +30,7 @@ namespace oes.student.Class
         public string CorrectAnswer
         {
             get { return _correctAnswer; }
-            set { _correctAnswer = value; }
+            set { _correctAnswer =value; }
         }
 
         public string UserAnswer
@@ -44,6 +45,7 @@ namespace oes.student.Class
             {
                 if (_userAnswer == _correctAnswer)
                 {
+                    CountCorrectAns += _marksOfQuestion;
                     return ResultValue.Correct;
                 }
                 else
@@ -54,7 +56,20 @@ namespace oes.student.Class
         }
 
         public enum ResultValue { Correct, Incorrect }
+        
+        public int MarksOfQuestion
+        {
+            get { return _marksOfQuestion; }
+            set { _marksOfQuestion = value; }
+        }
 
+
+        public override string ToString()
+        {
+            return CountCorrectAns.ToString();
+              
+        } 
+        
     }
 
 }

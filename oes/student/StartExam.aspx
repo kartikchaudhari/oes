@@ -135,7 +135,7 @@
         </div>
        </div>
       </div>
-        <asp:SqlDataSource ID="SqlDataSourceQuestionPaper" runat="server" ConnectionString="<%$ ConnectionStrings:ExamDbConString %>" SelectCommand="SELECT questions.q_id, questions.dept_id, questions.sem_id, questions.subject_id, questions.question_type, questions.question, questions.opt_a, questions.opt_b, questions.opt_c, questions.opt_d, questions.correct_ans, questions.marks, QuestionPaper.QPaperId, QuestionPaper.QId, QuestionPaper.exam_id FROM questions INNER JOIN QuestionPaper ON questions.q_id = QuestionPaper.QId WHERE (QuestionPaper.exam_id = @ExamId) ORDER BY NEWID()">
+        <asp:SqlDataSource ID="SqlDataSourceQuestionPaper" runat="server" ConnectionString="<%$ ConnectionStrings:ExamDbConString %>" SelectCommand="SELECT questions.q_id, questions.dept_id, questions.sem_id, questions.subject_id, questions.question_type, questions.question, questions.opt_a, questions.opt_b, questions.opt_c, questions.opt_d, questions.correct_ans, questions.marks, QuestionPaper.QPaperId, QuestionPaper.QId, QuestionPaper.exam_id FROM questions INNER JOIN QuestionPaper ON questions.q_id = QuestionPaper.QId WHERE (QuestionPaper.exam_id = @ExamId)">
             <SelectParameters>
                 <asp:SessionParameter DefaultValue="0" Name="ExamId" SessionField="ExamId" Type="Int32" />
             </SelectParameters>

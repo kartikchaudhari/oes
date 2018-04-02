@@ -5,6 +5,9 @@
     <form id="d" runat="server">
     <asp:Label ID="Label1" runat="server"></asp:Label>
     <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+        <%
+         
+       %>
     </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ExternalJs" runat="server">

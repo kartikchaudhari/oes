@@ -48,8 +48,8 @@ namespace oes.student
                     ExamListDiv.InnerHtml += "</table>";
                 }
                 else {
-
-                    ExamListDiv.InnerHtml = "<strong style='color:red;'>No Exam Found</strong>"; 
+                    PanelSearchResult.Visible = true;
+                    ExamListDiv.InnerHtml = "<strong style='color:red;'>No Exam Found</strong>&nbsp;<strong>&middot;</strong>&nbsp;<a class='links' href='UpCommingExams.aspx'>Click here to See UpComming Exams</a>"; 
                 }
 
             }

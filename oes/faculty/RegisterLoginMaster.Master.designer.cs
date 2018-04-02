@@ -13,6 +13,15 @@ namespace oes.faculty {
     public partial class RegisterLoginMaster {
         
         /// <summary>
+        /// ExternalJs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ExternalJs;
+        
+        /// <summary>
         /// active_class_links control.
         /// </summary>
         /// <remarks>

@@ -17,59 +17,226 @@ using oes.App_Code;
 
 using oes.student.Class;
 
+//sms api
+using Nitin.Sms.Api;
+
+//for intenet connection
+using System.Runtime;
+using System.Runtime.InteropServices;
+
 namespace oes.student
 {
     public partial class Results : System.Web.UI.Page
     {
+        Database Db = new Database();
+
+        //student details
+        int StudentsResultMarks;
+        string StudentParentNo = null;
+        string StudentEnrollment = null;
+        //ExamDetails
+        int SubjectIdGlobal = 0;
+        int DeptIdGlobal = 0;
+        int GlobalExamTotalMarks=0;
+
+        //sms object
+        public Way2Sms sms;
+        public bool isLoggedIn = false;
+        //imort dll for internet
+        [DllImport("wininet.dll")]
+        private extern static bool InternetGetConnectedState(out int Description, int ReservedValue);
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            ArrayList al = (ArrayList)Session["AnswerList"];
-            
-            if (al == null)
+            int Desc;
+            if (InternetGetConnectedState(out Desc, 0))
             {
-                Response.Redirect("Exam.aspx");
+                isLoggedIn=LoginToWay2Sms();
             }
 
+            if (Session["StartExamFlag"]==null)
+            {
+                ClientScript.RegisterStartupScript(typeof(Page), "closePage", "window.close();", true);
+                Response.Redirect("EnrollToExam.aspx");
+            }
+            ArrayList al = (ArrayList)Session["AnswerList"];
+            
             resultGrid.DataSource = al;
             resultGrid.DataBind();
 
-            // Save the results into the database.
-            try
+            //calculate the total correct ansewer
+            int m = 0;
+            for (int i = 0; i < al.Count; i++)
             {
-                if (IsPostBack == false)
+                m += Convert.ToInt16(al[i].ToString());
+            }
+            StudentsResultMarks = m;
+            lblStudentsGotMarks.Text = StudentsResultMarks.ToString();
+            lblExamTotalMarks.Text = al.Count.ToString();
+            GlobalExamTotalMarks = al.Count;
+            //Response.Write(m.ToString());
+
+            // Save the results into the database.
+            if (IsPostBack == false)
+            {
+
+
+                try
                 {
-
-                    double questions = al.Count;
-                    double correct = 0.0;
-
-
-                    for (int i = 0; i < al.Count; i++)
-                    {
-                        Answer a = (Answer)al[i];
-                        if (a.Result == Answer.ResultValue.Correct)
-                            correct++;
-                    }
-
-                    double score = (correct / questions) * 100;
-
-                    SqlDataSource userExamDataSource = new SqlDataSource();
-                    userExamDataSource.ConnectionString = ConfigurationManager.ConnectionStrings["ExamDbConString"].ToString();
-                    userExamDataSource.InsertCommand = "INSERT INTO answers(q_id,exam_id,correct_ans,user_ans)VALUES (@QuestionID,@ExamID, @CorrectAns, @UserAns, @Username)";
-
-                    userExamDataSource.InsertParameters.Add("ExamID", Session["ExamID"].ToString());
-                    userExamDataSource.InsertParameters.Add("DateTimeComplete", DateTime.Now.ToString());
-                    userExamDataSource.InsertParameters.Add("Score", score.ToString());
-                    userExamDataSource.InsertParameters.Add("Username", Session["Student"].ToString());
-
-                    int rowsAffected = userExamDataSource.Insert();
+                    int UserId = Convert.ToInt16(Session["id"].ToString());
+                    int Eid = Convert.ToInt16(Session["ExamId"].ToString());
+                    SaveResultToDb(UserId, Eid, StudentsResultMarks);
+                    //SendSMarks();
+                }
+                catch (Exception expct)
+                {
+                    errorLabel.Text = expct.ToString();
                 }
             }
-            catch (Exception)
+
+        }
+
+        public bool LoginToWay2Sms()
+        {
+            using (SqlCommand cmd = new SqlCommand("FetchSMSSettings", Db.DbConnect()))
             {
-                errorLabel.Text = "There was a problem saving your quiz results into our database.  Therefore, the results from this quiz will not be displayed on the list on the main menu.";
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    //create and load the sms settings
+                    sms = new Way2Sms(rdr["username"].ToString(), rdr["password"].ToString());
+                    if (sms.Login())
+                    {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                    
+                }
             }
 
+            return false;
+        }
+
+        public void SendMarksSms() {
+            if (isLoggedIn)
+            {
+                string Message="G.P.Waghai-"+FetchDeptNameById(DeptIdGlobal)+" "+StudentEnrollment+" "+"got "+StudentsResultMarks+"/ "+GlobalExamTotalMarks+" in "+FetchSubjectNameById(SubjectIdGlobal)+" Subject";
+                sms.SendSms(StudentParentNo,Message);
+            }
+        }
+        public void SaveResultToDb(int StudentId,int ExamId,int StudentMarks){
+            //student data
+            string EnrollmentNo=null;
+            
+            //Exam Data
+            int DeptId=0, SemId=0,SubjectId=0,PassingMarks=0;
+
+            //Result Data
+            int ResultStatus=0;
+            
+            //get the user details
+            using (SqlCommand cmd = new SqlCommand("FetchStudentData", Db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id",StudentId);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    StudentParentNo = rdr["parent_contact"].ToString();
+                    EnrollmentNo = rdr["enrollment_no"].ToString();
+                    StudentEnrollment = EnrollmentNo;
+                }
+            }
+
+            //get the exam details
+            using (SqlCommand cmd=new SqlCommand("FetchExamDetailById",Db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ExamId",ExamId);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    DeptId = Convert.ToInt16(rdr["dept_id"].ToString());
+                    SemId = Convert.ToInt16(rdr["sem_id"].ToString());
+                    SubjectId = Convert.ToInt16(rdr["subject_id"].ToString());
+                    SubjectIdGlobal = SubjectId;
+                    PassingMarks = Convert.ToInt16(rdr["passing_marks"].ToString());
+                }
+
+                if (StudentMarks > PassingMarks)
+                {
+                    ResultStatus = 1; //pass
+                }
+                else
+                {
+                    ResultStatus = 0; //fail
+                }
+            }
+
+            //add result data to db
+            using (SqlCommand cmd=new SqlCommand("AddResultToDb",Db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@StudentId",StudentId);
+                cmd.Parameters.AddWithValue("@EnrllmentNo",EnrollmentNo);
+                cmd.Parameters.AddWithValue("@ExamId",ExamId);
+                cmd.Parameters.AddWithValue("@DeptId",DeptId);
+                cmd.Parameters.AddWithValue("@SemId",SemId);
+                cmd.Parameters.AddWithValue("@SubjectId", SubjectId);
+                cmd.Parameters.AddWithValue("@ResultStatus",ResultStatus);
+                cmd.Parameters.AddWithValue("@Marks",StudentMarks);
+                cmd.ExecuteNonQuery();
+                //send marks 
+                SendMarksSms();
+            }
+        }
+
+        public string FetchSubjectNameById(int SubjectId) {
+            string SubjectName = null;
+            using (SqlCommand cmd=new SqlCommand("FetchSubjectDetailById",Db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@subject_id",SubjectId);
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    SubjectName = rdr["subject_name"].ToString();
+                }
+            }
+            return SubjectName;
+        }
+
+        public string FetchDeptNameById(int DeptId)
+        {
+            string DeptName = null;
+            using (SqlCommand cmd = new SqlCommand("FetchSubjectDetailById", Db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@subject_id", DeptId);
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    DeptName = rdr["dept_name"].ToString();
+                }
+            }
+            return DeptName;
+        }
+
+        protected void btnFininshExam_Click(object sender, EventArgs e)
+        {
+            Session["AnswerList"] = null;
+            Session["ExamID"] = null;
+            Session["StartExamFlag"] = null;
+            ClientScript.RegisterStartupScript(typeof(Page), "closePage", "window.close();", true);
+            //foreach (string key in Session.Keys)
+            //{
+            //    Response.Write(key+"-->"+Session[key].ToString()+"<br>");
+            //}
         }
     }
 }

@@ -19,8 +19,8 @@
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6" style="text-align: right;">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-primary" onclick="javascript:window.print(this);" title="Print your Profile.">Print</button>
-                            <button type="button" class="btn btn-primary" onclick="javascript:location.reload(true);" title="Refresh the Page.">Refresh</button>
+                            <button type="button" class="btn btn-primary links" onclick="javascript:window.print(this);" title="Print your Profile.">Print</button>
+                            <button type="button" class="btn btn-primary links" onclick="javascript:location.reload(true);" title="Refresh the Page.">Refresh</button>
                         </div>
                     </div>
                 </div>

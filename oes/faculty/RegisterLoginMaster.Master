@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Online Examination system for Educational Organizations" />
     <meta name="keywords" content="Online examination system" />
+    
+    <!-- jquery and javascript-->
+    <script src="../js/vendor.min.js"></script>
+    <script src="../js/custom.js"></script>
+    <asp:ContentPlaceHolder ID="ExternalJs" runat="server"></asp:ContentPlaceHolder>
+    
     <!-- App Styling Bundle -->
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../css/custom.css" rel="stylesheet" />
@@ -49,10 +55,6 @@
     <footer class="footer custom-footer">
         <!--#include file="../footer.html"-->
     </footer>
-
-    <!-- jquery and javascript-->
-    <script src="../js/custom.js"></script>
-    <script src="../js/vendor.min.js"></script>
     
     <!-- add FingerCapture javascript on EnrollThumb page-->
     <asp:ContentPlaceHolder ID="FingerCaptureHolder" runat="server"></asp:ContentPlaceHolder>

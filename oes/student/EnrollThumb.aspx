@@ -38,19 +38,17 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4" style="border:1px solid red;">
-                        <center>
-                            <input id="btnScan" class="btn btn-primary" value="Click to Scan" onclick="captureFP()" type="button" /> 
-                            <strong>&nbsp;&middot;&nbsp;</strong>
-                            <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success"  Text="Upload" disabled="disabled" OnClientClick="SendToDb()" OnClick="btnSubmit_Click"/>
-                            <br />
-                            <label class="checkbox-inline"><input type="checkbox">Confirm to Register this Thumb</label>
-                            <br />
-                            <asp:Label ID="Label1" runat="server"></asp:Label>
-                        </center>
+                            <center>
+                                <input id="btnScan" class="btn btn-primary" value="Click to Scan" onclick="captureFP()" type="button" /> 
+                                <strong>&nbsp;&middot;&nbsp;</strong>
+                                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success"  Text="Upload" disabled="disabled" OnClientClick="SendToDb()" OnClick="btnSubmit_Click"/>
+                                <br />
+                                <label class="checkbox-inline"><input type="checkbox">Confirm to Register this Thumb</label>
+                                <br />
+                                <asp:Label ID="Label1" runat="server"></asp:Label>
+                            </center>
+                        </div>
                     </div>
-                    </div>
-                                
-                                               
                 </div>
             </div>
         </div>

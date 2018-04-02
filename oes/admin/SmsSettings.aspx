@@ -18,8 +18,8 @@
         </ol>
     </div>
         <!--breadcrumb end-->
-        <button class="btn btn-primary btn-sm"  style="float: right; position: relative; margin-top:14.5px; margin-right: 20px;" onclick="javascript:location.reload(true);">Refresh</button>
-        <div class="panel panel-default">
+        <button class="btn btn-success btn-sm"  style="float: right; position: relative; margin-top:14.5px; margin-right: 20px;" onclick="javascript:location.reload(true);">Refresh</button>
+        <div class="panel panel-primary">
         <div class="panel-heading panel-heading-custom-pages">
             <i class="fa fa-envelope fa-1x"></i>&nbsp;&nbsp;<span>Manage SMS Settings</span>
         </div>
@@ -29,12 +29,13 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
                 <li><a href="#edit" data-toggle="tab">Edit / Update Settings</a></li>
+                <li><a href="#test" data-toggle="tab">Test Settings</a></li>
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content">
                 <!-- view system settings -->
-                <div class="tab-pane fade in active" id="settings" style="padding-left:10px;padding-top:10px;">
+                <div class="tab-pane fade" id="settings" style="padding-left:10px;padding-top:10px;">
                     <h4>Settings</h4>
                     <hr />
                     <table class="table table-striped">
@@ -51,7 +52,6 @@
                                 <td class="auto-style1"><strong>Password :</strong></td>
                                 <td><asp:Label ID="lblPasswordSms" runat="server"></asp:Label></td>
                             </tr>
-                            
                         </tbody>
                     </table>
                 </div>
@@ -71,6 +71,42 @@
                             
                         </tbody>
                     </table>
+                </div>
+                <div class="tab-pane fade in active" id="test" style="padding-left:10px;padding-top:10px;">
+                    <h4>Test Settings</h4>
+                    <hr />
+                    <strong>Internet Connection Status:&nbsp; </strong>
+                    <asp:Label ID="lblNetStatus" runat="server"></asp:Label>
+&nbsp;<br />
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><strong>Send sample Message</strong></h3>
+                                </div>
+                                <div class="panel-body">
+                                     <div class="form-group">
+                                        <strong>Sender:</strong>
+                                        <asp:TextBox ID="tbSender" runat="server" CssClass="form-control" TextMode="SingleLine" ReadOnly="true" ></asp:TextBox>
+                                     </div>
+                                    <div class="form-group">
+                                        <strong>Receiver:</strong>
+                                        <asp:TextBox ID="tbReceiver" runat="server" CssClass="form-control"  TextMode="Number"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <strong>Message:</strong>
+                                        <asp:TextBox ID="tbMsgContent" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:Button ID="btnSend" runat="server" Text="Send" CssClass="btn btn-success" OnClick="btnSend_Click" />
+                                    &nbsp;&nbsp;
+                                        <asp:Label ID="lblErrMsg" runat="server"></asp:Label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

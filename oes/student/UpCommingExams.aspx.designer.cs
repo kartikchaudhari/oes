@@ -22,22 +22,22 @@ namespace oes.student {
         protected global::System.Web.UI.HtmlControls.HtmlForm UpCommingExamsForm;
         
         /// <summary>
-        /// hd_dept_it control.
+        /// hf_dept_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hd_dept_it;
+        protected global::System.Web.UI.WebControls.HiddenField hf_dept_id;
         
         /// <summary>
-        /// hd_sem_d control.
+        /// hf_sem_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hd_sem_d;
+        protected global::System.Web.UI.WebControls.HiddenField hf_sem_id;
         
         /// <summary>
         /// hf_current_date control.
@@ -56,5 +56,14 @@ namespace oes.student {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
+        
+        /// <summary>
+        /// ObjectDataSourceUpCommingExamGv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceUpCommingExamGv;
     }
 }
