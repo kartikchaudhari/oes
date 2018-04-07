@@ -58,6 +58,24 @@ namespace oes.admin {
         protected global::System.Web.UI.WebControls.TextBox tbPasswordSms;
         
         /// <summary>
+        /// btnUpdateSetting control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateSetting;
+        
+        /// <summary>
+        /// lblSettingLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSettingLabel;
+        
+        /// <summary>
         /// lblNetStatus control.
         /// </summary>
         /// <remarks>

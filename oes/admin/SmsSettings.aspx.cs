@@ -69,7 +69,15 @@ namespace oes.admin
                     //create and load the sms settings
                     sms = new Way2Sms(rdr["username"].ToString(), rdr["password"].ToString());
                     tbSender.Text = rdr["username"].ToString();
-                    sms.Login();
+                    try
+                    {
+                        sms.Login();
+                    }
+                    catch(HttpException httpexcp)
+                    {
+                        lblSettingLabel.Text = httpexcp.ToString();
+                    }
+                    
                     
                 }
             }
@@ -79,7 +87,7 @@ namespace oes.admin
         {
             if (sms.SendSms(tbReceiver.Text.ToString(), tbMsgContent.Text.ToString()))
             {
-                lblErrMsg.Text = "Message Sent xD xD";
+                lblErrMsg.Text = "Message Sent....";
                 lblErrMsg.ForeColor = System.Drawing.Color.Green;
                 lblErrMsg.Font.Bold = true;
             }

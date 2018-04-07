@@ -15,6 +15,9 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
 </head>
+
+
+
 <body style="background-color: #EAEDF1;">
     <!-- top nav-->
     <nav class="navbar navbar-inverse custom-navbar">
@@ -94,7 +97,8 @@
                             <div class="col-md-6 col-sm-offset-3">
                                 <div class="form-group">
                                     <label for="email">Username:</label>
-                                    <asp:TextBox ID="tbUsername" runat="server" CssClass="form-control" TextMode="SingleLine" required="required" data-validation="length"  data-validation-length="min4"></asp:TextBox>
+                                    <asp:TextBox ID="tbUsername" runat="server" CssClass="form-control" 
+                                        TextMode="SingleLine" required="required" data-validation="length"  data-validation-length="min4"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Password:</label>

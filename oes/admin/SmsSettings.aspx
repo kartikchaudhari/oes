@@ -68,7 +68,15 @@
                                 <td class="auto-style1"><strong>Password :</strong></td>
                                 <td><asp:TextBox ID="tbPasswordSms" runat="server" CssClass="form-control" TextMode="SingleLine" Width="800"></asp:TextBox></td>
                             </tr>
-                            
+                            <tr>
+                                <td colspan="2">
+                                    <asp:Button ID="btnUpdateSetting" runat="server" CssClass="btn btn-success" Text="Update Settings" />
+                                    &nbsp;<strong>&middot;</strong>&nbsp;
+                                    <button type="reset" class="btn btn-danger">Reset</button>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblSettingLabel" runat="server"></asp:Label>
+                                </td>
+                                
+                            </tr>
                         </tbody>
                     </table>
                 </div>
