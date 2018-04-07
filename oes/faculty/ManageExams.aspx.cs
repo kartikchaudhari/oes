@@ -20,6 +20,7 @@ namespace oes.faculty
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadFacultyData(Convert.ToInt16(Session["id"]));
+           
         }
         int DeptId;
         public int LoadFacultyData(int id)

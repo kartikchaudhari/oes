@@ -45,20 +45,9 @@ namespace oes.admin
                 sda.Fill(dt);
                 if (dt.Rows.Count != 0)
                 {
-                    //remember me function
-                    //if (cbRemember.Checked)
-                    //{
-                    //    //Response.Cookies["admin_id"].Value = dt.Rows[0]["admin_id"].ToString();
-                        
-                    //    Session["id"] = dt.Rows[0]["admin_id"];
-                    //    Response.Redirect("Dashboard.aspx");
-                    //}
-                    ////else
-                    //{   
                         Session["id"] = dt.Rows[0]["admin_id"];
                         Session["type"] = 1;
                         Response.Redirect("Dashboard.aspx");
-                    //}
                 }
                 else {
                     Response.Redirect("LoginViaUid.aspx?eid=2");

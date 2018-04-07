@@ -81,7 +81,7 @@
 
                     <li> <a class="my" href="#ExamSubMenu" data-toggle="collapse" aria-expanded="false">
                             <span class="fa-stack">
-                                <i class="fa fa-pencil fa-stack-1x"></i></span>&nbsp;&nbsp;Exams&nbsp;&nbsp;&nbsp;&nbsp;<b class="caret"></b>
+                                <i class="fa fa-pencil fa-stack-1x"></i></span>&nbsp;&nbsp;&nbsp;Exams&nbsp;&nbsp;&nbsp;&nbsp;<b class="caret"></b>
                         </a>
                         <ul class="collapse list-unstyled" id="ExamSubMenu">
                             <li><a class="links" href="EnrollToExam.aspx" target="DashboardContentFrame" style="padding-left: 25%;" title="Enroll to Exam">Enroll to Exam</a></li>
@@ -89,7 +89,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="links" href="Results.aspx" target="DashboardContentFrame">
+                        <a class="links" href="ResultArchive.aspx" target="DashboardContentFrame">
                             <span class="fa fa-stack">
                                 <i class="fa fa-trophy fa-fw fa-stack-1x"></i>
                             </span>

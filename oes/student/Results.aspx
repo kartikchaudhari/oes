@@ -37,7 +37,8 @@
                              </div>
                             <asp:GridView ID="resultGrid" runat="server" AutoGenerateColumns="False" 
                                 CellPadding="4" DataKeyNames="QuestionID"
-                                ForeColor="#333333" GridLines="None" Width="555px" CssClass="table table-bordered" >
+                                ForeColor="#333333" GridLines="None" Width="555px" CssClass="table table-bordered"
+                                 EnableViewState="false">
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                             <RowStyle BackColor="#F7F6F3" CssClass="generaltext" ForeColor="#333333" HorizontalAlign="Center" />
                             <Columns>

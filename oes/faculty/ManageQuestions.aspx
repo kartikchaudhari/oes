@@ -43,8 +43,10 @@
                                     <div class="table-responsive" style="padding: 1%;">
                                         <br />
                                         <asp:GridView ID="GridViewQuestionList" runat="server"
-                                            AllowPaging="True" AutoGenerateColumns="False" DataSourceID="ObjectDataSourceQuestionList"
-                                            PageSize="5" CssClass="table table-bordered table-striped" AllowSorting="True" DataKeyNames="QuestionId" EnableViewState="false">
+                                            AllowPaging="True" AutoGenerateColumns="False" 
+                                            DataSourceID="ObjectDataSourceQuestionList"
+                                            PageSize="5" CssClass="table table-bordered table-striped"
+                                             AllowSorting="True" DataKeyNames="QuestionId" EnableViewState="false">
                                             <Columns>
                                                 <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-sm btn-danger"/>
                                                 <asp:CommandField ShowEditButton="true" ControlStyle-CssClass="btn btn-sm  btn-success" />

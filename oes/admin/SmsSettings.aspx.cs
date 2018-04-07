@@ -47,6 +47,7 @@ namespace oes.admin
                 lblNetStatus.Text = "Not Connected";
                 lblNetStatus.ForeColor = System.Drawing.Color.Red;
                 lblNetStatus.Font.Bold = true;
+                BindSmsSettingsToControl();
             }
             
            
@@ -69,6 +70,7 @@ namespace oes.admin
                     sms = new Way2Sms(rdr["username"].ToString(), rdr["password"].ToString());
                     tbSender.Text = rdr["username"].ToString();
                     sms.Login();
+                    
                 }
             }
         }
@@ -91,4 +93,4 @@ namespace oes.admin
 
         
     }
-}
+}   

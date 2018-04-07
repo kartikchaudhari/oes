@@ -35,7 +35,7 @@
             <!-- Tab panes -->
             <div class="tab-content">
                 <!-- view system settings -->
-                <div class="tab-pane fade" id="settings" style="padding-left:10px;padding-top:10px;">
+                <div class="tab-pane fade in active" id="settings" style="padding-left:10px;padding-top:10px;">
                     <h4>Settings</h4>
                     <hr />
                     <table class="table table-striped">
@@ -72,7 +72,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="tab-pane fade in active" id="test" style="padding-left:10px;padding-top:10px;">
+                <div class="tab-pane fade" id="test" style="padding-left:10px;padding-top:10px;">
                     <h4>Test Settings</h4>
                     <hr />
                     <strong>Internet Connection Status:&nbsp; </strong>
