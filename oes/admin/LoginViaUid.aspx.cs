@@ -17,19 +17,7 @@ namespace oes.admin
         {
 
 
-            //if (Request.Cookies["admin_id"] != null && Session["id"] != null)
-            //{
-            //    Session["id"] = Request.Cookies["admin_id"].Value;
-            //    Response.Redirect("Dashboard.aspx");
-            //}
-            
-            //if the user is already logged in 
-            //then redirect him/her to dashboard page
-
-            //if (Session["id"] != null )
-            //{
-            //    Response.Redirect("Dashboard.aspx");
-            //}
+           
 
         }
 
