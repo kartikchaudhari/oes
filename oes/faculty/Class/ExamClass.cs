@@ -41,12 +41,28 @@ namespace oes.faculty.Class
             return SubjectName;
         }
 
+        public string FetchExamNamesByid(int ExamId)
+        {
+            string ExamName = null;
+            using (SqlCommand cmd = new SqlCommand("FetchExamDetailById", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ExamId", ExamId);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    ExamName = rdr["exam_name"].ToString();
+                }
+            }
+            return ExamName;
+        }
+
         
     }
 
     public class ExamDataAccessLayer
     {
-        
+        Database db = new Database();
         public static List<ExamClass> GetAllExamsByDeptId(int DeptId)
         {
             Database db = new Database();
@@ -148,6 +164,7 @@ namespace oes.faculty.Class
             }
             return ExamType;
         }
-       
+
+      
     }   
 }

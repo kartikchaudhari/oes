@@ -17,7 +17,7 @@ using System.Web.UI.DataVisualization.Charting;
 namespace oes.admin
 {
     public partial class Students : System.Web.UI.Page
-    { 
+    {
         //database object
         Database db = new Database();
         protected void Page_Load(object sender, EventArgs e)
@@ -76,8 +76,30 @@ namespace oes.admin
 
         protected void btnAddStudent_Click(object sender, EventArgs e)
         {
+            using (SqlCommand cmd=new SqlCommand("AddNewStudent",db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Fname", tbFname.Text.ToString().Trim());
+                cmd.Parameters.AddWithValue("@Lname", tbLName.Text.ToString().Trim());
+                cmd.Parameters.AddWithValue("@EnrollmentNo", tbEnroll.Text.ToString().Trim());
 
+                cmd.Parameters.AddWithValue("@Uname", tbUname.Text.ToString().Trim());
+                cmd.Parameters.AddWithValue("@Email",tbEmail.Text.ToString().Trim());
+                cmd.Parameters.AddWithValue("@Password", tbPass.Text.ToString().Trim());
+                cmd.Parameters.AddWithValue("@StudContactNo", tbStudContact.Text.ToString().Trim());
+                cmd.Parameters.AddWithValue("@ParentContactNo", tbParentContactNo.Text.ToString().Trim());
+                cmd.Parameters.AddWithValue("@Semester",DdlSem.SelectedItem.Value);
+                cmd.Parameters.AddWithValue("@Department",ddl_dept.SelectedItem.Value);
+                cmd.Parameters.AddWithValue("@RegDate", DateTime.Now.ToString("yyyy-MM-dd h:m:s"));
+                cmd.Parameters.AddWithValue("@AccountStatus",1);
+                if (cmd.ExecuteNonQuery()==1)
+                {
+                    Response.Write("<script>alert('Student Added...');</script>");
+                }
+                
+            }
         }
 
     }
+
 }

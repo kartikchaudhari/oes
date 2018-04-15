@@ -154,7 +154,7 @@
 
         <!-- Page Content -->
         <div id="content" style="padding:8px;">
-            <div class="embed-responsive embed-responsive-12by6">
+            <div class="embed-responsive embed-responsive-12by6" style="padding-bottom: 60%;">
                 <iframe id="DashBoardFrame" src="DashboardContents.aspx" name="DashboardContentFrame"></iframe>
             </div>
         </div>

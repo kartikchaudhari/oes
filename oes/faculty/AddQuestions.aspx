@@ -105,9 +105,10 @@
                 </div>
                 <asp:UpdatePanel ID="UpDatePanel" runat="server">
                     <ContentTemplate>
-                        <div class="col-md-8">
+                        <div class="form-group">
                             <strong>Question Type:</strong>
-                            <asp:DropDownList ID="QuestionTypeDdl" runat="server" AutoPostBack="true" OnSelectedIndexChanged="QuestionTypeDdl_SelectedIndexChanged">
+                            <asp:DropDownList ID="QuestionTypeDdl" runat="server" AutoPostBack="true"
+                                OnSelectedIndexChanged="QuestionTypeDdl_SelectedIndexChanged" CssClass="form-control" Width="300">
                                 <asp:ListItem Text="-- Select Question Type --" Value="0"></asp:ListItem>
                                 <asp:ListItem Text="Multiple Choice Question (M.C.Q - 4 Options)" Value="1"></asp:ListItem>
                                 <asp:ListItem Text="True or False (2 Options)" Value="2"></asp:ListItem>
@@ -116,7 +117,6 @@
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ID="rfQuestionyType" runat="server" ErrorMessage="* Plese Select Question Type" ControlToValidate="QuestionTypeDdl" CssClass="ErrMsg" Text="*"></asp:RequiredFieldValidator>
                         </div>
-                        <br />
                         <!-- question container ends -->
 
                         <!-- mcq container starts -->

@@ -26,16 +26,21 @@ namespace oes.student
 
             questionDetails.DataBind();
             Session["StartExamFlag"] = 1;
+            if (Session["id"]!=null)
+            {
+                BindStudentData(Convert.ToInt16(Session["id"].ToString()));
+            }
             if (Request.QueryString["ExamId"] != null)
             {
                 //create question buttons
                 CreateQuestionButtonAndExanDetail(Convert.ToInt16(Request.QueryString["ExamId"].ToString()));
+                //FetchExamTime(Convert.ToInt16(Request.QueryString["ExamId"].ToString()));
             }
             else
             {
                 Response.Write("Plese select the exam..");
             }
-
+            
             
         }
 
@@ -131,6 +136,42 @@ namespace oes.student
                 cmd.Parameters.AddWithValue("@UserAns",User_ans);
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        public void BindStudentData(int StudentId) {
+            using (SqlCommand cmd=new SqlCommand("FetchStudentData",db.DbConnect()))
+            {
+                cmd.CommandType=CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id",StudentId);
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    StudentImage.ImageUrl = rdr["avatar"].ToString();
+                    StudentDeptName.Text = rdr["dept_id"].ToString();
+                    lblStudentFullName.Text = rdr["first_name"].ToString() + " " + rdr["last_name"].ToString();
+                    StudentSem.Text = rdr["sem_id"].ToString();
+                }
+
+            }
+        }
+
+        
+        public int FetchExamTime(int ExamId) {
+            int ExamTime=0;
+            using (SqlCommand cmd=new SqlCommand("FetchExamDetailById",db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ExamId", ExamId);
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    ExamTime = Convert.ToInt16(rdr["total_time"].ToString());
+                }
+            }
+
+            return ExamTime;
         }
     }
 }

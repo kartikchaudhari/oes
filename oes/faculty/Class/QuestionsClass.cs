@@ -99,6 +99,31 @@ namespace oes.faculty.Class
 
         }
 
+        public string DisplayCorrectAnswerCharacter(int CorrectAnsInteger) {
+            string CorrectAnsChar=null;
+            switch (CorrectAnsInteger)
+            {
+                case 1:
+                    CorrectAnsChar="A";
+                break;
+
+                case 2:
+                    CorrectAnsChar = "B";
+                break;
+               
+                case 3:
+                    CorrectAnsChar = "C";
+                break;
+                
+                case 4:
+                    CorrectAnsChar = "D";
+                break;
+                
+                default:
+                    break;
+            }
+            return CorrectAnsChar;
+        }
         
 
     }
@@ -159,12 +184,12 @@ namespace oes.faculty.Class
                     questions.SemId = Convert.ToInt16(rdr["sem_id"].ToString());
                     questions.SubjectName = questions.FetchSubjectById(Convert.ToInt16(rdr["subject_id"].ToString()));
                     questions.QuestionType = questions.DetermineQuestionType(Convert.ToInt16(rdr["question_type"].ToString()));
-                    questions.Question = rdr["question"].ToString();
-                    questions.OptionA = rdr["opt_a"].ToString();
-                    questions.OptionB = rdr["opt_b"].ToString();
-                    questions.OptionC = rdr["opt_c"].ToString();
-                    questions.OptionD = rdr["opt_d"].ToString();
-                    questions.CorrectAns = rdr["correct_ans"].ToString();
+                    questions.Question = rdr["question"].ToString().Trim();
+                    questions.OptionA = rdr["opt_a"].ToString().Trim();
+                    questions.OptionB = rdr["opt_b"].ToString().Trim();
+                    questions.OptionC = rdr["opt_c"].ToString().Trim();
+                    questions.OptionD = rdr["opt_d"].ToString().Trim();
+                    questions.CorrectAns = questions.DisplayCorrectAnswerCharacter(Convert.ToInt16(rdr["correct_ans"].ToString()));
                     questions.Marks = Convert.ToInt16(rdr["marks"].ToString());
                     QuestionsList.Add(questions);
                 }

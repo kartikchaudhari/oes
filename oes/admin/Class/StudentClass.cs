@@ -57,5 +57,20 @@ namespace oes.admin.Class
                 return DeptName;
             }
         }
+
+        public string FetchStudentNameById(int StudentId) {
+            string StudName = null;
+            using (SqlCommand cmd = new SqlCommand("FetchStudentData", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", StudentId);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    StudName = rdr["first_name"].ToString() + " " + rdr["last_name"].ToString();
+                }
+            }
+            return StudName;
+        }
     }
 }

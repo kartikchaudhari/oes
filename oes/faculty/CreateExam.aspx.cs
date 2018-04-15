@@ -65,7 +65,7 @@ namespace oes.faculty
                 cmd.Parameters.AddWithValue("@TotalMarks", Convert.ToInt16(tbTotalMarks.Text.ToString()));
                 if (cmd.ExecuteNonQuery() != 0)
                 {
-                    Response.Write("<script>alert('Exam Added');</script>");
+                    Response.Redirect("ManageExams.aspx?Action=QAdded");
                 }
                 else 
                 {

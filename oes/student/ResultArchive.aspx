@@ -19,7 +19,7 @@
             <div class="table-responsive">
                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
                     AutoGenerateColumns="False" 
-                    CssClass="table table-bordered table-hover" DataSourceID="ObjectDataSource1" PageSize="8" >
+                    CssClass="table table-bordered table-hover" DataSourceID="ObjectDataSource1" PageSize="8" EnableViewState="false">
                     <Columns>
                         <asp:BoundField DataField="ExamName" HeaderText="ExamName" SortExpression="ExamName" />
                         <asp:BoundField DataField="ExamType" HeaderText="ExamType" SortExpression="ExamType" />

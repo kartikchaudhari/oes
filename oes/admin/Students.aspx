@@ -154,7 +154,7 @@
                 <!-- datatabls list faculties end-->
 
                  <!-- add new student start-->    
-                    <div class="tab-pane fade" id="add">
+                    <div class="tab-pane fade in active" id="add">
                        <h4>Add Student</h4>
                        <hr />
                         <div class="col-md-10">
@@ -235,9 +235,10 @@
                                 <div class="col-sm-6 form_controls_custom">
                                     <div class="input-group">
                                         <label>Select Department:</label>
-                                        <asp:DropDownList ID="ddl_dept" runat="server" CssClass="form-control" Style="width: 400px;">
+                                        <asp:DropDownList ID="ddl_dept" runat="server" CssClass="form-control" Style="width: 400px;" DataSourceID="DsDeptList" DataTextField="dept_name" DataValueField="dept_id">
                                             <asp:ListItem Value="NA" Text="---- Select Department ----"></asp:ListItem>
                                         </asp:DropDownList>
+                                        <asp:SqlDataSource ID="DsDeptList" runat="server" ConnectionString="<%$ ConnectionStrings:ExamDbConString %>" SelectCommand="SELECT [dept_name], [dept_id] FROM [department]"></asp:SqlDataSource>
                                         <br /><br /><br />
                                         <asp:RequiredFieldValidator ID="rfvDdlDept" runat="server" ErrorMessage="Select Department" ControlToValidate="ddl_dept" InitialValue="NA" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
                                     </div>

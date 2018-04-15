@@ -3,8 +3,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="page_contents" runat="server">
     <form id="form1" runat="server">
-	
-    <div class="row"><br /><br />
+        <%
+            foreach (string key in Session.Keys)
+            {
+                Response.Write(key+"-->"+Session[key].ToString()+"<br>");
+            } %>
+    <div class="row" ><br /><br />
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-primary">
                 <div class="panel-body">
@@ -16,11 +20,11 @@
 			        <td>
                         <div class="media" style="padding:6px;" >
                             <div class="pull-left">
-                                <img class="media-object" src="../images/149071.png" alt="profile-image" height="60" width="60">
+                                <asp:Image ID="StudentImage" runat="server" CssClass="media-object" AlternateText="Profile Image" Height="60" Width="60" />
                             </div>
                             <div class="media-body" style="padding-top:6px;">
-                                <h4 class="media-heading">Kartik Chaudahri</h4>
-                                <p>Computer Engineering - 5</p>
+                                <h4 class="media-heading"><asp:Label ID="lblStudentFullName" runat="server"></asp:Label></h4>
+                                <p><asp:Label ID="StudentDeptName" runat="server"></asp:Label> - <asp:Label ID="StudentSem" runat="server"></asp:Label></p>
                             </div>
                         </div>
 			        </td>
@@ -96,6 +100,15 @@
 			        <td style="padding: 14px;" align="center" valign="top" >
                         <table border="1" style="position:relative;width:230px;">
                             <tr>
+                                <td style="padding:6px;" align="center" colspan="2"><strong>Time Left</strong></td>
+                                
+                            </tr>
+                            <tr>
+                                <td style="padding:6px;" align="center" colspan="2">
+                                     time :<span id="countDown"></span>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td style="padding:6px;" align="center" colspan="2"><strong>Choose a Question</strong></td>
                             </tr>
                             <tr>
@@ -140,7 +153,44 @@
                 <asp:SessionParameter DefaultValue="0" Name="ExamId" SessionField="ExamId" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
+        <script>
+            function Timer() {
+                var timeout = '<%= Session.Timeout * 60 * 1000 %>';
+            var timer = setInterval(function () {
+                timeout -= 1000;
+                document.getElementById('countDown').innerHTML = time(timeout);
+                if (timeout == 0) {
+                    clearInterval(timer);
+                    alert('Times up PAL!');
+                    window.location.href = 'Logout.aspx';
+                }
+            }, 1000);
+            function two(x) { return ((x > 9) ? "" : "0") + x }
+            function time(ms) {
+                var t = '';
+                var sec = Math.floor(ms / 1000);
+                ms = ms % 1000
+
+
+                var min = Math.floor(sec / 60);
+                sec = sec % 60;
+                t = two(sec);
+
+
+                var hr = Math.floor(min / 60);
+                min = min % 60;
+                t = two(min) + ":" + t;
+
+
+                return t;
+            }
+        }
+            Timer();
+
+   </script>
     </form>
+    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ExternalJs" runat="server">
+   
 </asp:Content>

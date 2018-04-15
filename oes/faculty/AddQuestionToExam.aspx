@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="../css/jquery.gritter.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="page_contents" runat="server">
-<form id="CreateQuestionPaperForm" runat="server">
+    <form id="CreateQuestionPaperForm" runat="server">
     <asp:HiddenField ID="hf_dept_id" runat="server" /><asp:HiddenField ID="hf_sem_id" runat="server" /><asp:HiddenField ID="hf_subject_id" runat="server" />
     <!--breadcrumb start-->
     <div class="row-fluid">
@@ -55,7 +55,7 @@
                             <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
                                     <asp:Button ID="btnAddQuestion" runat="server" CssClass="btn btn-success btn-sm" Text="Add" OnClick="btnAddQuestion_Click"  UseSubmitBehavior="False"/>
-                                    <asp:Button ID="btnRemoveQuestion" runat="server" CssClass="btn btn-danger btn-sm" Text="Remove" UseSubmitBehavior="false" />
+                                    <asp:Button ID="btnRemoveQuestion" runat="server" CssClass="btn btn-danger btn-sm" Text="Remove" UseSubmitBehavior="false" OnClick="btnRemoveQuestion_Click" />
                                 </ItemTemplate>
                             </asp:TemplateField>
                     
@@ -106,5 +106,22 @@
                 time: 5000
                     });
         }
+
+        function AlertQDeleted() {
+            $.gritter.add({
+                // (string | mandatory) the heading of the notification
+                title: 'Question Deleted!',
+                // (string | mandatory) the text inside the notification
+                text: 'The Selected Question is Deletd Successfully.',
+                // (string | optional) the image to display on the left
+                image: '../images/Green _Tick_ 2.png',
+                // (bool | optional) if you want it to fade out on its own or just sit there
+                sticky: false,
+                // (int | optional) the time you want it to be alive for before fading out
+                time: 5000
+            });
+        }
+
+        
     </script>
 </asp:Content>

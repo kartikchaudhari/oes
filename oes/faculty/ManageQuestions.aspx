@@ -35,29 +35,23 @@
                     <!-- view all questions start-->
                     <div class="tab-pane fade in active" id="view_questions">
                         <div class="row">
-                                    <div class="col-md-6" style="border:1px solid blue;">
-                                    </div>
-                                </div>
-                        <hr />
-                        <div class="row">
-                                    <div class="table-responsive" style="padding: 1%;">
+                            <div class="table-responsive" style="padding: 1%;">
                                         <br />
                                         <asp:GridView ID="GridViewQuestionList" runat="server"
                                             AllowPaging="True" AutoGenerateColumns="False" 
                                             DataSourceID="ObjectDataSourceQuestionList"
                                             PageSize="5" CssClass="table table-bordered table-striped"
-                                             AllowSorting="True" DataKeyNames="QuestionId" EnableViewState="false">
+                                             AllowSorting="True" DataKeyNames="QuestionId" EnableViewState="False">
                                             <Columns>
-                                                <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-sm btn-danger"/>
-                                                <asp:CommandField ShowEditButton="true" ControlStyle-CssClass="btn btn-sm  btn-success" />
-                                                <asp:TemplateField>
+                                                
+                                                <%--<asp:TemplateField>
                                                     <HeaderTemplate>
                                                         <asp:CheckBox ID="cbDeleteHeader" onclick="toggleSelectionUsingHeaderCheckBox(this);"  runat="server" />
                                                     </HeaderTemplate>
                                                     <ItemTemplate>
                                                         <asp:CheckBox ID="cbDelete" onclick="toggleSelectionOfHeaderCheckBox();" runat="server" OnCheckedChanged="cbDelete_CheckedChanged" />
                                                     </ItemTemplate>
-                                                </asp:TemplateField>
+                                                </asp:TemplateField>--%>
                                                 <asp:TemplateField HeaderText="Question ID" SortExpression="q_id">
                                                     <ItemTemplate>
                                                         <asp:Label ID="lblQId" runat="server" Text='<%# Bind("QuestionId") %>'></asp:Label>
@@ -70,12 +64,26 @@
                                                 <asp:BoundField DataField="Question" HeaderText="Question" HtmlEncode="False" HtmlEncodeFormatString="False">
                                                 
                                                 </asp:BoundField>
-                                                <asp:BoundField DataField="OptionA" HeaderText="Option A"/>
-                                                <asp:BoundField DataField="OptionB" HeaderText="Option B"/>
-                                                <asp:BoundField DataField="OptionC" HeaderText="Option C"/>
-                                                <asp:BoundField DataField="OptionD" HeaderText="Option D"/>
+                                                <asp:BoundField DataField="OptionA" HeaderText="Option A">
+                                                <ItemStyle Width="40px" />
+                                                </asp:BoundField>
+                                                <asp:BoundField DataField="OptionB" HeaderText="Option B">
+                                                <ItemStyle Width="40px" />
+                                                </asp:BoundField>
+                                                <asp:BoundField DataField="OptionC" HeaderText="Option C">
+                                                <ItemStyle Width="40px" />
+                                                </asp:BoundField>
+                                                <asp:BoundField DataField="OptionD" HeaderText="Option D">
+                                                <ItemStyle Width="40px" />
+                                                </asp:BoundField>
                                                 <asp:BoundField DataField="CorrectAns" HeaderText="Correct Answer"/>
                                                 <asp:BoundField DataField="Marks" HeaderText="Marks"/>
+                                                <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-sm btn-danger">
+<ControlStyle CssClass="btn btn-sm btn-danger"></ControlStyle>
+                                                </asp:CommandField>
+                                                <asp:CommandField ShowEditButton="true" ControlStyle-CssClass="btn btn-sm  btn-success" >
+<ControlStyle CssClass="btn btn-sm  btn-success"></ControlStyle>
+                                                </asp:CommandField>
                                             </Columns>
                                             <PagerStyle HorizontalAlign="Center" VerticalAlign="Middle" CssClass="pagination-ys" />
                                         </asp:GridView>
@@ -91,7 +99,7 @@
                                             </SelectParameters>
                                         </asp:ObjectDataSource>
                                     </div>
-                                </div>
+                        </div>
                     </div>
                 </div>
             </div>

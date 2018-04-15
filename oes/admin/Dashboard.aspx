@@ -113,7 +113,7 @@
                         </a>
                         <ul class="collapse list-unstyled" id="QuestionSubMenu">
                             <li><a class="links" href="../faculty/AddQuestions.aspx" target="DashboardContentFrame" style="padding-left: 25%;" title="Add Questions to Question Bank">Add Questions</a></li>
-                            <li><a class="links" href="../faculty/ManageQuestions.aspx" target="DashboardContentFrame" style="padding-left: 25%;" title="Manage Question Bank Questions">Manage Questions</a></li>
+                            <li><a class="links" href="ManageQuestions.aspx" target="DashboardContentFrame" style="padding-left: 25%;" title="Manage Question Bank Questions">Manage Questions</a></li>
                             <li><a class="links" href="../faculty/Pictures.aspx" target="_blank" style="padding-left: 25%;" title="Manage Question Pictures">Question Pictures</a></li>
                         </ul>
                     </li>
@@ -182,7 +182,7 @@
 
         <!-- Page Content -->
         <div id="content" style="padding:8px;">
-            <div class="embed-responsive embed-responsive-12by6">
+            <div class="embed-responsive embed-responsive-12by6" style="padding-bottom: 60%;">
                 <iframe id="DashBoardFrame" src="DashboardContents.aspx" name="DashboardContentFrame"></iframe>
             </div>
         </div>

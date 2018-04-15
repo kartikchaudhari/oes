@@ -943,10 +943,12 @@
     <Content Include="admin\LoginViaUid.aspx" />
     <Content Include="admin\Logout.aspx" />
     <Content Include="admin\Logs.aspx" />
+    <Content Include="admin\ManageQuestions.aspx" />
     <Content Include="admin\Notifications.aspx" />
     <Content Include="admin\Profile.aspx" />
     <Content Include="admin\QuestionBank.aspx" />
     <Content Include="admin\Results.aspx" />
+    <Content Include="admin\SearchResult.aspx" />
     <Content Include="admin\SendBase64.asmx" />
     <Content Include="admin\SmsSettings.aspx" />
     <Content Include="admin\StudentProfile.aspx" />
@@ -1866,6 +1868,7 @@
     <Content Include="images\sort_both.png" />
     <Content Include="images\sort_desc.png" />
     <Content Include="images\sort_desc_disabled.png" />
+    <Content Include="js\ASPSnippets_Pager.min.js" />
     <Content Include="js\bootstrap-show-password.min.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\buttons.html5.min.js" />
@@ -1913,7 +1916,6 @@
     <Content Include="js\bootsnip.scripts.min.js" />
     <Content Include="ProjectProgressPresentation.aspx" />
     <Content Include="SendBase64.asmx" />
-    <Content Include="student\Countdown.aspx" />
     <Content Include="student\Dashboard.aspx" />
     <Content Include="student\DashboardContents.aspx" />
     <Content Include="student\EnrollThumb.aspx" />
@@ -2054,6 +2056,13 @@
     <Compile Include="admin\Logs.aspx.designer.cs">
       <DependentUpon>Logs.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\ManageQuestions.aspx.cs">
+      <DependentUpon>ManageQuestions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ManageQuestions.aspx.designer.cs">
+      <DependentUpon>ManageQuestions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Notifications.aspx.cs">
       <DependentUpon>Notifications.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2081,6 +2090,13 @@
     </Compile>
     <Compile Include="admin\Results.aspx.designer.cs">
       <DependentUpon>Results.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\SearchResult.aspx.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\SearchResult.aspx.designer.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\SendBase64.asmx.cs">
       <DependentUpon>SendBase64.asmx</DependentUpon>
@@ -2395,6 +2411,11 @@
       <DependentUpon>ProjectProgressPresentation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="SendBase64.asmx.cs">
       <DependentUpon>SendBase64.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -2408,13 +2429,6 @@
     </Compile>
     <Compile Include="student\Class\Answer.cs" />
     <Compile Include="student\Class\ResultArchive.cs" />
-    <Compile Include="student\Countdown.aspx.cs">
-      <DependentUpon>Countdown.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="student\Countdown.aspx.designer.cs">
-      <DependentUpon>Countdown.aspx</DependentUpon>
-    </Compile>
     <Compile Include="student\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2586,6 +2600,10 @@
     <Content Include="faculty\ckeditor\.htaccess" />
     <Content Include="faculty\ckeditor\ckeditor.pack" />
     <Content Include="student\FrameContentMaster.Master" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2618,7 +2636,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>10010</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1553/</IISUrl>
+          <IISUrl>http://localhost:80/oes/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

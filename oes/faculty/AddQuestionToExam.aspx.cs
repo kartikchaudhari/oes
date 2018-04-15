@@ -61,10 +61,9 @@ namespace oes.faculty
             //get exam and question id to insert into question paper table 
             int ExamId = Convert.ToInt16(Request.QueryString["ExamId"].ToString());
             int Question_Id = Convert.ToInt16((row.FindControl("lblQId") as Label).Text);
-            //lblNoOfQAdded.Text = AddQuestionsToQPaper(ExamId,Question_Id).ToString();
+            
             AddQuestionsToQPaper(ExamId, Question_Id);
-            //(row.FindControl("btnAddQuestion") as Button).Visible = false;
-            //Response.Write(Question_Id);
+            
         }
 
         public void AddQuestionsToQPaper(int EId,int QId){
@@ -97,6 +96,26 @@ namespace oes.faculty
                 }
             }
             return NoOfQuestionAdded;
+        }
+
+        protected void btnRemoveQuestion_Click(object sender, EventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(((sender as Button).NamingContainer as GridViewRow).RowIndex);
+            GridViewRow row = CreateQPapperQListGridView.Rows[rowIndex];
+
+            //get  question id for deletion 
+            int Question_Id = Convert.ToInt16((row.FindControl("lblQId") as Label).Text);
+            DeleteQuestionById(Question_Id);
+        }
+
+        public void DeleteQuestionById(int Question_id) { 
+            using (SqlCommand cmd=new SqlCommand("DeleteQuestionById",db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@QuestionId", Question_id);
+                cmd.ExecuteNonQuery();
+                ScriptManager.RegisterStartupScript(Page, typeof(Page), "somekey3", "AlertQDeleted();", true);
+            }
         }
     }
 }
