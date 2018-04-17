@@ -29,7 +29,7 @@ namespace oes.faculty
                     SqlCommand cmd = new SqlCommand("SELECT dept_id,dept_name,dept_code FROM department", db.DbConnect());
 
                     dept_ddl.DataSource = cmd.ExecuteReader();
-                    
+                    dept_ddl.AppendDataBoundItems = true;
                     //text property of <option>
                     dept_ddl.DataTextField = "dept_name";
                     

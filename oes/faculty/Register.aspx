@@ -72,8 +72,10 @@
 
                     <div class="col-md-10 form_controls_custom">
                         <div class="input-group">
-                            <label><strong>Department:</strong></label>
-                            <asp:DropDownList ID="dept_ddl" runat="server"></asp:DropDownList>
+                            <%--<label><strong>Department:</strong></label>--%>
+                            <asp:DropDownList ID="dept_ddl" runat="server" CssClass="form-control" Width="393">
+                                <asp:ListItem Value="NA" Text="---- Select Department ----"></asp:ListItem>
+                            </asp:DropDownList>
                          </div>
                     </div>
                     <div class="col-md-10 form_controls_custom">

@@ -32,8 +32,8 @@
             </div>
             <div class="col-md-4 home_div">
                 <div class="container-top">
-                    <img class="img-users" src="images/faculty.png" height="300" width="300" />
-                    <div class="overlay-top"></div>
+                    <center><img class="img-users" src="images/faculty.png" height="300" width="300" />
+                    </center><div class="overlay-top"></div>
                 </div>
                 <br /><br />
                 <a href="faculty/Login.aspx" class="btn_a links"  style="width:300px;">FACULTY</a>

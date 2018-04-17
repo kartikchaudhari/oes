@@ -107,16 +107,16 @@
                    <div class="row">
                        <div class="col-md-5 form_controls_custom">
                            <div class="input-group">
-                               <label><strong>Department:</strong></label>
-                               <asp:DropDownList ID="dept_ddl" runat="server">
+                              <%-- <label><strong>Department:</strong></label>--%>
+                               <asp:DropDownList ID="dept_ddl" runat="server" CssClass="form-control" Width="275">
                                    <asp:ListItem Value="NA" Text="---- Select Department ----"></asp:ListItem>
                                </asp:DropDownList>
                            </div>
                        </div>
                        <div class="col-md-5 form_controls_custom">
                            <div class="input-group">
-                               <label><strong>Semester:</strong></label>
-                               <asp:DropDownList ID="ddl_sem" runat="server">
+                              <%-- <label><strong>Semester:</strong></label>--%>
+                               <asp:DropDownList ID="ddl_sem" runat="server"  CssClass="form-control" Width="275">
                                    <asp:ListItem Value="NA" Text="---- Select Semester ----"></asp:ListItem>
                                    <asp:ListItem>1</asp:ListItem>
                                    <asp:ListItem>2</asp:ListItem>

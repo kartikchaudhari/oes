@@ -943,6 +943,7 @@
     <Content Include="admin\LoginViaUid.aspx" />
     <Content Include="admin\Logout.aspx" />
     <Content Include="admin\Logs.aspx" />
+    <Content Include="admin\ManageFingerDb.aspx" />
     <Content Include="admin\ManageQuestions.aspx" />
     <Content Include="admin\Notifications.aspx" />
     <Content Include="admin\Profile.aspx" />
@@ -2055,6 +2056,13 @@
     </Compile>
     <Compile Include="admin\Logs.aspx.designer.cs">
       <DependentUpon>Logs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\ManageFingerDb.aspx.cs">
+      <DependentUpon>ManageFingerDb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ManageFingerDb.aspx.designer.cs">
+      <DependentUpon>ManageFingerDb.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\ManageQuestions.aspx.cs">
       <DependentUpon>ManageQuestions.aspx</DependentUpon>
