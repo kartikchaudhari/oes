@@ -26,22 +26,26 @@
     <div class="container">
         <div class="row"><br /><br />
             <div class="col-md-11 col-md-offset-1" style="padding:15px;">
-                <div class="col-md-6 pull-left" style="padding-top:30px;">
-                    <img src="../images/oops_error_broken_pencil.jpg" style="height:300px;width:600px;"/>
-                </div>
-                <div class="col-md-6 pull-right">
-                    <div class="jumbotron">
-                        <h1 style="text-align:center;">Oops!</h1><hr />
-                        <h3 style="text-align:center;">Something went wrong here.</h3>
-                        <p style="font-weight:normal;font-size:15px;padding-left:30px;">
-                            We're working on it and we'll get it fixed<br />
-                            as soons as possible.<br /><br />
-                            You can go back to your dashboard or homepage.
+                
+                    <div style="position:absolute;padding:20px;border-radius:5px;">
+                        <div class="col-md-6 pull-left" style="padding-top:30px;">
+                            <img src="../images/oops_error_broken_pencil.jpg" style="height:300px;width:600px;"/>
+                        </div>
+                        <div class="col-md-6 pull-right">
+                            <div class="jumbotron">
+                                <h1 style="text-align:center;">Oops!</h1><hr />
+                                <h3 style="text-align:center;">Something went wrong here.</h3>
+                                <p style="font-weight:normal;font-size:15px;padding-left:30px;">
+                                    We're working on it and we'll get it fixed<br />
+                                    as soons as possible.<br /><br />
+                                    You can go back to your dashboard or homepage.
 
-                        </p>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            
         </div>
     </div>
     </form>

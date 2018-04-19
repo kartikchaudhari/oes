@@ -35,7 +35,7 @@
                 <span class="navbar-brand" style="padding-left:0px;padding-right:0px;padding-bottom:0px;padding-top:3px;" href="../Index.aspx">
                     <span><a href="Index.aspx"><img src="../images/secure-test.png" style="height:50px;width:50px;"></a></span>
                     <span class="animbrand">
-                        <a href="#" id="oes_title" class="animate" style="color:inherit;">Online Examination System</a>
+                        <a href="#" id="oes_title" class="animate" style="color:white;">Online Examination System</a>
                     </span>    
                 </span>
             </div>

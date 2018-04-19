@@ -124,7 +124,7 @@
                     
                 
                     <li>
-                        <a class="links" href="Results.aspx" target="DashboardContentFrame">
+                        <a class="links" href="../admin/Results.aspx" target="DashboardContentFrame">
                             <span class="fa fa-stack">
                                 <i class="fa fa-trophy fa-fw fa-stack-1x"></i>
                             </span>

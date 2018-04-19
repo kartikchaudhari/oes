@@ -1856,7 +1856,9 @@
     <Content Include="Global.asax" />
     <Content Include="images\149071.png" />
     <Content Include="images\accept.png" />
+    <Content Include="images\admin.png" />
     <Content Include="images\default.png" />
+    <Content Include="images\faculty.png" />
     <Content Include="images\Green _Tick_ 2.png" />
     <Content Include="images\gritter-light.png" />
     <Content Include="images\gritter-long.png" />
@@ -1869,6 +1871,7 @@
     <Content Include="images\sort_both.png" />
     <Content Include="images\sort_desc.png" />
     <Content Include="images\sort_desc_disabled.png" />
+    <Content Include="images\student.png" />
     <Content Include="js\ASPSnippets_Pager.min.js" />
     <Content Include="js\bootstrap-show-password.min.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -1890,21 +1893,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="footer.html" />
     <Content Include="Help.aspx" />
-    <Content Include="images\admin.jpg" />
-    <Content Include="images\faculty.jpg" />
-    <Content Include="images\coffee.jpg" />
-    <Content Include="images\comp005.gif" />
-    <Content Include="images\espresso.jpg" />
-    <Content Include="images\ezgif.com-crop+%281%29.gif" />
     <Content Include="images\favicon.ico" />
     <Content Include="images\gpw.png" />
-    <Content Include="images\pic1.JPG" />
-    <Content Include="images\pic2.JPG" />
-    <Content Include="images\pic3.JPG" />
-    <Content Include="images\pic4.JPG" />
-    <Content Include="images\sandwich.jpg" />
     <Content Include="images\secure-test.png" />
-    <Content Include="images\student.jpg" />
     <Content Include="Index.aspx" />
     <Content Include="js\custom.js" />
     <Content Include="js\FingerCapture.js" />
@@ -2612,6 +2603,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\TestProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
