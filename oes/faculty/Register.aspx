@@ -82,7 +82,8 @@
                         <div class="input-group">
                                 <asp:Button ID="submit_btn" CssClass="btn btn-success"  runat="server" Text="Submit" OnClick="submit_btn_Click"/>
                                 <asp:Button ID="reset_btn" CssClass="btn btn-danger" runat="server" Text="Reset"/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                 &nbsp;<strong>·</strong>&nbsp;
+                                 or click <strong> <a href="Login.aspx" class="links">here</a> </strong> to Login   
                                 <asp:Label ID="lbl_msg" runat="server" Visible="True"></asp:Label>
                         </div> 
                     </div>

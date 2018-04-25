@@ -137,7 +137,7 @@
                             <span class="fa fa-stack">
                                 <i class="fa fa-bell fa-fw fa-stack-1x"></i>
                             </span>
-                            Notifications
+                            Notifications&nbsp;<asp:Label ID="newNotificicationCounter" runat="server" CssClass="label label-danger"></asp:Label>
                         </a>
                     </li>
                     

@@ -11,15 +11,13 @@ using System.Data.SqlClient;
 using System.Data.SqlTypes;
 
 using oes.App_Code;
-
-namespace oes.admin
+namespace oes.faculty
 {
     public partial class Notifications : System.Web.UI.Page
     {
         Database Db = new Database();
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnCreateNotification_Click(object sender, EventArgs e)
@@ -27,8 +25,8 @@ namespace oes.admin
             using (SqlCommand cmd = new SqlCommand("CreateNotification", Db.DbConnect()))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@NContent",tbContents.Text.ToString());
-                cmd.Parameters.AddWithValue("@NStatus",Convert.ToInt16(DdlNotificationStatus.SelectedItem.Value));
+                cmd.Parameters.AddWithValue("@NContent", tbContents.Text.ToString());
+                cmd.Parameters.AddWithValue("@NStatus", Convert.ToInt16(DdlNotificationStatus.SelectedItem.Value));
                 cmd.Parameters.AddWithValue("@NFor", Convert.ToInt16(DdlNotificationFor.SelectedItem.Value));
                 cmd.Parameters.AddWithValue("@NCreateData", DateTime.Parse(DateTime.Now.ToString()).ToShortDateString());
                 if (cmd.ExecuteNonQuery() != 0)
@@ -42,7 +40,8 @@ namespace oes.admin
                     tbContents.Text = "";
                 }
 
-                else {
+                else
+                {
                     lblMessage.Text = "Error while Notification Creation..";
                     lblMessage.ForeColor = System.Drawing.Color.Red;
                     lblMessage.Font.Bold = true;
@@ -57,7 +56,7 @@ namespace oes.admin
 
         public string DetermineNotificationStatus(string NotificationStatus)
         {
-            if (NotificationStatus=="1")
+            if (NotificationStatus == "1")
             {
                 return "Published";
             }
@@ -66,5 +65,7 @@ namespace oes.admin
                 return "Draft";
             }
         }
+       
+        
     }
 }

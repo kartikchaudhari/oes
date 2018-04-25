@@ -131,7 +131,7 @@
                     </table>
 
                     <!--delete student modal starts-->
-                    <div class="modal fade" id="DeleteFacultyModal" role="dialog">
+                    <div class="modal" id="DeleteFacultyModal" role="dialog">
                         <div class="modal-dialog">
                             <div class="panel panel-dsg">
                                 <div class="panel-heading">
@@ -140,10 +140,12 @@
                                 </div>
                                 <div class="panel-body" style="padding: 20px;">Are you Sure you want to Remove <strong><span id="fns"></span></strong>??<br />
                                     <br />
+                                    <asp:HiddenField ID="StudentIdHf" runat="server" />
                                     if <strong>Yes</strong> click <strong>Delete</strong> button otherwise click on <strong>Cancle</strong> button.</div>
                                 <div class="panel-footer">
-                                    <button type="button" class="btn btn-danger btn-sm">Delete</button><strong>&nbsp;&middot;&nbsp;</strong>
-                                    <button type="button" class="btn btn-primary btn-sm">Cancle</button>
+                                    <asp:Button ID="btnDeleteFaculty" runat="server" Text="Delete" CssClass="btn btn-danger btn-sm" OnClientClick="" OnClick="btnDeleteFaculty_Click" />
+                                    <strong>&nbsp;&middot;&nbsp;</strong>
+                                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Cancle</button>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +156,7 @@
                 <!-- datatabls list faculties end-->
 
                  <!-- add new student start-->    
-                    <div class="tab-pane fade in active" id="add">
+                    <div class="tab-pane fade" id="add">
                        <h4>Add Student</h4>
                        <hr />
                         <div class="col-md-10">
@@ -282,11 +284,12 @@
                             </div>
                         </div>
                     </div>
-                    <!-- add new student end-->
+                <!-- add new student end-->
 
             </div>
         </div>
         <!-- /.panel-body -->
+        
 </form>
     <div id="RequestConfirmModal" class="modal fade" role="dialog">
         <div class="modal-dialog">

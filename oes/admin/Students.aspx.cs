@@ -100,6 +100,27 @@ namespace oes.admin
             }
         }
 
+        protected void btnDeleteFaculty_Click(object sender, EventArgs e)
+        {
+            using (SqlCommand cmd = new SqlCommand("DeleteStudentById", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                int StudId=Convert.ToInt16(StudentIdHf.Value);
+                cmd.Parameters.AddWithValue("@StudentId",StudId );
+                cmd.ExecuteNonQuery();
+                DeleteStudentFingerPrintRecordByStudentId(StudId);
+            }
+        }
+
+        public void DeleteStudentFingerPrintRecordByStudentId(int StudentId) {
+            using (SqlCommand cmd = new SqlCommand("DeleteStudentFingerPrintRecordById", db.ConnectFingerDb()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@StudentId", StudentId);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
     }
 
 }

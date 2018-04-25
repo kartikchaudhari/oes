@@ -137,17 +137,21 @@
                         </div>
                     </div>
                    <!-- submit, reset -->
-                   <div class="col-md-5 form_controls_custom">
+                   <div class="col-md-8 form_controls_custom">
                        <div class="input-group">
                            <asp:Button ID="submit_btn" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="submit_btn_Click" />
+                           
                            <asp:Button ID="reset_btn" CssClass="btn btn-danger" runat="server" Text="Reset" />
-                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           &nbsp;<strong>&middot;</strong>&nbsp;
+                            or click <strong> <a href="Login.aspx" class="links">here</a> </strong> to Login 
+        
                            <asp:Label ID="lbl_msg" runat="server" Visible="True"></asp:Label>
                        </div>
                    </div>   
                 </form>
             </div>
         </div>
+       
     </div>
 </div>
 </asp:Content>

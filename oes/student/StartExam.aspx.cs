@@ -25,6 +25,7 @@ namespace oes.student
         {
 
             questionDetails.DataBind();
+            
             Session["StartExamFlag"] = 1;
             if (Session["id"]!=null)
             {
@@ -108,19 +109,26 @@ namespace oes.student
 
             if (questionDetails.PageIndex == questionDetails.PageCount - 1)
             {
-
-                Response.Redirect("Results.aspx");
+                Response.Redirect("TestPage.aspx");
+                //Response.Redirect("Results.aspx");
             }
             else
             {
                 questionDetails.PageIndex++;
                 AddAnsewerToDb(Convert.ToInt16(dr["q_id"].ToString()), ExamId, Convert.ToInt16(dr["correct_ans"].ToString()), Convert.ToInt16(ddlAnswer.SelectedValue.ToString()));
-
+                if (ddlAnswer.SelectedItem.Value!="NA")
+                {
+                    ScriptManager.RegisterStartupScript(Page, typeof(Page), "somekey4", "MarkForAnswered();", true);
+                }
             }
 
             if (questionDetails.PageIndex == questionDetails.PageCount - 1)
             {
                 SaveNext.Text = "Finished";
+                if (ddlAnswer.SelectedItem.Value != "NA")
+                {
+                    ScriptManager.RegisterStartupScript(Page, typeof(Page), "somekey4", "MarkForAnswered();", true);
+                }
             }
 
 
@@ -173,5 +181,17 @@ namespace oes.student
 
             return ExamTime;
         }
+
+        protected void FillHiddenField(object sender, EventArgs e)
+        { 
+            System.Data.DataRowView dr = (System.Data.DataRowView)questionDetails.DataItem;
+            HfQuestionId.Value = dr["q_id"].ToString();
+        }
+
+        protected void btnReview_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(Page, typeof(Page), "makeityellow", "MarkForReview();", true);
+        }
+      
     }
 }

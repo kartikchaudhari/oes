@@ -3,11 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="page_contents" runat="server">
     <form id="form1" runat="server">
-        <%
-            foreach (string key in Session.Keys)
-            {
-                Response.Write(key+"-->"+Session[key].ToString()+"<br>");
-            } %>
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+       
     <div class="row" ><br /><br />
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-primary">
@@ -39,7 +36,14 @@
 		        <tr>
 			        <td valign="top" style="padding-left:20px;padding-top: 20px;width:830px;">
                         <div class="col-md-offset-1" style="height:300px;overflow:auto;padding-top:40px;" >
-                            <asp:DetailsView ID="questionDetails" runat="server" Width="631px" AutoGenerateRows="False" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="q_id,QPaperId" DataSourceID="SqlDataSourceQuestionPaper" BorderColor="#9999FF" BorderStyle="Solid" BorderWidth="4px">
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
+                                     
+                                    <asp:DetailsView ID="questionDetails" runat="server" 
+                                        Width="631px" AutoGenerateRows="False" CellPadding="4"
+                                         ForeColor="#333333" GridLines="None" DataKeyNames="q_id,QPaperId"
+                                         DataSourceID="SqlDataSourceQuestionPaper" 
+                                        BorderColor="#9999FF" BorderStyle="Solid" BorderWidth="4px" OnDataBound="FillHiddenField">
                             <RowStyle BackColor="#EFF3FB"/>
                             <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" CssClass="boldtext" Width="100px" />
                             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
@@ -70,6 +74,13 @@
                                 </asp:BoundField>
                             </Fields>
                         </asp:DetailsView>
+                                    <asp:HiddenField ID="HfQuestionId" runat="server" />
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="SaveNext" />
+                                    <asp:AsyncPostBackTrigger ControlID="btnReview" />
+                                </Triggers>
+                            </asp:UpdatePanel>
                         </div>
                         <br />
                         <div style="border:1px solid #faebcc;border-radius:6px; margin-bottom:2%;direction:ltr;padding:6px;margin-right:3%;background-color: #fcf8e3;">
@@ -137,8 +148,8 @@
                     <td align="center" colspan="2">
                      <div class="row">
                          <div class="col-md-3"> <button type="reset">Clear Response</button></div>
-                         <div class="col-md-3"><button>Make for Review Next</button></div>
-                         <div class="col-md-3"><asp:Button id="SaveNext" runat="server" Text="Save &amp; Next" OnClick="SaveNext_Click" /></div>
+                         <div class="col-md-3"><asp:Button ID="btnReview" runat="server" Text="Make for Review Next" OnClick="btnReview_Click" /></div>
+                         <div class="col-md-3"><asp:Button id="SaveNext" runat="server" Text="Save &amp; Next"  OnClick="SaveNext_Click" /></div>
                          <div class="col-md-3"><button>Submit</button></div>
                      </div>
                     </td>
@@ -148,15 +159,17 @@
         </div>
        </div>
       </div>
-        <asp:SqlDataSource ID="SqlDataSourceQuestionPaper" runat="server" ConnectionString="<%$ ConnectionStrings:ExamDbConString %>" SelectCommand="SELECT questions.q_id, questions.dept_id, questions.sem_id, questions.subject_id, questions.question_type, questions.question, questions.opt_a, questions.opt_b, questions.opt_c, questions.opt_d, questions.correct_ans, questions.marks, QuestionPaper.QPaperId, QuestionPaper.QId, QuestionPaper.exam_id FROM questions INNER JOIN QuestionPaper ON questions.q_id = QuestionPaper.QId WHERE (QuestionPaper.exam_id = @ExamId)">
+        <asp:SqlDataSource ID="SqlDataSourceQuestionPaper" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:ExamDbConString %>" 
+            SelectCommand="SELECT questions.q_id, questions.dept_id, questions.sem_id, questions.subject_id, questions.question_type, questions.question, questions.opt_a, questions.opt_b, questions.opt_c, questions.opt_d, questions.correct_ans, questions.marks, QuestionPaper.QPaperId, QuestionPaper.QId, QuestionPaper.exam_id FROM questions INNER JOIN QuestionPaper ON questions.q_id = QuestionPaper.QId WHERE (QuestionPaper.exam_id = @ExamId)">
             <SelectParameters>
-                <asp:SessionParameter DefaultValue="0" Name="ExamId" SessionField="ExamId" Type="Int32" />
+                <asp:SessionParameter Name="ExamId" SessionField="ExamId" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
         <script>
             function Timer() {
                 var timeout = '<%= Session.Timeout * 60 * 1000 %>';
-            var timer = setInterval(function () {
+                 var timer = setInterval(function () {
                 timeout -= 1000;
                 document.getElementById('countDown').innerHTML = time(timeout);
                 if (timeout == 0) {
@@ -187,6 +200,17 @@
         }
             Timer();
 
+            function MarkForReview() {
+                var QuestionId = document.getElementById('HfQuestionId').value;
+                document.getElementById(QuestionId).setAttribute("style", "background-color:yellow;");
+                
+            }
+
+            function MarkForAnswered() {
+                var QuestionId = document.getElementById('HfQuestionId').value;
+                document.getElementById(QuestionId).setAttribute("style", "background-color:green;");
+
+            }
    </script>
     </form>
     

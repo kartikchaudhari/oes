@@ -235,8 +235,9 @@ function SubjectDatatable() {
 }
 
 //append faculty  name to alert
-function fnn(nn) {
+function fnn(nn,studid) {
     document.getElementById("fns").innerHTML = nn;
+    document.getElementById("StudentIdHf").value = studid;
 }
 
 function FacultyDatatable() {
@@ -430,7 +431,7 @@ function StudentDatatable() {
                         'searchable': false,
                         'render': function (data, type, row, meta) {
                             var id = parseInt(row['StudentId']);
-                            var btn = '<div class="btn-group"><button type="button" class="btn btn-sm btn-success"><i class="fa fa-flash"></i>&nbsp;Actions</button><button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a class="links" href="StudentProfile.aspx?StudentId=' + id + '&action=view"><i class="fa fa-eye"></i>&nbsp;&nbsp;View</a></li><li onclick="fnn(\'' + row['FullName'] + '\')"><a class="links" href="#" data-toggle="modal" data-target="#DeleteFacultyModal"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li><li><a class="links" href="StudentProfile.aspx?StudentId=' + id + '&action=edit"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li></ul></div> ';
+                            var btn = '<div class="btn-group"><button type="button" class="btn btn-sm btn-success"><i class="fa fa-flash"></i>&nbsp;Actions</button><button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a class="links" href="StudentProfile.aspx?StudentId=' + id + '&action=view"><i class="fa fa-eye"></i>&nbsp;&nbsp;View</a></li><li onclick="fnn(\'' + row['FullName'] + '\',\'' + id + '\')"><a class="links" href="#" data-toggle="modal" data-target="#DeleteFacultyModal"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li><li><a class="links" href="StudentProfile.aspx?StudentId=' + id + '&action=edit"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li></ul></div> ';
                             return btn;
                         }
                     },

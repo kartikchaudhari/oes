@@ -42,12 +42,21 @@ namespace oes.admin
                 lblNetStatus.ForeColor = System.Drawing.Color.Green;
                 lblNetStatus.Font.Bold = true;
                 BindSmsSettingsToControl();
+                try
+                {
+                    sms.Login();
+                }
+                catch (HttpException httpexcp)
+                {
+                    lblSettingLabel.Text = httpexcp.ToString();
+                }
             }
             else {
                 lblNetStatus.Text = "Not Connected";
                 lblNetStatus.ForeColor = System.Drawing.Color.Red;
                 lblNetStatus.Font.Bold = true;
                 BindSmsSettingsToControl();
+                btnSend.Attributes.Add("disabled", "disabled");
             }
             
            
@@ -69,14 +78,7 @@ namespace oes.admin
                     //create and load the sms settings
                     sms = new Way2Sms(rdr["username"].ToString(), rdr["password"].ToString());
                     tbSender.Text = rdr["username"].ToString();
-                    try
-                    {
-                        sms.Login();
-                    }
-                    catch(HttpException httpexcp)
-                    {
-                        lblSettingLabel.Text = httpexcp.ToString();
-                    }
+                   
                     
                     
                 }

@@ -82,7 +82,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-3">
-                            [&nbsp; <a href="#">Create  New Account</a> &nbsp;]
+                            [&nbsp; <a class="links" href="Register.aspx">Create  New Account</a> &nbsp;]
                             <strong>&middot;</strong>
                             [&nbsp; <a href="#">Request Login Page</a> &nbsp;]
                             <strong>&middot;</strong>

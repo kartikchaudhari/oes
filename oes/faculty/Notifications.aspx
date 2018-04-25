@@ -1,7 +1,9 @@
-﻿<%@ Page Title="Notifications" Language="C#" MasterPageFile="~/admin/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="Notifications.aspx.cs" Inherits="oes.admin.Notifications" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="page_contents" runat="server">
-<form id="ManageNotificationFrm" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+﻿<%@ Page Title="Notifications" Language="C#" MasterPageFile="~/faculty/FrameContentMaster.Master" AutoEventWireup="true" CodeBehind="Notifications.aspx.cs" Inherits="oes.faculty.Notifications" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ExternelCss" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="page_contents" runat="server">
+    <form id="ManageNotificationFrm" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <!--breadcrumb start-->
     <div class="row-fluid">
         <ol class="breadcrumb bc-custom">
@@ -10,8 +12,9 @@
         </ol>
     </div>
     <!--breadcrumb end-->
-    <button style="float: right; position: relative; margin-top:14.5px; margin-right: 20px;" onclick="javascript:location.reload(true);">Refresh</button>
-    <div class="panel panel-bs-one">
+    
+        <button style="float: right; position: relative; margin-top:14.5px; margin-right: 20px;" onclick="javascript:location.reload(true);">Refresh</button>
+        <div class="panel panel-bs-one">
         <div class="panel-heading panel-heading-custom-pages">
             <i class="fa fa-edit fa-1x"></i>&nbsp;&nbsp;<span>Manage Notifications</span>
         </div>
@@ -25,7 +28,7 @@
 
             <!-- Tab panes -->
             <div class="tab-content">
-                <div class="tab-pane fade" id="create">
+                <div class="tab-pane fade in active" id="create">
                     <h4 style="margin-top:20px;margin-left:8px;">Create Notification</h4><hr />
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
@@ -44,13 +47,8 @@
                                 <div class="form-group">
                             <label for="pwd">Notification For:</label>
                             <asp:DropDownList ID="DdlNotificationFor" runat="server" CssClass="form-control">
-                                <asp:ListItem Text="--- Select Notification For ---" Value="NA"></asp:ListItem>
-                                <asp:ListItem Text="Faculty" Value="1"></asp:ListItem>
                                 <asp:ListItem Text="Students" Value="2"></asp:ListItem>
                             </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" 
-                                runat="server" ErrorMessage="Please Select Notification For"
-                                 ControlToValidate="DdlNotificationFor" InitialValue="NA" CssClass="ErrMsg" ></asp:RequiredFieldValidator>
                         </div>
                                 <div class="form-group">
                                     <label for="pwd">Contents:</label>
@@ -59,14 +57,15 @@
                                  runat="server" ErrorMessage="Please write Notification Contents"
                                  ControlToValidate="tbContents" CssClass="ErrMsg" ></asp:RequiredFieldValidator>
                                  </div>
-                                <asp:Button ID="btnCreateNotification" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnCreateNotification_Click" />
+                                <asp:Button ID="btnCreateNotification" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnCreateNotification_Click"
+                                    />
                                 &nbsp;&nbsp;
                                 <asp:Label ID="lblMessage" runat="server" EnableViewState="false"></asp:Label>
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
-                <div class="tab-pane fade in active" id="manage">
+                <div class="tab-pane fade" id="manage">
                     <h4 style="margin-top:20px;margin-left:8px;">Manage Notifications</h4><hr />
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                         <ContentTemplate>
@@ -85,7 +84,7 @@
                                         </asp:BoundField>
                                         <asp:TemplateField HeaderText="Notification Status" SortExpression="status">
                                             <EditItemTemplate>
-                                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("status") %>'></asp:TextBox>
+                                                <asp:TextBox ID="status" runat="server" Text='<%# Bind("status") %>'></asp:TextBox>
                                             </EditItemTemplate>
                                             <ItemTemplate>
                                                 <asp:Label ID="Label1" runat="server" Text='<%# Bind("status") %>'></asp:Label>
@@ -94,7 +93,7 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Notification For" SortExpression="notification_for">
                                             <EditItemTemplate>
-                                                <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("notification_for") %>'></asp:TextBox>
+                                                <asp:TextBox ID="notification_for" runat="server" Text='<%# Bind("notification_for") %>'></asp:TextBox>
                                             </EditItemTemplate>
                                             <ItemTemplate>
                                                 <asp:Label ID="Label2" runat="server" Text='<%# Bind("notification_for") %>'></asp:Label>
@@ -109,7 +108,12 @@
                                         </asp:CommandField>
                                     </Columns>
                                 </asp:GridView>
-                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ExamDbConString %>" DeleteCommand="DELETE FROM [notification] WHERE [n_id] = @n_id" InsertCommand="INSERT INTO [notification] ([content], [status], [notification_for], [create_date]) VALUES (@content, @status, @notification_for, @create_date)" SelectCommand="SELECT * FROM [notification]" UpdateCommand="UPDATE [notification] SET [content] = @content, [status] = @status, [notification_for] = @notification_for, [create_date] = @create_date WHERE [n_id] = @n_id">
+                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                                    ConnectionString="<%$ ConnectionStrings:ExamDbConString %>" 
+                                    DeleteCommand="DELETE FROM [notification] WHERE [n_id] = @n_id" 
+                                    InsertCommand="INSERT INTO [notification] ([content], [status], [notification_for], [create_date]) VALUES (@content, @status, @notification_for, @create_date)"
+                                    SelectCommand="SELECT * FROM [notification] ORDER BY n_id ASC" 
+                                    UpdateCommand="UPDATE [notification] SET [content] = @content, [status] = @status, [notification_for] = @notification_for, [create_date] = @create_date WHERE [n_id] = @n_id">
                                     <DeleteParameters>
                                         <asp:Parameter Name="n_id" Type="Int32" />
                                     </DeleteParameters>
@@ -135,6 +139,7 @@
         </div>
         <!-- /.panel-body -->
     </div>
-
-</form>
+    </form>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ExternalJs" runat="server">
 </asp:Content>

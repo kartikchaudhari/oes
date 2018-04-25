@@ -16,5 +16,12 @@ namespace oes.student
                 hf_stud_id.Value = Session["id"].ToString();
             }
         }
+
+        protected void btnRefresh_Click(object sender, EventArgs e)
+        {
+            GridView1.DataSourceID = null;
+            GridView1.DataSource = ObjectDataSource1;
+            GridView1.DataBind();
+        }
     }
 }
