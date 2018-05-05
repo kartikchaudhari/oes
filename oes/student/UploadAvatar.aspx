@@ -17,7 +17,21 @@
             $('#<%=Y.ClientID%>').val(parseInt(c.y));
             $('#<%=W.ClientID%>').val(parseInt(c.w));
             $('#<%=H.ClientID%>').val(parseInt(c.h));
-        }
+         }
+
+         function ValidateCropField() {
+             var x = document.getElementById('<%=X.ClientID%>').value;
+             var y = document.getElementById('<%=Y.ClientID%>').value;
+             var w = document.getElementById('<%=W.ClientID%>').value;
+             var h = document.getElementById('<%=H.ClientID%>').value;
+             if (x == "" || y == "" || w == "" | h == "") {
+                 alert('Please Crop Image');
+                 return false;
+             }
+             else {
+                 return true;
+             }
+         }
 
     </script>
     <style>
@@ -46,7 +60,7 @@
     </li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="main_content" runat="server">
-    <form id="UploadAvatarForm" runat="server"><br /><br />
+    <form id="UploadAvatarForm" runat="server" onsubmit="ValidateCropField();"><br /><br />
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-primary">

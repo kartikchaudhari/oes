@@ -420,6 +420,12 @@ border-radius:4px;
 .panel-b > a { color:#000000; }
 /***********************************************************************/
 
+/*****************************Pure Crimson******************************/
+.panel-pcrimson { border-color:#C3272B; }
+.panel-pcrimson > .panel-heading { color: white; background-color:#C3272B;}
+.panel-pcrimson > a { color:#C3272B; }
+/***********************************************************************/
+
 .editLinks {
     text-decoration:none;
     color:white;

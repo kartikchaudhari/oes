@@ -31,7 +31,7 @@ namespace oes.student
             {
                 Response.Redirect("Register.aspx");
             }
-            else 
+            else
             {
                 StudentId = Convert.ToInt16(Session["id"].ToString());
             }

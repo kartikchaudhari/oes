@@ -714,3 +714,8 @@ function ValidateFileTypes(FileType) {
             break;
     }
 }
+
+//remove attribute 
+function RemoveMargin() {
+    $("#pdc").removeAttr("style");
+}

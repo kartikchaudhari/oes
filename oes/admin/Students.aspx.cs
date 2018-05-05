@@ -82,7 +82,6 @@ namespace oes.admin
                 cmd.Parameters.AddWithValue("@Fname", tbFname.Text.ToString().Trim());
                 cmd.Parameters.AddWithValue("@Lname", tbLName.Text.ToString().Trim());
                 cmd.Parameters.AddWithValue("@EnrollmentNo", tbEnroll.Text.ToString().Trim());
-
                 cmd.Parameters.AddWithValue("@Uname", tbUname.Text.ToString().Trim());
                 cmd.Parameters.AddWithValue("@Email",tbEmail.Text.ToString().Trim());
                 cmd.Parameters.AddWithValue("@Password", tbPass.Text.ToString().Trim());
@@ -108,6 +107,7 @@ namespace oes.admin
                 int StudId=Convert.ToInt16(StudentIdHf.Value);
                 cmd.Parameters.AddWithValue("@StudentId",StudId );
                 cmd.ExecuteNonQuery();
+                Response.Write("Ohh Goes");
                 DeleteStudentFingerPrintRecordByStudentId(StudId);
             }
         }

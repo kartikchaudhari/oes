@@ -99,13 +99,12 @@
                                 <div class="form-group">
                                     <label for="email">Username:</label>
                                     <asp:TextBox ID="tbUsername" runat="server" CssClass="form-control" TextMode="SingleLine" required="required"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="rfvUserName" ControlToValidate="tbUsername" ErrorMessage="Pleas Enter Username." runat="server" CssClass="ErrMsg"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Password:</label>
                                     <asp:TextBox ID="tbPass" runat="server" CssClass="form-control" TextMode="Password"  required="required"></asp:TextBox>
-                                </div>
-                                <div class="form-group" style="display:block;padding:0;">
-                                    <br />
+                                    <asp:RequiredFieldValidator ID="rfvPass" ControlToValidate="tbPass" ErrorMessage="Pleas Enter Password." runat="server" CssClass="ErrMsg"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-group">
                                     <asp:Button ID="btn_login" runat="server" Text="Login" CssClass="btn btn-success" OnClick="btn_login_Click"/>
@@ -116,9 +115,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="col-md-7 col-sm-offset-3">
-                                        <a href="#">Reset Password</a><strong>&nbsp;&middot;&nbsp;</strong><a href="">Reset Password</a>
-                                    </div>
+                                    <a href="#">Forgot Password ?</a>
                                 </div>
                             </div>
                         </div>

@@ -1908,13 +1908,13 @@
     <Content Include="js\progress-bar.js" />
     <Content Include="js\sidebar_menu.js" />
     <Content Include="js\bootsnip.scripts.min.js" />
-    <Content Include="ProjectProgressPresentation.aspx" />
     <Content Include="SendBase64.asmx" />
     <Content Include="student\Dashboard.aspx" />
     <Content Include="student\DashboardContents.aspx" />
     <Content Include="student\EnrollThumb.aspx" />
     <Content Include="student\EnrollToExam.aspx" />
     <Content Include="student\ExamInstructions.aspx" />
+    <Content Include="student\ForgotPassword.aspx" />
     <Content Include="student\Login.aspx" />
     <Content Include="student\LoginViaUid.aspx" />
     <Content Include="student\Logout.aspx" />
@@ -1932,22 +1932,6 @@
     <Content Include="TestBootstrap.html" />
     <Content Include="TestErrorPage.aspx" />
     <Content Include="ThumbTest.aspx" />
-    <Content Include="TreeLineImages\dash.gif" />
-    <Content Include="TreeLineImages\dashminus.gif" />
-    <Content Include="TreeLineImages\dashplus.gif" />
-    <Content Include="TreeLineImages\i.gif" />
-    <Content Include="TreeLineImages\l.gif" />
-    <Content Include="TreeLineImages\lminus.gif" />
-    <Content Include="TreeLineImages\lplus.gif" />
-    <Content Include="TreeLineImages\minus.gif" />
-    <Content Include="TreeLineImages\noexpand.gif" />
-    <Content Include="TreeLineImages\plus.gif" />
-    <Content Include="TreeLineImages\r.gif" />
-    <Content Include="TreeLineImages\rminus.gif" />
-    <Content Include="TreeLineImages\rplus.gif" />
-    <Content Include="TreeLineImages\t.gif" />
-    <Content Include="TreeLineImages\tminus.gif" />
-    <Content Include="TreeLineImages\tplus.gif" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -2412,13 +2396,6 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ProjectProgressPresentation.aspx.cs">
-      <DependentUpon>ProjectProgressPresentation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProjectProgressPresentation.aspx.designer.cs">
-      <DependentUpon>ProjectProgressPresentation.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -2472,6 +2449,13 @@
     </Compile>
     <Compile Include="student\ExamInstructions.aspx.designer.cs">
       <DependentUpon>ExamInstructions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="student\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="student\ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="student\FrameContentMaster.Master.cs">
       <DependentUpon>FrameContentMaster.Master</DependentUpon>

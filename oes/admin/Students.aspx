@@ -143,7 +143,7 @@
                                     <asp:HiddenField ID="StudentIdHf" runat="server" />
                                     if <strong>Yes</strong> click <strong>Delete</strong> button otherwise click on <strong>Cancle</strong> button.</div>
                                 <div class="panel-footer">
-                                    <asp:Button ID="btnDeleteFaculty" runat="server" Text="Delete" CssClass="btn btn-danger btn-sm" OnClientClick="" OnClick="btnDeleteFaculty_Click" />
+                                    <asp:Button ID="btnDeleteFaculty" runat="server" Text="Delete" CssClass="btn btn-danger btn-sm" OnClick="btnDeleteFaculty_Click" />
                                     <strong>&nbsp;&middot;&nbsp;</strong>
                                     <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Cancle</button>
                                 </div>
