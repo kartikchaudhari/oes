@@ -2,8 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
     <title>Forgot Password</title>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ExternalJs" runat="server">
-</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="active_class_links" runat="server">
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registration <b class="caret"></b></a>
@@ -26,7 +24,7 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
          <div class="row">
              <div class="col-md-8 col-md-offset-2">
-                 <div id="pdc" class="panel panel-pcrimson" style="margin-bottom:8%;">
+                 <div id="pdc" class="panel panel-pcrimson" style="margin-bottom:2%;">
                      <div class="panel-heading panel-heading-custom">Forgot Password</div>
                      <div class="panel-body">
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -49,7 +47,11 @@
                                 <asp:AsyncPostBackTrigger ControlID="btnSubmit" />
                             </Triggers>
                         </asp:UpdatePanel>
-                         
+                     </div>
+                 </div>
+                 <div class="row" style="margin-bottom:6%;">
+                     <div class="col-md-4 col-md-offset-4">
+                         [<a href="Login.aspx">Go to Login</a>]&nbsp;&nbsp;<strong>&middot;</strong>&nbsp;&nbsp;[<a href="../Index.aspx">Back to Home</a>]
                      </div>
                  </div>
              </div>

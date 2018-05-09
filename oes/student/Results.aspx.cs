@@ -48,12 +48,11 @@ namespace oes.student
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            int Desc;
-            if (InternetGetConnectedState(out Desc, 0))
-            {
-                isLoggedIn=LoginToWay2Sms();
+            int status = Convert.ToInt16(Application["IsConntectedToNet"].ToString());
+            if (status==1){
+                isLoggedIn = LoginToWay2Sms();
             }
-
+            
             if (Session["StartExamFlag"]==null)
             {
                 ClientScript.RegisterStartupScript(typeof(Page), "closePage", "window.close();", true);
@@ -74,13 +73,10 @@ namespace oes.student
             lblStudentsGotMarks.Text = StudentsResultMarks.ToString();
             lblExamTotalMarks.Text = al.Count.ToString();
             GlobalExamTotalMarks = al.Count;
-            //Response.Write(m.ToString());
 
             // Save the results into the database.
             if (IsPostBack == false)
             {
-
-
                 try
                 {
                     int UserId = Convert.ToInt16(Session["id"].ToString());
@@ -189,7 +185,7 @@ namespace oes.student
                 cmd.Parameters.AddWithValue("@ResultStatus",ResultStatus);
                 cmd.Parameters.AddWithValue("@Marks",StudentMarks);
                 cmd.ExecuteNonQuery();
-                //send marks 
+                //send marks                                              
                 SendMarksSms();
             }
         }

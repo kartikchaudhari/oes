@@ -38,16 +38,12 @@ namespace oes.student
                     {
                         Session["id"] = dt.Rows[0]["student_id"];
                         Session["type"] = 3;
-                        //Label1.Text = dt.Rows[0]["admin_id"].ToString();
                         Response.Redirect("Dashboard.aspx");
                     }
                     else
                     {
                         Response.Redirect("LoginViaUid.aspx?eid=2");
                     }
-               
-
-          
             }
         }
     }

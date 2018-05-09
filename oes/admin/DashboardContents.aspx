@@ -226,6 +226,50 @@
                     </a>
                 </div>
             </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="panel panel-ecs">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-link fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">&nbsp;</div>
+                                <div>Login Link Activator</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="links" href="LoginLinkActivatior.aspx" target="DashboardContentFrame" title="Login Link Activator">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="panel panel-bio">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <img src="../images/touchbar_touchid_icon_large.png" height="70" width="70" />
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <div class="huge">&nbsp;</div>
+                                <div>Fingerprint Database</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="links" href="ManageFingerDb.aspx" target="DashboardContentFrame" title="Fingerprint Database">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
       <!--Dashboard iteam tiles ends-->
     </div>

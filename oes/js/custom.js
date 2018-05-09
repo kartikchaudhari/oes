@@ -719,3 +719,10 @@ function ValidateFileTypes(FileType) {
 function RemoveMargin() {
     $("#pdc").removeAttr("style");
 }
+
+
+//create margin before footer on LoginViaUid page
+function AddMargin() {
+    $("#BottomLinks").attr("style", "margin-bottom:20%;");
+//margin-bottom:20%;"
+}

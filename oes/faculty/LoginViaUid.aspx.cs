@@ -18,7 +18,7 @@ namespace oes.faculty
         Database db = new Database();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            isLoginFacilityActive();
         }
 
         protected void btn_login_Click(object sender, EventArgs e)
@@ -36,7 +36,6 @@ namespace oes.faculty
                 {
                     Session["id"] = dt.Rows[0]["faculty_id"];
                     Session["type"] = 2;
-                    //Label1.Text = dt.Rows[0]["admin_id"].ToString();
                     Response.Redirect("Dashboard.aspx");
                 }
                 else
@@ -44,6 +43,14 @@ namespace oes.faculty
                     Response.Redirect("LoginViaUid.aspx?eid=2");
                 }
 
+            }
+        }
+
+        public void isLoginFacilityActive() {
+            if (Session["faculty"] != null && Session["username"] != null)
+            {
+                LoginForm.Visible = true;
+                ErrorPanel.Visible = false;
             }
         }
     }

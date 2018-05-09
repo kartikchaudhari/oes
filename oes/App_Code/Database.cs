@@ -4,9 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Configuration;
-
-using oes.App_Code;
-
 namespace oes.App_Code
 {
     public class Database

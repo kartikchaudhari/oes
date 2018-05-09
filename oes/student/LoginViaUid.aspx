@@ -86,16 +86,13 @@
                                   break;
                           }
                       } %>
+                  <asp:Panel ID="LoginForm" runat="server" Visible="false">
                     <div class="panel panel-primary thumb_container">
                         <div class="panel-heading panel-heading-custom">
                             Student  Login
                         </div>
                         <div class="panel-body custom-thumb_container-body">
                             <div class="col-md-6 col-sm-offset-3">
-                                <%--<div class="form-group">
-                                    <label for="email">Enrollment No.:</label>
-                                    <asp:TextBox ID="tbEnrollment" runat="server" CssClass="form-control" TextMode="SingleLine" required="required"></asp:TextBox>
-                                </div>--%>
                                 <div class="form-group">
                                     <label for="email">Username:</label>
                                     <asp:TextBox ID="tbUsername" runat="server" CssClass="form-control" TextMode="SingleLine" required="required"></asp:TextBox>
@@ -110,21 +107,47 @@
                                     <asp:Button ID="btn_login" runat="server" Text="Login" CssClass="btn btn-success" OnClick="btn_login_Click"/>
                                     <strong>&nbsp;&middot;&nbsp;</strong>
                                     <button id="btnClear" class="btn btn-danger" type="reset">Clear</button> 
-                                &nbsp;&nbsp;&nbsp;
-                                    <asp:Label ID="Label1" runat="server"></asp:Label>
                                 </div>
 
                                 <div class="form-group">
-                                    <a href="#">Forgot Password ?</a>
+                                    <a href="ForgotPassword.aspx">Forgot Password ?</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                  </asp:Panel>
+                  <asp:Panel ID="ErrorPanel" runat="server" Visible="true" style="margin-top:6%;">
+                        <div class="panel panel-pdanger thumb_container">
+                            <div class="panel-heading panel-heading-custom">Access Denied!!</div>
+                            <div class="panel-body">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <table>
+                                        <tr>
+                                            <td align="center">
+                                                <div class="img-responsive">
+                                                    <img class="img-rounded" src="../images/denied.ico" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4 align="center">You don't have permission to access this page.</h4> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><h5>Please contact your Administrator or Faculty for further Information.</h5></td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </asp:Panel>
                     <div class="row">
-                        <div class="col-sm-5 col-sm-offset-4">
-                            [&nbsp; <a href="#">Create  New Account</a> &nbsp;]
+                        <div id="BottomLinks" class="col-sm-5 col-sm-offset-4">
+                            [&nbsp; <a href="Register.aspx">Create  New Account</a> &nbsp;]
                             <strong>&middot;</strong>
-                            [&nbsp; <a href="#">Request Login Page</a> &nbsp;]
+                            [&nbsp; <a href="../Index.aspx">Back to Home</a> &nbsp;]
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,7 @@
     <link href="../css/custom.css" rel="stylesheet" />
     <link href="../css/sidebar.css" rel="stylesheet" />
     <link href="../css/progress-bar.css" rel="stylesheet" />
-    <link rel="icon" type="../image/x-icon" href="images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
     
     <!-- jquery and javacripts-->
     <script src="../js/vendor.min.js"></script>

@@ -31,6 +31,15 @@ namespace oes.faculty {
         protected global::System.Web.UI.HtmlControls.HtmlForm AdminUidLoginForm;
         
         /// <summary>
+        /// LoginForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel LoginForm;
+        
+        /// <summary>
         /// tbUsername control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace oes.faculty {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbUsername;
+        
+        /// <summary>
+        /// rfvUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUserName;
         
         /// <summary>
         /// tbPass control.
@@ -49,6 +67,15 @@ namespace oes.faculty {
         protected global::System.Web.UI.WebControls.TextBox tbPass;
         
         /// <summary>
+        /// rfvPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPass;
+        
+        /// <summary>
         /// btn_login control.
         /// </summary>
         /// <remarks>
@@ -58,12 +85,12 @@ namespace oes.faculty {
         protected global::System.Web.UI.WebControls.Button btn_login;
         
         /// <summary>
-        /// Label1 control.
+        /// ErrorPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Panel ErrorPanel;
     }
 }

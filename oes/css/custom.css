@@ -561,7 +561,17 @@ border-radius:4px;
 .panel-pr-two > a { color:#D770AD; }
 /***********************************************************************/
 
+/****************************ecstasy******************************/
+.panel-ecs { border-color:#F62459; }
+.panel-ecs > .panel-heading { color: white; background-color:#F62459;}
+.panel-ecs > a { color:#F62459; }
+/***********************************************************************/
 
+/****************************bio******************************/
+.panel-bio { border-color:#875F9A; }
+.panel-bio > .panel-heading { color: white; background-color:#875F9A;}
+.panel-bio > a { color:#875F9A; }
+/***********************************************************************/
 
 
 
@@ -571,10 +581,24 @@ border-radius:4px;
 .panel-psg > a { color:#8cc152; }
 /***********************************************************************/
 
-/*******************bootflate style panel-sucess-green*******************/
+/*******************bootflate style panel-primary*******************/
+.panel-bfspprimary { border-color:#126d8d; }
+.panel-bfspprimary > .panel-heading { color: white; background-color:#126d8d;}
+.panel-bfspprimary > a { color:#126d8d; }
+/***********************************************************************/
+
+
+/*******************bootflate style panel-info*******************/
 .panel-pinfo { border-color:#7cd1ef; }
 .panel-pinfo > .panel-heading { color: white; background-color:#7cd1ef;}
 .panel-pinfo > a { color:#7cd1ef; }
+/***********************************************************************/
+
+
+/*******************bootflate style panel-danger*******************/
+.panel-pdanger { border-color:#da4453; }
+.panel-pdanger > .panel-heading { color: white; background-color:#da4453;}
+.panel-pdanger > a { color:#da4453; }
 /***********************************************************************/
 
 .HideData {

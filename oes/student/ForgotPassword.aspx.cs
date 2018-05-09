@@ -18,10 +18,7 @@ namespace oes.student
     {
         Database Db = new Database();
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
+        protected void Page_Load(object sender, EventArgs e){}
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -40,7 +37,6 @@ namespace oes.student
                     while (rdr.Read())
                     {
                         DataFund.InnerHtml += "<td>" + rdr["first_name"].ToString() + "</td><td>" + rdr["last_name"].ToString() + "</td><td>" + rdr["enrollment_no"].ToString() + "</td><td>" + rdr["username"].ToString() + "</td><td>" + rdr["password"].ToString() + "</td>";
-
                     }
                     DataFund.InnerHtml += "</tr></tbody></table></div></div></div>";
                 }

@@ -1836,6 +1836,7 @@
     <Content Include="faculty\DataTableServices.asmx" />
     <Content Include="faculty\Departments.aspx" />
     <Content Include="faculty\EditSubject.aspx" />
+    <Content Include="faculty\ForgotPassword.aspx" />
     <Content Include="faculty\ImageQuestions\IMG_2715.JPG" />
     <Content Include="faculty\ImageQuestions\secure-test.png" />
     <Content Include="faculty\ImportQuestions.aspx" />
@@ -1859,6 +1860,7 @@
     <Content Include="images\accept.png" />
     <Content Include="images\admin.png" />
     <Content Include="images\default.png" />
+    <Content Include="images\denied.ico" />
     <Content Include="images\faculty.png" />
     <Content Include="images\fingerprint-png.png" />
     <Content Include="images\Green _Tick_ 2.png" />
@@ -1874,6 +1876,7 @@
     <Content Include="images\sort_desc.png" />
     <Content Include="images\sort_desc_disabled.png" />
     <Content Include="images\student.png" />
+    <Content Include="images\touchbar_touchid_icon_large.png" />
     <Content Include="js\ASPSnippets_Pager.min.js" />
     <Content Include="js\bootstrap-show-password.min.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -1908,6 +1911,7 @@
     <Content Include="js\progress-bar.js" />
     <Content Include="js\sidebar_menu.js" />
     <Content Include="js\bootsnip.scripts.min.js" />
+    <Content Include="admin\LoginLinkActivatior.aspx" />
     <Content Include="SendBase64.asmx" />
     <Content Include="student\Dashboard.aspx" />
     <Content Include="student\DashboardContents.aspx" />
@@ -2245,6 +2249,13 @@
     <Compile Include="faculty\EnrollThumb.aspx.designer.cs">
       <DependentUpon>EnrollThumb.aspx</DependentUpon>
     </Compile>
+    <Compile Include="faculty\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="faculty\ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="faculty\FrameContentMaster.Master.cs">
       <DependentUpon>FrameContentMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2395,6 +2406,13 @@
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\LoginLinkActivatior.aspx.cs">
+      <DependentUpon>LoginLinkActivatior.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\LoginLinkActivatior.aspx.designer.cs">
+      <DependentUpon>LoginLinkActivatior.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
