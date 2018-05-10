@@ -16,6 +16,7 @@ namespace oes
 
         protected void btnActiveFaculty_Click(object sender, EventArgs e)
         {
+            Response.Write(e.ToString());
             Session["faculty"] = 1;
             Session["username"] = tbUserName.Text.Trim().ToString();
             System.Threading.Thread.Sleep(3000);

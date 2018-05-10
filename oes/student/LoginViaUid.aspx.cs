@@ -18,7 +18,7 @@ namespace oes.student
         Database db = new Database();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            isLoginFacilityActive();
         }
 
         protected void btn_login_Click(object sender, EventArgs e)
@@ -44,6 +44,15 @@ namespace oes.student
                     {
                         Response.Redirect("LoginViaUid.aspx?eid=2");
                     }
+            }
+        }
+
+        public void isLoginFacilityActive()
+        {
+            if (Session["student"] != null && Session["enrollment"] != null)
+            {
+                LoginForm.Visible = true;
+                ErrorPanel.Visible = false;
             }
         }
     }

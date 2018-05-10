@@ -114,7 +114,7 @@
                         <div class="panel-footer" style="text-align:center;">
                                 <input id="btnScan" class="btn btn-primary" value="Click to Scan" onclick="captureFP()" type="button" />
                                 <strong>&middot;</strong>
-                                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success" Text="Login" OnClick="btnSubmit_Click"/>
+                                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success" Text="Login" OnClick="btnSubmit_Click" disabled="disabled" />
                         &nbsp;
                         <asp:Label ID="Label1" runat="server"></asp:Label></div>
                     </div>

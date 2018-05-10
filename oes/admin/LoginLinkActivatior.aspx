@@ -30,7 +30,6 @@
                                   <div class="form-group">
                                      <label>Enter Faculty Username:</label>
                                      <asp:TextBox ID="tbUserName" runat="server" TextMode="SingleLine" CssClass="form-control"></asp:TextBox>
-                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please >Enter Faculty Username" CssClass="ErrMsg" ControlToValidate="tbUserName"></asp:RequiredFieldValidator>
                                   </div>
                                   <div class="form-group">
                                     <div class="table-responsive">
@@ -67,7 +66,6 @@
                                   <div class="form-group">
                                      <label>Enter Student Enrollment No.::</label>
                                      <asp:TextBox ID="tbEnrollmentNo" runat="server" TextMode="Number" CssClass="form-control"></asp:TextBox>
-                                      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Enter Student Enrollment No." CssClass="ErrMsg" ControlToValidate="tbEnrollmentNo"></asp:RequiredFieldValidator>
                                   </div>
                                   <div class="form-group">
                                     <div class="table-responsive">

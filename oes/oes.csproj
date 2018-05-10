@@ -959,6 +959,7 @@
     <Content Include="admin\TestAdmin.aspx" />
     <Content Include="admin\TestLoginLink.aspx" />
     <Content Include="admin\ViewQuestions.aspx" />
+    <Content Include="admin\WebMethods\DeptInfoCharts.asmx" />
     <Content Include="admin\WebMethods\Faculty.asmx" />
     <Content Include="admin\WebMethods\Student.asmx" />
     <Content Include="admin\WebMethods\Subjects.asmx" />
@@ -1881,11 +1882,13 @@
     <Content Include="js\bootstrap-show-password.min.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\buttons.html5.min.js" />
+    <Content Include="js\Chart.js" />
     <Content Include="js\dataTables.bootstrap.min.js" />
     <Content Include="js\dataTables.buttons.min.js" />
     <Content Include="js\dataTables.select.min.js" />
     <Content Include="css\Jcrop.gif" />
     <Content Include="css\Jcrop.min.css" />
+    <Content Include="js\excanvas.js" />
     <Content Include="js\Jcrop.min.js" />
     <Content Include="js\jquery.dataTables.min.js" />
     <Content Include="css\progress-bar.css" />
@@ -2147,6 +2150,10 @@
     </Compile>
     <Compile Include="admin\ViewQuestions.aspx.designer.cs">
       <DependentUpon>ViewQuestions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\WebMethods\DeptInfoCharts.asmx.cs">
+      <DependentUpon>DeptInfoCharts.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="admin\WebMethods\Faculty.asmx.cs">
       <DependentUpon>Faculty.asmx</DependentUpon>
