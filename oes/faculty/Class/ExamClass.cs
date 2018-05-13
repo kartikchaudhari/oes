@@ -101,7 +101,16 @@ namespace oes.faculty.Class
             }
 
         }
-
+        public static void UpdateExam(int ExamId, string ExamDate) {
+            Database db = new Database();
+            using (SqlCommand cmd = new SqlCommand("UpdateExamDate", db.DbConnect()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ExamID", ExamId);
+                cmd.Parameters.AddWithValue("@ExamDate", ExamDate);
+                cmd.ExecuteNonQuery();
+            }
+        }
         public static List<ExamClass> GetUpCommingExam(string Dept_ID,string SemId,string CurDate)
         {
             Database db = new Database();

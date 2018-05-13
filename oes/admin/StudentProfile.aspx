@@ -192,8 +192,8 @@
                                             <tr>
                                                 <td align="right"><strong>Password :</strong></td>
                                                 <td>
-                                                    <div class="input-append input-group">
-                                                        <asp:TextBox ID="tbPass" runat="server" TextMode="Password" Width="260" Height="27" CssClass="form-control" data-toggle="password"></asp:TextBox>   
+                                                    <div class="input-group">
+                                                        <asp:TextBox ID="tbPass" runat="server" TextMode="SingleLine" Width="260" Height="27" CssClass="form-control"></asp:TextBox>   
                                                     </div>
                                                 </td>
                                             </tr>

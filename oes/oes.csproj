@@ -981,6 +981,7 @@
     <Content Include="css\custom.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\gridview.css" />
+    <Content Include="css\jquery-ui.css" />
     <Content Include="css\jquery.dataTables.min.css" />
     <Content Include="css\jquery.gritter.css" />
     <Content Include="css\select.dataTables.min.css" />
@@ -1890,6 +1891,7 @@
     <Content Include="css\Jcrop.min.css" />
     <Content Include="js\excanvas.js" />
     <Content Include="js\Jcrop.min.js" />
+    <Content Include="js\jquery-ui.min.js" />
     <Content Include="js\jquery.dataTables.min.js" />
     <Content Include="css\progress-bar.css" />
     <Content Include="css\simple-sidebar.css" />
@@ -1909,6 +1911,7 @@
     <Content Include="js\FingerCapture.js" />
     <Content Include="js\jquery.form-validator.min.js" />
     <Content Include="js\jquery.gritter.min.js" />
+    <Content Include="js\jquery.min.js" />
     <Content Include="js\json2.js" />
     <Content Include="js\jszip.min.js" />
     <Content Include="js\progress-bar.js" />
@@ -2660,7 +2663,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>10010</DevelopmentServerPort>
+          <DevelopmentServerPort>25128</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:80/oes/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

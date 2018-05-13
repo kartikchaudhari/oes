@@ -78,7 +78,7 @@ namespace oes.admin
                     tbLname.Text = ds.Tables[0].Rows[0]["last_name"].ToString();
 
                     LblEnrollmentNo.Text = ds.Tables[0].Rows[0]["enrollment_no"].ToString();
-
+                    tbEnrollmentNo.Text = ds.Tables[0].Rows[0]["enrollment_no"].ToString();
 
                     LblEmail.Text = ds.Tables[0].Rows[0]["email"].ToString();
                     tbEmail.Text = ds.Tables[0].Rows[0]["email"].ToString();
@@ -93,6 +93,7 @@ namespace oes.admin
                     tbContact.Text = ds.Tables[0].Rows[0]["stud_contact"].ToString();
 
                     LblParentsContact.Text = ds.Tables[0].Rows[0]["parent_contact"].ToString();
+                    tbParentContactNo.Text = ds.Tables[0].Rows[0]["parent_contact"].ToString();
 
                     LblDept.Text = fc.FetchDeptById(ds.Tables[0].Rows[0]["dept_id"].ToString());
                     LblSem.Text = ds.Tables[0].Rows[0]["sem_id"].ToString();
