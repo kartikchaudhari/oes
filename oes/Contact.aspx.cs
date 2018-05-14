@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-//these two namespaces are mendetory for database operation 
 using System.Data.SqlClient;
 using System.Configuration;
 

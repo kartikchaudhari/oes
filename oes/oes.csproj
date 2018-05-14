@@ -986,7 +986,6 @@
     <Content Include="css\jquery.gritter.css" />
     <Content Include="css\select.dataTables.min.css" />
     <Content Include="css\sidebar.css" />
-    <Content Include="Error.aspx" />
     <Content Include="ErrorPages\DefaultError.aspx" />
     <Content Include="faculty\AddQuestions.aspx" />
     <Content Include="faculty\AddQuestionToExam.aspx" />
@@ -1918,7 +1917,6 @@
     <Content Include="js\sidebar_menu.js" />
     <Content Include="js\bootsnip.scripts.min.js" />
     <Content Include="admin\LoginLinkActivatior.aspx" />
-    <Content Include="SendBase64.asmx" />
     <Content Include="student\Dashboard.aspx" />
     <Content Include="student\DashboardContents.aspx" />
     <Content Include="student\EnrollThumb.aspx" />
@@ -1939,9 +1937,6 @@
     <Content Include="student\UpCommingExams.aspx" />
     <Content Include="student\UploadAvatar.aspx" />
     <Content Include="student\WebServices\BioMatricEnrollment.asmx" />
-    <Content Include="TestBootstrap.html" />
-    <Content Include="TestErrorPage.aspx" />
-    <Content Include="ThumbTest.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -2187,13 +2182,6 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Error.aspx.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Error.aspx.designer.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ErrorPages\DefaultError.aspx.cs">
       <DependentUpon>DefaultError.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2430,10 +2418,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="SendBase64.asmx.cs">
-      <DependentUpon>SendBase64.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="SiteMaster.Master.cs">
       <DependentUpon>SiteMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2593,20 +2577,6 @@
     <Compile Include="student\WebServices\BioMatricEnrollment.asmx.cs">
       <DependentUpon>BioMatricEnrollment.asmx</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="TestErrorPage.aspx.cs">
-      <DependentUpon>TestErrorPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestErrorPage.aspx.designer.cs">
-      <DependentUpon>TestErrorPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ThumbTest.aspx.cs">
-      <DependentUpon>ThumbTest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ThumbTest.aspx.designer.cs">
-      <DependentUpon>ThumbTest.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
