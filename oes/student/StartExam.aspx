@@ -168,7 +168,7 @@
         </asp:SqlDataSource>
         <script>
             function Timer() {
-                var timeout = '<%= Session.Timeout * 60 * 1000 %>';
+                var timeout = '<%= ExamTimeForTimer* 60 * 1000 %>';
                  var timer = setInterval(function () {
                 timeout -= 1000;
                 document.getElementById('countDown').innerHTML = time(timeout);

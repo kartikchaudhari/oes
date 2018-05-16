@@ -22,7 +22,7 @@ namespace oes.faculty
             foreach (FileInfo ImageFile in sFile.GetFiles())
             {
 
-                Response.Write("<tr>\n\t<td align='center'>" + SrNo + "</td>\n\t<td>" + ImageFile.Name + "</td>\n\t<td align='center'><textarea id='ImageId_" + SrNo + "' readonly='readonly' cols='70'>/faculty/ImageQuestions/" + ImageFile.Name + "</textarea></td>\n\t<td align='center'><img src='" + Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "faculty/ImageQuestions/" + ImageFile.Name + "' height='50px' width='50px' style='cursor:pointer;' title='Click to Enlarge Image' onclick='return AssignSrc(this.src);' data-toggle='modal' data-target='#EnlargeImageDiv'/></td><td align='center'><button type='button' class='btn btn-success add-regular' onclick='CopyUrl(\"ImageId_" + SrNo + "\");'>Copy Image URL</button></td></tr>\n");
+                Response.Write("<tr>\n\t<td align='center'>" + SrNo + "</td>\n\t<td>" + ImageFile.Name + "</td>\n\t<td align='center'><textarea id='ImageId_" + SrNo + "' class='form-control' readonly='readonly' cols='70'>/faculty/ImageQuestions/" + ImageFile.Name + "</textarea></td>\n\t<td align='center'><img src='" + Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "faculty/ImageQuestions/" + ImageFile.Name + "' height='70px' width='70px' class='img-thumbnail' style='cursor:pointer;' title='Click to Enlarge Image' onclick='return AssignSrc(this.src);' data-toggle='modal' data-target='#EnlargeImageDiv'/></td><td align='center'><button type='button' class='btn btn-success add-regular' onclick='CopyUrl(\"ImageId_" + SrNo + "\");'>Copy Image URL</button></td></tr>\n");
                 SrNo=SrNo+1;
                 
             }

@@ -43,15 +43,6 @@
                                             PageSize="5" CssClass="table table-bordered table-striped"
                                              AllowSorting="True" DataKeyNames="QuestionId" EnableViewState="False">
                                             <Columns>
-                                                
-                                                <%--<asp:TemplateField>
-                                                    <HeaderTemplate>
-                                                        <asp:CheckBox ID="cbDeleteHeader" onclick="toggleSelectionUsingHeaderCheckBox(this);"  runat="server" />
-                                                    </HeaderTemplate>
-                                                    <ItemTemplate>
-                                                        <asp:CheckBox ID="cbDelete" onclick="toggleSelectionOfHeaderCheckBox();" runat="server" OnCheckedChanged="cbDelete_CheckedChanged" />
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>--%>
                                                 <asp:TemplateField HeaderText="Question ID" SortExpression="q_id">
                                                     <ItemTemplate>
                                                         <asp:Label ID="lblQId" runat="server" Text='<%# Bind("QuestionId") %>'></asp:Label>
@@ -61,9 +52,7 @@
                                                 <asp:BoundField DataField="SemId" HeaderText="Semester" SortExpression="sem_id" />
                                                 <asp:BoundField DataField="SubjectName" HeaderText="Subject"/>
                                                 <asp:BoundField DataField="QuestionType" HeaderText="Question Type" SortExpression="question_type" />
-                                                <asp:BoundField DataField="Question" HeaderText="Question" HtmlEncode="False" HtmlEncodeFormatString="False">
-                                                
-                                                </asp:BoundField>
+                                                <asp:BoundField DataField="Question" HeaderText="Question" HtmlEncode="False" HtmlEncodeFormatString="False"></asp:BoundField>
                                                 <asp:BoundField DataField="OptionA" HeaderText="Option A">
                                                 <ItemStyle Width="40px" />
                                                 </asp:BoundField>
@@ -76,13 +65,13 @@
                                                 <asp:BoundField DataField="OptionD" HeaderText="Option D">
                                                 <ItemStyle Width="40px" />
                                                 </asp:BoundField>
-                                                <asp:BoundField DataField="CorrectAns" HeaderText="Correct Answer"/>
-                                                <asp:BoundField DataField="Marks" HeaderText="Marks"/>
+                                                    <asp:BoundField DataField="CorrectAns" HeaderText="Correct Answer"/>
+                                                    <asp:BoundField DataField="Marks" HeaderText="Marks"/>
                                                 <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-sm btn-danger">
-<ControlStyle CssClass="btn btn-sm btn-danger"></ControlStyle>
+                                                    <ControlStyle CssClass="btn btn-sm btn-danger"></ControlStyle>
                                                 </asp:CommandField>
                                                 <asp:CommandField ShowEditButton="true" ControlStyle-CssClass="btn btn-sm  btn-success" >
-<ControlStyle CssClass="btn btn-sm  btn-success"></ControlStyle>
+                                                    <ControlStyle CssClass="btn btn-sm  btn-success"></ControlStyle>
                                                 </asp:CommandField>
                                             </Columns>
                                             <PagerStyle HorizontalAlign="Center" VerticalAlign="Middle" CssClass="pagination-ys" />

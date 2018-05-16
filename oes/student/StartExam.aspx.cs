@@ -14,6 +14,7 @@ using System.Collections;
 using oes.App_Code;
 using oes.student.Class;
 
+using oes.admin.Class;
 
 
 namespace oes.student
@@ -21,21 +22,27 @@ namespace oes.student
     public partial class StartExam : System.Web.UI.Page
     {
         Database db = new Database();
+        StudentClass student = new StudentClass();
+        public int ExamTimeForTimer;
         protected void Page_Load(object sender, EventArgs e)
         {
 
             questionDetails.DataBind();
             
             Session["StartExamFlag"] = 1;
-            if (Session["id"]!=null)
+            if (Session["id"] != null)
             {
                 BindStudentData(Convert.ToInt16(Session["id"].ToString()));
+            }
+            else
+            {
+                Response.Write("Session 'Id' is not set");   
             }
             if (Request.QueryString["ExamId"] != null)
             {
                 //create question buttons
                 CreateQuestionButtonAndExanDetail(Convert.ToInt16(Request.QueryString["ExamId"].ToString()));
-                //FetchExamTime(Convert.ToInt16(Request.QueryString["ExamId"].ToString()));
+                ExamTimeForTimer=FetchExamTime(Convert.ToInt16(Request.QueryString["ExamId"].ToString()));
             }
             else
             {
@@ -109,8 +116,8 @@ namespace oes.student
 
             if (questionDetails.PageIndex == questionDetails.PageCount - 1)
             {
-                Response.Redirect("TestPage.aspx");
-                //Response.Redirect("Results.aspx");
+                //Response.Redirect("TestPage.aspx");
+                Response.Redirect("Results.aspx");
             }
             else
             {
@@ -156,7 +163,7 @@ namespace oes.student
                 while (rdr.Read())
                 {
                     StudentImage.ImageUrl = rdr["avatar"].ToString();
-                    StudentDeptName.Text = rdr["dept_id"].ToString();
+                    StudentDeptName.Text = student.FetchStudentNameById(rdr["dept_id"].ToString());
                     lblStudentFullName.Text = rdr["first_name"].ToString() + " " + rdr["last_name"].ToString();
                     StudentSem.Text = rdr["sem_id"].ToString();
                 }

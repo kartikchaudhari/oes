@@ -18,7 +18,6 @@ namespace oes.student.Class
         private string _questionID;
         private string _correctAnswer;
         private string _userAnswer;
-        private string _result;
         private int _marksOfQuestion;
         private int CountCorrectAns;
         public string QuestionID

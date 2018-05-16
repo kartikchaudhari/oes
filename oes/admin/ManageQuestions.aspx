@@ -53,7 +53,7 @@
                                 <asp:DropDownList ID="DdlSubject" CssClass="form-control" 
                                     runat="server" AutoPostBack="True" DataSourceID="DsSubject" 
                                     DataTextField="subject_name" DataValueField="subject_id"
-                                     OnSelectedIndexChanged="DdlSubject_SelectedIndexChanged"  AppendDataBoundItems="true">
+                                     OnSelectedIndexChanged="DdlSubject_SelectedIndexChanged" EnableViewState="false" ViewStateMode="Disabled" AppendDataBoundItems="true">
                                     <asp:ListItem Text="--- Select Subject ---" Value="0" Selected="True"></asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="DsSubject" runat="server" ConnectionString="<%$ ConnectionStrings:ExamDbConString %>" SelectCommand="SELECT [subject_id], [subject_name] FROM [subject] WHERE (([dept_id] = @dept_id) AND ([sem_id] = @sem_id))">
@@ -69,7 +69,7 @@
                             <div class="col-md-12 table-responsive">
                                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
                                     DataKeyNames="q_id" DataSourceID="DsGv" EmptyDataText="No Records Found"
-                                     CssClass="table table-bordered table-hover" AllowPaging="True" AllowSorting="True" >
+                                     CssClass="table table-bordered table-hover" AllowPaging="True" PageSize="5" AllowSorting="True" >
                                     <Columns>
                                         <asp:BoundField HeaderStyle-CssClass="active"  DataField="q_id" HeaderText="Question Id" InsertVisible="False" ReadOnly="True" SortExpression="q_id" />
                                         <asp:TemplateField HeaderStyle-CssClass="active"  HeaderText="Department" SortExpression="dept_id" >

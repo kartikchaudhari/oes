@@ -33,11 +33,11 @@
                                             </tr>
                                             <tr>
                                                 <td style="padding:6px;" align="center"><button type="button" class="InstButton" style="background-color:green;">3</button></td>
-                                                <td style="padding:6px;">Answered /<strong>Attempted Question.</strong></td>
+                                                <td style="padding:6px;">Answered / Attempted Question.</td>
                                             </tr>
                                             <tr>
                                                 <td style="padding:6px;" align="center"><button type="button" class="InstButton" style="background-color:yellow;">4</button></td>
-                                                <td style="padding:6px;">You have NOT answered the question, but have marked the question for review.</td>
+                                                <td style="padding:6px;">You have Not answered the question, but have marked the question for review.</td>
                                             </tr>
                                         </table>
                                     </li>
