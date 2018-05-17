@@ -46,7 +46,7 @@
                                 <asp:BoundField DataField="CorrectAnswer" HeaderText="Correct Answer" />
                                 <asp:BoundField DataField="UserAnswer" HeaderText="Your Answer" />
                                 <asp:BoundField DataField="Result" HeaderText="Result" />
-                                 <asp:BoundField DataField="MarksOfQuestion" HeaderText="Marks of Question" />
+                                <asp:BoundField DataField="MarksOfQuestion" HeaderText="Marks of Question" />
                             </Columns>
                             <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
                             <HeaderStyle BackColor="#5D7B9D" CssClass="boldtext" Font-Bold="True" ForeColor="White" />

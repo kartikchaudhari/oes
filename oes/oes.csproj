@@ -1937,6 +1937,7 @@
     <Content Include="student\UpCommingExams.aspx" />
     <Content Include="student\UploadAvatar.aspx" />
     <Content Include="student\WebServices\BioMatricEnrollment.asmx" />
+    <Content Include="TestSms.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -2168,6 +2169,7 @@
     <Compile Include="App_Code\Database.cs" />
     <Compile Include="App_Code\Functions.cs" />
     <Compile Include="App_Code\Logger.cs" />
+    <Compile Include="App_Code\sms.cs" />
     <Compile Include="Congratulations.aspx.cs">
       <DependentUpon>Congratulations.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2578,6 +2580,13 @@
       <DependentUpon>BioMatricEnrollment.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="TestSms.aspx.cs">
+      <DependentUpon>TestSms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestSms.aspx.designer.cs">
+      <DependentUpon>TestSms.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -2602,6 +2611,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </Content>
+    <Content Include="HelpContents\Pro20_Driver_ Installation_Final.pdf" />
+    <Content Include="HelpContents\SECUGEN_WEB_SERVICE_API_DOC.pdf" />
     <None Include="Properties\PublishProfiles\TestProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

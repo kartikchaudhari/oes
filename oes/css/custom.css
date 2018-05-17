@@ -426,6 +426,13 @@ border-radius:4px;
 .panel-pcrimson > a { color:#C3272B; }
 /***********************************************************************/
 
+
+/*****************************Sky Color******************************/
+.panel-skycolor { border-color:#4D8FAC; }
+.panel-skycolor > .panel-heading { color: white; background-color:#4D8FAC;}
+.panel-skycolor > a { color:#4D8FAC; }
+/***********************************************************************/
+
 .editLinks {
     text-decoration:none;
     color:white;

@@ -15,10 +15,11 @@ using System.Data.SqlTypes;
 
 using oes.App_Code;
 
-using oes.student.Class;
+using System.Text;
+using System.Net;
+using System.IO;
 
-//sms api
-using Nitin.Sms.Api;
+using oes.student.Class;
 
 //for intenet connection
 using System.Runtime;
@@ -39,20 +40,20 @@ namespace oes.student
         int DeptIdGlobal = 0;
         int GlobalExamTotalMarks=0;
 
+        //internet connection status
+        public int status;
         //sms object
-        public Way2Sms sms;
-        public bool isLoggedIn = false;
-        //imort dll for internet
-        [DllImport("wininet.dll")]
-        private extern static bool InternetGetConnectedState(out int Description, int ReservedValue);
+        public sms ResultSmsObject;
+
+        //api,username,password
+        public string api = "karti4WnRYtbOfIDo2iS";
+        public string uname;
+        public string pass;
+
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            int status = Convert.ToInt16(Application["IsConntectedToNet"].ToString());
-            if (status==1){
-                isLoggedIn = LoginToWay2Sms();
-            }
-            
+            status = Convert.ToInt16(Application["IsConntectedToNet"].ToString());
             if (Session["StartExamFlag"]==null)
             {
                 ClientScript.RegisterStartupScript(typeof(Page), "closePage", "window.close();", true);
@@ -82,7 +83,7 @@ namespace oes.student
                     int UserId = Convert.ToInt16(Session["id"].ToString());
                     int Eid = Convert.ToInt16(Session["ExamId"].ToString());
                     SaveResultToDb(UserId, Eid, StudentsResultMarks);
-                    //SendSMarks();
+                    SendMarksSms();
                 }
                 catch (Exception expct)
                 {
@@ -92,7 +93,7 @@ namespace oes.student
 
         }
 
-        public bool LoginToWay2Sms()
+        public void LoginToWay2Sms()
         {
             using (SqlCommand cmd = new SqlCommand("FetchSMSSettings", Db.DbConnect()))
             {
@@ -100,28 +101,19 @@ namespace oes.student
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    //create and load the sms settings
-                    sms = new Way2Sms(rdr["username"].ToString(), rdr["password"].ToString());
-                    if (sms.Login())
-                    {
-                        return true;
-                    }
-                    else {
-                        return false;
-                    }
-                    
+                    ResultSmsObject = new sms(api,rdr["username"].ToString(),rdr["password"].ToString());
                 }
             }
 
-            return false;
         }
 
         public void SendMarksSms() {
-            if (isLoggedIn)
+            if (status==1)
             {
-                string Message="G.P.Waghai-"+FetchDeptNameById(DeptIdGlobal)+" "+StudentEnrollment+" "+"got "+StudentsResultMarks+"/ "+GlobalExamTotalMarks+" in "+FetchSubjectNameById(SubjectIdGlobal)+" Subject";
-                sms.SendSms(StudentParentNo,Message);
-            }
+                LoginToWay2Sms();
+                string Message = "G.P.Waghai-" + FetchDeptNameById(DeptIdGlobal) + " " + StudentEnrollment + " " + "got " + StudentsResultMarks + "/ " + GlobalExamTotalMarks + " in " + FetchSubjectNameById(SubjectIdGlobal) + " Subject";
+                ResultSmsObject.SendSms(Message, StudentParentNo);    
+            }    
         }
         public void SaveResultToDb(int StudentId,int ExamId,int StudentMarks){
             //student data
